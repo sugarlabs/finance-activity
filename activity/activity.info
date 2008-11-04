@@ -1,0 +1,7 @@
+[Activity]
+name = Finance
+activity_version = 1
+host_version = 1
+service_name = org.laptop.community.Finance
+icon = Colors-activity
+exec = sugar-activity finance.Finance

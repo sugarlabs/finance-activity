@@ -1,0 +1,15 @@
+Finance
+
+First Release
++ Auto-complete item names, categories.
++ Drop down categories list.
++ Finish budget screen.
++ Load and save data from journal.
++ Remove sharing icons from toolbar.
++ Get real toolbar icons.
++ Figure out screen switching.
++ Keyboard shortcuts - New Item, Delete Item, Next Period, Previous Period, This Period.
+
+Long Term
++ Filter by name, category.  Put search term next to Period. 
++ Change period - week, month, year, all time.
