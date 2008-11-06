@@ -21,9 +21,7 @@ import logging, os, math, time, copy, json, time, datetime
 from gettext import gettext as _
 
 # Import PyGTK.
-import gobject, pygtk, gtk, pango
-
-import cairo
+import gobject, pygtk, gtk, pango, cairo
 
 # Import Sugar UI modules.
 import sugar.activity.activity
@@ -94,7 +92,11 @@ class BudgetScreen(gtk.VBox):
  
         self.budgetbox = gtk.VBox()
 
-        self.pack_start(self.budgetbox)
+        scroll = gtk.ScrolledWindow()
+        scroll.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_AUTOMATIC)
+        scroll.add_with_viewport(self.budgetbox)
+
+        self.pack_start(scroll, True, True, 0)
 
     def build(self):
         # Build the category totals.
@@ -113,56 +115,120 @@ class BudgetScreen(gtk.VBox):
         self.sorted_categories = self.category_total.keys()
         #self.sorted_categories.sort(lamba a, b: cmp(self.category_total[a], self.category_total[b]))
 
-        # Clear and rebuild the labels box.
+        # Clear all widgets.
         for w in self.budgetbox.get_children():
             self.budgetbox.remove(w)
 
-        catgroup = gtk.SizeGroup(gtk.SIZE_GROUP_HORIZONTAL)
-        amountgroup = gtk.SizeGroup(gtk.SIZE_GROUP_HORIZONTAL)
+        # Build header.
+        catlabel = gtk.Label()
+        catlabel.set_markup('<b><big>'+_('Category')+'</big></b>')
+        spentlabel = gtk.Label()
+        spentlabel.set_markup('<b><big>'+_('Spent')+'</big></b>')
+        budgetlabel = gtk.Label()
+        budgetlabel.set_markup('<b><big>'+_('Budget')+'</big></b>')
         
-        for c in self.sorted_categories:
-            hbox = gtk.HBox()
+        headerbox = gtk.HBox()
+        headerbox.pack_start(catlabel, False, True, 20)
+        headerbox.pack_start(spentlabel, True, True, 10)
+        headerbox.pack_start(budgetlabel, False, True, 20)
+        self.budgetbox.pack_start(headerbox, False, False, 10)
 
-            catlabel = gtk.Label()
-            catlabel.set_markup(c)
-            catgroup.add_widget(catlabel)
+        catgroup = gtk.SizeGroup(gtk.SIZE_GROUP_HORIZONTAL)
+        catgroup.add_widget(catlabel)
+
+        spentgroup = gtk.SizeGroup(gtk.SIZE_GROUP_HORIZONTAL)
+        spentgroup.add_widget(spentlabel)
+
+        budgetgroup = gtk.SizeGroup(gtk.SIZE_GROUP_HORIZONTAL)
+        budgetgroup.add_widget(budgetlabel)
+        
+        # Build categories.
+        for c in self.sorted_categories:
+            catbox = gtk.Label(c)
 
             color = get_category_color_str(c)
 
             ebox = gtk.EventBox()
             ebox.modify_bg(gtk.STATE_NORMAL, ebox.get_colormap().alloc_color(color))
-            ebox.add(catlabel)
+            ebox.add(catbox)
 
-            amountlabel = gtk.Label()
-            amountlabel.set_markup('<b>Spent:</b> %.2f' % self.category_total[c])
-            amountgroup.add_widget(amountlabel)
+            catgroup.add_widget(ebox)
 
-            budgetlabel = gtk.Label()
-            budgetlabel.set_markup('<b>Budget:</b> ')
+            bar = gtk.DrawingArea()
+            bar.connect('expose-event', self.bar_expose_cb, c)
+            spentgroup.add_widget(bar)
 
             budgetentry = gtk.Entry()
-            budgetentry.set_size_request(120, -1)
-            #if self.activity.budget_map.has_key(c):
-            #    b = self.activity.budget_map[c]
-            #    budgetentry.set_text('%.2f' % c['amount'])
+            budgetentry.connect('changed', self.budget_changed_cb, c)
+            budgetentry.set_width_chars(10)
+            if self.activity.data['budgets'].has_key(c):
+                b = self.activity.data['budgets'][c]
+                budgetentry.set_text('%.2f' % b['amount'])
+            budgetgroup.add_widget(budgetentry)
 
-            freqcombo = gtk.combo_box_new_text()
-            freqcombo.append_text(_('Daily'))
-            freqcombo.append_text(_('Weekly'))
-            freqcombo.append_text(_('Monthly'))
-            freqcombo.append_text(_('Annually'))
-            freqcombo.set_active(2)
+            #freqcombo = gtk.combo_box_new_text()
+            #freqcombo.append_text(_('Daily'))
+            #freqcombo.append_text(_('Weekly'))
+            #freqcombo.append_text(_('Monthly'))
+            #freqcombo.append_text(_('Annually'))
+            #freqcombo.set_active(2)
 
+            hbox = gtk.HBox()
             hbox.pack_start(ebox, False, False, 20)
-            hbox.pack_start(budgetlabel, False, False)
-            hbox.pack_start(budgetentry, False, False)
-            hbox.pack_start(freqcombo, False, False)
-            hbox.pack_start(amountlabel, False, False, 40)
+            hbox.pack_start(bar, True, True, 10)
+            hbox.pack_start(budgetentry, False, False, 20)
+            #hbox.pack_start(freqcombo)
 
-            self.budgetbox.pack_end(hbox, True, False, 5)
+            self.budgetbox.pack_start(hbox, False, False, 5)
 
         self.show_all()
             
+    def bar_expose_cb(self, widget, event, category):
+        if not self.activity.data['budgets'].has_key(category):
+            return
+
+        context = widget.window.cairo_create()
+        context.rectangle(event.area.x, event.area.y, event.area.width, event.area.height)
+        context.clip()
+
+        bounds = widget.get_allocation()
+
+        total = self.category_total[category]
+        budget = self.activity.data['budgets'][category]['amount']
+
+        ratio = total / budget
+
+        if ratio > 1.0:
+            context.set_source_rgb(1.0, 0.6, 0.6)
+        #elif ratio >= 0.9:
+        #    context.set_source_rgb(1.0, 1.0, 0.6)
+        else:
+            context.set_source_rgb(0.6, 1.0, 0.6)
+
+        context.rectangle(0, 0, int(ratio * bounds.width), bounds.height)
+	context.fill_preserve()
+
+        context.set_source_rgb(0.5, 0.5, 0.5)
+        context.stroke()
+
+        text = "%.2f" % total
+
+        context.set_source_rgb(0, 0, 0)
+
+        context.set_font_size(20)
+        x_bearing, y_bearing, width, height = context.text_extents(text)[:4]
+    
+        context.move_to(20, (bounds.height-height)/2 - y_bearing)
+        context.show_text(text)
+
+    def budget_changed_cb(self, widget, category):
+        text = widget.get_text()
+        if text != '':
+            self.activity.data['budgets'][category] = { 'amount': float(text) }
+        else:
+            del self.activity.data['budgets'][category] 
+        self.queue_draw()
+
 class ChartScreen(gtk.HBox):
     def __init__(self, activity):
         gtk.HBox.__init__(self)
@@ -173,7 +239,7 @@ class ChartScreen(gtk.HBox):
         self.sorted_categories = []
 
         self.area = gtk.DrawingArea()
-        self.area.connect('expose-event', self.area_expose_cb)
+        self.area.connect('expose-event', self.chart_expose_cb)
 
         label = gtk.Label()
         label.set_markup('<b>'+_('Debit Categories')+'</b>')
@@ -242,7 +308,7 @@ class ChartScreen(gtk.HBox):
 
         self.show_all()
 
-    def area_expose_cb(self, widget, event):
+    def chart_expose_cb(self, widget, event):
         context = widget.window.cairo_create()
         context.rectangle(event.area.x, event.area.y, event.area.width, event.area.height)
         context.clip()
@@ -287,15 +353,17 @@ class RegisterScreen(gtk.VBox):
         # Build the transaction list.
         self.treeview = gtk.TreeView()
         self.treeview.set_rules_hint(True)
+        self.treeview.set_enable_search(False)
 
-        # Note that the only thing we store in our liststore is the transaction id,
-        # all the actual data is in the activity database.
+        # Note that the only thing we store in our liststore is the transaction id.
+        # All the actual data is in the activity database.
         self.liststore = gtk.ListStore(gobject.TYPE_INT)
         self.treeview.set_model(self.liststore)
 
         # Construct the columns.
         renderer = gtk.CellRendererText()
         renderer.props.editable = True
+        renderer.connect('editing-started', self.description_editing_started_cb)
         renderer.connect('edited', self.description_edit_cb)
         col = gtk.TreeViewColumn(_('Description'), renderer)
         col.set_cell_data_func(renderer, self.description_render_cb) 
@@ -322,6 +390,7 @@ class RegisterScreen(gtk.VBox):
 
         renderer = gtk.CellRendererText()
         renderer.props.editable = True
+        renderer.connect('editing-started', self.category_editing_started_cb)
         renderer.connect('edited', self.category_edit_cb)
         col = gtk.TreeViewColumn(_('Category'), renderer)
         col.set_cell_data_func(renderer, self.category_render_cb) 
@@ -348,10 +417,28 @@ class RegisterScreen(gtk.VBox):
         t = self.activity.transaction_map[id]
         cell_renderer.set_property('text', t['name'])
 
+    def description_editing_started_cb(self, cell_renderer, editable, path):
+        completion = gtk.EntryCompletion()
+        completion.set_inline_completion(True)
+        completion.set_popup_completion(True)
+        completion.set_minimum_key_length(0)
+        store = gtk.ListStore(str)
+        for c in self.activity.transaction_names.keys():
+            store.append([c])
+        completion.set_model(store)
+        completion.set_text_column(0)
+        editable.set_completion(completion)
+
     def description_edit_cb(self, cell_renderer, path, new_text):
         id = self.liststore[path][0]
         t = self.activity.transaction_map[id]
         t['name'] = new_text
+
+        # Automatically fill in category if empty, and if transaction name is known.
+        if t['category'] == '' and self.activity.transaction_names.has_key(new_text):
+            for ct in self.activity.data['transactions']:
+                if ct['name'] == new_text and ct['category'] != '':
+                    t['category'] = ct['category']
 
     def amount_render_cb(self, column, cell_renderer, model, iter):
         id = model.get_value(iter, 0)
@@ -396,19 +483,27 @@ class RegisterScreen(gtk.VBox):
         cell_renderer.set_property('text', t['category'])
         cell_renderer.set_property('background', get_category_color_str(t['category']))
 
+    def category_editing_started_cb(self, cell_renderer, editable, path):
+        completion = gtk.EntryCompletion()
+        completion.set_inline_completion(True)
+        completion.set_popup_completion(True)
+        completion.set_minimum_key_length(0)
+        store = gtk.ListStore(str)
+        for c in self.activity.category_names.keys():
+            store.append([c])
+        completion.set_model(store)
+        completion.set_text_column(0)
+        editable.set_completion(completion)
+
     def category_edit_cb(self, cell_renderer, path, new_text):
         id = self.liststore[path][0]
         t = self.activity.transaction_map[id]
         t['category'] = new_text
+        if new_text != '':
+            self.activity.category_names[new_text] = 1 
 
-    def newcredit_cb(self, widget):
-        id = self.activity.create_transaction(_('New Credit Transaction'), 'credit', 0)
-        iter = self.liststore.append((id,))
-        # Set cursor and begin editing the description.
-        self.treeview.set_cursor(self.liststore.get_path(iter), self.treeview.get_column(0), True)
-        
-    def newdebit_cb(self, widget):
-        id = self.activity.create_transaction(_('New Debit Transaction'), 'debit', 0)
+    def newitem_cb(self, widget):
+        id = self.activity.create_transaction(_('New Transaction'), 'credit', 0)
         iter = self.liststore.append((id,))
         # Set cursor and begin editing the description.
         self.treeview.set_cursor(self.liststore.get_path(iter), self.treeview.get_column(0), True)
@@ -450,12 +545,14 @@ class Finance(sugar.activity.activity.Activity):
         self.data = {
             'next_id': 0,
             'transactions': [],
-            'budgets': []
+            'budgets': {} 
         }
 
         self.transaction_map = {}
-
         self.visible_transactions = []
+
+        self.transaction_names = {}
+        self.category_names = {}
 
         self.create_test_data()
   
@@ -510,70 +607,84 @@ class Finance(sugar.activity.activity.Activity):
         activity_toolbar.share.props.visible = False
 
     def build_toolbox(self):
-        newcreditbtn = sugar.graphics.toolbutton.ToolButton('dialog-ok')
-        newcreditbtn.set_tooltip(_("New Credit"))
-        newcreditbtn.connect('clicked', self.register.newcredit_cb)
-
-        newdebitbtn = sugar.graphics.toolbutton.ToolButton('dialog-ok')
-        newdebitbtn.set_tooltip(_("New Debit"))
-        newdebitbtn.connect('clicked', self.register.newdebit_cb)
+        newitembtn = sugar.graphics.toolbutton.ToolButton('dialog-ok')
+        newitembtn.set_tooltip(_("New Transaction"))
+        newitembtn.props.accelerator = '<Ctrl>N'
+        newitembtn.connect('clicked', self.register.newitem_cb)
 
         eraseitembtn = sugar.graphics.toolbutton.ToolButton('dialog-ok')
-        eraseitembtn.set_tooltip(_("Erase Transaction"))
+        eraseitembtn.set_tooltip(_("Delete Transaction"))
+        eraseitembtn.props.accelerator = '<Ctrl>D'
         eraseitembtn.connect('clicked', self.register.eraseitem_cb)
 
-        self.registerbar = gtk.Toolbar()
-        self.registerbar.insert(newcreditbtn, -1)
-        self.registerbar.insert(newdebitbtn, -1)
-        self.registerbar.insert(eraseitembtn, -1)
+        transactionbar = gtk.Toolbar()
+        transactionbar.insert(newitembtn, -1)
+        transactionbar.insert(eraseitembtn, -1)
  
-        self.chartbar = gtk.Toolbar()
-        self.budgetbar = gtk.Toolbar()
+        #sep = gtk.SeparatorToolItem()
+        #sep.set_expand(True)
+        #sep.set_draw(False)
 
-        # Add common buttons to all toolbars.
-        for bar in [self.registerbar, self.chartbar, self.budgetbar]:
-            sep = gtk.SeparatorToolItem()
-            sep.set_expand(True)
-            sep.set_draw(False)
+        thisperiodbtn = sugar.graphics.toolbutton.ToolButton('dialog-ok')
+        thisperiodbtn.set_tooltip(_("This Month"))
+        thisperiodbtn.props.accelerator = '<Ctrl>Down'
+        thisperiodbtn.connect('clicked', self.thisperiod_cb)
 
-            thisperiodbtn = sugar.graphics.toolbutton.ToolButton('dialog-ok')
-            thisperiodbtn.set_tooltip(_("This Month"))
-            thisperiodbtn.connect('clicked', self.thisperiod_cb)
+        prevperiodbtn = sugar.graphics.toolbutton.ToolButton('dialog-ok')
+        prevperiodbtn.set_tooltip(_("Previous Month"))
+        prevperiodbtn.props.accelerator = '<Ctrl>Left'
+        prevperiodbtn.connect('clicked', self.prevperiod_cb)
 
-            prevperiodbtn = sugar.graphics.toolbutton.ToolButton('dialog-ok')
-            prevperiodbtn.set_tooltip(_("Previous Month"))
-            prevperiodbtn.connect('clicked', self.prevperiod_cb)
+        nextperiodbtn = sugar.graphics.toolbutton.ToolButton('dialog-ok')
+        nextperiodbtn.set_tooltip(_("Next Month"))
+        nextperiodbtn.props.accelerator = '<Ctrl>Right'
+        nextperiodbtn.connect('clicked', self.nextperiod_cb)
 
-            nextperiodbtn = sugar.graphics.toolbutton.ToolButton('dialog-ok')
-            nextperiodbtn.set_tooltip(_("Next Month"))
-            nextperiodbtn.connect('clicked', self.nextperiod_cb)
+        periodbar = gtk.Toolbar()
+        #periodbar.insert(sep, -1)
+        periodbar.insert(thisperiodbtn, -1)
+        periodbar.insert(prevperiodbtn, -1)
+        periodbar.insert(nextperiodbtn, -1)
 
-            bar.insert(sep, -1)
-            bar.insert(thisperiodbtn, -1)
-            bar.insert(prevperiodbtn, -1)
-            bar.insert(nextperiodbtn, -1)
+        registerbtn = sugar.graphics.toolbutton.ToolButton('dialog-ok')
+        registerbtn.set_tooltip(_("Register"))
+        registerbtn.props.accelerator = '<Ctrl>1'
+        registerbtn.connect('clicked', self.register_cb)
+
+        budgetbtn = sugar.graphics.toolbutton.ToolButton('dialog-ok')
+        budgetbtn.set_tooltip(_("Budget"))
+        budgetbtn.props.accelerator = '<Ctrl>2'
+        budgetbtn.connect('clicked', self.budget_cb)
+
+        chartbtn = sugar.graphics.toolbutton.ToolButton('dialog-ok')
+        chartbtn.set_tooltip(_("Chart"))
+        chartbtn.props.accelerator = '<Ctrl>3'
+        chartbtn.connect('clicked', self.chart_cb)
+
+        viewbar = gtk.Toolbar()
+        viewbar.insert(registerbtn, -1)
+        viewbar.insert(budgetbtn, -1)
+        viewbar.insert(chartbtn, -1)
 
         self.tbox = sugar.activity.activity.ActivityToolbox(self)
-        self.tbox.add_toolbar(_('Register'), self.registerbar)
-        self.tbox.add_toolbar(_('Chart'), self.chartbar)
-        self.tbox.add_toolbar(_('Budget'), self.budgetbar)
-        self.tbox.connect('current-toolbar-changed', self.tbox_cb)
+        self.tbox.add_toolbar(_('Transaction'), transactionbar)
+        self.tbox.add_toolbar(_('Period'), periodbar)
+        self.tbox.add_toolbar(_('View'), viewbar)
         self.tbox.show_all()
 
         self.set_toolbox(self.tbox)
 
-    def tbox_cb(self, widget, num):
-        if num == 1 and self.screens[-1] != self.register:
-            self.pop_screen()
-            self.push_screen(self.register)
+    def register_cb(self, widget):
+        self.pop_screen()
+        self.push_screen(self.register)
 
-        if num == 2 and self.screens[-1] != self.chart:
-            self.pop_screen()
-            self.push_screen(self.chart)
+    def budget_cb(self, widget):
+        self.pop_screen()
+        self.push_screen(self.budget)
 
-        if num == 3 and self.screens[-1] != self.budget:
-            self.pop_screen()
-            self.push_screen(self.budget)
+    def chart_cb(self, widget):
+        self.pop_screen()
+        self.push_screen(self.chart)
 
     def push_screen(self, screen):
         if len(self.screens):
@@ -694,6 +805,13 @@ class Finance(sugar.activity.activity.Activity):
         self.data['transactions'].remove(t)
         del self.transaction_map[id]
 
+    def build_names(self):
+        self.transaction_names = {}
+        self.category_names = {}
+        for t in self.data['transactions']:
+            self.transaction_names[t['name']] = 1
+            self.category_names[t['category']] = 1
+
     def create_test_data(self):
         self.data['transactions'].append({
             'id': -1,
@@ -729,6 +847,7 @@ class Finance(sugar.activity.activity.Activity):
         })
 
         self.build_transaction_map()
+        self.build_names()
 
     def read_file(self, file_path):
         # Load document.
@@ -744,6 +863,7 @@ class Finance(sugar.activity.activity.Activity):
             fd.close()
 
         self.build_transaction_map()
+        self.build_names()
         self.build_screen()
 
     def write_file(self, file_path):

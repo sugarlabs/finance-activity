@@ -1,15 +1,21 @@
 Finance
 
 First Release
-+ Auto-complete item names, categories.
-+ Drop down categories list.
-+ Finish budget screen.
-+ Load and save data from journal.
-+ Remove sharing icons from toolbar.
+- Auto-complete item names, categories.
+- Drop down categories list.
+- Finish budget screen.
+- Load and save data from journal.
+- Remove sharing icons from toolbar.
 + Get real toolbar icons.
-+ Figure out screen switching.
-+ Keyboard shortcuts - New Item, Delete Item, Next Period, Previous Period, This Period.
+- Figure out screen switching.
+- Keyboard shortcuts - New Item, Delete Item, Next Period, Previous Period, This Period.
+- New transaction & Delete transaction disabled unless view is Register screen.
 
 Long Term
-+ Filter by name, category.  Put search term next to Period. 
++ Split source code into file-per-screen.
++ Filter by name, category.  Put search term next to Period in display. 
 + Change period - week, month, year, all time.
++ History - Line graph view of categories.
++ Select between income and expenses in Chart view.
++ When hovering over a category in any context (chart, etc) hilite the label.
++ Allow clicking on category labels to initiate filter + switch to register view.
