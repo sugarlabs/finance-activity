@@ -10,10 +10,14 @@ First Release
 - Figure out screen switching.
 - Keyboard shortcuts - New Item, Delete Item, Next Period, Previous Period, This Period.
 - New transaction & Delete transaction disabled unless view is Register screen.
++ Generate translation files.
 
-Long Term
+Future
++ Context sensitive help text, triggered by a toggle button.  Pops up help text at the top.
++ Alerts for current period at the bottom of the screen.  Negative balance, Over budget, etc.
++ Automatic budget button based on history.
 + Split source code into file-per-screen.
-+ Filter by name, category.  Put search term next to Period in display. 
++ Filter by name, category.  Put search term next to period in header. 
 + Change period - week, month, year, all time.
 + History - Line graph view of categories.
 + Select between income and expenses in Chart view.
