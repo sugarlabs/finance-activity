@@ -607,12 +607,12 @@ class Finance(sugar.activity.activity.Activity):
         activity_toolbar.share.props.visible = False
 
     def build_toolbox(self):
-        newitembtn = sugar.graphics.toolbutton.ToolButton('dialog-ok')
+        newitembtn = sugar.graphics.toolbutton.ToolButton('list-add')
         newitembtn.set_tooltip(_("New Transaction"))
         newitembtn.props.accelerator = '<Ctrl>N'
         newitembtn.connect('clicked', self.register.newitem_cb)
 
-        eraseitembtn = sugar.graphics.toolbutton.ToolButton('dialog-ok')
+        eraseitembtn = sugar.graphics.toolbutton.ToolButton('list-remove')
         eraseitembtn.set_tooltip(_("Delete Transaction"))
         eraseitembtn.props.accelerator = '<Ctrl>D'
         eraseitembtn.connect('clicked', self.register.eraseitem_cb)
@@ -625,38 +625,38 @@ class Finance(sugar.activity.activity.Activity):
         #sep.set_expand(True)
         #sep.set_draw(False)
 
-        thisperiodbtn = sugar.graphics.toolbutton.ToolButton('dialog-ok')
+        thisperiodbtn = sugar.graphics.toolbutton.ToolButton('go-down')
         thisperiodbtn.set_tooltip(_("This Month"))
         thisperiodbtn.props.accelerator = '<Ctrl>Down'
         thisperiodbtn.connect('clicked', self.thisperiod_cb)
 
-        prevperiodbtn = sugar.graphics.toolbutton.ToolButton('dialog-ok')
+        prevperiodbtn = sugar.graphics.toolbutton.ToolButton('go-previous')
         prevperiodbtn.set_tooltip(_("Previous Month"))
         prevperiodbtn.props.accelerator = '<Ctrl>Left'
         prevperiodbtn.connect('clicked', self.prevperiod_cb)
 
-        nextperiodbtn = sugar.graphics.toolbutton.ToolButton('dialog-ok')
+        nextperiodbtn = sugar.graphics.toolbutton.ToolButton('go-next')
         nextperiodbtn.set_tooltip(_("Next Month"))
         nextperiodbtn.props.accelerator = '<Ctrl>Right'
         nextperiodbtn.connect('clicked', self.nextperiod_cb)
 
         periodbar = gtk.Toolbar()
         #periodbar.insert(sep, -1)
-        periodbar.insert(thisperiodbtn, -1)
         periodbar.insert(prevperiodbtn, -1)
+        periodbar.insert(thisperiodbtn, -1)
         periodbar.insert(nextperiodbtn, -1)
 
-        registerbtn = sugar.graphics.toolbutton.ToolButton('dialog-ok')
+        registerbtn = sugar.graphics.toolbutton.ToolButton('view-list')
         registerbtn.set_tooltip(_("Register"))
         registerbtn.props.accelerator = '<Ctrl>1'
         registerbtn.connect('clicked', self.register_cb)
 
-        budgetbtn = sugar.graphics.toolbutton.ToolButton('dialog-ok')
+        budgetbtn = sugar.graphics.toolbutton.ToolButton('view-triangle')
         budgetbtn.set_tooltip(_("Budget"))
         budgetbtn.props.accelerator = '<Ctrl>2'
         budgetbtn.connect('clicked', self.budget_cb)
 
-        chartbtn = sugar.graphics.toolbutton.ToolButton('dialog-ok')
+        chartbtn = sugar.graphics.toolbutton.ToolButton('view-radial')
         chartbtn.set_tooltip(_("Chart"))
         chartbtn.props.accelerator = '<Ctrl>3'
         chartbtn.connect('clicked', self.chart_cb)

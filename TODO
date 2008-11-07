@@ -6,7 +6,7 @@ First Release
 - Finish budget screen.
 - Load and save data from journal.
 - Remove sharing icons from toolbar.
-+ Get real toolbar icons.
+- Get real toolbar icons.
 - Figure out screen switching.
 - Keyboard shortcuts - New Item, Delete Item, Next Period, Previous Period, This Period.
 - New transaction & Delete transaction disabled unless view is Register screen.
