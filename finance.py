@@ -17,8 +17,11 @@
 """Finance - Home financial software for the OLPC XO."""
 
 # Import standard Python modules.
-import logging, os, math, time, copy, json, time, datetime
+import logging, os, math, time, copy, json, time, datetime, locale
 from gettext import gettext as _
+
+# Set up localization.
+locale.setlocale(locale.LC_ALL, '')
 
 # Import PyGTK.
 import gobject, pygtk, gtk, pango, cairo
@@ -184,42 +187,52 @@ class BudgetScreen(gtk.VBox):
         self.show_all()
             
     def bar_expose_cb(self, widget, event, category):
-        if not self.activity.data['budgets'].has_key(category):
-            return
-
-        context = widget.window.cairo_create()
-        context.rectangle(event.area.x, event.area.y, event.area.width, event.area.height)
-        context.clip()
+        cr = widget.window.cairo_create()
+        cr.rectangle(event.area.x, event.area.y, event.area.width, event.area.height)
+        cr.clip()
 
         bounds = widget.get_allocation()
 
+        # Draw outline.
+        cr.set_source_rgb(0, 0, 0)
+        cr.rectangle(0, 0, bounds.width, bounds.height)
+        cr.stroke()
+
+        # Don't draw anything else if there is no budget.
+        if not self.activity.data['budgets'].has_key(category):
+            return
+
+        # Draw arrow.
         total = self.category_total[category]
         budget = self.activity.data['budgets'][category]['amount']
 
         ratio = total / budget
 
+        cr.move_to(5, 5)
+        cr.line_to(ratio * (bounds.width-30), 5)
+        cr.line_to(ratio * (bounds.width-5), bounds.height/2)
+        cr.line_to(ratio * (bounds.width-30), bounds.height-5)
+        cr.line_to(5, bounds.height-5)
+        cr.close_path()
+
         if ratio > 1.0:
-            context.set_source_rgb(1.0, 0.6, 0.6)
-        #elif ratio >= 0.9:
-        #    context.set_source_rgb(1.0, 1.0, 0.6)
+            cr.set_source_rgb(1.0, 0.6, 0.6)
         else:
-            context.set_source_rgb(0.6, 1.0, 0.6)
+            cr.set_source_rgb(0.6, 1.0, 0.6)
+	cr.fill_preserve()
 
-        context.rectangle(0, 0, int(ratio * bounds.width), bounds.height)
-	context.fill_preserve()
-
-        context.set_source_rgb(0.5, 0.5, 0.5)
-        context.stroke()
+        cr.set_source_rgb(0.5, 0.5, 0.5)
+        cr.stroke()
 
         text = "%.2f" % total
 
-        context.set_source_rgb(0, 0, 0)
+        cr.set_source_rgb(0, 0, 0)
 
-        context.set_font_size(20)
-        x_bearing, y_bearing, width, height = context.text_extents(text)[:4]
+        cr.set_font_size(20)
+        x_bearing, y_bearing, width, height = cr.text_extents(text)[:4]
     
-        context.move_to(20, (bounds.height-height)/2 - y_bearing)
-        context.show_text(text)
+        cr.move_to(20, (bounds.height-height)/2 - y_bearing)
+        cr.show_text(text)
 
     def budget_changed_cb(self, widget, category):
         text = widget.get_text()
@@ -603,6 +616,7 @@ class Finance(sugar.activity.activity.Activity):
 
         self.show_all()
 
+        # Hide the sharing button from the activity toolbar since we don't support it.
         activity_toolbar = self.tbox.get_activity_toolbar()
         activity_toolbar.share.props.visible = False
 
