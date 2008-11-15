@@ -19,19 +19,19 @@ Next Release
 - Split source code into file-per-screen.
 - Sort budget categories alphabetically.
 - Context sensitive help text, triggered by a toggle button.  Pops up help text at the top.
-+ Add some kind of 'No budget set' indicator in budget screen.
-+ Make budget screen reflect period.  Add budget period combobox.
-+ Make budget screen show current date relative to period (pace marker).
+- Add some kind of 'No budget set' indicator in budget screen.
+- Make budget screen show current date relative to period (pace marker).
+- Make budget bar reflect period.  
++ Add budget period combobox.
 + Alerts for current period at the bottom of the screen: Negative balance, Over budget, etc.
-+ Rework chart screen to allow clicking on wedges, display details for selected wedge in category view.
-+ Add lines from wedges to category names in chart screen.
-+ Use cairo to render Category labels in budget screen.
-+ Filter by name, category.  Put search term next to period in header. 
++ Rework chart screen to allow clicking on wedges, display details for selected wedge.
++ Draw lines from wedges to category names in chart screen.
 + Select between income and expenses in Chart view.
 + When hovering over a category in any context (chart, etc) hilite the label.
 + Allow clicking on category labels to initiate filter + switch to register view.
 
 Future
++ Filter by name, category.  Put search term next to period in header. 
 + Implement multiple selection and deletion.
 + Bind erase key, or is it backspace on the XO?
 + History screen: Line graph view of categories, income, expenses, budgets, rate of change.

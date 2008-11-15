@@ -129,6 +129,7 @@ class Finance(sugar.activity.activity.Activity):
 
         # Add the header.
         self.periodlabel = gtk.Label()
+        self.periodlabel.set_padding(10, 0)
 
         headerbox = gtk.HBox()
         headerbox.pack_end(self.periodlabel, False, False)

@@ -31,7 +31,7 @@ from sugar.graphics import *
 # Import activity module
 import finance
 
-BUDGET_HELP = _('The Budget view allows you to set a budget for each expense category, and to keep track of your\nbudgets each month.  To set a budget, type the amount in the box to the right of the category.')
+BUDGET_HELP = _('The Budget view allows you to set a monthly budget for each expense category, and to keep track of your\nbudgets.  To set a budget, type the amount in the box to the right of the category.')
 
 class BudgetScreen(gtk.VBox):
     def __init__(self, activity):
@@ -97,6 +97,7 @@ class BudgetScreen(gtk.VBox):
         # Build categories.
         for c in self.sorted_categories:
             catbox = gtk.Label(c)
+            catbox.set_padding(10, 0)
 
             color = finance.get_category_color_str(c)
 
@@ -144,36 +145,57 @@ class BudgetScreen(gtk.VBox):
 
         bounds = widget.get_allocation()
 
+        # Draw amount of time spent in period if sensible.
+        period_ratio = None
+        if self.activity.period != _('Day') and self.activity.period != _('Forever'):
+            period_length = (self.activity.get_next_period(self.activity.period_start) - self.activity.period_start).days
+            period_ratio = float((datetime.date.today() - self.activity.period_start).days) / period_length
+
+            if period_ratio > 0:
+                cr.set_source_rgb(0.9, 0.9, 0.9)
+                cr.rectangle(0, 0, bounds.width*period_ratio, bounds.height)
+                cr.fill()
+
         # Draw outline.
         cr.set_source_rgb(0, 0, 0)
         cr.rectangle(0, 0, bounds.width, bounds.height)
         cr.stroke()
 
-        # Don't draw anything else if there is no budget.
-        if not self.activity.data['budgets'].has_key(category):
-            return
-
-        # Draw arrow.
+        # Draw arrow and cost.
         total = self.category_total[category]
-        budget = self.activity.data['budgets'][category]['amount']
 
-        ratio = total / budget
+        if self.activity.data['budgets'].has_key(category):
+            budget = self.activity.data['budgets'][category]['amount']
 
-        cr.move_to(5, 5)
-        cr.line_to(ratio * (bounds.width-30), 5)
-        cr.line_to(ratio * (bounds.width-5), bounds.height/2)
-        cr.line_to(ratio * (bounds.width-30), bounds.height-5)
-        cr.line_to(5, bounds.height-5)
-        cr.close_path()
+            # Convert from monthly budget.
+            if self.activity.period == _('Day'):
+                budget = budget / 30.0
 
-        if ratio > 1.0:
-            cr.set_source_rgb(1.0, 0.6, 0.6)
-        else:
-            cr.set_source_rgb(0.6, 1.0, 0.6)
-	cr.fill_preserve()
+            elif self.activity.period == _('Week'):
+                budget = budget / 4.0
 
-        cr.set_source_rgb(0.5, 0.5, 0.5)
-        cr.stroke()
+            elif self.activity.period == _('Year'):
+                budget = budget * 12.0
+
+            ratio = total / budget
+
+            cr.move_to(5, 5)
+            cr.line_to(ratio * (bounds.width-30), 5)
+            cr.line_to(ratio * (bounds.width-5), bounds.height/2)
+            cr.line_to(ratio * (bounds.width-30), bounds.height-5)
+            cr.line_to(5, bounds.height-5)
+            cr.close_path()
+
+            if ratio > 1.0:
+                cr.set_source_rgb(1.0, 0.6, 0.6)
+            elif period_ratio != None and ratio > period_ratio:
+                cr.set_source_rgb(0.9, 0.9, 0.6)
+            else:
+                cr.set_source_rgb(0.6, 1.0, 0.6)
+	    cr.fill_preserve()
+
+            cr.set_source_rgb(0.5, 0.5, 0.5)
+            cr.stroke()
 
         text = locale.currency(total)
 
