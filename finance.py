@@ -28,12 +28,16 @@ import gobject, pygtk, gtk, pango, cairo
 
 # Import Sugar UI modules.
 import sugar.activity.activity
+from sugar.graphics import toggletoolbutton
 from sugar.graphics import *
 
 # Initialize logging.
 log = logging.getLogger('Finance')
 log.setLevel(logging.DEBUG)
 logging.basicConfig()
+
+# Import screen classes.
+import registerscreen, chartscreen, budgetscreen
 
 CATEGORY_COLORS = [
     (1.0,1.0,1.0),
@@ -72,473 +76,6 @@ def get_category_color_str(catname):
     color = get_category_color(catname)
     return "#%02x%02x%02x" % (int(color[0]*255), int(color[1]*255), int(color[2]*255))
 
-def prev_month(d):
-    if d.month == 1:
-        return datetime.date(d.year-1, 12, 1)
-    else:
-        return datetime.date(d.year, d.month-1, 1)
-      
-def next_month(d):
-    if d.month == 12:
-        return datetime.date(d.year+1, 1, 1)
-    else:
-        return datetime.date(d.year, d.month+1, 1)
-
-class BudgetScreen(gtk.VBox):
-    def __init__(self, activity):
-        gtk.VBox.__init__(self)
-
-        self.activity = activity
-
-        self.category_total = {}
-        self.sorted_categories = []
- 
-        self.budgetbox = gtk.VBox()
-
-        scroll = gtk.ScrolledWindow()
-        scroll.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_AUTOMATIC)
-        scroll.add_with_viewport(self.budgetbox)
-
-        self.pack_start(scroll, True, True, 0)
-
-    def build(self):
-        # Build the category totals.
-        self.category_total = {}
-        for t in self.activity.visible_transactions:
-            cat = t['category']
-            amount = t['amount']
-            
-            if t['type'] == 'debit':
-                if not self.category_total.has_key(cat):
-                    self.category_total[cat] = amount
-                else: 
-                    self.category_total[cat] += amount 
-
-        # Generate a list of names sorted by total.
-        self.sorted_categories = self.category_total.keys()
-        #self.sorted_categories.sort(lamba a, b: cmp(self.category_total[a], self.category_total[b]))
-
-        # Clear all widgets.
-        for w in self.budgetbox.get_children():
-            self.budgetbox.remove(w)
-
-        # Build header.
-        catlabel = gtk.Label()
-        catlabel.set_markup('<b><big>'+_('Category')+'</big></b>')
-        spentlabel = gtk.Label()
-        spentlabel.set_markup('<b><big>'+_('Spent')+'</big></b>')
-        budgetlabel = gtk.Label()
-        budgetlabel.set_markup('<b><big>'+_('Budget')+'</big></b>')
-        
-        headerbox = gtk.HBox()
-        headerbox.pack_start(catlabel, False, True, 20)
-        headerbox.pack_start(spentlabel, True, True, 10)
-        headerbox.pack_start(budgetlabel, False, True, 20)
-        self.budgetbox.pack_start(headerbox, False, False, 10)
-
-        catgroup = gtk.SizeGroup(gtk.SIZE_GROUP_HORIZONTAL)
-        catgroup.add_widget(catlabel)
-
-        spentgroup = gtk.SizeGroup(gtk.SIZE_GROUP_HORIZONTAL)
-        spentgroup.add_widget(spentlabel)
-
-        budgetgroup = gtk.SizeGroup(gtk.SIZE_GROUP_HORIZONTAL)
-        budgetgroup.add_widget(budgetlabel)
-        
-        # Build categories.
-        for c in self.sorted_categories:
-            catbox = gtk.Label(c)
-
-            color = get_category_color_str(c)
-
-            ebox = gtk.EventBox()
-            ebox.modify_bg(gtk.STATE_NORMAL, ebox.get_colormap().alloc_color(color))
-            ebox.add(catbox)
-
-            catgroup.add_widget(ebox)
-
-            bar = gtk.DrawingArea()
-            bar.connect('expose-event', self.bar_expose_cb, c)
-            spentgroup.add_widget(bar)
-
-            budgetentry = gtk.Entry()
-            budgetentry.connect('changed', self.budget_changed_cb, c)
-            budgetentry.set_width_chars(10)
-            if self.activity.data['budgets'].has_key(c):
-                b = self.activity.data['budgets'][c]
-                budgetentry.set_text('%.2f' % b['amount'])
-            budgetgroup.add_widget(budgetentry)
-
-            #freqcombo = gtk.combo_box_new_text()
-            #freqcombo.append_text(_('Daily'))
-            #freqcombo.append_text(_('Weekly'))
-            #freqcombo.append_text(_('Monthly'))
-            #freqcombo.append_text(_('Annually'))
-            #freqcombo.set_active(2)
-
-            hbox = gtk.HBox()
-            hbox.pack_start(ebox, False, False, 20)
-            hbox.pack_start(bar, True, True, 10)
-            hbox.pack_start(budgetentry, False, False, 20)
-            #hbox.pack_start(freqcombo)
-
-            self.budgetbox.pack_start(hbox, False, False, 5)
-
-        self.show_all()
-            
-    def bar_expose_cb(self, widget, event, category):
-        cr = widget.window.cairo_create()
-        cr.rectangle(event.area.x, event.area.y, event.area.width, event.area.height)
-        cr.clip()
-
-        bounds = widget.get_allocation()
-
-        # Draw outline.
-        cr.set_source_rgb(0, 0, 0)
-        cr.rectangle(0, 0, bounds.width, bounds.height)
-        cr.stroke()
-
-        # Don't draw anything else if there is no budget.
-        if not self.activity.data['budgets'].has_key(category):
-            return
-
-        # Draw arrow.
-        total = self.category_total[category]
-        budget = self.activity.data['budgets'][category]['amount']
-
-        ratio = total / budget
-
-        cr.move_to(5, 5)
-        cr.line_to(ratio * (bounds.width-30), 5)
-        cr.line_to(ratio * (bounds.width-5), bounds.height/2)
-        cr.line_to(ratio * (bounds.width-30), bounds.height-5)
-        cr.line_to(5, bounds.height-5)
-        cr.close_path()
-
-        if ratio > 1.0:
-            cr.set_source_rgb(1.0, 0.6, 0.6)
-        else:
-            cr.set_source_rgb(0.6, 1.0, 0.6)
-	cr.fill_preserve()
-
-        cr.set_source_rgb(0.5, 0.5, 0.5)
-        cr.stroke()
-
-        text = "%.2f" % total
-
-        cr.set_source_rgb(0, 0, 0)
-
-        cr.set_font_size(20)
-        x_bearing, y_bearing, width, height = cr.text_extents(text)[:4]
-    
-        cr.move_to(20, (bounds.height-height)/2 - y_bearing)
-        cr.show_text(text)
-
-    def budget_changed_cb(self, widget, category):
-        text = widget.get_text()
-        if text != '':
-            self.activity.data['budgets'][category] = { 'amount': float(text) }
-        else:
-            del self.activity.data['budgets'][category] 
-        self.queue_draw()
-
-class ChartScreen(gtk.HBox):
-    def __init__(self, activity):
-        gtk.HBox.__init__(self)
-
-        self.activity = activity
-
-        self.category_total = {}
-        self.sorted_categories = []
-
-        self.area = gtk.DrawingArea()
-        self.area.connect('expose-event', self.chart_expose_cb)
-
-        label = gtk.Label()
-        label.set_markup('<b>'+_('Debit Categories')+'</b>')
-
-        self.catbox = gtk.VBox()
-
-        box = gtk.VBox()
-        box.pack_start(gtk.VBox(), False, False, 40)
-        box.pack_start(label, False, False)
-        box.pack_start(gtk.HSeparator(), False, False)
-        box.pack_start(self.catbox, False, False, 10)
-        box.pack_start(gtk.VBox(), True, True)
- 
-        self.pack_start(self.area, True, True)
-        self.pack_start(box, False, False, 40)
-
-        self.show_all()
-       
-        self.build()
-
-    def build(self):
-        # Build the category totals.
-        self.category_total = {}
-        for t in self.activity.visible_transactions:
-            cat = t['category']
-            amount = t['amount']
-            
-            if t['type'] == 'debit':
-                if not self.category_total.has_key(cat):
-                    self.category_total[cat] = amount
-                else: 
-                    self.category_total[cat] += amount 
-
-        # Generate a list of names sorted by total.
-        self.sorted_categories = self.category_total.keys()
-        #self.sorted_categories.sort(lamba a, b: cmp(self.category_total[a], self.category_total[b]))
-
-        # Clear and rebuild the labels box.
-        for w in self.catbox.get_children():
-            self.catbox.remove(w)
-
-        catgroup = gtk.SizeGroup(gtk.SIZE_GROUP_HORIZONTAL)
-        amountgroup = gtk.SizeGroup(gtk.SIZE_GROUP_HORIZONTAL)
-        
-        for c in self.sorted_categories:
-            hbox = gtk.HBox()
-
-            catlabel = gtk.Label()
-            catlabel.set_markup(c)
-            catgroup.add_widget(catlabel)
-
-            color = get_category_color_str(c)
-
-            amountlabel = gtk.Label()
-            amountlabel.set_markup('%.2f' % self.category_total[c])
-            amountgroup.add_widget(amountlabel)
-
-            hbox.pack_start(amountlabel, True, True, 20)
-            hbox.pack_start(catlabel, True, True, 20)
-
-            ebox = gtk.EventBox()
-            ebox.modify_bg(gtk.STATE_NORMAL, ebox.get_colormap().alloc_color(color))
-            ebox.add(hbox)
-
-            self.catbox.pack_end(ebox, False, False, 5)
-
-        self.show_all()
-
-    def chart_expose_cb(self, widget, event):
-        context = widget.window.cairo_create()
-        context.rectangle(event.area.x, event.area.y, event.area.width, event.area.height)
-        context.clip()
-
-        # Draw pie chart.
-        bounds = widget.get_allocation()
-
-        x = bounds.width/2
-        y = bounds.height/2
-        r = min(bounds.width, bounds.height)/2 - 10 
-
-        total = 0
-        for c in self.sorted_categories:
-            total += self.category_total[c]
-
-        if total != 0:
-            angle = 0.0
-
-            for c in self.sorted_categories:
-                slice = 2*math.pi * self.category_total[c] / total
-                color = get_category_color(c)
- 
-                context.move_to(x, y)
-                context.arc(x, y, r, angle, angle + slice)
-                context.close_path()
-
-                context.set_source_rgb(color[0], color[1], color[2])
-                context.fill_preserve()
-
-                context.set_source_rgb(0, 0, 0)
-                context.stroke()
-
-                angle += slice
-
-
-class RegisterScreen(gtk.VBox):
-    def __init__(self, activity):
-        gtk.VBox.__init__(self)
-
-        self.activity = activity
-
-        # Build the transaction list.
-        self.treeview = gtk.TreeView()
-        self.treeview.set_rules_hint(True)
-        self.treeview.set_enable_search(False)
-
-        # Note that the only thing we store in our liststore is the transaction id.
-        # All the actual data is in the activity database.
-        self.liststore = gtk.ListStore(gobject.TYPE_INT)
-        self.treeview.set_model(self.liststore)
-
-        # Construct the columns.
-        renderer = gtk.CellRendererText()
-        renderer.props.editable = True
-        renderer.connect('editing-started', self.description_editing_started_cb)
-        renderer.connect('edited', self.description_edit_cb)
-        col = gtk.TreeViewColumn(_('Description'), renderer)
-        col.set_cell_data_func(renderer, self.description_render_cb) 
-        col.set_expand(True)
-        self.treeview.append_column(col)
-
-        renderer = gtk.CellRendererText()
-        renderer.props.editable = True
-        renderer.connect('edited', self.amount_edit_cb)
-        col = gtk.TreeViewColumn(_('Amount'), renderer)
-        col.set_cell_data_func(renderer, self.amount_render_cb) 
-        col.set_alignment(0.5)
-        col.set_min_width(120)
-        self.treeview.append_column(col)
-
-        renderer = gtk.CellRendererText()
-        renderer.props.editable = True
-        renderer.connect('edited', self.date_edit_cb)
-        col = gtk.TreeViewColumn(_('Date'), renderer)
-        col.set_alignment(0.5)
-        col.set_cell_data_func(renderer, self.date_render_cb) 
-        col.set_min_width(150)
-        self.treeview.append_column(col)
-
-        renderer = gtk.CellRendererText()
-        renderer.props.editable = True
-        renderer.connect('editing-started', self.category_editing_started_cb)
-        renderer.connect('edited', self.category_edit_cb)
-        col = gtk.TreeViewColumn(_('Category'), renderer)
-        col.set_cell_data_func(renderer, self.category_render_cb) 
-        col.set_alignment(0.5)
-        col.set_min_width(300)
-        self.treeview.append_column(col)
-
-        scroll = gtk.ScrolledWindow()
-        scroll.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_AUTOMATIC)
-        scroll.add(self.treeview)
-
-        self.pack_start(scroll, True, True, 0)
-
-        self.build()
-
-    def build(self):
-        # Build liststore.
-        self.liststore.clear()
-        for t in self.activity.visible_transactions:
-            self.liststore.append((t['id'],))
-
-    def description_render_cb(self, column, cell_renderer, model, iter):
-        id = model.get_value(iter, 0)
-        t = self.activity.transaction_map[id]
-        cell_renderer.set_property('text', t['name'])
-
-    def description_editing_started_cb(self, cell_renderer, editable, path):
-        completion = gtk.EntryCompletion()
-        completion.set_inline_completion(True)
-        completion.set_popup_completion(True)
-        completion.set_minimum_key_length(0)
-        store = gtk.ListStore(str)
-        for c in self.activity.transaction_names.keys():
-            store.append([c])
-        completion.set_model(store)
-        completion.set_text_column(0)
-        editable.set_completion(completion)
-
-    def description_edit_cb(self, cell_renderer, path, new_text):
-        id = self.liststore[path][0]
-        t = self.activity.transaction_map[id]
-        t['name'] = new_text
-
-        # Automatically fill in category if empty, and if transaction name is known.
-        if t['category'] == '' and self.activity.transaction_names.has_key(new_text):
-            for ct in self.activity.data['transactions']:
-                if ct['name'] == new_text and ct['category'] != '':
-                    t['category'] = ct['category']
-
-    def amount_render_cb(self, column, cell_renderer, model, iter):
-        id = model.get_value(iter, 0)
-        t = self.activity.transaction_map[id]
-        cell_renderer.set_property('xalign', 1.0)
-        if t['type'] == 'credit':
-            cell_renderer.set_property('foreground', '#4040ff')
-            cell_renderer.set_property('text', '%.2f' % t['amount'])
-        else:
-            cell_renderer.set_property('foreground', '#ff4040')
-            cell_renderer.set_property('text', '-%.2f' % t['amount'])
-
-    def amount_edit_cb(self, cell_renderer, path, new_text):
-        id = self.liststore[path][0]
-        t = self.activity.transaction_map[id]
-        amount = float(new_text)
-        if amount > 0 and t['type'] == 'debit':
-            t['type'] = 'credit'
-        if amount < 0 and t['type'] == 'credit':
-            t['type'] = 'debit'
-        t['amount'] = abs(float(new_text))
-        self.activity.update_summary()
-
-    def date_render_cb(self, column, cell_renderer, model, iter):
-        id = model.get_value(iter, 0)
-        t = self.activity.transaction_map[id]
-        when = datetime.date.fromordinal(t['date'])
-        cell_renderer.set_property('text', when.isoformat())
-        cell_renderer.set_property('xalign', 0.5)
-
-    def date_edit_cb(self, cell_renderer, path, new_text):
-        id = self.liststore[path][0]
-        t = self.activity.transaction_map[id]
-        when = time.strptime(new_text, "%Y-%m-%d")
-        when = datetime.date(when[0], when[1], when[2])
-        t['date'] = when.toordinal()
-        self.activity.build_screen()
-
-    def category_render_cb(self, column, cell_renderer, model, iter):
-        id = model.get_value(iter, 0)
-        t = self.activity.transaction_map[id]
-        cell_renderer.set_property('text', t['category'])
-        cell_renderer.set_property('background', get_category_color_str(t['category']))
-
-    def category_editing_started_cb(self, cell_renderer, editable, path):
-        completion = gtk.EntryCompletion()
-        completion.set_inline_completion(True)
-        completion.set_popup_completion(True)
-        completion.set_minimum_key_length(0)
-        store = gtk.ListStore(str)
-        for c in self.activity.category_names.keys():
-            store.append([c])
-        completion.set_model(store)
-        completion.set_text_column(0)
-        editable.set_completion(completion)
-
-    def category_edit_cb(self, cell_renderer, path, new_text):
-        id = self.liststore[path][0]
-        t = self.activity.transaction_map[id]
-        t['category'] = new_text
-        if new_text != '':
-            self.activity.category_names[new_text] = 1 
-
-    def newitem_cb(self, widget):
-        id = self.activity.create_transaction(_('New Transaction'), 'credit', 0)
-        iter = self.liststore.append((id,))
-        # Set cursor and begin editing the description.
-        self.treeview.set_cursor(self.liststore.get_path(iter), self.treeview.get_column(0), True)
-        
-    def eraseitem_cb(self, widget):
-        sel = self.treeview.get_selection()
-        model, iter = sel.get_selected()
-        if iter:
-            id = model.get_value(iter, 0)
-            self.activity.destroy_transaction(id)
-            self.activity.update_summary()
-
-            path = model.get_path(iter)
-            model.remove(iter)
-
-            # Select the next item, or else the last item.
-            sel.select_path(path)
-            if not sel.path_is_selected(path):
-               row = path[0]-1
-               if row >= 0: 
-                   sel.select_path((row,))
-
 # This is the main Finance activity class.
 # 
 # It owns the main application window, and all the various toolbars and options.
@@ -570,18 +107,25 @@ class Finance(sugar.activity.activity.Activity):
         self.create_test_data()
   
         # Initialize view period to the first of the month.
-        today = datetime.date.today()
-        self.period_start = datetime.date(today.year, today.month, 1)
+        self.period = _('Month')
+        self.period_start = self.get_this_period()
 
         # Create screens.
-        self.register = RegisterScreen(self)
-        self.chart = ChartScreen(self)
-        self.budget = BudgetScreen(self)
+        self.register = registerscreen.RegisterScreen(self)
+        self.chart = chartscreen.ChartScreen(self)
+        self.budget = budgetscreen.BudgetScreen(self)
 
         self.build_toolbox()
   
         self.screens = []
         self.screenbox = gtk.VBox()
+
+        # Add the context sensitive help.
+        self.helplabel = gtk.Label()
+        self.helplabel.set_padding(10, 10)
+        self.helpbox = gtk.EventBox()
+        self.helpbox.modify_bg(gtk.STATE_NORMAL, self.helpbox.get_colormap().alloc_color('#000000'))
+        self.helpbox.add(self.helplabel)
 
         # Add the header.
         self.periodlabel = gtk.Label()
@@ -603,6 +147,7 @@ class Finance(sugar.activity.activity.Activity):
 
         vbox = gtk.VBox()
 
+        vbox.pack_start(self.helpbox, False, False, 10)
         vbox.pack_start(headerbox, False, False, 10)
         vbox.pack_start(gtk.HSeparator(), False, False, 0)
         vbox.pack_start(self.screenbox, True, True, 0)
@@ -620,45 +165,74 @@ class Finance(sugar.activity.activity.Activity):
         activity_toolbar = self.tbox.get_activity_toolbar()
         activity_toolbar.share.props.visible = False
 
+        self.helpbtn = sugar.graphics.toggletoolbutton.ToggleToolButton('help')
+        self.helpbtn.set_active(True)
+        self.helpbtn.set_tooltip(_("Show Help"))
+        #self.helpbtn.props.accelerator = '<Ctrl>H'
+        self.helpbtn.connect('clicked', self.help_cb)
+
+        share_idx = activity_toolbar.get_item_index(activity_toolbar.share) 
+        activity_toolbar.insert(self.helpbtn, share_idx)
+        self.helpbtn.show_all()
+
     def build_toolbox(self):
-        newitembtn = sugar.graphics.toolbutton.ToolButton('list-add')
-        newitembtn.set_tooltip(_("New Transaction"))
-        newitembtn.props.accelerator = '<Ctrl>N'
-        newitembtn.connect('clicked', self.register.newitem_cb)
+        self.newitembtn = sugar.graphics.toolbutton.ToolButton('list-add')
+        self.newitembtn.set_tooltip(_("New Transaction"))
+        self.newitembtn.props.accelerator = '<Ctrl>N'
+        self.newitembtn.connect('clicked', self.register.newitem_cb)
 
-        eraseitembtn = sugar.graphics.toolbutton.ToolButton('list-remove')
-        eraseitembtn.set_tooltip(_("Delete Transaction"))
-        eraseitembtn.props.accelerator = '<Ctrl>D'
-        eraseitembtn.connect('clicked', self.register.eraseitem_cb)
+        self.eraseitembtn = sugar.graphics.toolbutton.ToolButton('list-remove')
+        self.eraseitembtn.set_tooltip(_("Delete Transaction"))
+        self.eraseitembtn.props.accelerator = '<Ctrl>D'
+        self.eraseitembtn.connect('clicked', self.register.eraseitem_cb)
 
-        transactionbar = gtk.Toolbar()
-        transactionbar.insert(newitembtn, -1)
-        transactionbar.insert(eraseitembtn, -1)
- 
         #sep = gtk.SeparatorToolItem()
         #sep.set_expand(True)
         #sep.set_draw(False)
 
-        thisperiodbtn = sugar.graphics.toolbutton.ToolButton('go-down')
-        thisperiodbtn.set_tooltip(_("This Month"))
-        thisperiodbtn.props.accelerator = '<Ctrl>Down'
-        thisperiodbtn.connect('clicked', self.thisperiod_cb)
+        transactionbar = gtk.Toolbar()
+        transactionbar.insert(self.newitembtn, -1)
+        transactionbar.insert(self.eraseitembtn, -1)
+ 
+        self.thisperiodbtn = sugar.graphics.toolbutton.ToolButton('go-down')
+        self.thisperiodbtn.props.accelerator = '<Ctrl>Down'
+        self.thisperiodbtn.connect('clicked', self.thisperiod_cb)
 
-        prevperiodbtn = sugar.graphics.toolbutton.ToolButton('go-previous')
-        prevperiodbtn.set_tooltip(_("Previous Month"))
-        prevperiodbtn.props.accelerator = '<Ctrl>Left'
-        prevperiodbtn.connect('clicked', self.prevperiod_cb)
+        self.prevperiodbtn = sugar.graphics.toolbutton.ToolButton('go-previous')
+        self.prevperiodbtn.props.accelerator = '<Ctrl>Left'
+        self.prevperiodbtn.connect('clicked', self.prevperiod_cb)
 
-        nextperiodbtn = sugar.graphics.toolbutton.ToolButton('go-next')
-        nextperiodbtn.set_tooltip(_("Next Month"))
-        nextperiodbtn.props.accelerator = '<Ctrl>Right'
-        nextperiodbtn.connect('clicked', self.nextperiod_cb)
+        self.nextperiodbtn = sugar.graphics.toolbutton.ToolButton('go-next')
+        self.nextperiodbtn.props.accelerator = '<Ctrl>Right'
+        self.nextperiodbtn.connect('clicked', self.nextperiod_cb)
+
+        periodsep = gtk.SeparatorToolItem()
+        periodsep.set_expand(True)
+        periodsep.set_draw(False)
+
+        periodlabel = gtk.Label(_('Period: '))
+        periodlabelitem = gtk.ToolItem()
+        periodlabelitem.add(periodlabel)
+
+        periodcombo = gtk.combo_box_new_text()
+        periodcombo.append_text(_('Day'))
+        periodcombo.append_text(_('Week'))
+        periodcombo.append_text(_('Month'))
+        periodcombo.append_text(_('Year'))
+        periodcombo.append_text(_('Forever'))
+        periodcombo.set_active(2)
+        periodcombo.connect('changed', self.period_changed_cb)
+
+        perioditem = gtk.ToolItem()
+        perioditem.add(periodcombo)
 
         periodbar = gtk.Toolbar()
-        #periodbar.insert(sep, -1)
-        periodbar.insert(prevperiodbtn, -1)
-        periodbar.insert(thisperiodbtn, -1)
-        periodbar.insert(nextperiodbtn, -1)
+        periodbar.insert(self.prevperiodbtn, -1)
+        periodbar.insert(self.thisperiodbtn, -1)
+        periodbar.insert(self.nextperiodbtn, -1)
+        periodbar.insert(periodsep, -1)
+        periodbar.insert(periodlabelitem, -1)
+        periodbar.insert(perioditem, -1)
 
         registerbtn = sugar.graphics.toolbutton.ToolButton('view-list')
         registerbtn.set_tooltip(_("Register"))
@@ -687,6 +261,16 @@ class Finance(sugar.activity.activity.Activity):
         self.tbox.show_all()
 
         self.set_toolbox(self.tbox)
+
+    def set_help(self, text):
+        if self.helplabel != None:
+            self.helplabel.set_markup('<span size="8000" color="#ffffff">' + text + '</span>')
+
+    def help_cb(self, widget):
+        if widget.get_active():
+            self.helpbox.show()
+        else:
+            self.helpbox.hide()
 
     def register_cb(self, widget):
         self.pop_screen()
@@ -723,9 +307,25 @@ class Finance(sugar.activity.activity.Activity):
 
         self.update_header()
         self.update_summary()
+        self.update_toolbar()
 
     def update_header(self):
-        self.periodlabel.set_markup("<span size='xx-large'><b>" + self.period_start.strftime("%B, %Y") + "</b></span>")
+        if self.period == _('Day'):
+            text = self.period_start.strftime("%B %d, %Y")
+
+        elif self.period == _('Week'):
+            text = _('Week of') + self.period_start.strftime(" %B %d, %Y")
+
+        elif self.period == _('Month'):
+            text = self.period_start.strftime("%B, %Y")
+
+        elif self.period == _('Year'):
+            text = self.period_start.strftime("%Y")
+
+        elif self.period == _('Forever'):
+            text = _('Forever')
+
+        self.periodlabel.set_markup("<span size='xx-large'><b>" + text + "</b></span>")
 
     def update_summary(self):
         # Calculate starting balance.
@@ -760,44 +360,128 @@ class Finance(sugar.activity.activity.Activity):
         else:
             balancecolor = '#ff4040'
         balance = "<span size='xx-large' foreground='%s'><b>" % balancecolor 
-        balance += _('Balance: ') + "%.2f" % total 
+        balance += _('Balance: ') + locale.currency(total)
         balance += "</b></span>"
         self.balancelabel.set_markup(balance)
 
-        self.startlabel.set_markup('Starting Balance: %.2f' % start)
-        self.creditslabel.set_markup('%.2f in %d credits' % (credit_total, credit_count))
-        self.debitslabel.set_markup('%.2f in %d debits' % (debit_total, debit_count))
+        self.startlabel.set_markup('Starting Balance: ' + locale.currency(start))
+        self.creditslabel.set_markup('%s in %d credits' % (locale.currency(credit_total), credit_count))
+        self.debitslabel.set_markup('%s in %d debits' % (locale.currency(debit_total), debit_count))
+
+    def update_toolbar(self):
+        # Disable the navigation when Forever is selected.
+        next_prev = self.period != _('Forever')
+        self.prevperiodbtn.set_sensitive(next_prev)
+        self.thisperiodbtn.set_sensitive(next_prev)
+        self.nextperiodbtn.set_sensitive(next_prev)
+
+        # Update the label self.period to reflect the period.
+        self.prevperiodbtn.set_tooltip(_('Previous') + ' ' + self.period)
+        self.thisperiodbtn.set_tooltip(_('This') + ' ' + self.period)
+        self.nextperiodbtn.set_tooltip(_('Next') + ' ' + self.period)
+
+        # Only add and delete transactions on register screen.
+        add_del = self.screens[-1] == self.register
+        self.newitembtn.set_sensitive(add_del)
+        self.eraseitembtn.set_sensitive(add_del)
+
+    def get_this_period(self):
+        today = datetime.date.today()
+
+        if self.period == _('Day'):
+            return today
+
+        elif self.period == _('Week'):
+            while today.weekday() != 0:
+                today -= datetime.timedelta(days=1)
+            return today
+
+        elif self.period == _('Month'):
+            return datetime.date(today.year, today.month, 1)
+
+        elif self.period == _('Year'):
+            return datetime.date(today.year, 1, 1)
+
+        elif self.period == _('Forever'):
+            return datetime.date(1900, 1, 1)
+
+    def get_next_period(self, start):
+        if self.period == _('Day'):
+            return start + datetime.timedelta(days=1)
+
+        elif self.period == _('Week'):
+            return start + datetime.timedelta(days=7)
+
+        elif self.period == _('Month'):
+            if start.month == 12:
+                return datetime.date(start.year+1, 1, 1)
+            else:
+                return datetime.date(start.year, start.month+1, 1)
+
+        elif self.period == _('Year'):
+            return datetime.date(start.year+1, 1, 1)
+
+    def get_prev_period(self, start):
+        if self.period == _('Day'):
+            return start - datetime.timedelta(days=1)
+
+        elif self.period == _('Week'):
+            return start - datetime.timedelta(days=7)
+
+        elif self.period == _('Month'):
+            if start.month == 1:
+                return datetime.date(start.year-1, 12, 1)
+            else:
+                return datetime.date(start.year, start.month-1, 1)
+
+        elif self.period == _('Year'):
+            return datetime.date(start.year-1, 1, 1)
 
     def thisperiod_cb(self, widget):
-        today = datetime.date.today()
-        self.period_start = datetime.date(today.year, today.month, 1)
-
-        self.build_screen()
+        if self.period != _('Forever'):
+            self.period_start = self.get_this_period()
+            self.build_screen()
 
     def nextperiod_cb(self, widget):
-        self.period_start = next_month(self.period_start) 
-        self.build_screen()
+        if self.period != _('Forever'):
+            self.period_start = self.get_next_period(self.period_start)
+            self.build_screen()
 
     def prevperiod_cb(self, widget):
-        self.period_start = prev_month(self.period_start) 
+        if self.period != _('Forever'):
+            self.period_start = self.get_prev_period(self.period_start)
+            self.build_screen()
+
+    def period_changed_cb(self, widget):
+        self.period = widget.get_active_text()
+        self.update_toolbar()
+
+        # Jump to 'this period'.
+        self.period_start = self.get_this_period()
         self.build_screen()
 
     def build_visible_transactions(self):
-        period_start_ord = self.period_start.toordinal()
-        period_end_ord = next_month(self.period_start).toordinal()
+        if self.period == _('Forever'):
+            self.visible_transactions = self.data['transactions']
 
-        self.visible_transactions = []
-        for t in self.data['transactions']:
-            d = t['date']
-            if d >= period_start_ord and d < period_end_ord:
-                self.visible_transactions.append(t)
+        else:
+            period_start_ord = self.period_start.toordinal()
+            period_end_ord = self.get_next_period(self.period_start).toordinal()
+
+            self.visible_transactions = []
+            for t in self.data['transactions']:
+                d = t['date']
+                if d >= period_start_ord and d < period_end_ord:
+                    self.visible_transactions.append(t)
+
+        self.visible_transactions.sort(lambda a,b: a['date'] - b['date'])
 
     def build_transaction_map(self):
         self.transaction_map = {}
         for t in self.data['transactions']:
             self.transaction_map[t['id']] = t
 
-    def create_transaction(self, name, type, amount):
+    def create_transaction(self, name='', type='debit', amount=0, category='', date=datetime.date.today()):
         id = self.data['next_id']
         self.data['next_id'] += 1
 
@@ -806,8 +490,8 @@ class Finance(sugar.activity.activity.Activity):
             'name': name,
             'type': type,
             'amount': amount,
-            'date': datetime.date.today().toordinal(),
-            'category': ''
+            'date': date.toordinal(),
+            'category': category 
         }
         self.data['transactions'].append(t)
         self.transaction_map[id] = t
@@ -827,51 +511,139 @@ class Finance(sugar.activity.activity.Activity):
             self.category_names[t['category']] = 1
 
     def create_test_data(self):
-        self.data['transactions'].append({
-            'id': -1,
-            'name': 'Initial Balance',
-            'type': 'credit',
-            'amount': 200,
-            'date': datetime.date.today().toordinal(),
-            'category': 'Initial Balance'
-        })
-        self.data['transactions'].append({
-            'id': -2,
-            'name': 'Fix Car',
-            'type': 'debit',
-            'amount': 75,
-            'date': datetime.date.today().toordinal(),
-            'category': 'Transportation'
-        })
-        self.data['transactions'].append({
-            'id': -3,
-            'name': 'Adopt Cat',
-            'type': 'debit',
-            'amount': 100,
-            'date': datetime.date.today().toordinal(),
-            'category': 'Pets'
-        })
-        self.data['transactions'].append({
-            'id': -4,
-            'name': 'Buy New Clothes',
-            'type': 'debit',
-            'amount': 20,
-            'date': datetime.date.today().toordinal(),
-            'category': 'Clothing'
-        })
+        cur_date = datetime.date.today()
+        cur_date = datetime.date(cur_date.year, cur_date.month, 1)
+        self.create_transaction('Initial Balance', type='credit', amount=632, category='Initial Balance', date=cur_date)
+
+        cur_date += datetime.timedelta(days=1)
+        self.create_transaction('Fix Car', amount=75.84, category='Transportation', date=cur_date)
+
+        cur_date += datetime.timedelta(days=2)
+        self.create_transaction('Adopt Cat', amount=100, category='Pets', date=cur_date)
+        self.create_transaction('New Coat', amount=25.53, category='Clothing', date=cur_date)
+
+        cur_date += datetime.timedelta(days=2)
+        self.create_transaction('Pay Rent', amount=500, category='Housing', date=cur_date)
+
+        cur_date += datetime.timedelta(days=1)
+        self.create_transaction('Funky Cafe', amount=5.20, category='Food', date=cur_date)
+        self.create_transaction('Groceries', amount=50.92, category='Food', date=cur_date)
+        self.create_transaction('Cat Food', amount=5.40, category='Pets', date=cur_date)
+
+        cur_date += datetime.timedelta(days=4)
+        self.create_transaction('Paycheck', type='credit', amount=700, category='Paycheck', date=cur_date)
+        self.create_transaction('Gas', amount=21.20, category='Transportation', date=cur_date)
+
+        cur_date += datetime.timedelta(days=2)
+        self.create_transaction('Cat Toys', amount=10.95, category='Pets', date=cur_date)
+        self.create_transaction('Gift for Sister', amount=23.20, category='Gifts', date=cur_date)
+
+        cur_date += datetime.timedelta(days=2)
+        self.create_transaction('Pay Rent', amount=500, category='Housing', date=cur_date)
+
+        cur_date += datetime.timedelta(days=1)
+        self.create_transaction('Funky Cafe', amount=5.20, category='Food', date=cur_date)
+        self.create_transaction('Groceries', amount=50.92, category='Food', date=cur_date)
+        self.create_transaction('Cat Food', amount=5.40, category='Pets', date=cur_date)
+
+        cur_date += datetime.timedelta(days=4)
+        self.create_transaction('Paycheck', type='credit', amount=700, category='Paycheck', date=cur_date)
+        self.create_transaction('Gas', amount=21.20, category='Transportation', date=cur_date)
+
+        cur_date += datetime.timedelta(days=2)
+        self.create_transaction('Cat Toys', amount=10.95, category='Pets', date=cur_date)
+        self.create_transaction('Gift for Sister', amount=23.20, category='Gifts', date=cur_date)
+
+        cur_date += datetime.timedelta(days=2)
+        self.create_transaction('Pay Rent', amount=500, category='Housing', date=cur_date)
+
+        cur_date += datetime.timedelta(days=1)
+        self.create_transaction('Funky Cafe', amount=5.20, category='Food', date=cur_date)
+        self.create_transaction('Groceries', amount=50.92, category='Food', date=cur_date)
+        self.create_transaction('Cat Food', amount=5.40, category='Pets', date=cur_date)
+
+        cur_date += datetime.timedelta(days=4)
+        self.create_transaction('Paycheck', type='credit', amount=700, category='Paycheck', date=cur_date)
+        self.create_transaction('Gas', amount=21.20, category='Transportation', date=cur_date)
+
+        cur_date += datetime.timedelta(days=2)
+        self.create_transaction('Cat Toys', amount=10.95, category='Pets', date=cur_date)
+        self.create_transaction('Gift for Sister', amount=23.20, category='Gifts', date=cur_date)
+
+        cur_date += datetime.timedelta(days=2)
+        self.create_transaction('Pay Rent', amount=500, category='Housing', date=cur_date)
+
+        cur_date += datetime.timedelta(days=1)
+        self.create_transaction('Funky Cafe', amount=5.20, category='Food', date=cur_date)
+        self.create_transaction('Groceries', amount=50.92, category='Food', date=cur_date)
+        self.create_transaction('Cat Food', amount=5.40, category='Pets', date=cur_date)
+
+        cur_date += datetime.timedelta(days=4)
+        self.create_transaction('Paycheck', type='credit', amount=700, category='Paycheck', date=cur_date)
+        self.create_transaction('Gas', amount=21.20, category='Transportation', date=cur_date)
+
+        cur_date += datetime.timedelta(days=2)
+        self.create_transaction('Cat Toys', amount=10.95, category='Pets', date=cur_date)
+        self.create_transaction('Gift for Sister', amount=23.20, category='Gifts', date=cur_date)
+
+        cur_date += datetime.timedelta(days=2)
+        self.create_transaction('Pay Rent', amount=500, category='Housing', date=cur_date)
+
+        cur_date += datetime.timedelta(days=1)
+        self.create_transaction('Funky Cafe', amount=5.20, category='Food', date=cur_date)
+        self.create_transaction('Groceries', amount=50.92, category='Food', date=cur_date)
+        self.create_transaction('Cat Food', amount=5.40, category='Pets', date=cur_date)
+
+        cur_date += datetime.timedelta(days=4)
+        self.create_transaction('Paycheck', type='credit', amount=700, category='Paycheck', date=cur_date)
+        self.create_transaction('Gas', amount=21.20, category='Transportation', date=cur_date)
+
+        cur_date += datetime.timedelta(days=2)
+        self.create_transaction('Cat Toys', amount=10.95, category='Pets', date=cur_date)
+        self.create_transaction('Gift for Sister', amount=23.20, category='Gifts', date=cur_date)
+
+        cur_date += datetime.timedelta(days=2)
+        self.create_transaction('Pay Rent', amount=500, category='Housing', date=cur_date)
+
+        cur_date += datetime.timedelta(days=1)
+        self.create_transaction('Funky Cafe', amount=5.20, category='Food', date=cur_date)
+        self.create_transaction('Groceries', amount=50.92, category='Food', date=cur_date)
+        self.create_transaction('Cat Food', amount=5.40, category='Pets', date=cur_date)
+
+        cur_date += datetime.timedelta(days=4)
+        self.create_transaction('Paycheck', type='credit', amount=700, category='Paycheck', date=cur_date)
+        self.create_transaction('Gas', amount=21.20, category='Transportation', date=cur_date)
+
+        cur_date += datetime.timedelta(days=2)
+        self.create_transaction('Cat Toys', amount=10.95, category='Pets', date=cur_date)
+        self.create_transaction('Gift for Sister', amount=23.20, category='Gifts', date=cur_date)
+
+        cur_date += datetime.timedelta(days=2)
+        self.create_transaction('Pay Rent', amount=500, category='Housing', date=cur_date)
+
+        cur_date += datetime.timedelta(days=1)
+        self.create_transaction('Funky Cafe', amount=5.20, category='Food', date=cur_date)
+        self.create_transaction('Groceries', amount=50.92, category='Food', date=cur_date)
+        self.create_transaction('Cat Food', amount=5.40, category='Pets', date=cur_date)
+
+        cur_date += datetime.timedelta(days=4)
+        self.create_transaction('Paycheck', type='credit', amount=700, category='Paycheck', date=cur_date)
+        self.create_transaction('Gas', amount=21.20, category='Transportation', date=cur_date)
+
+        cur_date += datetime.timedelta(days=2)
+        self.create_transaction('Cat Toys', amount=10.95, category='Pets', date=cur_date)
+        self.create_transaction('Gift for Sister', amount=23.20, category='Gifts', date=cur_date)
 
         self.build_transaction_map()
         self.build_names()
 
     def read_file(self, file_path):
-        # Load document.
         if self.metadata['mime_type'] != 'text/plain':
             return
 
         fd = open(file_path, 'r')
         try:
             text = fd.read()
-            print "read %s" % text
             self.data = json.read(text)
         finally:
             fd.close()
@@ -881,7 +653,6 @@ class Finance(sugar.activity.activity.Activity):
         self.build_screen()
 
     def write_file(self, file_path):
-        # Save document.
         if not self.metadata['mime_type']:
             self.metadata['mime_type'] = 'text/plain'
 
@@ -889,6 +660,5 @@ class Finance(sugar.activity.activity.Activity):
         try:
             text = json.write(self.data)
             fd.write(text)
-            print "wrote %s" % text
         finally:
             fd.close()
