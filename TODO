@@ -23,6 +23,7 @@ Next Release
 - Make budget screen show current date relative to period (pace marker).
 - Make budget bar reflect period.  
 + Add budget period combobox.
++ Support Goals, aka budgets for income.
 + Alerts for current period at the bottom of the screen: Negative balance, Over budget, etc.
 + Rework chart screen to allow clicking on wedges, display details for selected wedge.
 + Draw lines from wedges to category names in chart screen.

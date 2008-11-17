@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-11-15 02:33+0000\n"
+"POT-Creation-Date: 2008-11-15 03:58+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,118 +16,141 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: activity/activity.info:2 finance.py:85
+#: activity/activity.info:2 finance.py:86
 msgid "Finance"
 msgstr ""
 
-#: chartscreen.py:47
+#: chartscreen.py:34
+msgid ""
+"The Chart view shows the proportion of your expenses that is in each "
+"category.\n"
+"You can categorize transactions in the Register view."
+msgstr ""
+
+#: chartscreen.py:49
 msgid "Debit Categories"
 msgstr ""
 
-#: finance.py:109 finance.py:210 finance.py:299 finance.py:379 finance.py:395
-#: finance.py:411
+#: finance.py:110 finance.py:221 finance.py:320 finance.py:400 finance.py:416
+#: finance.py:432
 msgid "Month"
 msgstr ""
 
-#: finance.py:124
-msgid ""
-"<span size=\"8000\" color=\"#ffffff\"><b>Welcome to Finance!</b>   This "
-"activity keeps track of income and expenses for anything that earns\n"
-"or spends money, like a school club.\n"
-"To get started, use the Transaction menu to add credits and debits.  Once "
-"you have entered some data,\n"
-"visit the Chart and Budget views to see more.</span>"
+#: finance.py:171
+msgid "Show Help"
 msgstr ""
 
-#: finance.py:170 registerscreen.py:198
+#: finance.py:181 registerscreen.py:201
 msgid "New Transaction"
 msgstr ""
 
-#: finance.py:175
+#: finance.py:186
 msgid "Delete Transaction"
 msgstr ""
 
-#: finance.py:203
+#: finance.py:214
 msgid "Period: "
 msgstr ""
 
-#: finance.py:208 finance.py:293 finance.py:371 finance.py:389 finance.py:405
+#: finance.py:219 finance.py:314 finance.py:392 finance.py:410 finance.py:426
+#: budgetscreen.py:150 budgetscreen.py:171
 msgid "Day"
 msgstr ""
 
-#: finance.py:209 finance.py:296 finance.py:374 finance.py:392 finance.py:408
+#: finance.py:220 finance.py:317 finance.py:395 finance.py:413 finance.py:429
+#: budgetscreen.py:174
 msgid "Week"
 msgstr ""
 
-#: finance.py:211 finance.py:302 finance.py:382 finance.py:401 finance.py:417
+#: finance.py:222 finance.py:323 finance.py:403 finance.py:422 finance.py:438
+#: budgetscreen.py:177
 msgid "Year"
 msgstr ""
 
-#: finance.py:212 finance.py:305 finance.py:306 finance.py:353 finance.py:385
-#: finance.py:421 finance.py:426 finance.py:431 finance.py:444
+#: finance.py:223 finance.py:326 finance.py:327 finance.py:374 finance.py:406
+#: finance.py:442 finance.py:447 finance.py:452 finance.py:465
+#: budgetscreen.py:150
 msgid "Forever"
 msgstr ""
 
-#: finance.py:228
+#: finance.py:239
 msgid "Register"
 msgstr ""
 
-#: finance.py:233 budgetscreen.py:78
+#: finance.py:244 budgetscreen.py:80
 msgid "Budget"
 msgstr ""
 
-#: finance.py:238
+#: finance.py:249
 msgid "Chart"
 msgstr ""
 
-#: finance.py:248
+#: finance.py:259
 msgid "Transaction"
 msgstr ""
 
-#: finance.py:249
+#: finance.py:260
 msgid "Period"
 msgstr ""
 
-#: finance.py:250
+#: finance.py:261
 msgid "View"
 msgstr ""
 
-#: finance.py:297
+#: finance.py:318
 msgid "Week of"
 msgstr ""
 
-#: finance.py:343
+#: finance.py:364
 msgid "Balance: "
 msgstr ""
 
-#: finance.py:359
+#: finance.py:380
 msgid "Previous"
 msgstr ""
 
-#: finance.py:360
+#: finance.py:381
 msgid "This"
 msgstr ""
 
-#: finance.py:361
+#: finance.py:382
 msgid "Next"
 msgstr ""
 
-#: budgetscreen.py:74 registerscreen.py:82
+#: budgetscreen.py:34
+msgid ""
+"The Budget view allows you to set a monthly budget for each expense "
+"category, and to keep track of your\n"
+"budgets.  To set a budget, type the amount in the box to the right of the "
+"category."
+msgstr ""
+
+#: budgetscreen.py:76 registerscreen.py:84
 msgid "Category"
 msgstr ""
 
-#: budgetscreen.py:76
+#: budgetscreen.py:78
 msgid "Spent"
 msgstr ""
 
-#: registerscreen.py:55
+#: registerscreen.py:34
+msgid ""
+"<b>Welcome to Finance!</b>   This activity keeps track of income and "
+"expenses for anything that earns\n"
+"or spends money, like a school club.  To get started, use the Transaction "
+"box to add credits and debits.\n"
+"Once you have entered some transactions, visit the Chart and Budget views to "
+"see more."
+msgstr ""
+
+#: registerscreen.py:57
 msgid "Description"
 msgstr ""
 
-#: registerscreen.py:63
+#: registerscreen.py:65
 msgid "Amount"
 msgstr ""
 
-#: registerscreen.py:72
+#: registerscreen.py:74
 msgid "Date"
 msgstr ""
