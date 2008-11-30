@@ -177,14 +177,19 @@ class Finance(sugar.activity.activity.Activity):
         self.helpbtn.show_all()
 
     def build_toolbox(self):
-        self.newitembtn = sugar.graphics.toolbutton.ToolButton('list-add')
-        self.newitembtn.set_tooltip(_("New Transaction"))
-        self.newitembtn.props.accelerator = '<Ctrl>N'
-        self.newitembtn.connect('clicked', self.register.newitem_cb)
+        self.newcreditbtn = sugar.graphics.toolbutton.ToolButton('list-add')
+        self.newcreditbtn.set_tooltip(_("New Credit"))
+        self.newcreditbtn.props.accelerator = '<Ctrl>A'
+        self.newcreditbtn.connect('clicked', self.register.newcredit_cb)
 
-        self.eraseitembtn = sugar.graphics.toolbutton.ToolButton('list-remove')
-        self.eraseitembtn.set_tooltip(_("Delete Transaction"))
-        self.eraseitembtn.props.accelerator = '<Ctrl>D'
+        self.newdebitbtn = sugar.graphics.toolbutton.ToolButton('list-remove')
+        self.newdebitbtn.set_tooltip(_("New Debit"))
+        self.newdebitbtn.props.accelerator = '<Ctrl>D'
+        self.newdebitbtn.connect('clicked', self.register.newdebit_cb)
+
+        self.eraseitembtn = sugar.graphics.toolbutton.ToolButton('dialog-cancel')
+        self.eraseitembtn.set_tooltip(_("Erase Transaction"))
+        self.eraseitembtn.props.accelerator = '<Ctrl>E'
         self.eraseitembtn.connect('clicked', self.register.eraseitem_cb)
 
         #sep = gtk.SeparatorToolItem()
@@ -192,7 +197,8 @@ class Finance(sugar.activity.activity.Activity):
         #sep.set_draw(False)
 
         transactionbar = gtk.Toolbar()
-        transactionbar.insert(self.newitembtn, -1)
+        transactionbar.insert(self.newcreditbtn, -1)
+        transactionbar.insert(self.newdebitbtn, -1)
         transactionbar.insert(self.eraseitembtn, -1)
  
         self.thisperiodbtn = sugar.graphics.toolbutton.ToolButton('go-down')
@@ -383,7 +389,8 @@ class Finance(sugar.activity.activity.Activity):
 
         # Only add and delete transactions on register screen.
         add_del = self.screens[-1] == self.register
-        self.newitembtn.set_sensitive(add_del)
+        self.newcreditbtn.set_sensitive(add_del)
+        self.newdebitbtn.set_sensitive(add_del)
         self.eraseitembtn.set_sensitive(add_del)
 
     def get_this_period(self):
@@ -497,6 +504,8 @@ class Finance(sugar.activity.activity.Activity):
         self.data['transactions'].append(t)
         self.transaction_map[id] = t
 
+        self.build_visible_transactions()
+        
         return id
 
     def destroy_transaction(self, id):

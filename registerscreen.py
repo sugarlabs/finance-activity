@@ -144,12 +144,7 @@ class RegisterScreen(gtk.VBox):
     def amount_edit_cb(self, cell_renderer, path, new_text):
         id = self.liststore[path][0]
         t = self.activity.transaction_map[id]
-        amount = locale.atof(new_text)
-        if amount > 0 and t['type'] == 'debit':
-            t['type'] = 'credit'
-        if amount < 0 and t['type'] == 'credit':
-            t['type'] = 'debit'
-        t['amount'] = abs(float(new_text))
+        t['amount'] = abs(locale.atof(new_text))
         self.activity.update_summary()
 
     def date_render_cb(self, column, cell_renderer, model, iter):
@@ -192,13 +187,24 @@ class RegisterScreen(gtk.VBox):
         if new_text != '':
             self.activity.category_names[new_text] = 1 
 
-    def newitem_cb(self, widget):
+    def newcredit_cb(self, widget):
         # Automatically display the register screen.
         if self.activity.screens[-1] != self.activity.register:
             self.activity.pop_screen()
             self.activity.push_screen(self)
 
-        id = self.activity.create_transaction(_('New Transaction'), 'credit', 0)
+        id = self.activity.create_transaction(_('New Credit'), 'credit', 0)
+        iter = self.liststore.append((id,))
+        # Set cursor and begin editing the description.
+        self.treeview.set_cursor(self.liststore.get_path(iter), self.treeview.get_column(0), True)
+        
+    def newdebit_cb(self, widget):
+        # Automatically display the register screen.
+        if self.activity.screens[-1] != self.activity.register:
+            self.activity.pop_screen()
+            self.activity.push_screen(self)
+
+        id = self.activity.create_transaction(_('New Debit'), 'debit', 0)
         iter = self.liststore.append((id,))
         # Set cursor and begin editing the description.
         self.treeview.set_cursor(self.liststore.get_path(iter), self.treeview.get_column(0), True)
