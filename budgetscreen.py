@@ -192,8 +192,8 @@ class BudgetScreen(gtk.VBox):
                 cr.set_source_rgb(0.9, 0.9, 0.6)
             else:
                 cr.set_source_rgb(0.6, 1.0, 0.6)
-	    cr.fill_preserve()
-
+            cr.fill_preserve()
+            
             cr.set_source_rgb(0.5, 0.5, 0.5)
             cr.stroke()
 

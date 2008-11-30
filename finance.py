@@ -104,7 +104,7 @@ class Finance(sugar.activity.activity.Activity):
         self.transaction_names = {}
         self.category_names = {}
 
-        self.create_test_data()
+        #self.create_test_data()
   
         # Initialize view period to the first of the month.
         self.period = _('Month')
