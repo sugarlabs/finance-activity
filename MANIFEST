@@ -3,10 +3,10 @@ COPYING
 TODO
 finance.py
 setup.py
-activity/Colors-activity.svg
 activity/activity.info
 po/Finance.pot
 chartscreen.py
 budgetscreen.py
 registerscreen.py
 icons/help.svg
+activity/Finance-activity.svg
