@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 14.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 43363)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"[
+     <!ENTITY stroke_color "#000000">
+     <!ENTITY fill_color "#FFFFFF">
+ ]>
+<svg version="1.1" id="Finance" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="55px" height="55px" viewBox="0 0 55 55" enable-background="new 0 0 55 55" xml:space="preserve">
+<path id="Paper04" fill="&fill_color;" stroke="&stroke_color;" stroke-width="3.5" d="M5.833,31.75c0,0,9.948,11.5,15.667,18
+	c10.281-7.719,19.748-17.828,19.748-17.828"/>
+<path id="Paper03" fill="&fill_color;" stroke="&stroke_color;" stroke-width="3.5" d="M5.333,19l1.917,5.875l0.916,8.542l2,0.25
+	c0,0,1.04,3.921,2.542,8.375C30.75,37.542,40.333,32,40.333,32"/>
+<path id="Paper02_1_" fill="&fill_color;" stroke="&stroke_color;" stroke-width="3.5" d="M46.547,17.994L45.195,7.782
+	c0,0-21.324,6.299-39.262,4.375l2.233,21.26c0,0,16.498,0.152,30.757-3.319"/>
+<polyline id="Paper01" fill="none" stroke="&stroke_color;" stroke-width="3.5" points="32.833,11 36.309,6.756 39.167,9.833 "/>
+<path id="President" fill="&stroke_color;" stroke="none" d="M30.875,19.688c0,1.384-0.662,2.614-1.688,3.391c0.938,1.484,3.938,2.421,3.938,2.421
+	s-2.063,2.813-5.938,3.188c-3.875,0.375-5.938-2.125-5.938-2.125S24,25.5,24.971,23.604c-1.525-0.646-2.596-2.156-2.596-3.917
+	c0-2.347,1.903-4.25,4.25-4.25C28.973,15.438,30.875,17.341,30.875,19.688z"/>
+<circle id="Coin" fill="&fill_color;" stroke="&stroke_color;" stroke-width="3.5" cx="44.355" cy="25.5" r="7.5"/>
+</svg>
