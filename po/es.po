@@ -1,0 +1,175 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-11-30 04:12+0000\n"
+"PO-Revision-Date: 2009-01-03 15:44-0500\n"
+"Last-Translator: Maria Gonzalez <maclau1013@hotmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Pootle 1.1.0rc2\n"
+
+#: activity/activity.info:2 finance.py:86
+#, fuzzy
+msgid "Finance"
+msgstr "Finanzas"
+
+#: chartscreen.py:34
+msgid ""
+"The Chart view shows the proportion of your expenses that is in each "
+"category.\n"
+"You can categorize transactions in the Register view."
+msgstr ""
+"La Vista de Gráfica muestra la proporción de sus gastos que está en cada "
+"categoría.\n"
+"Usted puede categorizar las transacciones en la Vista de Registro"
+
+#: chartscreen.py:49
+msgid "Debit Categories"
+msgstr "Categorías de Débito"
+
+#: finance.py:110 finance.py:227 finance.py:326 finance.py:407 finance.py:423
+#: finance.py:439
+msgid "Month"
+msgstr "Mes"
+
+#: finance.py:171
+msgid "Show Help"
+msgstr "Mostrar Ayuda"
+
+#: finance.py:181 registerscreen.py:196
+msgid "New Credit"
+msgstr "Nuevo Crédito"
+
+#: finance.py:186 registerscreen.py:207
+msgid "New Debit"
+msgstr "Nuevo Débito"
+
+#: finance.py:191
+msgid "Erase Transaction"
+msgstr "Borrar Transacción"
+
+#: finance.py:220
+msgid "Period: "
+msgstr "Periodo: "
+
+#: finance.py:225 finance.py:320 finance.py:399 finance.py:417 finance.py:433
+#: budgetscreen.py:150 budgetscreen.py:171
+msgid "Day"
+msgstr "Día"
+
+#: finance.py:226 finance.py:323 finance.py:402 finance.py:420 finance.py:436
+#: budgetscreen.py:174
+msgid "Week"
+msgstr "Semana"
+
+#: finance.py:228 finance.py:329 finance.py:410 finance.py:429 finance.py:445
+#: budgetscreen.py:177
+msgid "Year"
+msgstr "Año"
+
+#: finance.py:229 finance.py:332 finance.py:333 finance.py:380 finance.py:413
+#: finance.py:449 finance.py:454 finance.py:459 finance.py:472
+#: budgetscreen.py:150
+msgid "Forever"
+msgstr "Para siempre"
+
+#: finance.py:245
+#, fuzzy
+msgid "Register"
+msgstr "Registrar"
+
+#: finance.py:250 budgetscreen.py:80
+msgid "Budget"
+msgstr "Presupuesto"
+
+#: finance.py:255
+msgid "Chart"
+msgstr "Gráfico"
+
+#: finance.py:265
+msgid "Transaction"
+msgstr "Transacción"
+
+#: finance.py:266
+msgid "Period"
+msgstr "Periodo"
+
+#: finance.py:267
+msgid "View"
+msgstr "Ver"
+
+#: finance.py:324
+msgid "Week of"
+msgstr "Semana de"
+
+#: finance.py:370
+msgid "Balance: "
+msgstr "Balance:"
+
+#: finance.py:386
+msgid "Previous"
+msgstr "Anterior"
+
+#: finance.py:387
+#, fuzzy
+msgid "This"
+msgstr "Esto"
+
+#: finance.py:388
+msgid "Next"
+msgstr "Siguiente"
+
+#: budgetscreen.py:34
+msgid ""
+"The Budget view allows you to set a monthly budget for each expense "
+"category, and to keep track of your\n"
+"budgets.  To set a budget, type the amount in the box to the right of the "
+"category."
+msgstr ""
+"La Vista de Presupuesto te permite establecer un presupuesto mensual para "
+"cada categoría de gasto, y hacer seguimiento de tus\n"
+"presupuestos. Para establecer un presupuesto, escribe la cantidad en la caja "
+"a la derecha de la categoría."
+
+#: budgetscreen.py:76 registerscreen.py:84
+msgid "Category"
+msgstr "Categoría"
+
+#: budgetscreen.py:78
+msgid "Spent"
+msgstr "Gastado"
+
+#: registerscreen.py:34
+msgid ""
+"<b>Welcome to Finance!</b>   This activity keeps track of income and "
+"expenses for anything that earns\n"
+"or spends money, like a school club.  To get started, use the Transaction "
+"box to add credits and debits.\n"
+"Once you have entered some transactions, visit the Chart and Budget views to "
+"see more."
+msgstr ""
+"<b>¡Bienvenido a Finanzas!</b> Esta actividad guarda el histórico de los "
+"ingresos y los gastos para cualquieer cosa que gana\n"
+"o gasta dinero, como un club escolar. Para comenzar, usa la caja de "
+"Transaccion para agregar créditos y débitos.\n"
+"Once you have entered some transactions, visit the Chart and Budget views to "
+"see more."
+
+#: registerscreen.py:57
+msgid "Description"
+msgstr "Descripción"
+
+#: registerscreen.py:65
+msgid "Amount"
+msgstr "Cantidad"
+
+#: registerscreen.py:74
+msgid "Date"
+msgstr "Fecha"
