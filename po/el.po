@@ -1,0 +1,172 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-11-30 04:12+0000\n"
+"PO-Revision-Date: 2008-12-24 09:31-0500\n"
+"Last-Translator: Γιάννης Κασκαμανίδης <ttnfy17@yahoo.gr>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Pootle 1.1.0rc2\n"
+
+#: activity/activity.info:2 finance.py:86
+msgid "Finance"
+msgstr "Τα οικονομικά μου"
+
+#: chartscreen.py:34
+msgid ""
+"The Chart view shows the proportion of your expenses that is in each "
+"category.\n"
+"You can categorize transactions in the Register view."
+msgstr ""
+"Η προβολή του Διαγράμματος εμφανίζει το τμήμα των εξόδων που αντιστοιχεί σε "
+"κάθε κατηγορία.\n"
+"Μπορείς να κατηγοριοποιήσεις τις συναλλαγές σου στην προβολή Καταχώρηση."
+
+#: chartscreen.py:49
+msgid "Debit Categories"
+msgstr "Κατηγορίες χρεώσεων"
+
+#: finance.py:110 finance.py:227 finance.py:326 finance.py:407 finance.py:423
+#: finance.py:439
+msgid "Month"
+msgstr "Μήνας"
+
+#: finance.py:171
+msgid "Show Help"
+msgstr "Εμφάνιση βοήθειας"
+
+#: finance.py:181 registerscreen.py:196
+msgid "New Credit"
+msgstr "Νέα πίστωση"
+
+#: finance.py:186 registerscreen.py:207
+msgid "New Debit"
+msgstr "Νέα χρέωση"
+
+#: finance.py:191
+msgid "Erase Transaction"
+msgstr "Διαγραφή συναλλαγής"
+
+#: finance.py:220
+msgid "Period: "
+msgstr "Περίοδος: "
+
+#: finance.py:225 finance.py:320 finance.py:399 finance.py:417 finance.py:433
+#: budgetscreen.py:150 budgetscreen.py:171
+msgid "Day"
+msgstr "Ημέρα"
+
+#: finance.py:226 finance.py:323 finance.py:402 finance.py:420 finance.py:436
+#: budgetscreen.py:174
+msgid "Week"
+msgstr "Εβδομάδα"
+
+#: finance.py:228 finance.py:329 finance.py:410 finance.py:429 finance.py:445
+#: budgetscreen.py:177
+msgid "Year"
+msgstr "Έτος"
+
+#: finance.py:229 finance.py:332 finance.py:333 finance.py:380 finance.py:413
+#: finance.py:449 finance.py:454 finance.py:459 finance.py:472
+#: budgetscreen.py:150
+msgid "Forever"
+msgstr "Όλα"
+
+#: finance.py:245
+msgid "Register"
+msgstr "Καταχώρηση"
+
+#: finance.py:250 budgetscreen.py:80
+msgid "Budget"
+msgstr "Προϋπολογισμός"
+
+#: finance.py:255
+msgid "Chart"
+msgstr "Διάγραμμα"
+
+#: finance.py:265
+msgid "Transaction"
+msgstr "Συναλλαγή"
+
+#: finance.py:266
+msgid "Period"
+msgstr "Περίοδος"
+
+#: finance.py:267
+msgid "View"
+msgstr "Προβολή"
+
+#: finance.py:324
+msgid "Week of"
+msgstr "Εβδομάδα του"
+
+#: finance.py:370
+msgid "Balance: "
+msgstr "Υπόλοιπο: "
+
+#: finance.py:386
+msgid "Previous"
+msgstr "Προηγούμενη"
+
+#: finance.py:387
+msgid "This"
+msgstr "Αυτή"
+
+#: finance.py:388
+msgid "Next"
+msgstr "Επόμενη"
+
+#: budgetscreen.py:34
+msgid ""
+"The Budget view allows you to set a monthly budget for each expense "
+"category, and to keep track of your\n"
+"budgets.  To set a budget, type the amount in the box to the right of the "
+"category."
+msgstr ""
+"Η προβολή ισοζυγίου σου επιτρέπει να καθορίσεις τον μηνιαίο προϋπολογισμό "
+"για κάθε κατηγορία εξόδων και να παρακολουθείς τους\n"
+"τους προϋπολογισμούς σου.  Για να καθορίσεις έναν προϋπολογισμό, "
+"πληκτρολόγησε το ποσό στο πλαίσιο που βρίσκεται δεξιά της κατηγορίας."
+
+#: budgetscreen.py:76 registerscreen.py:84
+msgid "Category"
+msgstr "Κατηγορία"
+
+#: budgetscreen.py:78
+msgid "Spent"
+msgstr "Ξόδεψα"
+
+#: registerscreen.py:34
+msgid ""
+"<b>Welcome to Finance!</b>   This activity keeps track of income and "
+"expenses for anything that earns\n"
+"or spends money, like a school club.  To get started, use the Transaction "
+"box to add credits and debits.\n"
+"Once you have entered some transactions, visit the Chart and Budget views to "
+"see more."
+msgstr ""
+"<b>Καλωσήρθατε στα Οικονομικά μου!</b>   Με αυτή τη δραστηριότητα μπορείτε "
+"να παρακολουθείτε τα έσοδα και τα έξοδά σας\n"
+"Για να ξεκινήσετε, χρησιμοποιήστε το πλαίσιο Συναλλαγές για να προσθέσετε "
+"πιστώσεις ή χρεώσεις.\n"
+"Αφού έχετε καταχωρίσει μερικές συναλλαγές, επισκεφθείτε το Διάγραμμα και τον "
+"Προϋπολογισμό για να δείτε περισσότερα."
+
+#: registerscreen.py:57
+msgid "Description"
+msgstr "Περιγραφή"
+
+#: registerscreen.py:65
+msgid "Amount"
+msgstr "Ποσό"
+
+#: registerscreen.py:74
+msgid "Date"
+msgstr "Ημερομηνία"
