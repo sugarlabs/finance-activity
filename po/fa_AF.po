@@ -1,0 +1,169 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-11-30 04:12+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Translate Toolkit 1.1.1rc4\n"
+
+#: activity/activity.info:2 finance.py:86
+msgid "Finance"
+msgstr "مالی"
+
+#: chartscreen.py:34
+msgid ""
+"The Chart view shows the proportion of your expenses that is in each "
+"category.\n"
+"You can categorize transactions in the Register view."
+msgstr ""
+"چارت نما تناسب مصارف شمارا نشان میدهد که درهرنموداراست / شما میتوانید که "
+"انجام یا معامله را درلیست ثبت طبقه بندی کنید"
+
+#: chartscreen.py:49
+msgid "Debit Categories"
+msgstr "طبقه بندی مصرف"
+
+#: finance.py:110 finance.py:227 finance.py:326 finance.py:407 finance.py:423
+#: finance.py:439
+msgid "Month"
+msgstr "ماه "
+
+#: finance.py:171
+msgid "Show Help"
+msgstr "کمک را نشان بده"
+
+#: finance.py:181 registerscreen.py:196
+msgid "New Credit"
+msgstr "کریدیت جدید"
+
+#: finance.py:186 registerscreen.py:207
+msgid "New Debit"
+msgstr "مصرف جدید"
+
+#: finance.py:191
+msgid "Erase Transaction"
+msgstr "پاک کردن معامله"
+
+#: finance.py:220
+msgid "Period: "
+msgstr "دوره "
+
+#: finance.py:225 finance.py:320 finance.py:399 finance.py:417 finance.py:433
+#: budgetscreen.py:150 budgetscreen.py:171
+msgid "Day"
+msgstr "روز"
+
+#: finance.py:226 finance.py:323 finance.py:402 finance.py:420 finance.py:436
+#: budgetscreen.py:174
+msgid "Week"
+msgstr "هفته"
+
+#: finance.py:228 finance.py:329 finance.py:410 finance.py:429 finance.py:445
+#: budgetscreen.py:177
+msgid "Year"
+msgstr "سال"
+
+#: finance.py:229 finance.py:332 finance.py:333 finance.py:380 finance.py:413
+#: finance.py:449 finance.py:454 finance.py:459 finance.py:472
+#: budgetscreen.py:150
+msgid "Forever"
+msgstr "برای همیشه"
+
+#: finance.py:245
+msgid "Register"
+msgstr "ثبت نام کردن"
+
+#: finance.py:250 budgetscreen.py:80
+msgid "Budget"
+msgstr "بودجه"
+
+#: finance.py:255
+msgid "Chart"
+msgstr "نقشه یا نمودار"
+
+#: finance.py:265
+msgid "Transaction"
+msgstr "معامله"
+
+#: finance.py:266
+msgid "Period"
+msgstr "دوره"
+
+#: finance.py:267
+msgid "View"
+msgstr "نمایش"
+
+#: finance.py:324
+msgid "Week of"
+msgstr "هفته از"
+
+#: finance.py:370
+msgid "Balance: "
+msgstr "توازن "
+
+#: finance.py:386
+msgid "Previous"
+msgstr "قبلی"
+
+#: finance.py:387
+msgid "This"
+msgstr "این"
+
+#: finance.py:388
+msgid "Next"
+msgstr "بعدی"
+
+#: budgetscreen.py:34
+msgid ""
+"The Budget view allows you to set a monthly budget for each expense "
+"category, and to keep track of your\n"
+"budgets.  To set a budget, type the amount in the box to the right of the "
+"category."
+msgstr ""
+" نمایش بودجه به شما اجازه میدهد که برای هرطبقه بندی مصرف یک بودجه ماهانه را "
+"مستقرسازید که بتوانید بودجه تان را پی گیری نمایید  برای مستقرساختن یک بودجه "
+"مقداررا دربکس وبه قسمت راست طبقه تایپ کیند"
+
+#: budgetscreen.py:76 registerscreen.py:84
+msgid "Category"
+msgstr "طبقه"
+
+#: budgetscreen.py:78
+msgid "Spent"
+msgstr "مصرف کردن"
+
+#: registerscreen.py:34
+msgid ""
+"<b>Welcome to Finance!</b>   This activity keeps track of income and "
+"expenses for anything that earns\n"
+"or spends money, like a school club.  To get started, use the Transaction "
+"box to add credits and debits.\n"
+"Once you have entered some transactions, visit the Chart and Budget views to "
+"see more."
+msgstr ""
+" به فایننس خوش آمدید/ این فعالیت پی گیری درآمدومصارف را برای هرچیزی که "
+"اندوخته شده است نگهداری میکند ودیگرپول را مصرف میکند مانند یک کلپ مکتب  برای "
+"شروع کردن بکس معامله را استفاده کنید تا بتوانید که کریدت ومصرف را اضافه "
+"نمایید /یکبار شما بعضی معامله را داخل کرده ایید نقشه وبودجه را ببینید با "
+"بیشتر ببینید"
+
+#: registerscreen.py:57
+msgid "Description"
+msgstr "تعریف"
+
+#: registerscreen.py:65
+msgid "Amount"
+msgstr "مقدار"
+
+#: registerscreen.py:74
+msgid "Date"
+msgstr "تاریخ"
