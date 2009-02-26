@@ -1,6 +1,6 @@
 [Activity]
 name = Finance
-activity_version = 1
+activity_version = 2
 host_version = 1
 service_name = org.laptop.community.Finance
 icon = Finance-activity
