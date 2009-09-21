@@ -7,16 +7,17 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-11-30 04:12+0000\n"
-"PO-Revision-Date: 2009-01-03 15:44-0500\n"
-"Last-Translator: Maria Gonzalez <maclau1013@hotmail.com>\n"
+"PO-Revision-Date: 2009-06-16 16:39-0400\n"
+"Last-Translator: david jimenez <undotgiven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Pootle 1.1.0rc2\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 1.2.1\n"
 
 #: activity/activity.info:2 finance.py:86
-#, fuzzy
 msgid "Finance"
 msgstr "Finanzas"
 
@@ -81,7 +82,6 @@ msgid "Forever"
 msgstr "Para siempre"
 
 #: finance.py:245
-#, fuzzy
 msgid "Register"
 msgstr "Registrar"
 
@@ -118,7 +118,6 @@ msgid "Previous"
 msgstr "Anterior"
 
 #: finance.py:387
-#, fuzzy
 msgid "This"
 msgstr "Esto"
 
