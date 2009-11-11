@@ -7,18 +7,19 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-11-30 04:12+0000\n"
-"PO-Revision-Date: 2009-01-10 02:25-0500\n"
-"Last-Translator: Cecile Wyler <cecile.r@bluewin.ch>\n"
+"PO-Revision-Date: 2009-11-11 00:53-0400\n"
+"Last-Translator: samy boutayeb <s.boutayeb@free.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Pootle 1.1.0rc2\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Pootle 1.2.1\n"
 
 #: activity/activity.info:2 finance.py:86
-#, fuzzy
 msgid "Finance"
-msgstr "Finances"
+msgstr "Finance"
 
 #: chartscreen.py:34
 msgid ""
@@ -52,7 +53,6 @@ msgid "New Debit"
 msgstr "Nouveau débit"
 
 #: finance.py:191
-#, fuzzy
 msgid "Erase Transaction"
 msgstr "Effacer la transaction"
 
@@ -82,16 +82,14 @@ msgid "Forever"
 msgstr "Toujours"
 
 #: finance.py:245
-#, fuzzy
 msgid "Register"
-msgstr "Registre"
+msgstr "Enregistrer"
 
 #: finance.py:250 budgetscreen.py:80
 msgid "Budget"
 msgstr "Budget"
 
 #: finance.py:255
-#, fuzzy
 msgid "Chart"
 msgstr "Graphique"
 
@@ -122,7 +120,7 @@ msgstr "Précédent"
 #: finance.py:387
 #, fuzzy
 msgid "This"
-msgstr "Ce"
+msgstr "Ceci"
 
 #: finance.py:388
 msgid "Next"
