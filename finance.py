@@ -17,8 +17,10 @@
 """Finance - Home financial software for the OLPC XO."""
 
 # Import standard Python modules.
-import logging, os, math, time, copy, json, time, datetime, locale
+import logging, os, math, time, copy, time, datetime, locale
 from gettext import gettext as _
+
+from port import json
 
 # Set up localization.
 locale.setlocale(locale.LC_ALL, '')
@@ -654,7 +656,7 @@ class Finance(sugar.activity.activity.Activity):
         fd = open(file_path, 'r')
         try:
             text = fd.read()
-            self.data = json.read(text)
+            self.data = json.loads(text)
         finally:
             fd.close()
 
@@ -668,7 +670,7 @@ class Finance(sugar.activity.activity.Activity):
 
         fd = open(file_path, 'w')
         try:
-            text = json.write(self.data)
+            text = json.dumps(self.data)
             fd.write(text)
         finally:
             fd.close()

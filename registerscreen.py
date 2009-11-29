@@ -15,7 +15,7 @@
 # along with Finance.  If not, see <http://www.gnu.org/licenses/>.
 
 # Import standard Python modules.
-import logging, os, math, time, copy, json, time, datetime, locale
+import logging, os, math, time, copy, time, datetime, locale
 from gettext import gettext as _
 
 # Set up localization.
