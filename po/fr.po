@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-11-30 04:12+0000\n"
-"PO-Revision-Date: 2009-11-11 00:53-0400\n"
+"PO-Revision-Date: 2010-02-24 23:39+0200\n"
 "Last-Translator: samy boutayeb <s.boutayeb@free.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Pootle 1.2.1\n"
+"X-Generator: Pootle 2.0.1\n"
 
 #: activity/activity.info:2 finance.py:86
 msgid "Finance"
@@ -58,7 +58,7 @@ msgstr "Effacer la transaction"
 
 #: finance.py:220
 msgid "Period: "
-msgstr "Période:"
+msgstr "Période : "
 
 #: finance.py:225 finance.py:320 finance.py:399 finance.py:417 finance.py:433
 #: budgetscreen.py:150 budgetscreen.py:171
@@ -111,14 +111,13 @@ msgstr "Semaine de"
 
 #: finance.py:370
 msgid "Balance: "
-msgstr "Solde:"
+msgstr "Solde: "
 
 #: finance.py:386
 msgid "Previous"
 msgstr "Précédent"
 
 #: finance.py:387
-#, fuzzy
 msgid "This"
 msgstr "Ceci"
 
@@ -135,7 +134,7 @@ msgid ""
 msgstr ""
 "La vue Budget vous permet d'établir un budget mensuel pour chaque catégorie "
 "de dépenses et de garder la trace de vos\n"
-" budgets. Pour établir un budget, tapez le montant dans la case à droite de "
+" budgets.  Pour établir un budget, tapez le montant dans la case à droite de "
 "la catégorie."
 
 #: budgetscreen.py:76 registerscreen.py:84
@@ -157,7 +156,7 @@ msgid ""
 msgstr ""
 "<b>Bienvenue à Finance!</b> Cette activité garde la trace de vos recettes et "
 "de vos dépenses pour tout ce qui rapporte ou dépense de l'argent, comme un "
-"club scolaire. Pour commencer, utilisez la case Transaction afin d'ajouter "
+"club scolaire.  Pour commencer, utilisez la case Transaction afin d'ajouter "
 "des crédits et des débits.Une fois que vous aurez entré quelques "
 "transaction, allez sur les vues Graphique et Budget pour en voir plus."
 
