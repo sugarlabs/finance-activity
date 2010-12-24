@@ -2,20 +2,72 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-11-30 04:12+0000\n"
-"PO-Revision-Date: 2009-06-16 16:39-0400\n"
-"Last-Translator: david jimenez <undotgiven@gmail.com>\n"
+"PO-Revision-Date: 2010-02-12 07:57+0200\n"
+"Last-Translator: Chris <cjl@laptop.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 1.2.1\n"
+"X-Generator: Pootle 2.0.1\n"
 
 #: activity/activity.info:2 finance.py:86
 msgid "Finance"
@@ -29,7 +81,7 @@ msgid ""
 msgstr ""
 "La Vista de Gráfica muestra la proporción de sus gastos que está en cada "
 "categoría.\n"
-"Usted puede categorizar las transacciones en la Vista de Registro"
+"Usted puede categorizar las transacciones en la Vista de Registro."
 
 #: chartscreen.py:49
 msgid "Debit Categories"
@@ -111,7 +163,7 @@ msgstr "Semana de"
 
 #: finance.py:370
 msgid "Balance: "
-msgstr "Balance:"
+msgstr "Balance: "
 
 #: finance.py:386
 msgid "Previous"
@@ -134,8 +186,8 @@ msgid ""
 msgstr ""
 "La Vista de Presupuesto te permite establecer un presupuesto mensual para "
 "cada categoría de gasto, y hacer seguimiento de tus\n"
-"presupuestos. Para establecer un presupuesto, escribe la cantidad en la caja "
-"a la derecha de la categoría."
+"presupuestos.  Para establecer un presupuesto, escribe la cantidad en la "
+"caja a la derecha de la categoría."
 
 #: budgetscreen.py:76 registerscreen.py:84
 msgid "Category"
@@ -154,9 +206,9 @@ msgid ""
 "Once you have entered some transactions, visit the Chart and Budget views to "
 "see more."
 msgstr ""
-"<b>¡Bienvenido a Finanzas!</b> Esta actividad guarda el histórico de los "
+"<b>¡Bienvenido a Finanzas!</b>   Esta actividad guarda el histórico de los "
 "ingresos y los gastos para cualquieer cosa que gana\n"
-"o gasta dinero, como un club escolar. Para comenzar, usa la caja de "
+"o gasta dinero, como un club escolar.  Para comenzar, usa la caja de "
 "Transaccion para agregar créditos y débitos.\n"
 "Once you have entered some transactions, visit the Chart and Budget views to "
 "see more."
