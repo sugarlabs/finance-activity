@@ -2,6 +2,42 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #, fuzzy
 msgid ""
 msgstr ""
@@ -18,7 +54,7 @@ msgstr ""
 
 #: activity/activity.info:2 finance.py:86
 msgid "Finance"
-msgstr ""
+msgstr "Finance"
 
 #: chartscreen.py:34
 msgid ""
@@ -26,100 +62,103 @@ msgid ""
 "category.\n"
 "You can categorize transactions in the Register view."
 msgstr ""
+"The Chart view shows the proportion of your expenses that is in each "
+"category.\n"
+"You can categorize transactions in the Register view."
 
 #: chartscreen.py:49
 msgid "Debit Categories"
-msgstr ""
+msgstr "Debit Categories"
 
 #: finance.py:110 finance.py:227 finance.py:326 finance.py:407 finance.py:423
 #: finance.py:439
 msgid "Month"
-msgstr ""
+msgstr "Month"
 
 #: finance.py:171
 msgid "Show Help"
-msgstr ""
+msgstr "Show Help"
 
 #: finance.py:181 registerscreen.py:196
 msgid "New Credit"
-msgstr ""
+msgstr "New Credit"
 
 #: finance.py:186 registerscreen.py:207
 msgid "New Debit"
-msgstr ""
+msgstr "New Debit"
 
 #: finance.py:191
 msgid "Erase Transaction"
-msgstr ""
+msgstr "Erase Transaction"
 
 #: finance.py:220
 msgid "Period: "
-msgstr ""
+msgstr "Period: "
 
 #: finance.py:225 finance.py:320 finance.py:399 finance.py:417 finance.py:433
 #: budgetscreen.py:150 budgetscreen.py:171
 msgid "Day"
-msgstr ""
+msgstr "Day"
 
 #: finance.py:226 finance.py:323 finance.py:402 finance.py:420 finance.py:436
 #: budgetscreen.py:174
 msgid "Week"
-msgstr ""
+msgstr "Week"
 
 #: finance.py:228 finance.py:329 finance.py:410 finance.py:429 finance.py:445
 #: budgetscreen.py:177
 msgid "Year"
-msgstr ""
+msgstr "Year"
 
 #: finance.py:229 finance.py:332 finance.py:333 finance.py:380 finance.py:413
 #: finance.py:449 finance.py:454 finance.py:459 finance.py:472
 #: budgetscreen.py:150
 msgid "Forever"
-msgstr ""
+msgstr "Forever"
 
 #: finance.py:245
 msgid "Register"
-msgstr ""
+msgstr "Register"
 
 #: finance.py:250 budgetscreen.py:80
 msgid "Budget"
-msgstr ""
+msgstr "Budget"
 
 #: finance.py:255
 msgid "Chart"
-msgstr ""
+msgstr "Chart"
 
 #: finance.py:265
 msgid "Transaction"
-msgstr ""
+msgstr "Transaction"
 
 #: finance.py:266
 msgid "Period"
-msgstr ""
+msgstr "Period"
 
 #: finance.py:267
 msgid "View"
-msgstr ""
+msgstr "View"
 
 #: finance.py:324
 msgid "Week of"
-msgstr ""
+msgstr "Week of"
 
 #: finance.py:370
 msgid "Balance: "
-msgstr ""
+msgstr "Balance: "
 
 #: finance.py:386
 msgid "Previous"
-msgstr ""
+msgstr "Previous"
 
 #: finance.py:387
 msgid "This"
-msgstr ""
+msgstr "This"
 
 #: finance.py:388
 msgid "Next"
-msgstr ""
+msgstr "Next"
 
 #: budgetscreen.py:34
 msgid ""
@@ -128,14 +167,18 @@ msgid ""
 "budgets.  To set a budget, type the amount in the box to the right of the "
 "category."
 msgstr ""
+"The Budget view allows you to set a monthly budget for each expense "
+"category, and to keep track of your\n"
+"budgets.  To set a budget, type the amount in the box to the right of the "
+"category."
 
 #: budgetscreen.py:76 registerscreen.py:84
 msgid "Category"
-msgstr ""
+msgstr "Category"
 
 #: budgetscreen.py:78
 msgid "Spent"
-msgstr ""
+msgstr "Spent"
 
 #: registerscreen.py:34
 msgid ""
@@ -146,15 +189,21 @@ msgid ""
 "Once you have entered some transactions, visit the Chart and Budget views to "
 "see more."
 msgstr ""
+"<b>Welcome to Finance!</b>   This activity keeps track of income and "
+"expenses for anything that earns\n"
+"or spends money, like a school club.  To get started, use the Transaction "
+"box to add credits and debits.\n"
+"Once you have entered some transactions, visit the Chart and Budget views to "
+"see more."
 
 #: registerscreen.py:57
 msgid "Description"
-msgstr ""
+msgstr "Description"
 
 #: registerscreen.py:65
 msgid "Amount"
-msgstr ""
+msgstr "Amount"
 
 #: registerscreen.py:74
 msgid "Date"
-msgstr ""
+msgstr "Date"
