@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [
+  <!ENTITY fill_color "#FFFFFF">
+  <!ENTITY stroke_color "#010101">
+]>
+<svg
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.1"
+   width="55"
+   height="55"
+   viewBox="0 0 55 55"
+   id="svg2"
+   xml:space="preserve"><rect
+     width="28.067122"
+     height="8.0039997"
+     x="23.692928"
+     y="-33.492767"
+     transform="scale(1,-1)"
+     id="rect7-8"
+     style="fill:#808284;stroke:&fill_color;;stroke-width:2.5;stroke-miterlimit:4;stroke-dasharray:none" /><rect
+     width="28.067122"
+     height="7.9920001"
+     x="23.692928"
+     y="33.492771"
+     id="rect9-8"
+     style="fill:none;stroke:&fill_color;;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:2.00000003, 2.00000003;stroke-dashoffset:0.80000001" /><rect
+     width="28.067122"
+     height="8.0039997"
+     x="23.692928"
+     y="41.483768"
+     id="rect11-6"
+     style="fill:#808284;stroke:&fill_color;;stroke-width:2.5;stroke-miterlimit:4;stroke-dasharray:none" /><g
+     transform="translate(4.2928405,9.889769)"
+     id="g13"><line
+       x1="7.0630002"
+       x2="7.0630002"
+       y1="27.851999"
+       y2="40.015999"
+       id="line15-8"
+       style="fill:none;stroke:&fill_color;;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round" /><polyline
+       points="     1.934,33.936 7.063,27.852 12.194,33.936    "
+       id="polyline17-3"
+       style="fill:none;stroke:&fill_color;;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round" /></g></svg>

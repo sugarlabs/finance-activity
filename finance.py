@@ -30,8 +30,20 @@ import gobject, pygtk, gtk, pango, cairo
 
 # Import Sugar UI modules.
 import sugar.activity.activity
-from sugar.graphics import toggletoolbutton
+from sugar.graphics.toggletoolbutton import ToggleToolButton
+from sugar.graphics.toolbutton import ToolButton
+from sugar.graphics.toolcombobox import ToolComboBox
 from sugar.graphics import *
+
+OLD_TOOLBAR = False
+try:
+    from sugar.graphics.toolbarbox import ToolbarBox
+    from sugar.graphics.toolbarbox import ToolbarButton
+    from sugar.graphics.radiotoolbutton import RadioToolButton
+    from sugar.activity.widgets import StopButton
+    from sugar.activity.widgets import ActivityToolbarButton
+except ImportError:
+    OLD_TOOLBAR = True
 
 # Initialize logging.
 log = logging.getLogger('Finance')
@@ -164,54 +176,42 @@ class Finance(sugar.activity.activity.Activity):
 
         self.show_all()
 
-        # Hide the sharing button from the activity toolbar since we don't support it.
-        activity_toolbar = self.tbox.get_activity_toolbar()
-        activity_toolbar.share.props.visible = False
-
-        self.helpbtn = sugar.graphics.toggletoolbutton.ToggleToolButton('help')
-        self.helpbtn.set_active(True)
-        self.helpbtn.set_tooltip(_("Show Help"))
-        #self.helpbtn.props.accelerator = '<Ctrl>H'
-        self.helpbtn.connect('clicked', self.help_cb)
-
-        share_idx = activity_toolbar.get_item_index(activity_toolbar.share) 
-        activity_toolbar.insert(self.helpbtn, share_idx)
-        self.helpbtn.show_all()
+        if OLD_TOOLBAR:
+            # Hide the sharing button from the activity toolbar since
+            # we don't support it.
+            activity_toolbar = self.tbox.get_activity_toolbar()
+            activity_toolbar.share.props.visible = False
 
     def build_toolbox(self):
-        self.newcreditbtn = sugar.graphics.toolbutton.ToolButton('list-add')
+        self.newcreditbtn = ToolButton('row-insert-credit')
         self.newcreditbtn.set_tooltip(_("New Credit"))
         self.newcreditbtn.props.accelerator = '<Ctrl>A'
         self.newcreditbtn.connect('clicked', self.register.newcredit_cb)
 
-        self.newdebitbtn = sugar.graphics.toolbutton.ToolButton('list-remove')
+        self.newdebitbtn = ToolButton('row-insert-debit')
         self.newdebitbtn.set_tooltip(_("New Debit"))
         self.newdebitbtn.props.accelerator = '<Ctrl>D'
         self.newdebitbtn.connect('clicked', self.register.newdebit_cb)
 
-        self.eraseitembtn = sugar.graphics.toolbutton.ToolButton('dialog-cancel')
+        self.eraseitembtn = ToolButton('row-remove-transaction')
         self.eraseitembtn.set_tooltip(_("Erase Transaction"))
         self.eraseitembtn.props.accelerator = '<Ctrl>E'
         self.eraseitembtn.connect('clicked', self.register.eraseitem_cb)
-
-        #sep = gtk.SeparatorToolItem()
-        #sep.set_expand(True)
-        #sep.set_draw(False)
 
         transactionbar = gtk.Toolbar()
         transactionbar.insert(self.newcreditbtn, -1)
         transactionbar.insert(self.newdebitbtn, -1)
         transactionbar.insert(self.eraseitembtn, -1)
  
-        self.thisperiodbtn = sugar.graphics.toolbutton.ToolButton('go-down')
+        self.thisperiodbtn = ToolButton('go-down')
         self.thisperiodbtn.props.accelerator = '<Ctrl>Down'
         self.thisperiodbtn.connect('clicked', self.thisperiod_cb)
 
-        self.prevperiodbtn = sugar.graphics.toolbutton.ToolButton('go-previous')
+        self.prevperiodbtn = ToolButton('go-previous-paired')
         self.prevperiodbtn.props.accelerator = '<Ctrl>Left'
         self.prevperiodbtn.connect('clicked', self.prevperiod_cb)
 
-        self.nextperiodbtn = sugar.graphics.toolbutton.ToolButton('go-next')
+        self.nextperiodbtn = ToolButton('go-next-paired')
         self.nextperiodbtn.props.accelerator = '<Ctrl>Right'
         self.nextperiodbtn.connect('clicked', self.nextperiod_cb)
 
@@ -232,29 +232,31 @@ class Finance(sugar.activity.activity.Activity):
         periodcombo.set_active(2)
         periodcombo.connect('changed', self.period_changed_cb)
 
-        perioditem = gtk.ToolItem()
-        perioditem.add(periodcombo)
+        perioditem = ToolComboBox(periodcombo)
 
-        periodbar = gtk.Toolbar()
-        periodbar.insert(self.prevperiodbtn, -1)
-        periodbar.insert(self.thisperiodbtn, -1)
-        periodbar.insert(self.nextperiodbtn, -1)
-        periodbar.insert(periodsep, -1)
-        periodbar.insert(periodlabelitem, -1)
-        periodbar.insert(perioditem, -1)
-
-        registerbtn = sugar.graphics.toolbutton.ToolButton('view-list')
+        view_tool_group = None
+        registerbtn = RadioToolButton()
+        registerbtn.props.icon_name = 'view-list'
+        registerbtn.props.label = _('Register')
         registerbtn.set_tooltip(_("Register"))
+        registerbtn.props.group = view_tool_group
+        view_tool_group = registerbtn
         registerbtn.props.accelerator = '<Ctrl>1'
         registerbtn.connect('clicked', self.register_cb)
 
-        budgetbtn = sugar.graphics.toolbutton.ToolButton('view-triangle')
+        budgetbtn = RadioToolButton()
+        budgetbtn.props.icon_name = 'budget'
+        budgetbtn.props.label = _('Budget')
         budgetbtn.set_tooltip(_("Budget"))
+        budgetbtn.props.group = view_tool_group
         budgetbtn.props.accelerator = '<Ctrl>2'
         budgetbtn.connect('clicked', self.budget_cb)
 
-        chartbtn = sugar.graphics.toolbutton.ToolButton('view-radial')
+        chartbtn = RadioToolButton()
+        chartbtn.props.icon_name = 'chart'
+        chartbtn.props.label = _('Chart')
         chartbtn.set_tooltip(_("Chart"))
+        chartbtn.props.group = view_tool_group
         chartbtn.props.accelerator = '<Ctrl>3'
         chartbtn.connect('clicked', self.chart_cb)
 
@@ -263,13 +265,77 @@ class Finance(sugar.activity.activity.Activity):
         viewbar.insert(budgetbtn, -1)
         viewbar.insert(chartbtn, -1)
 
-        self.tbox = sugar.activity.activity.ActivityToolbox(self)
-        self.tbox.add_toolbar(_('Transaction'), transactionbar)
-        self.tbox.add_toolbar(_('Period'), periodbar)
-        self.tbox.add_toolbar(_('View'), viewbar)
-        self.tbox.show_all()
+        helpbtn = ToggleToolButton('help')
+        helpbtn.set_active(True)
+        helpbtn.set_tooltip(_("Show Help"))
+        helpbtn.connect('clicked', self.help_cb)
 
-        self.set_toolbox(self.tbox)
+        if OLD_TOOLBAR:
+            periodbar = gtk.Toolbar()
+            periodbar.insert(self.prevperiodbtn, -1)
+            periodbar.insert(self.nextperiodbtn, -1)
+            periodbar.insert(self.thisperiodbtn, -1)
+            periodbar.insert(periodsep, -1)
+            periodbar.insert(periodlabelitem, -1)
+            periodbar.insert(perioditem, -1)
+
+            self.tbox = sugar.activity.activity.ActivityToolbox(self)
+            self.tbox.add_toolbar(_('Transaction'), transactionbar)
+            self.tbox.add_toolbar(_('Period'), periodbar)
+            self.tbox.add_toolbar(_('View'), viewbar)
+            self.tbox.show_all()
+
+            # Add help button in place of share:
+            activity_toolbar = self.tbox.get_activity_toolbar()
+            share_idx = activity_toolbar.get_item_index(activity_toolbar.share)
+            activity_toolbar.insert(helpbtn, share_idx)
+            helpbtn.show_all()
+
+            self.set_toolbox(self.tbox)
+
+        else:
+            self.toolbar_box = ToolbarBox()
+
+            activity_button = ActivityToolbarButton(self)
+            self.toolbar_box.toolbar.insert(activity_button, 0)
+            activity_button.show()
+
+            transaction_toolbar_button = ToolbarButton(
+                    page=transactionbar,
+                    icon_name='transaction')
+            transactionbar.show_all()
+
+            view_toolbar_button = ToolbarButton(
+                    page=viewbar,
+                    icon_name='toolbar-view')
+            viewbar.show_all()
+
+            self.toolbar_box.toolbar.insert(transaction_toolbar_button, -1)
+            transaction_toolbar_button.show()
+
+            self.toolbar_box.toolbar.view = view_toolbar_button
+            self.toolbar_box.toolbar.insert(view_toolbar_button, -1)
+            view_toolbar_button.show()
+
+            separator = gtk.SeparatorToolItem()
+            separator.set_draw(True)
+            self.toolbar_box.toolbar.insert(separator, -1)
+
+            self.toolbar_box.toolbar.insert(periodlabelitem, -1)
+            self.toolbar_box.toolbar.insert(perioditem, -1)
+            self.toolbar_box.toolbar.insert(self.prevperiodbtn, -1)
+            self.toolbar_box.toolbar.insert(self.nextperiodbtn, -1)
+            self.toolbar_box.toolbar.insert(self.thisperiodbtn, -1)
+
+            separator = gtk.SeparatorToolItem()
+            separator.props.draw = False
+            separator.set_expand(True)
+            self.toolbar_box.toolbar.insert(separator, -1)
+
+            self.toolbar_box.toolbar.insert(helpbtn, -1)
+            self.toolbar_box.toolbar.insert(StopButton(self), -1)
+            self.set_toolbar_box(self.toolbar_box)
+            self.toolbar_box.show_all()
 
     def set_help(self, text):
         if self.helplabel != None:
