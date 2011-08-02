@@ -2,6 +2,6 @@
 name = Finance
 activity_version = 3
 host_version = 1
-service_name = org.laptop.community.Finance
+bundle_id = org.laptop.community.Finance
 icon = Finance-activity
 exec = sugar-activity finance.Finance
