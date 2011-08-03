@@ -1,6 +1,6 @@
 [Activity]
 name = Finance
-activity_version = 4
+activity_version = 5
 host_version = 1
 bundle_id = org.laptop.community.Finance
 icon = Finance-activity
