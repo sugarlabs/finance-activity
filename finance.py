@@ -98,6 +98,7 @@ class Finance(sugar.activity.activity.Activity):
     def __init__ (self, handle):
         sugar.activity.activity.Activity.__init__(self, handle)
         self.set_title(_("Finance"))
+        self.max_participants = 1
 
         # Initialize database.
         # data
