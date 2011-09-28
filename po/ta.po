@@ -22,150 +22,32 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-11-30 04:12+0000\n"
-"PO-Revision-Date: 2009-05-20 07:15-0400\n"
-"Last-Translator: Raveendra Ignatious Rajendram "
-"<raveendra_rajendram@yahoo.co.uk>\n"
+"POT-Creation-Date: 2011-08-08 08:54-0300\n"
+"PO-Revision-Date: 2011-07-03 14:37+0200\n"
+"Last-Translator: Chris <cjl@laptop.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: ta\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 1.2.1\n"
+"X-Generator: Pootle 2.0.1\n"
 
-#: activity/activity.info:2 finance.py:86
+#: activity/activity.info:2 finance.py:100
 msgid "Finance"
 msgstr "நிதி"
-
-#: chartscreen.py:34
-msgid ""
-"The Chart view shows the proportion of your expenses that is in each "
-"category.\n"
-"You can categorize transactions in the Register view."
-msgstr ""
-"உங்களின் ஒவ்வொரு வகையான செலவினங்களிள அளவீடுகள் வரை படத்தில் "
-"காட்டப்படுகின்றது. \n"
-" நீங்கள் பதிவீட்டுப்பார்வையில் உங்கள் கொடுக்கல் வாங்கல்களை வகைப்படுத்தலாம்"
-
-#: chartscreen.py:49
-msgid "Debit Categories"
-msgstr "செலவீன வகைகள்"
-
-#: finance.py:110 finance.py:227 finance.py:326 finance.py:407 finance.py:423
-#: finance.py:439
-msgid "Month"
-msgstr "மாதம்"
-
-#: finance.py:171
-msgid "Show Help"
-msgstr "உதவியைக் காட்டு"
-
-#: finance.py:181 registerscreen.py:196
-msgid "New Credit"
-msgstr "புதிய கடன்"
-
-#: finance.py:186 registerscreen.py:207
-msgid "New Debit"
-msgstr "புதிய செலவு"
-
-#: finance.py:191
-msgid "Erase Transaction"
-msgstr "கொடுக்கல் வாங்கல்களை அழி"
-
-#: finance.py:220
-msgid "Period: "
-msgstr "காலம்"
-
-#: finance.py:225 finance.py:320 finance.py:399 finance.py:417 finance.py:433
-#: budgetscreen.py:150 budgetscreen.py:171
-msgid "Day"
-msgstr "நாள்"
-
-#: finance.py:226 finance.py:323 finance.py:402 finance.py:420 finance.py:436
-#: budgetscreen.py:174
-msgid "Week"
-msgstr "வாரம்"
-
-#: finance.py:228 finance.py:329 finance.py:410 finance.py:429 finance.py:445
-#: budgetscreen.py:177
-msgid "Year"
-msgstr "வருடம்"
-
-#: finance.py:229 finance.py:332 finance.py:333 finance.py:380 finance.py:413
-#: finance.py:449 finance.py:454 finance.py:459 finance.py:472
-#: budgetscreen.py:150
-msgid "Forever"
-msgstr "எந்நாளும்"
-
-#: finance.py:245
-msgid "Register"
-msgstr "பதிவு செய்"
-
-#: finance.py:250 budgetscreen.py:80
-msgid "Budget"
-msgstr "வரவு செலவுத்திட்டம்"
-
-#: finance.py:255
-msgid "Chart"
-msgstr "வரைபடம்"
-
-#: finance.py:265
-msgid "Transaction"
-msgstr "கொடுக்கல் வாங்கல்"
-
-#: finance.py:266
-msgid "Period"
-msgstr "காலம்"
-
-#: finance.py:267
-msgid "View"
-msgstr "பார்வை"
-
-#: finance.py:324
-msgid "Week of"
-msgstr "வது கிழமை"
-
-#: finance.py:370
-msgid "Balance: "
-msgstr "பலப்படுத்து"
-
-#: finance.py:386
-msgid "Previous"
-msgstr "முந்தைய"
-
-#: finance.py:387
-msgid "This"
-msgstr "இந்த"
-
-#: finance.py:388
-msgid "Next"
-msgstr "அடுத்த"
-
-#: budgetscreen.py:34
-msgid ""
-"The Budget view allows you to set a monthly budget for each expense "
-"category, and to keep track of your\n"
-"budgets.  To set a budget, type the amount in the box to the right of the "
-"category."
-msgstr ""
-"வரவு செலவுத் திட்டப் பார்வை ஒவ்வொரு மாதத்திற்குமான ஒவ்வொரு வகை வரவு செலவுத் "
-"திட்டத்தினைத் தயார் பண்ணுவதற்கும், உங்கள் \n"
-" வரவு செலவுத் திட்டத்தின் தடத்தினை வைத்திருக்கவும் உதவும். வரவு செலவுத் "
-"திட்டத்தினைத் தயார் பண்ணுவதற்கு வகையின் இடது பக்கத்திலுள்ள பெட்டிக்குள் "
-"உள்ளீடு செய்யுங்கள்."
-
-#: budgetscreen.py:76 registerscreen.py:84
-msgid "Category"
-msgstr "பிரிவு"
-
-#: budgetscreen.py:78
-msgid "Spent"
-msgstr "செலவளி"
 
 #: registerscreen.py:34
 msgid ""
@@ -194,3 +76,128 @@ msgstr "தொகை"
 #: registerscreen.py:74
 msgid "Date"
 msgstr "திகதி"
+
+#: registerscreen.py:84 budgetscreen.py:76
+msgid "Category"
+msgstr "பிரிவு"
+
+#: registerscreen.py:196 finance.py:188
+msgid "New Credit"
+msgstr "புதிய கடன்"
+
+#: registerscreen.py:207 finance.py:193
+msgid "New Debit"
+msgstr "புதிய செலவு"
+
+#: chartscreen.py:34
+msgid ""
+"The Chart view shows the proportion of your expenses that is in each "
+"category.\n"
+"You can categorize transactions in the Register view."
+msgstr ""
+"உங்களின் ஒவ்வொரு வகையான செலவினங்களிள அளவீடுகள் வரை படத்தில் "
+"காட்டப்படுகின்றது. \n"
+" நீங்கள் பதிவீட்டுப்பார்வையில் உங்கள் கொடுக்கல் வாங்கல்களை வகைப்படுத்தலாம்"
+
+#: chartscreen.py:49
+msgid "Debit Categories"
+msgstr "செலவீன வகைகள்"
+
+#: finance.py:125 finance.py:230 finance.py:395 finance.py:476 finance.py:492
+#: finance.py:508
+msgid "Month"
+msgstr "மாதம்"
+
+#: finance.py:198
+msgid "Erase Transaction"
+msgstr "கொடுக்கல் வாங்கல்களை அழி"
+
+#: finance.py:223
+msgid "Period: "
+msgstr "காலம் "
+
+#: finance.py:228 finance.py:389 finance.py:468 finance.py:486 finance.py:502
+#: budgetscreen.py:150 budgetscreen.py:171
+msgid "Day"
+msgstr "நாள்"
+
+#: finance.py:229 finance.py:392 finance.py:471 finance.py:489 finance.py:505
+#: budgetscreen.py:174
+msgid "Week"
+msgstr "வாரம்"
+
+#: finance.py:231 finance.py:398 finance.py:479 finance.py:498 finance.py:514
+#: budgetscreen.py:177
+msgid "Year"
+msgstr "வருடம்"
+
+#: finance.py:232 finance.py:401 finance.py:402 finance.py:449 finance.py:482
+#: finance.py:518 finance.py:523 finance.py:528 finance.py:541
+#: budgetscreen.py:150
+msgid "Forever"
+msgstr "எந்நாளும்"
+
+#: finance.py:241 finance.py:242
+msgid "Register"
+msgstr "பதிவு செய்"
+
+#: finance.py:250 finance.py:251 budgetscreen.py:80
+msgid "Budget"
+msgstr "வரவு செலவுத்திட்டம்"
+
+#: finance.py:258 finance.py:259
+msgid "Chart"
+msgstr "வரைபடம்"
+
+#: finance.py:271
+msgid "Show Help"
+msgstr "உதவியைக் காட்டு"
+
+#: finance.py:284
+msgid "Transaction"
+msgstr "கொடுக்கல் வாங்கல்"
+
+#: finance.py:285
+msgid "Period"
+msgstr "காலம்"
+
+#: finance.py:286
+msgid "View"
+msgstr "பார்வை"
+
+#: finance.py:393
+msgid "Week of"
+msgstr "வது கிழமை"
+
+#: finance.py:439
+msgid "Balance: "
+msgstr "பலப்படுத்து "
+
+#: finance.py:455
+msgid "Previous"
+msgstr "முந்தைய"
+
+#: finance.py:456
+msgid "This"
+msgstr "இந்த"
+
+#: finance.py:457
+msgid "Next"
+msgstr "அடுத்த"
+
+#: budgetscreen.py:34
+msgid ""
+"The Budget view allows you to set a monthly budget for each expense "
+"category, and to keep track of your\n"
+"budgets.  To set a budget, type the amount in the box to the right of the "
+"category."
+msgstr ""
+"வரவு செலவுத் திட்டப் பார்வை ஒவ்வொரு மாதத்திற்குமான ஒவ்வொரு வகை வரவு செலவுத் "
+"திட்டத்தினைத் தயார் பண்ணுவதற்கும், உங்கள் \n"
+" வரவு செலவுத் திட்டத்தின் தடத்தினை வைத்திருக்கவும் உதவும். வரவு செலவுத் "
+"திட்டத்தினைத் தயார் பண்ணுவதற்கு வகையின் இடது பக்கத்திலுள்ள பெட்டிக்குள் "
+"உள்ளீடு செய்யுங்கள்."
+
+#: budgetscreen.py:78
+msgid "Spent"
+msgstr "செலவளி"
