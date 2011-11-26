@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-08-08 08:54-0300\n"
-"PO-Revision-Date: 2011-11-20 01:28+0200\n"
+"PO-Revision-Date: 2011-11-21 05:41+0200\n"
 "Last-Translator: Chris <cjl@laptop.org>\n"
 "Language-Team: Voluntarios quechuas Sugar Camp Lima\n"
 "Language: quz\n"
@@ -43,7 +43,7 @@ msgstr ""
 #  "Descripción"
 #: registerscreen.py:57
 msgid "Description"
-msgstr "Imamanta:"
+msgstr "Imamanta"
 
 #  "Cantidad"
 #: registerscreen.py:65
@@ -101,7 +101,7 @@ msgstr "Chhalanata Chinkachiy"
 #  "Periodo: "
 #: finance.py:223
 msgid "Period: "
-msgstr "Pacha:"
+msgstr "Pacha: "
 
 #  "Día"
 #: finance.py:228 finance.py:389 finance.py:468 finance.py:486 finance.py:502
@@ -136,7 +136,7 @@ msgstr "Qillqachina"
 #  "Presupuesto"
 #: finance.py:250 finance.py:251 budgetscreen.py:80
 msgid "Budget"
-msgstr "Hayk'a wakichipaq "
+msgstr "Hayk'a wakichipaq"
 
 #  "Gráfico"
 #: finance.py:258 finance.py:259
@@ -171,7 +171,7 @@ msgstr "Qanchischaw"
 #  "Balance: "
 #: finance.py:439
 msgid "Balance: "
-msgstr "Hayk'a puchun:"
+msgstr "Hayk'a puchun: "
 
 #  "Anterior"
 #: finance.py:455
@@ -201,7 +201,7 @@ msgid ""
 msgstr ""
 "Wakichi qhawanapi sapa killapi sapa mit'apaq yupanata churayta atinki. "
 "Chaymantari wakichikunata kamachiyta atinki.\n"
-"Wakichita churanapaq, sapa mit'apaq paña tawak'uchupi yupanata qillqay.  "
+"Wakichita churanapaq, sapa mit'apaq paña tawak'uchupi yupanata qillqay."
 
 #  "Gastado"
 #: budgetscreen.py:78
