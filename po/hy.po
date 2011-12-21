@@ -26,144 +26,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-11-30 04:12+0000\n"
-"PO-Revision-Date: 2011-07-28 23:40+0200\n"
-"Last-Translator: Chris <cjl@laptop.org>\n"
+"POT-Creation-Date: 2011-08-08 08:54-0300\n"
+"PO-Revision-Date: 2011-12-21 20:52+0200\n"
+"Last-Translator: anush.mkrtchyan <anush.mkrtchyan@ca1492.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: hy\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Pootle 2.0.1\n"
+"X-Generator: Pootle 2.0.5\n"
 
-#: activity/activity.info:2 finance.py:86
+#: activity/activity.info:2 finance.py:100
 msgid "Finance"
 msgstr "Ֆինանսավորում"
-
-#: chartscreen.py:34
-msgid ""
-"The Chart view shows the proportion of your expenses that is in each "
-"category.\n"
-"You can categorize transactions in the Register view."
-msgstr ""
-"﻿ ﻿ Դիագրամի տեսքը ցույց Է տալիս ձեր ծախսերի համամասնությունը յուրաքանչյուր "
-"կատեգորիայում: \n"
-"Դուք կարող եք դասել գործարքները դիտելով այն Գռանցում տեսքով:"
-
-#: chartscreen.py:49
-msgid "Debit Categories"
-msgstr "﻿ Դեբետի Կարգերը"
-
-#: finance.py:110 finance.py:227 finance.py:326 finance.py:407 finance.py:423
-#: finance.py:439
-msgid "Month"
-msgstr "Ամիս"
-
-#: finance.py:171
-msgid "Show Help"
-msgstr "Ցուցադրել Օգնությունը"
-
-#: finance.py:181 registerscreen.py:196
-msgid "New Credit"
-msgstr "﻿Նոր Վարկը"
-
-#: finance.py:186 registerscreen.py:207
-msgid "New Debit"
-msgstr "Նոր Դեբետը"
-
-#: finance.py:191
-msgid "Erase Transaction"
-msgstr "Ջնջել Գործարքը"
-
-#: finance.py:220
-msgid "Period: "
-msgstr "ժամանակամիջոց. "
-
-#: finance.py:225 finance.py:320 finance.py:399 finance.py:417 finance.py:433
-#: budgetscreen.py:150 budgetscreen.py:171
-msgid "Day"
-msgstr "Օր"
-
-#: finance.py:226 finance.py:323 finance.py:402 finance.py:420 finance.py:436
-#: budgetscreen.py:174
-msgid "Week"
-msgstr "Շաբաթ"
-
-#: finance.py:228 finance.py:329 finance.py:410 finance.py:429 finance.py:445
-#: budgetscreen.py:177
-msgid "Year"
-msgstr "Տարի"
-
-#: finance.py:229 finance.py:332 finance.py:333 finance.py:380 finance.py:413
-#: finance.py:449 finance.py:454 finance.py:459 finance.py:472
-#: budgetscreen.py:150
-msgid "Forever"
-msgstr "Ընդմիշտ"
-
-#: finance.py:245
-msgid "Register"
-msgstr "Գրանցել"
-
-#: finance.py:250 budgetscreen.py:80
-msgid "Budget"
-msgstr "Բյուջե"
-
-#: finance.py:255
-msgid "Chart"
-msgstr "Դիագրամ"
-
-#: finance.py:265
-msgid "Transaction"
-msgstr "Գործարք"
-
-#: finance.py:266
-msgid "Period"
-msgstr "ժամանակամիջոց"
-
-#: finance.py:267
-msgid "View"
-msgstr "Տեսք"
-
-#: finance.py:324
-msgid "Week of"
-msgstr "-ի Շաբաթ"
-
-#: finance.py:370
-msgid "Balance: "
-msgstr "Բալանս "
-
-#: finance.py:386
-msgid "Previous"
-msgstr "Նախորդ"
-
-#: finance.py:387
-msgid "This"
-msgstr "Այս"
-
-#: finance.py:388
-msgid "Next"
-msgstr "Հաջորդ"
-
-#: budgetscreen.py:34
-msgid ""
-"The Budget view allows you to set a monthly budget for each expense "
-"category, and to keep track of your\n"
-"budgets.  To set a budget, type the amount in the box to the right of the "
-"category."
-msgstr ""
-"Բյուջե տեսքը հնարավորություն է տալիս որոշել քեզ դնել ամսական բյուջե "
-"յուրաքանչյուր ծախսի կատեգորիայի համար և վարելու բյուջեյի հետագիծը: \n"
-" Բյուջեն որոշելու համար մեքենագրեք քանակը կատեգորիայի աջ կողմը գտնվող "
-"տուփում:"
-
-#: budgetscreen.py:76 registerscreen.py:84
-msgid "Category"
-msgstr "Կատեգորիա"
-
-#: budgetscreen.py:78
-msgid "Spent"
-msgstr "Ծախս"
 
 #: registerscreen.py:34
 msgid ""
@@ -174,11 +50,12 @@ msgid ""
 "Once you have entered some transactions, visit the Chart and Budget views to "
 "see more."
 msgstr ""
-"<b> Բարի՛ գալուստ ֆինանսավորում: </b>   Այս գործունեությունը հաշվարում է "
-"եկամուտը և ծախսը, ցանկացած բանի, որ վաստակում է, \n"
-"կամ ծախսում է գումար, օրինակ՝ դպրոցի ակումբը:   Սկսելու համար մուտքագրեք "
-"կրեդիտները և դեբիտները Գործարք տուփի մեջ:   \n"
-" Գործարք ավելացնելուց հետո դիտեք Դիագրամ և Բյուջե տեսքով, որ տեսնեք ավելին:"
+"<b> Բարի՛ գալուստ ֆինանսավորում: </b>   Այս գործունեությունը հաշվառում է "
+"ցանկացած վաստակի եկամուտը և ծախսը, \n"
+"կամ ծախսում է գումար, ինչպես դպրոցի ակումբը:   Մեկնարկելու համար` մուտքագրեք "
+"կրեդիտները և դեբետները Գործարք տուփի մեջ:\n"
+"Գործարքները մուտքագրելուց հետո` այցելեք Դիագրամ և Բյուջե էջեր, ավելին "
+"տեսնելու համար:"
 
 #: registerscreen.py:57
 msgid "Description"
@@ -191,3 +68,127 @@ msgstr "Գումար"
 #: registerscreen.py:74
 msgid "Date"
 msgstr "Ամսաթիվ"
+
+#: registerscreen.py:84 budgetscreen.py:76
+msgid "Category"
+msgstr "Կատեգորիա"
+
+#: registerscreen.py:196 finance.py:188
+msgid "New Credit"
+msgstr "﻿Նոր Վարկ"
+
+#: registerscreen.py:207 finance.py:193
+msgid "New Debit"
+msgstr "Նոր Դեբետ"
+
+#: chartscreen.py:34
+msgid ""
+"The Chart view shows the proportion of your expenses that is in each "
+"category.\n"
+"You can categorize transactions in the Register view."
+msgstr ""
+" Դիագրամի էջը ցույց Է տալիս ձեր ծախսերի համամասնությունը յուրաքանչյուր "
+"կատեգորիայում: \n"
+"Դուք կարող եք դասակարգել գործարքները Գրանցում էջում:"
+
+#: chartscreen.py:49
+msgid "Debit Categories"
+msgstr "﻿ Դեբետի Կարգերը"
+
+#: finance.py:125 finance.py:230 finance.py:395 finance.py:476 finance.py:492
+#: finance.py:508
+msgid "Month"
+msgstr "Ամիս"
+
+#: finance.py:198
+msgid "Erase Transaction"
+msgstr "Ջնջել Գործարքը"
+
+#: finance.py:223
+msgid "Period: "
+msgstr "Ժամանակաշրջան` "
+
+#: finance.py:228 finance.py:389 finance.py:468 finance.py:486 finance.py:502
+#: budgetscreen.py:150 budgetscreen.py:171
+msgid "Day"
+msgstr "Օր"
+
+#: finance.py:229 finance.py:392 finance.py:471 finance.py:489 finance.py:505
+#: budgetscreen.py:174
+msgid "Week"
+msgstr "Շաբաթ"
+
+#: finance.py:231 finance.py:398 finance.py:479 finance.py:498 finance.py:514
+#: budgetscreen.py:177
+msgid "Year"
+msgstr "Տարի"
+
+#: finance.py:232 finance.py:401 finance.py:402 finance.py:449 finance.py:482
+#: finance.py:518 finance.py:523 finance.py:528 finance.py:541
+#: budgetscreen.py:150
+msgid "Forever"
+msgstr "Ընդմիշտ"
+
+#: finance.py:241 finance.py:242
+msgid "Register"
+msgstr "Գրանցել"
+
+#: finance.py:250 finance.py:251 budgetscreen.py:80
+msgid "Budget"
+msgstr "Բյուջե"
+
+#: finance.py:258 finance.py:259
+msgid "Chart"
+msgstr "Դիագրամ"
+
+#: finance.py:271
+msgid "Show Help"
+msgstr "Ցուցադրել Օգնությունը"
+
+#: finance.py:284
+msgid "Transaction"
+msgstr "Գործարք"
+
+#: finance.py:285
+msgid "Period"
+msgstr "ժամանակամիջոց"
+
+#: finance.py:286
+msgid "View"
+msgstr "Տեսք"
+
+#: finance.py:393
+msgid "Week of"
+msgstr "-ի Շաբաթ"
+
+#: finance.py:439
+msgid "Balance: "
+msgstr "Բալանս "
+
+#: finance.py:455
+msgid "Previous"
+msgstr "Նախորդ"
+
+#: finance.py:456
+msgid "This"
+msgstr "Այս"
+
+#: finance.py:457
+msgid "Next"
+msgstr "Հաջորդ"
+
+#: budgetscreen.py:34
+msgid ""
+"The Budget view allows you to set a monthly budget for each expense "
+"category, and to keep track of your\n"
+"budgets.  To set a budget, type the amount in the box to the right of the "
+"category."
+msgstr ""
+"Բյուջե էջը հնարավորություն է տալիս յուրաքանչյուր ծախսի կարգի համար սահմանել "
+"ամսական բյուջե և վարել այն: \n"
+" Բյուջեն որոշելու համար` մուտքագրեք քանակը կատեգորիայի աջ կողմում գտնվող "
+"տուփում:"
+
+#: budgetscreen.py:78
+msgid "Spent"
+msgstr "Ծախս"
