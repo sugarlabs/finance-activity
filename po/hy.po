@@ -27,8 +27,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-08-08 08:54-0300\n"
-"PO-Revision-Date: 2011-12-21 20:52+0200\n"
-"Last-Translator: anush.mkrtchyan <anush.mkrtchyan@ca1492.com>\n"
+"PO-Revision-Date: 2011-12-24 04:33+0200\n"
+"Last-Translator: Chris <cjl@laptop.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: hy\n"
 "MIME-Version: 1.0\n"
@@ -52,14 +52,14 @@ msgid ""
 msgstr ""
 "<b> Բարի՛ գալուստ ֆինանսավորում: </b>   Այս գործունեությունը հաշվառում է "
 "ցանկացած վաստակի եկամուտը և ծախսը, \n"
-"կամ ծախսում է գումար, ինչպես դպրոցի ակումբը:   Մեկնարկելու համար` մուտքագրեք "
-"կրեդիտները և դեբետները Գործարք տուփի մեջ:\n"
+"կամ ծախսում է գումար, ինչպես դպրոցի ակումբը:  Մեկնարկելու համար մուտքագրեք "
+"'կրեդիտները\" և \"դեբետները\" Գործարք տուփի մեջ:\n"
 "Գործարքները մուտքագրելուց հետո` այցելեք Դիագրամ և Բյուջե էջեր, ավելին "
 "տեսնելու համար:"
 
 #: registerscreen.py:57
 msgid "Description"
-msgstr "Նկարագիր"
+msgstr "Նկարագրություն"
 
 #: registerscreen.py:65
 msgid "Amount"
@@ -79,7 +79,7 @@ msgstr "﻿Նոր Վարկ"
 
 #: registerscreen.py:207 finance.py:193
 msgid "New Debit"
-msgstr "Նոր Դեբետ"
+msgstr "Նոր Դեբիտ"
 
 #: chartscreen.py:34
 msgid ""
@@ -87,13 +87,13 @@ msgid ""
 "category.\n"
 "You can categorize transactions in the Register view."
 msgstr ""
-" Դիագրամի էջը ցույց Է տալիս ձեր ծախսերի համամասնությունը յուրաքանչյուր "
+"Դիագրամի էջը ցույց Է տալիս ձեր ծախսերի համամասնությունը յուրաքանչյուր "
 "կատեգորիայում: \n"
 "Դուք կարող եք դասակարգել գործարքները Գրանցում էջում:"
 
 #: chartscreen.py:49
 msgid "Debit Categories"
-msgstr "﻿ Դեբետի Կարգերը"
+msgstr "﻿ Դեբիտի Կարգերը"
 
 #: finance.py:125 finance.py:230 finance.py:395 finance.py:476 finance.py:492
 #: finance.py:508
@@ -106,7 +106,7 @@ msgstr "Ջնջել Գործարքը"
 
 #: finance.py:223
 msgid "Period: "
-msgstr "Ժամանակաշրջան` "
+msgstr "Ժամանակաշրջան. "
 
 #: finance.py:228 finance.py:389 finance.py:468 finance.py:486 finance.py:502
 #: budgetscreen.py:150 budgetscreen.py:171
@@ -187,7 +187,7 @@ msgstr ""
 "Բյուջե էջը հնարավորություն է տալիս յուրաքանչյուր ծախսի կարգի համար սահմանել "
 "ամսական բյուջե և վարել այն: \n"
 " Բյուջեն որոշելու համար` մուտքագրեք քանակը կատեգորիայի աջ կողմում գտնվող "
-"տուփում:"
+"վանդակում:"
 
 #: budgetscreen.py:78
 msgid "Spent"
