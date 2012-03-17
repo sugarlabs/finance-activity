@@ -89,8 +89,11 @@ class ChartScreen(gtk.HBox):
         for c in self.sorted_categories:
             hbox = gtk.HBox()
 
-            catlabel = gtk.Label()
-            catlabel.set_markup(c)
+            description = c
+            # If there is no category, display as Unknown
+            if c is '':
+                description = _('Unknown')
+            catlabel = gtk.Label(description)
             catgroup.add_widget(catlabel)
 
             color = finance.get_category_color_str(c)

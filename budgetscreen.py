@@ -96,7 +96,11 @@ class BudgetScreen(gtk.VBox):
         
         # Build categories.
         for c in self.sorted_categories:
-            catbox = gtk.Label(c)
+            description = c
+            # If there is no category, display as Unknown
+            if c is '':
+                description = _('Unknown')
+            catbox = gtk.Label(description)
             catbox.set_padding(10, 0)
 
             color = finance.get_category_color_str(c)
