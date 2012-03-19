@@ -42,20 +42,60 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-11-30 04:12+0000\n"
-"PO-Revision-Date: 2011-01-19 03:45+0200\n"
+"POT-Creation-Date: 2011-08-08 08:54-0300\n"
+"PO-Revision-Date: 2011-11-29 06:03+0200\n"
 "Last-Translator: Chris <cjl@laptop.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: sq\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.3\n"
+"X-Generator: Pootle 2.0.5\n"
 
-#: activity/activity.info:2 finance.py:86
+#: activity/activity.info:2 finance.py:100
 msgid "Finance"
 msgstr "Financë"
+
+#: registerscreen.py:34
+#, fuzzy
+msgid ""
+"<b>Welcome to Finance!</b>   This activity keeps track of income and "
+"expenses for anything that earns\n"
+"or spends money, like a school club.  To get started, use the Transaction "
+"box to add credits and debits.\n"
+"Once you have entered some transactions, visit the Chart and Budget views to "
+"see more."
+msgstr ""
+"<b>Mirë se vini në Financave</b>   Ky aktivitet mban gjurmët e të ardhurave "
+"dhe shpenzimeve për çdo gjë që fiton \\ napo shpenzon, si një klub shkolle.  "
+"Për t'ia filluar, përdorni kutinë e transaksionit për të shtuar kreditë dhe "
+"debit. \\ NPasi të keni hyrë në disa transaksione, vizitoni Listat dhe "
+"pikëpamjet e Buxhetit për të parë më shumë."
+
+#: registerscreen.py:57
+msgid "Description"
+msgstr "Përshkrimi"
+
+#: registerscreen.py:65
+msgid "Amount"
+msgstr "Shumë"
+
+#: registerscreen.py:74
+msgid "Date"
+msgstr "Data"
+
+#: registerscreen.py:84 budgetscreen.py:76
+msgid "Category"
+msgstr "Kategori"
+
+#: registerscreen.py:196 finance.py:188
+msgid "New Credit"
+msgstr "Kredit të ri"
+
+#: registerscreen.py:207 finance.py:193
+msgid "New Debit"
+msgstr "Debitore të re"
 
 #: chartscreen.py:34
 msgid ""
@@ -71,97 +111,90 @@ msgstr ""
 msgid "Debit Categories"
 msgstr "Kategorit Debi"
 
-#: finance.py:110 finance.py:227 finance.py:326 finance.py:407 finance.py:423
-#: finance.py:439
+#: finance.py:125 finance.py:230 finance.py:395 finance.py:476 finance.py:492
+#: finance.py:508
 msgid "Month"
 msgstr "Muaj"
 
-#: finance.py:171
-msgid "Show Help"
-msgstr "Shfaq Ndihmën"
-
-#: finance.py:181 registerscreen.py:196
-msgid "New Credit"
-msgstr "Kredit të ri"
-
-#: finance.py:186 registerscreen.py:207
-msgid "New Debit"
-msgstr "Debitore të re"
-
-#: finance.py:191
+#: finance.py:198
 msgid "Erase Transaction"
 msgstr "Shuaj Transaksion"
 
-#: finance.py:220
+#: finance.py:223
 msgid "Period: "
 msgstr "Periudhë: "
 
-#: finance.py:225 finance.py:320 finance.py:399 finance.py:417 finance.py:433
+#: finance.py:228 finance.py:389 finance.py:468 finance.py:486 finance.py:502
 #: budgetscreen.py:150 budgetscreen.py:171
 msgid "Day"
 msgstr "Ditë"
 
-#: finance.py:226 finance.py:323 finance.py:402 finance.py:420 finance.py:436
+#: finance.py:229 finance.py:392 finance.py:471 finance.py:489 finance.py:505
 #: budgetscreen.py:174
 msgid "Week"
 msgstr "Javë"
 
-#: finance.py:228 finance.py:329 finance.py:410 finance.py:429 finance.py:445
+#: finance.py:231 finance.py:398 finance.py:479 finance.py:498 finance.py:514
 #: budgetscreen.py:177
 msgid "Year"
 msgstr "Vit"
 
-#: finance.py:229 finance.py:332 finance.py:333 finance.py:380 finance.py:413
-#: finance.py:449 finance.py:454 finance.py:459 finance.py:472
+#: finance.py:232 finance.py:401 finance.py:402 finance.py:449 finance.py:482
+#: finance.py:518 finance.py:523 finance.py:528 finance.py:541
 #: budgetscreen.py:150
 msgid "Forever"
 msgstr "Përgjithmonë"
 
-#: finance.py:245
+#: finance.py:241 finance.py:242
 msgid "Register"
 msgstr "Regjistrohu"
 
-#: finance.py:250 budgetscreen.py:80
+#: finance.py:250 finance.py:251 budgetscreen.py:80
 msgid "Budget"
 msgstr "Buxheti"
 
-#: finance.py:255
+#: finance.py:258 finance.py:259
 msgid "Chart"
 msgstr "Hartë"
 
-#: finance.py:265
+#: finance.py:271
+msgid "Show Help"
+msgstr "Shfaq Ndihmën"
+
+#: finance.py:284
 msgid "Transaction"
 msgstr "Transaksion"
 
-#: finance.py:266
+#: finance.py:285
 msgid "Period"
 msgstr "Periudhë"
 
-#: finance.py:267
+#: finance.py:286
 msgid "View"
 msgstr "Shikim"
 
-#: finance.py:324
+#: finance.py:393
 msgid "Week of"
 msgstr "Javë e"
 
-#: finance.py:370
+#: finance.py:439
 msgid "Balance: "
 msgstr "Balanc: "
 
-#: finance.py:386
+#: finance.py:455
 msgid "Previous"
 msgstr "I mëparshmi"
 
-#: finance.py:387
+#: finance.py:456
 msgid "This"
 msgstr "Kjo"
 
-#: finance.py:388
+#: finance.py:457
 msgid "Next"
 msgstr "Tjetër"
 
 #: budgetscreen.py:34
+#, fuzzy
 msgid ""
 "The Budget view allows you to set a monthly budget for each expense "
 "category, and to keep track of your\n"
@@ -172,37 +205,6 @@ msgstr ""
 "kategori të shpenzimeve, dhe të mbajnë gjurmët e juaj n \të buxheteve.  Për "
 "të vendosur një buxhet, Shkruani shumën në kuti për të drejtën e kategorive."
 
-#: budgetscreen.py:76 registerscreen.py:84
-msgid "Category"
-msgstr "Kategori"
-
 #: budgetscreen.py:78
 msgid "Spent"
 msgstr "Shpenzo"
-
-#: registerscreen.py:34
-msgid ""
-"<b>Welcome to Finance!</b>   This activity keeps track of income and "
-"expenses for anything that earns\n"
-"or spends money, like a school club.  To get started, use the Transaction "
-"box to add credits and debits.\n"
-"Once you have entered some transactions, visit the Chart and Budget views to "
-"see more."
-msgstr ""
-"<b>Mirë se vini në Financave</ b>   Ky aktivitet mban gjurmët e të ardhurave "
-"dhe shpenzimeve për çdo gjë që fiton \\ napo shpenzon, si një klub shkolle. "
-" Për t'ia filluar, përdorni kutinë e transaksionit për të shtuar kreditë "
-"dhe debit. \\ NPasi të keni hyrë në disa transaksione, vizitoni Listat dhe "
-"pikëpamjet e Buxhetit për të parë më shumë."
-
-#: registerscreen.py:57
-msgid "Description"
-msgstr "Përshkrimi"
-
-#: registerscreen.py:65
-msgid "Amount"
-msgstr "Shumë"
-
-#: registerscreen.py:74
-msgid "Date"
-msgstr "Data"
