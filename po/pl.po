@@ -34,8 +34,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-08-08 08:54-0300\n"
-"PO-Revision-Date: 2011-12-12 02:48+0200\n"
+"POT-Creation-Date: 2012-03-20 00:33-0400\n"
+"PO-Revision-Date: 2012-03-22 04:47+0200\n"
 "Last-Translator: Chris <cjl@laptop.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pl\n"
@@ -50,45 +50,54 @@ msgstr ""
 msgid "Finance"
 msgstr "Finanse"
 
-#: registerscreen.py:34
+#: budgetscreen.py:34
 msgid ""
-"<b>Welcome to Finance!</b>   This activity keeps track of income and "
-"expenses for anything that earns\n"
-"or spends money, like a school club.  To get started, use the Transaction "
-"box to add credits and debits.\n"
-"Once you have entered some transactions, visit the Chart and Budget views to "
-"see more."
+"The Budget view allows you to set a monthly budget for each expense "
+"category, and to keep track of your\n"
+"budgets.  To set a budget, type the amount in the box to the right of the "
+"category."
 msgstr ""
-"<b>Witamy w Finansach!</b>   Ta aktywność służy do zapisywania wydatków i "
-"przychodów dla każdego, \n"
-"kto obraca pieniędzmi jak np klub szkolny.  Aby rozpocząć użyj okienka "
-"Transakcja aby dodać wydatek lub przychód.\n"
-"Jak tylko wprwoadzisz kilka transakcji obejrzyj Wykres i Budżet aby "
-"dowiedzieć się więcej."
+"Widok Budżetu pozwala Ci ustalić miesięczny budżet na każdą kategorię "
+"wydatków i śledzić\n"
+"realizację budżetu.  Aby ustalić budżet wprowadź kwotę w okienku po prawej "
+"strony kategorii."
 
-#: registerscreen.py:57
-msgid "Description"
-msgstr "Opis"
-
-#: registerscreen.py:65
-msgid "Amount"
-msgstr "Kwota"
-
-#: registerscreen.py:74
-msgid "Date"
-msgstr "Data"
-
-#: registerscreen.py:84 budgetscreen.py:76
+#: budgetscreen.py:76 registerscreen.py:84
 msgid "Category"
 msgstr "Kategoria"
 
-#: registerscreen.py:196 finance.py:188
-msgid "New Credit"
-msgstr "Nowy wpływ"
+#: budgetscreen.py:78
+msgid "Spent"
+msgstr "Wydane"
 
-#: registerscreen.py:207 finance.py:193
-msgid "New Debit"
-msgstr "Nowy wydatek"
+#: budgetscreen.py:80 finance.py:250 finance.py:251
+msgid "Budget"
+msgstr "Budżet"
+
+#: budgetscreen.py:102 chartscreen.py:95
+msgid "Unknown"
+msgstr "Nieznany"
+
+#: budgetscreen.py:154 budgetscreen.py:175 finance.py:228 finance.py:389
+#: finance.py:468 finance.py:486 finance.py:502
+msgid "Day"
+msgstr "Dzień"
+
+#: budgetscreen.py:154 finance.py:232 finance.py:401 finance.py:402
+#: finance.py:449 finance.py:482 finance.py:518 finance.py:523 finance.py:528
+#: finance.py:541
+msgid "Forever"
+msgstr "Wszystko"
+
+#: budgetscreen.py:178 finance.py:229 finance.py:392 finance.py:471
+#: finance.py:489 finance.py:505
+msgid "Week"
+msgstr "Tydzień"
+
+#: budgetscreen.py:181 finance.py:231 finance.py:398 finance.py:479
+#: finance.py:498 finance.py:514
+msgid "Year"
+msgstr "Rok"
 
 #: chartscreen.py:34
 msgid ""
@@ -108,6 +117,14 @@ msgstr "Kategorie wydatków"
 msgid "Month"
 msgstr "Miesiąc"
 
+#: finance.py:188 registerscreen.py:196
+msgid "New Credit"
+msgstr "Nowy wpływ"
+
+#: finance.py:193 registerscreen.py:207
+msgid "New Debit"
+msgstr "Nowy wydatek"
+
 #: finance.py:198
 msgid "Erase Transaction"
 msgstr "Usuń transakcję"
@@ -116,34 +133,9 @@ msgstr "Usuń transakcję"
 msgid "Period: "
 msgstr "Okres: "
 
-#: finance.py:228 finance.py:389 finance.py:468 finance.py:486 finance.py:502
-#: budgetscreen.py:150 budgetscreen.py:171
-msgid "Day"
-msgstr "Dzień"
-
-#: finance.py:229 finance.py:392 finance.py:471 finance.py:489 finance.py:505
-#: budgetscreen.py:174
-msgid "Week"
-msgstr "Tydzień"
-
-#: finance.py:231 finance.py:398 finance.py:479 finance.py:498 finance.py:514
-#: budgetscreen.py:177
-msgid "Year"
-msgstr "Rok"
-
-#: finance.py:232 finance.py:401 finance.py:402 finance.py:449 finance.py:482
-#: finance.py:518 finance.py:523 finance.py:528 finance.py:541
-#: budgetscreen.py:150
-msgid "Forever"
-msgstr "Wszystko"
-
 #: finance.py:241 finance.py:242
 msgid "Register"
 msgstr "Rejest"
-
-#: finance.py:250 finance.py:251 budgetscreen.py:80
-msgid "Budget"
-msgstr "Budżet"
 
 #: finance.py:258 finance.py:259
 msgid "Chart"
@@ -185,18 +177,30 @@ msgstr "To"
 msgid "Next"
 msgstr "Następny"
 
-#: budgetscreen.py:34
+#: registerscreen.py:34
 msgid ""
-"The Budget view allows you to set a monthly budget for each expense "
-"category, and to keep track of your\n"
-"budgets.  To set a budget, type the amount in the box to the right of the "
-"category."
+"<b>Welcome to Finance!</b>   This activity keeps track of income and "
+"expenses for anything that earns\n"
+"or spends money, like a school club.  To get started, use the Transaction "
+"box to add credits and debits.\n"
+"Once you have entered some transactions, visit the Chart and Budget views to "
+"see more."
 msgstr ""
-"Widok Budżetu pozwala Ci ustalić miesięczny budżet na każdą kategorię "
-"wydatków i śledzić\n"
-"realizację budżetu.  Aby ustalić budżet wprowadź kwotę w okienku po prawej "
-"strony kategorii."
+"<b>Witamy w Finansach!</b>   Ta aktywność służy do zapisywania wydatków i "
+"przychodów dla każdego, \n"
+"kto obraca pieniędzmi jak np klub szkolny.  Aby rozpocząć użyj okienka "
+"Transakcja aby dodać wydatek lub przychód.\n"
+"Jak tylko wprwoadzisz kilka transakcji obejrzyj Wykres i Budżet aby "
+"dowiedzieć się więcej."
 
-#: budgetscreen.py:78
-msgid "Spent"
-msgstr "Wydane"
+#: registerscreen.py:57
+msgid "Description"
+msgstr "Opis"
+
+#: registerscreen.py:65
+msgid "Amount"
+msgstr "Kwota"
+
+#: registerscreen.py:74
+msgid "Date"
+msgstr "Data"
