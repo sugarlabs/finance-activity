@@ -2,125 +2,52 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-11-30 04:12+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Ahmad Jawed Samsor <jawedsamsor@gmail.com>\n"
+"POT-Creation-Date: 2012-03-20 00:33-0400\n"
+"PO-Revision-Date: 2012-03-22 05:58+0200\n"
+"Last-Translator: Chris <cjl@laptop.org>\n"
 "Language-Team: PASHTO <LL@li.org>\n"
+"Language: ps\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Translate Toolkit 1.1.1rc4\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.0.5\n"
 
-#: activity/activity.info:2 finance.py:86
+#: activity/activity.info:2 finance.py:100
 msgid "Finance"
-msgstr "ماليه"
-
-#: chartscreen.py:34
-msgid ""
-"The Chart view shows the proportion of your expenses that is in each "
-"category.\n"
-"You can categorize transactions in the Register view."
-msgstr ""
-"د څرګندوی ليد ستاسو د مصارفو تناسب ښيي کوم چې په هر ټولي کې دي. \n"
-" تاسو کولای شی راکړې ورکړې په درج ليد کې په ډولو وويشي."
-
-#: chartscreen.py:49
-msgid "Debit Categories"
-msgstr "د ورکړې ټولي"
-
-#: finance.py:110 finance.py:227 finance.py:326 finance.py:407 finance.py:423
-#: finance.py:439
-msgid "Month"
-msgstr "مياشت"
-
-#: finance.py:171
-msgid "Show Help"
-msgstr "مرسته ښودل"
-
-#: finance.py:181 registerscreen.py:196
-msgid "New Credit"
-msgstr "نوې اوښتنه"
-
-#: finance.py:186 registerscreen.py:207
-msgid "New Debit"
-msgstr "نوې ورکړه"
-
-#: finance.py:191
-msgid "Erase Transaction"
-msgstr "راکړه ورکړه لرې کړئ"
-
-#: finance.py:220
-msgid "Period: "
-msgstr "موده: "
-
-#: finance.py:225 finance.py:320 finance.py:399 finance.py:417 finance.py:433
-#: budgetscreen.py:150 budgetscreen.py:171
-msgid "Day"
-msgstr "ورځ"
-
-#: finance.py:226 finance.py:323 finance.py:402 finance.py:420 finance.py:436
-#: budgetscreen.py:174
-msgid "Week"
-msgstr "اونۍ"
-
-#: finance.py:228 finance.py:329 finance.py:410 finance.py:429 finance.py:445
-#: budgetscreen.py:177
-msgid "Year"
-msgstr "کال"
-
-#: finance.py:229 finance.py:332 finance.py:333 finance.py:380 finance.py:413
-#: finance.py:449 finance.py:454 finance.py:459 finance.py:472
-#: budgetscreen.py:150
-msgid "Forever"
-msgstr "د تل لپاره"
-
-#: finance.py:245
-msgid "Register"
-msgstr "نومکښل"
-
-#: finance.py:250 budgetscreen.py:80
-msgid "Budget"
-msgstr "بودجه"
-
-#: finance.py:255
-msgid "Chart"
-msgstr "څرګندوی"
-
-#: finance.py:265
-msgid "Transaction"
-msgstr "راکړه ورکړه"
-
-#: finance.py:266
-msgid "Period"
-msgstr "موده"
-
-#: finance.py:267
-msgid "View"
-msgstr "ليد"
-
-#: finance.py:324
-msgid "Week of"
-msgstr "اونۍ د"
-
-#: finance.py:370
-msgid "Balance: "
-msgstr "انډول: "
-
-#: finance.py:386
-msgid "Previous"
-msgstr "مخكنى"
-
-#: finance.py:387
-msgid "This"
-msgstr "دا"
-
-#: finance.py:388
-msgid "Next"
-msgstr "بل"
+msgstr "مالي"
 
 #: budgetscreen.py:34
 msgid ""
@@ -129,17 +56,126 @@ msgid ""
 "budgets.  To set a budget, type the amount in the box to the right of the "
 "category."
 msgstr ""
-"د بودجې ليد تاسو د هر مصرف د ټولي د يوې مياشتني بودجې د ټاکلو، او د خپلو "
-"بودجو د څرک ساتلو لپاره پريږدي.  د بودجې د ټاکلو لپاره، د ټولي څخه ښي خوا ته "
-"بکس کې کچه وليکئ."
+"The Budget view allows you to set a monthly budget for each expense "
+"category, and to keep track of your\n"
+"budgets.  د بويجې د ترتيبولو لپاره، د کټګورۍ د ښۍ خوا په بکس کې مقدار ټايپ "
+"کړﺉ."
 
 #: budgetscreen.py:76 registerscreen.py:84
 msgid "Category"
-msgstr "ټولۍ"
+msgstr "کټګوري"
 
 #: budgetscreen.py:78
 msgid "Spent"
 msgstr "مصرف شوی"
+
+#: budgetscreen.py:80 finance.py:250 finance.py:251
+msgid "Budget"
+msgstr "بودجه"
+
+#: budgetscreen.py:102 chartscreen.py:95
+msgid "Unknown"
+msgstr "ناڅرګند"
+
+#: budgetscreen.py:154 budgetscreen.py:175 finance.py:228 finance.py:389
+#: finance.py:468 finance.py:486 finance.py:502
+msgid "Day"
+msgstr "ورځ"
+
+#: budgetscreen.py:154 finance.py:232 finance.py:401 finance.py:402
+#: finance.py:449 finance.py:482 finance.py:518 finance.py:523 finance.py:528
+#: finance.py:541
+msgid "Forever"
+msgstr "د تل لپاره"
+
+#: budgetscreen.py:178 finance.py:229 finance.py:392 finance.py:471
+#: finance.py:489 finance.py:505
+msgid "Week"
+msgstr "اونۍ"
+
+#: budgetscreen.py:181 finance.py:231 finance.py:398 finance.py:479
+#: finance.py:498 finance.py:514
+msgid "Year"
+msgstr "کال"
+
+#: chartscreen.py:34
+msgid ""
+"The Chart view shows the proportion of your expenses that is in each "
+"category.\n"
+"You can categorize transactions in the Register view."
+msgstr ""
+"The Chart view shows the proportion of your expenses that is in each "
+"category.\n"
+"You can categorize transactions in the Register view."
+
+#: chartscreen.py:49
+msgid "Debit Categories"
+msgstr "د ورکړې ټولي"
+
+#: finance.py:125 finance.py:230 finance.py:395 finance.py:476 finance.py:492
+#: finance.py:508
+msgid "Month"
+msgstr "مياشت"
+
+#: finance.py:188 registerscreen.py:196
+msgid "New Credit"
+msgstr "نوی راکړه"
+
+#: finance.py:193 registerscreen.py:207
+msgid "New Debit"
+msgstr "نوې ورکړه"
+
+#: finance.py:198
+msgid "Erase Transaction"
+msgstr "راکړه ورکړه لرې کول"
+
+#: finance.py:223
+msgid "Period: "
+msgstr "موده: "
+
+#: finance.py:241 finance.py:242
+msgid "Register"
+msgstr "راجسټرول"
+
+#: finance.py:258 finance.py:259
+msgid "Chart"
+msgstr "چارټ"
+
+#: finance.py:271
+msgid "Show Help"
+msgstr "مرسته ښودل"
+
+#: finance.py:284
+msgid "Transaction"
+msgstr "راکړه ورکړه"
+
+#: finance.py:285
+msgid "Period"
+msgstr "موده"
+
+#: finance.py:286
+msgid "View"
+msgstr "کتنه"
+
+#: finance.py:393
+msgid "Week of"
+msgstr "اونۍ د"
+
+#: finance.py:439
+msgid "Balance: "
+msgstr "بيلانس: "
+
+#: finance.py:455
+msgid "Previous"
+msgstr "مخكنى"
+
+#: finance.py:456
+msgid "This"
+msgstr "دغه"
+
+#: finance.py:457
+msgid "Next"
+msgstr "بل"
 
 #: registerscreen.py:34
 msgid ""
@@ -150,21 +186,21 @@ msgid ""
 "Once you have entered some transactions, visit the Chart and Budget views to "
 "see more."
 msgstr ""
-" دا چارندتيا د ګټې او خرڅونو د هر هغه څه لپاره چې پيسۍ ګټي يا مصرفوي، لکه: د "
-"ښونځي د را غونډيتو خونه، څرک ساتي. <b>ماليه ته ښه راغلاست!</b> دا چارندتيا "
-"  د پيلولو لپاره، د راکړې ورکړې بکس د اوښتنو او ورکړو د زياتولو لپاره "
-"وکاروئ. \n"
-" يو ځل مو چې ځينې  راکړې ورکړې ننباسلې، څرګندوی او د بورجې ليدونو نه د نورو "
-"لپاره کتنه وکړئ. "
+"<b>Welcome to Finance!</b>   This activity keeps track of income and "
+"expenses for anything that earns\n"
+"or spends money, like a school club.  To get started, use the Transaction "
+"box to add credits and debits.\n"
+"Once you have entered some transactions, visit the Chart and Budget views to "
+"see more."
 
 #: registerscreen.py:57
 msgid "Description"
-msgstr "سپړنه:"
+msgstr "تشرېح:"
 
 #: registerscreen.py:65
 msgid "Amount"
-msgstr "کچه"
+msgstr "مقدار"
 
 #: registerscreen.py:74
 msgid "Date"
-msgstr "نيټه"
+msgstr "نېټه"
