@@ -34,8 +34,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-08-08 08:54-0300\n"
-"PO-Revision-Date: 2012-03-08 11:41+0200\n"
+"POT-Creation-Date: 2012-03-20 00:33-0400\n"
+"PO-Revision-Date: 2012-04-11 10:53+0200\n"
 "Last-Translator: Meechai <malaku38@hotmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -49,42 +49,53 @@ msgstr ""
 msgid "Finance"
 msgstr "การเงิน"
 
-#: registerscreen.py:34
+#: budgetscreen.py:34
 msgid ""
-"<b>Welcome to Finance!</b>   This activity keeps track of income and "
-"expenses for anything that earns\n"
-"or spends money, like a school club.  To get started, use the Transaction "
-"box to add credits and debits.\n"
-"Once you have entered some transactions, visit the Chart and Budget views to "
-"see more."
+"The Budget view allows you to set a monthly budget for each expense "
+"category, and to keep track of your\n"
+"budgets.  To set a budget, type the amount in the box to the right of the "
+"category."
 msgstr ""
-"<b>ยินดีต้อนรับสู่การเงิน!<b> "
-"กิจกรรมนี้จะติดตามรายได้และค่าใช้จ่ายสำหรับสิ่งที่ได้รับ หรือใช้เงิน "
-"เมื่อต้องการเริ่มต้นใช้งาน ใช้กล่องรายการเพื่อเพิ่มรายรับ รายจ่าย"
+"มุมมองงบประมาณอนุญาตให้คุณกำหนดงบประมาณสำหรับแต่ละประเภทค่าใช้จ่ายรายเดือน "
+"และเก็บการติดตามงบประมาณของคุณ\n"
+"   เมื่อต้องการกำหนดงบประมาณ ให้พิมพ์ยอดเงินในช่องด้านขวาของหมวดหมู่"
 
-#: registerscreen.py:57
-msgid "Description"
-msgstr "คำอธิบาย"
-
-#: registerscreen.py:65
-msgid "Amount"
-msgstr "จำนวนเงิน"
-
-#: registerscreen.py:74
-msgid "Date"
-msgstr "วันที่"
-
-#: registerscreen.py:84 budgetscreen.py:76
+#: budgetscreen.py:76 registerscreen.py:84
 msgid "Category"
 msgstr "หมวดหมู่"
 
-#: registerscreen.py:196 finance.py:188
-msgid "New Credit"
-msgstr "รายรับ"
+#: budgetscreen.py:78
+msgid "Spent"
+msgstr "ใช้จ่ายไปแล้ว"
 
-#: registerscreen.py:207 finance.py:193
-msgid "New Debit"
-msgstr "รายจ่าย"
+#: budgetscreen.py:80 finance.py:250 finance.py:251
+msgid "Budget"
+msgstr "งบประมาณ"
+
+#: budgetscreen.py:102 chartscreen.py:95
+msgid "Unknown"
+msgstr "ไม่ทราบ"
+
+#: budgetscreen.py:154 budgetscreen.py:175 finance.py:228 finance.py:389
+#: finance.py:468 finance.py:486 finance.py:502
+msgid "Day"
+msgstr "วัน"
+
+#: budgetscreen.py:154 finance.py:232 finance.py:401 finance.py:402
+#: finance.py:449 finance.py:482 finance.py:518 finance.py:523 finance.py:528
+#: finance.py:541
+msgid "Forever"
+msgstr "วนซ้ำตลอด"
+
+#: budgetscreen.py:178 finance.py:229 finance.py:392 finance.py:471
+#: finance.py:489 finance.py:505
+msgid "Week"
+msgstr "สัปดาห์"
+
+#: budgetscreen.py:181 finance.py:231 finance.py:398 finance.py:479
+#: finance.py:498 finance.py:514
+msgid "Year"
+msgstr "ปี"
 
 #: chartscreen.py:34
 msgid ""
@@ -104,6 +115,14 @@ msgstr "ประเภทของรายจ่าย"
 msgid "Month"
 msgstr "เดือน"
 
+#: finance.py:188 registerscreen.py:196
+msgid "New Credit"
+msgstr "รายรับ"
+
+#: finance.py:193 registerscreen.py:207
+msgid "New Debit"
+msgstr "รายจ่าย"
+
 #: finance.py:198
 msgid "Erase Transaction"
 msgstr "ลบรายการ"
@@ -112,34 +131,9 @@ msgstr "ลบรายการ"
 msgid "Period: "
 msgstr "ระยะเวลา: "
 
-#: finance.py:228 finance.py:389 finance.py:468 finance.py:486 finance.py:502
-#: budgetscreen.py:150 budgetscreen.py:171
-msgid "Day"
-msgstr "วัน"
-
-#: finance.py:229 finance.py:392 finance.py:471 finance.py:489 finance.py:505
-#: budgetscreen.py:174
-msgid "Week"
-msgstr "สัปดาห์"
-
-#: finance.py:231 finance.py:398 finance.py:479 finance.py:498 finance.py:514
-#: budgetscreen.py:177
-msgid "Year"
-msgstr "ปี"
-
-#: finance.py:232 finance.py:401 finance.py:402 finance.py:449 finance.py:482
-#: finance.py:518 finance.py:523 finance.py:528 finance.py:541
-#: budgetscreen.py:150
-msgid "Forever"
-msgstr "วนซ้ำตลอด"
-
 #: finance.py:241 finance.py:242
 msgid "Register"
 msgstr "การลงบันทึก"
-
-#: finance.py:250 finance.py:251 budgetscreen.py:80
-msgid "Budget"
-msgstr "งบประมาณ"
 
 #: finance.py:258 finance.py:259
 msgid "Chart"
@@ -181,17 +175,27 @@ msgstr "นี้"
 msgid "Next"
 msgstr "ถัดไป"
 
-#: budgetscreen.py:34
+#: registerscreen.py:34
 msgid ""
-"The Budget view allows you to set a monthly budget for each expense "
-"category, and to keep track of your\n"
-"budgets.  To set a budget, type the amount in the box to the right of the "
-"category."
+"<b>Welcome to Finance!</b>   This activity keeps track of income and "
+"expenses for anything that earns\n"
+"or spends money, like a school club.  To get started, use the Transaction "
+"box to add credits and debits.\n"
+"Once you have entered some transactions, visit the Chart and Budget views to "
+"see more."
 msgstr ""
-"มุมมองงบประมาณอนุญาตให้คุณกำหนดงบประมาณสำหรับแต่ละประเภทค่าใช้จ่ายรายเดือน "
-"และเก็บการติดตามงบประมาณของคุณ\n"
-"   เมื่อต้องการกำหนดงบประมาณ ให้พิมพ์ยอดเงินในช่องด้านขวาของหมวดหมู่"
+"<b>ยินดีต้อนรับสู่การเงิน!<b> "
+"กิจกรรมนี้จะติดตามรายได้และค่าใช้จ่ายสำหรับสิ่งที่ได้รับ หรือใช้เงิน "
+"เมื่อต้องการเริ่มต้นใช้งาน ใช้กล่องรายการเพื่อเพิ่มรายรับ รายจ่าย"
 
-#: budgetscreen.py:78
-msgid "Spent"
-msgstr "ใช้จ่ายไปแล้ว"
+#: registerscreen.py:57
+msgid "Description"
+msgstr "คำอธิบาย"
+
+#: registerscreen.py:65
+msgid "Amount"
+msgstr "จำนวนเงิน"
+
+#: registerscreen.py:74
+msgid "Date"
+msgstr "วันที่"
