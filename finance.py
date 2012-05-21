@@ -451,10 +451,26 @@ class Finance(sugar.activity.activity.Activity):
         self.thisperiodbtn.set_sensitive(next_prev)
         self.nextperiodbtn.set_sensitive(next_prev)
 
+        # This is a HACK to translate the string properly
+        # http://bugs.sugarlabs.org/ticket/3190
+        period = self.period.lower()
+        if period == _('Month').lower():
+            text_previous_period = _('Previous Month')
+            text_this_period = _('This Month')
+            text_next_period = _('Next Month')
+        elif period == _('Day').lower():
+            text_previous_period = _('Previous Day')
+            text_this_period = _('This Day')
+            text_next_period = _('Next Day')
+        elif period == _('Year').lower():
+            text_previous_period = _('Previous Year')
+            text_this_period = _('This Year')
+            text_next_period = _('Next Year')
+
         # Update the label self.period to reflect the period.
-        self.prevperiodbtn.set_tooltip(_('Previous') + ' ' + self.period)
-        self.thisperiodbtn.set_tooltip(_('This') + ' ' + self.period)
-        self.nextperiodbtn.set_tooltip(_('Next') + ' ' + self.period)
+        self.prevperiodbtn.set_tooltip(text_previous_period)
+        self.thisperiodbtn.set_tooltip(text_this_period)
+        self.nextperiodbtn.set_tooltip(text_next_period)
 
         # Only add and delete transactions on register screen.
         add_del = self.screens[-1] == self.register
