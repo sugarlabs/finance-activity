@@ -387,16 +387,20 @@ class Finance(sugar.activity.activity.Activity):
 
     def update_header(self):
         if self.period == _('Day'):
-            text = self.period_start.strftime("%B %d, %Y")
+            # TRANS: representation of the "Day" period
+            text = self.period_start.strftime(_("%B %d, %Y"))
 
         elif self.period == _('Week'):
-            text = _('Week of') + self.period_start.strftime(" %B %d, %Y")
+            # TRANS: representation of the "Week of" period
+            text = _('Week of') + self.period_start.strftime(_(" %B %d, %Y"))
 
         elif self.period == _('Month'):
-            text = self.period_start.strftime("%B, %Y")
+            # TRANS: representation of the "Month" period
+            text = self.period_start.strftime(_("%B, %Y"))
 
         elif self.period == _('Year'):
-            text = self.period_start.strftime("%Y")
+            # TRANS: representation of the "Year" period
+            text = self.period_start.strftime(_("%Y"))
 
         elif self.period == _('Forever'):
             text = _('Forever')
