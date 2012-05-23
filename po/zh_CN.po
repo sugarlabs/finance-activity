@@ -38,7 +38,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-20 00:33-0400\n"
+"POT-Creation-Date: 2012-05-22 00:34-0400\n"
 "PO-Revision-Date: 2012-03-22 04:25+0200\n"
 "Last-Translator: Chris <cjl@laptop.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -78,23 +78,23 @@ msgid "Unknown"
 msgstr "未知"
 
 #: budgetscreen.py:154 budgetscreen.py:175 finance.py:228 finance.py:389
-#: finance.py:468 finance.py:486 finance.py:502
+#: finance.py:465 finance.py:488 finance.py:506 finance.py:522
 msgid "Day"
 msgstr "日"
 
-#: budgetscreen.py:154 finance.py:232 finance.py:401 finance.py:402
-#: finance.py:449 finance.py:482 finance.py:518 finance.py:523 finance.py:528
-#: finance.py:541
+#: budgetscreen.py:154 finance.py:232 finance.py:405 finance.py:406
+#: finance.py:453 finance.py:502 finance.py:538 finance.py:543 finance.py:548
+#: finance.py:561
 msgid "Forever"
 msgstr "永远"
 
-#: budgetscreen.py:178 finance.py:229 finance.py:392 finance.py:471
-#: finance.py:489 finance.py:505
+#: budgetscreen.py:178 finance.py:229 finance.py:393 finance.py:491
+#: finance.py:509 finance.py:525
 msgid "Week"
 msgstr "周"
 
-#: budgetscreen.py:181 finance.py:231 finance.py:398 finance.py:479
-#: finance.py:498 finance.py:514
+#: budgetscreen.py:181 finance.py:231 finance.py:401 finance.py:469
+#: finance.py:499 finance.py:518 finance.py:534
 msgid "Year"
 msgstr "年"
 
@@ -111,8 +111,8 @@ msgstr ""
 msgid "Debit Categories"
 msgstr "借款分类"
 
-#: finance.py:125 finance.py:230 finance.py:395 finance.py:476 finance.py:492
-#: finance.py:508
+#: finance.py:125 finance.py:230 finance.py:397 finance.py:461 finance.py:496
+#: finance.py:512 finance.py:528
 msgid "Month"
 msgstr "月份"
 
@@ -156,25 +156,69 @@ msgstr "时期"
 msgid "View"
 msgstr "查看"
 
-#: finance.py:393
+#. TRANS: representation of the "Day" period
+#: finance.py:391
+msgid "%B %d, %Y"
+msgstr ""
+
+#. TRANS: representation of the "Week of" period
+#: finance.py:395
 msgid "Week of"
 msgstr "周"
 
-#: finance.py:439
+#: finance.py:395
+msgid " %B %d, %Y"
+msgstr ""
+
+#. TRANS: representation of the "Month" period
+#: finance.py:399
+msgid "%B, %Y"
+msgstr ""
+
+#. TRANS: representation of the "Year" period
+#: finance.py:403
+msgid "%Y"
+msgstr ""
+
+#: finance.py:443
 msgid "Balance: "
 msgstr "余额:"
 
-#: finance.py:455
-msgid "Previous"
-msgstr "上一个"
+#: finance.py:462
+msgid "Previous Month"
+msgstr ""
 
-#: finance.py:456
-msgid "This"
-msgstr "这个"
+#: finance.py:463
+msgid "This Month"
+msgstr ""
 
-#: finance.py:457
-msgid "Next"
-msgstr "下一个"
+#: finance.py:464
+msgid "Next Month"
+msgstr ""
+
+#: finance.py:466
+msgid "Previous Day"
+msgstr ""
+
+#: finance.py:467
+msgid "This Day"
+msgstr ""
+
+#: finance.py:468
+msgid "Next Day"
+msgstr ""
+
+#: finance.py:470
+msgid "Previous Year"
+msgstr ""
+
+#: finance.py:471
+msgid "This Year"
+msgstr ""
+
+#: finance.py:472
+msgid "Next Year"
+msgstr ""
 
 #: registerscreen.py:34
 msgid ""
@@ -200,3 +244,12 @@ msgstr "数目"
 #: registerscreen.py:74
 msgid "Date"
 msgstr "日期"
+
+#~ msgid "Previous"
+#~ msgstr "上一个"
+
+#~ msgid "This"
+#~ msgstr "这个"
+
+#~ msgid "Next"
+#~ msgstr "下一个"
