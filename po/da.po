@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-05-22 00:34-0400\n"
-"PO-Revision-Date: 2012-05-29 07:21+0200\n"
-"Last-Translator: Aputsiaq Niels <aj@isit.gl>\n"
+"PO-Revision-Date: 2012-06-13 07:02+0200\n"
+"Last-Translator: Chris <cjl@laptop.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
@@ -140,7 +140,7 @@ msgstr "Uge af"
 
 #: finance.py:395
 msgid " %B %d, %Y"
-msgstr "%d %B, %Y"
+msgstr " %d %B, %Y"
 
 #. TRANS: representation of the "Month" period
 #: finance.py:399
