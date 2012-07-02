@@ -21,74 +21,74 @@ from gettext import gettext as _
 # Set up localization.
 locale.setlocale(locale.LC_ALL, '')
 
-# Import PyGTK.
-import gobject, pygtk, gtk, pango, cairo
+from gi.repository import Gtk
+from gi.repository import GObject
 
 # Import Sugar UI modules.
-import sugar.activity.activity
-from sugar.graphics import *
+import sugar3.activity.activity
+from sugar3.graphics import *
 
 # Import activity module
 import finance
 
 REGISTER_HELP = _('<b>Welcome to Finance!</b>   This activity keeps track of income and expenses for anything that earns\nor spends money, like a school club.  To get started, use the Transaction box to add credits and debits.\nOnce you have entered some transactions, visit the Chart and Budget views to see more.')
 
-class RegisterScreen(gtk.VBox):
+class RegisterScreen(Gtk.VBox):
     def __init__(self, activity):
-        gtk.VBox.__init__(self)
+        GObject.GObject.__init__(self)
 
         self.activity = activity
 
         # Build the transaction list.
-        self.treeview = gtk.TreeView()
+        self.treeview = Gtk.TreeView()
         self.treeview.set_rules_hint(True)
         self.treeview.set_enable_search(False)
 
         # Note that the only thing we store in our liststore is the transaction id.
         # All the actual data is in the activity database.
-        self.liststore = gtk.ListStore(gobject.TYPE_INT)
+        self.liststore = Gtk.ListStore(GObject.TYPE_INT)
         self.treeview.set_model(self.liststore)
 
         # Construct the columns.
-        renderer = gtk.CellRendererText()
+        renderer = Gtk.CellRendererText()
         renderer.props.editable = True
         renderer.connect('editing-started', self.description_editing_started_cb)
         renderer.connect('edited', self.description_edit_cb)
-        col = gtk.TreeViewColumn(_('Description'), renderer)
+        col = Gtk.TreeViewColumn(_('Description'), renderer)
         col.set_cell_data_func(renderer, self.description_render_cb) 
         col.set_expand(True)
         self.treeview.append_column(col)
 
-        renderer = gtk.CellRendererText()
+        renderer = Gtk.CellRendererText()
         renderer.props.editable = True
         renderer.connect('edited', self.amount_edit_cb)
-        col = gtk.TreeViewColumn(_('Amount'), renderer)
+        col = Gtk.TreeViewColumn(_('Amount'), renderer)
         col.set_cell_data_func(renderer, self.amount_render_cb) 
         col.set_alignment(0.5)
         col.set_min_width(120)
         self.treeview.append_column(col)
 
-        renderer = gtk.CellRendererText()
+        renderer = Gtk.CellRendererText()
         renderer.props.editable = True
         renderer.connect('edited', self.date_edit_cb)
-        col = gtk.TreeViewColumn(_('Date'), renderer)
+        col = Gtk.TreeViewColumn(_('Date'), renderer)
         col.set_alignment(0.5)
         col.set_cell_data_func(renderer, self.date_render_cb) 
         col.set_min_width(150)
         self.treeview.append_column(col)
 
-        renderer = gtk.CellRendererText()
+        renderer = Gtk.CellRendererText()
         renderer.props.editable = True
         renderer.connect('editing-started', self.category_editing_started_cb)
         renderer.connect('edited', self.category_edit_cb)
-        col = gtk.TreeViewColumn(_('Category'), renderer)
+        col = Gtk.TreeViewColumn(_('Category'), renderer)
         col.set_cell_data_func(renderer, self.category_render_cb) 
         col.set_alignment(0.5)
         col.set_min_width(300)
         self.treeview.append_column(col)
 
-        scroll = gtk.ScrolledWindow()
-        scroll.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_AUTOMATIC)
+        scroll = Gtk.ScrolledWindow()
+        scroll.set_policy(Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.AUTOMATIC)
         scroll.add(self.treeview)
 
         self.pack_start(scroll, True, True, 0)
@@ -102,17 +102,17 @@ class RegisterScreen(gtk.VBox):
         # Update the help text.
         self.activity.set_help(REGISTER_HELP)
 
-    def description_render_cb(self, column, cell_renderer, model, iter):
+    def description_render_cb(self, column, cell_renderer, model, iter, data):
         id = model.get_value(iter, 0)
         t = self.activity.transaction_map[id]
         cell_renderer.set_property('text', t['name'])
 
     def description_editing_started_cb(self, cell_renderer, editable, path):
-        completion = gtk.EntryCompletion()
+        completion = Gtk.EntryCompletion()
         completion.set_inline_completion(True)
         completion.set_popup_completion(True)
         completion.set_minimum_key_length(0)
-        store = gtk.ListStore(str)
+        store = Gtk.ListStore(str)
         for c in self.activity.transaction_names.keys():
             store.append([c])
         completion.set_model(store)
@@ -130,7 +130,7 @@ class RegisterScreen(gtk.VBox):
                 if ct['name'] == new_text and ct['category'] != '':
                     t['category'] = ct['category']
 
-    def amount_render_cb(self, column, cell_renderer, model, iter):
+    def amount_render_cb(self, column, cell_renderer, model, iter, data):
         id = model.get_value(iter, 0)
         t = self.activity.transaction_map[id]
         cell_renderer.set_property('xalign', 1.0)
@@ -147,7 +147,7 @@ class RegisterScreen(gtk.VBox):
         t['amount'] = abs(locale.atof(new_text))
         self.activity.update_summary()
 
-    def date_render_cb(self, column, cell_renderer, model, iter):
+    def date_render_cb(self, column, cell_renderer, model, iter, data):
         id = model.get_value(iter, 0)
         t = self.activity.transaction_map[id]
         when = datetime.date.fromordinal(t['date'])
@@ -162,18 +162,18 @@ class RegisterScreen(gtk.VBox):
         t['date'] = when.toordinal()
         self.activity.build_screen()
 
-    def category_render_cb(self, column, cell_renderer, model, iter):
+    def category_render_cb(self, column, cell_renderer, model, iter, data):
         id = model.get_value(iter, 0)
         t = self.activity.transaction_map[id]
         cell_renderer.set_property('text', t['category'])
         cell_renderer.set_property('background', finance.get_category_color_str(t['category']))
 
     def category_editing_started_cb(self, cell_renderer, editable, path):
-        completion = gtk.EntryCompletion()
+        completion = Gtk.EntryCompletion()
         completion.set_inline_completion(True)
         completion.set_popup_completion(True)
         completion.set_minimum_key_length(0)
-        store = gtk.ListStore(str)
+        store = Gtk.ListStore(str)
         for c in self.activity.category_names.keys():
             store.append([c])
         completion.set_model(store)

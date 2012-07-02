@@ -21,31 +21,32 @@ from gettext import gettext as _
 # Set up localization.
 locale.setlocale(locale.LC_ALL, '')
 
-# Import PyGTK.
-import gobject, pygtk, gtk, pango, cairo
+from gi.repository import Gtk
+from gi.repository import Gdk
+from gi.repository import GObject
 
 # Import Sugar UI modules.
-import sugar.activity.activity
-from sugar.graphics import *
+import sugar3.activity.activity
+from sugar3.graphics import *
 
 # Import activity module
 import finance
 
 BUDGET_HELP = _('The Budget view allows you to set a monthly budget for each expense category, and to keep track of your\nbudgets.  To set a budget, type the amount in the box to the right of the category.')
 
-class BudgetScreen(gtk.VBox):
+class BudgetScreen(Gtk.VBox):
     def __init__(self, activity):
-        gtk.VBox.__init__(self)
+        GObject.GObject.__init__(self)
 
         self.activity = activity
 
         self.category_total = {}
         self.sorted_categories = []
  
-        self.budgetbox = gtk.VBox()
+        self.budgetbox = Gtk.VBox()
 
-        scroll = gtk.ScrolledWindow()
-        scroll.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_AUTOMATIC)
+        scroll = Gtk.ScrolledWindow()
+        scroll.set_policy(Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.AUTOMATIC)
         scroll.add_with_viewport(self.budgetbox)
 
         self.pack_start(scroll, True, True, 0)
@@ -72,26 +73,26 @@ class BudgetScreen(gtk.VBox):
             self.budgetbox.remove(w)
 
         # Build header.
-        catlabel = gtk.Label()
+        catlabel = Gtk.Label()
         catlabel.set_markup('<b><big>'+_('Category')+'</big></b>')
-        spentlabel = gtk.Label()
+        spentlabel = Gtk.Label()
         spentlabel.set_markup('<b><big>'+_('Spent')+'</big></b>')
-        budgetlabel = gtk.Label()
+        budgetlabel = Gtk.Label()
         budgetlabel.set_markup('<b><big>'+_('Budget')+'</big></b>')
         
-        headerbox = gtk.HBox()
+        headerbox = Gtk.HBox()
         headerbox.pack_start(catlabel, False, True, 20)
         headerbox.pack_start(spentlabel, True, True, 10)
         headerbox.pack_start(budgetlabel, False, True, 20)
         self.budgetbox.pack_start(headerbox, False, False, 10)
 
-        catgroup = gtk.SizeGroup(gtk.SIZE_GROUP_HORIZONTAL)
+        catgroup = Gtk.SizeGroup(Gtk.SizeGroupMode.HORIZONTAL)
         catgroup.add_widget(catlabel)
 
-        spentgroup = gtk.SizeGroup(gtk.SIZE_GROUP_HORIZONTAL)
+        spentgroup = Gtk.SizeGroup(Gtk.SizeGroupMode.HORIZONTAL)
         spentgroup.add_widget(spentlabel)
 
-        budgetgroup = gtk.SizeGroup(gtk.SIZE_GROUP_HORIZONTAL)
+        budgetgroup = Gtk.SizeGroup(Gtk.SizeGroupMode.HORIZONTAL)
         budgetgroup.add_widget(budgetlabel)
         
         # Build categories.
@@ -100,22 +101,23 @@ class BudgetScreen(gtk.VBox):
             # If there is no category, display as Unknown
             if c is '':
                 description = _('Unknown')
-            catbox = gtk.Label(description)
+            catbox = Gtk.Label(label=description)
             catbox.set_padding(10, 0)
 
             color = finance.get_category_color_str(c)
 
-            ebox = gtk.EventBox()
-            ebox.modify_bg(gtk.STATE_NORMAL, ebox.get_colormap().alloc_color(color))
+            ebox = Gtk.EventBox()
+            parse, color = Gdk.Color.parse(color)
+            ebox.modify_bg(Gtk.StateType.NORMAL, color)
             ebox.add(catbox)
 
             catgroup.add_widget(ebox)
 
-            bar = gtk.DrawingArea()
-            bar.connect('expose-event', self.bar_expose_cb, c)
+            bar = Gtk.DrawingArea()
+            bar.connect('draw', self.bar_draw_cb, c)
             spentgroup.add_widget(bar)
 
-            budgetentry = gtk.Entry()
+            budgetentry = Gtk.Entry()
             budgetentry.connect('changed', self.budget_changed_cb, c)
             budgetentry.set_width_chars(10)
             if self.activity.data['budgets'].has_key(c):
@@ -123,18 +125,18 @@ class BudgetScreen(gtk.VBox):
                 budgetentry.set_text(locale.currency(b['amount'], False))
             budgetgroup.add_widget(budgetentry)
 
-            #freqcombo = gtk.combo_box_new_text()
+            #freqcombo = Gtk.ComboBoxText()
             #freqcombo.append_text(_('Daily'))
             #freqcombo.append_text(_('Weekly'))
             #freqcombo.append_text(_('Monthly'))
             #freqcombo.append_text(_('Annually'))
             #freqcombo.set_active(2)
 
-            hbox = gtk.HBox()
+            hbox = Gtk.HBox()
             hbox.pack_start(ebox, False, False, 20)
             hbox.pack_start(bar, True, True, 10)
             hbox.pack_start(budgetentry, False, False, 20)
-            #hbox.pack_start(freqcombo)
+            #hbox.pack_start(freqcombo, True, True, 0)
 
             self.budgetbox.pack_start(hbox, False, False, 5)
 
@@ -142,11 +144,7 @@ class BudgetScreen(gtk.VBox):
             
         self.activity.set_help(BUDGET_HELP)
 
-    def bar_expose_cb(self, widget, event, category):
-        cr = widget.window.cairo_create()
-        cr.rectangle(event.area.x, event.area.y, event.area.width, event.area.height)
-        cr.clip()
-
+    def bar_draw_cb(self, widget, cr, category):
         bounds = widget.get_allocation()
 
         # Draw amount of time spent in period if sensible.

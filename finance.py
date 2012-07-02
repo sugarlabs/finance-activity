@@ -25,25 +25,21 @@ from port import json
 # Set up localization.
 locale.setlocale(locale.LC_ALL, '')
 
-# Import PyGTK.
-import gobject, pygtk, gtk, pango, cairo
+from gi.repository import Gtk
+from gi.repository import Gdk
 
 # Import Sugar UI modules.
-import sugar.activity.activity
-from sugar.graphics.toggletoolbutton import ToggleToolButton
-from sugar.graphics.toolbutton import ToolButton
-from sugar.graphics.toolcombobox import ToolComboBox
-from sugar.graphics import *
+import sugar3.activity.activity
+from sugar3.graphics.toggletoolbutton import ToggleToolButton
+from sugar3.graphics.toolbutton import ToolButton
+from sugar3.graphics.toolcombobox import ToolComboBox
+from sugar3.graphics import *
 
-OLD_TOOLBAR = False
-try:
-    from sugar.graphics.toolbarbox import ToolbarBox
-    from sugar.graphics.toolbarbox import ToolbarButton
-    from sugar.graphics.radiotoolbutton import RadioToolButton
-    from sugar.activity.widgets import StopButton
-    from sugar.activity.widgets import ActivityToolbarButton
-except ImportError:
-    OLD_TOOLBAR = True
+from sugar3.graphics.toolbarbox import ToolbarBox
+from sugar3.graphics.toolbarbox import ToolbarButton
+from sugar3.graphics.radiotoolbutton import RadioToolButton
+from sugar3.activity.widgets import StopButton
+from sugar3.activity.widgets import ActivityToolbarButton
 
 # Initialize logging.
 log = logging.getLogger('Finance')
@@ -94,9 +90,9 @@ def get_category_color_str(catname):
 # 
 # It owns the main application window, and all the various toolbars and options.
 # Screens are stored in a stack, with the currently active screen on top.
-class Finance(sugar.activity.activity.Activity):
+class Finance(sugar3.activity.activity.Activity):
     def __init__ (self, handle):
-        sugar.activity.activity.Activity.__init__(self, handle)
+        sugar3.activity.activity.Activity.__init__(self, handle)
         self.set_title(_("Finance"))
         self.max_participants = 1
 
@@ -133,39 +129,41 @@ class Finance(sugar.activity.activity.Activity):
         self.build_toolbox()
   
         self.screens = []
-        self.screenbox = gtk.VBox()
+        self.screenbox = Gtk.VBox()
 
         # Add the context sensitive help.
-        self.helplabel = gtk.Label()
+        self.helplabel = Gtk.Label()
         self.helplabel.set_padding(10, 10)
-        self.helpbox = gtk.EventBox()
-        self.helpbox.modify_bg(gtk.STATE_NORMAL, self.helpbox.get_colormap().alloc_color('#000000'))
+        self.helpbox = Gtk.EventBox()
+        parse, color = Gdk.Color.parse('#000000')
+        self.helpbox.modify_bg(Gtk.StateType.NORMAL, color)
         self.helpbox.add(self.helplabel)
 
         # Add the header.
-        self.periodlabel = gtk.Label()
+        self.periodlabel = Gtk.Label()
         self.periodlabel.set_padding(10, 0)
 
-        headerbox = gtk.HBox()
-        headerbox.pack_end(self.periodlabel, False, False)
+        headerbox = Gtk.HBox()
+        headerbox.pack_end(self.periodlabel, False, False, 0)
 
         # Add the summary data.
-        self.startlabel = gtk.Label()
-        self.creditslabel = gtk.Label()
-        self.debitslabel = gtk.Label()
-        self.balancelabel = gtk.Label()
+        self.startlabel = Gtk.Label()
+        self.creditslabel = Gtk.Label()
+        self.debitslabel = Gtk.Label()
+        self.balancelabel = Gtk.Label()
 
-        summarybox = gtk.HBox()
-        summarybox.pack_start(self.startlabel, True, False)
-        summarybox.pack_start(self.creditslabel, True, False)
-        summarybox.pack_start(self.debitslabel, True, False)
-        summarybox.pack_start(self.balancelabel, True, False)
+        summarybox = Gtk.HBox()
+        summarybox.pack_start(self.startlabel, True, False, 0)
+        summarybox.pack_start(self.creditslabel, True, False, 0)
+        summarybox.pack_start(self.debitslabel, True, False, 0)
+        summarybox.pack_start(self.balancelabel, True, False, 0)
 
-        vbox = gtk.VBox()
+        vbox = Gtk.VBox()
 
         vbox.pack_start(self.helpbox, False, False, 10)
         vbox.pack_start(headerbox, False, False, 10)
-        vbox.pack_start(gtk.HSeparator(), False, False, 0)
+        vbox.pack_start(Gtk.Separator(orientation=Gtk.Orientation.VERTICAL),
+                        False, False, 0)
         vbox.pack_start(self.screenbox, True, True, 0)
         vbox.pack_start(summarybox, False, False, 10)
 
@@ -176,12 +174,6 @@ class Finance(sugar.activity.activity.Activity):
         self.set_canvas(vbox)
 
         self.show_all()
-
-        if OLD_TOOLBAR:
-            # Hide the sharing button from the activity toolbar since
-            # we don't support it.
-            activity_toolbar = self.tbox.get_activity_toolbar()
-            activity_toolbar.share.props.visible = False
 
     def build_toolbox(self):
         self.newcreditbtn = ToolButton('row-insert-credit')
@@ -199,7 +191,7 @@ class Finance(sugar.activity.activity.Activity):
         self.eraseitembtn.props.accelerator = '<Ctrl>E'
         self.eraseitembtn.connect('clicked', self.register.eraseitem_cb)
 
-        transactionbar = gtk.Toolbar()
+        transactionbar = Gtk.Toolbar()
         transactionbar.insert(self.newcreditbtn, -1)
         transactionbar.insert(self.newdebitbtn, -1)
         transactionbar.insert(self.eraseitembtn, -1)
@@ -216,15 +208,15 @@ class Finance(sugar.activity.activity.Activity):
         self.nextperiodbtn.props.accelerator = '<Ctrl>Right'
         self.nextperiodbtn.connect('clicked', self.nextperiod_cb)
 
-        periodsep = gtk.SeparatorToolItem()
+        periodsep = Gtk.SeparatorToolItem()
         periodsep.set_expand(True)
         periodsep.set_draw(False)
 
-        periodlabel = gtk.Label(_('Period: '))
-        periodlabelitem = gtk.ToolItem()
+        periodlabel = Gtk.Label(label=_('Period: '))
+        periodlabelitem = Gtk.ToolItem()
         periodlabelitem.add(periodlabel)
 
-        periodcombo = gtk.combo_box_new_text()
+        periodcombo = Gtk.ComboBoxText()
         periodcombo.append_text(_('Day'))
         periodcombo.append_text(_('Week'))
         periodcombo.append_text(_('Month'))
@@ -261,7 +253,7 @@ class Finance(sugar.activity.activity.Activity):
         chartbtn.props.accelerator = '<Ctrl>3'
         chartbtn.connect('clicked', self.chart_cb)
 
-        viewbar = gtk.Toolbar()
+        viewbar = Gtk.Toolbar()
         viewbar.insert(registerbtn, -1)
         viewbar.insert(budgetbtn, -1)
         viewbar.insert(chartbtn, -1)
@@ -271,72 +263,48 @@ class Finance(sugar.activity.activity.Activity):
         helpbtn.set_tooltip(_("Show Help"))
         helpbtn.connect('clicked', self.help_cb)
 
-        if OLD_TOOLBAR:
-            periodbar = gtk.Toolbar()
-            periodbar.insert(self.prevperiodbtn, -1)
-            periodbar.insert(self.nextperiodbtn, -1)
-            periodbar.insert(self.thisperiodbtn, -1)
-            periodbar.insert(periodsep, -1)
-            periodbar.insert(periodlabelitem, -1)
-            periodbar.insert(perioditem, -1)
+        self.toolbar_box = ToolbarBox()
 
-            self.tbox = sugar.activity.activity.ActivityToolbox(self)
-            self.tbox.add_toolbar(_('Transaction'), transactionbar)
-            self.tbox.add_toolbar(_('Period'), periodbar)
-            self.tbox.add_toolbar(_('View'), viewbar)
-            self.tbox.show_all()
+        activity_button = ActivityToolbarButton(self)
+        self.toolbar_box.toolbar.insert(activity_button, 0)
+        activity_button.show()
 
-            # Add help button in place of share:
-            activity_toolbar = self.tbox.get_activity_toolbar()
-            share_idx = activity_toolbar.get_item_index(activity_toolbar.share)
-            activity_toolbar.insert(helpbtn, share_idx)
-            helpbtn.show_all()
+        transaction_toolbar_button = ToolbarButton(
+            page=transactionbar,
+            icon_name='transaction')
+        transactionbar.show_all()
 
-            self.set_toolbox(self.tbox)
+        view_toolbar_button = ToolbarButton(
+            page=viewbar,
+            icon_name='toolbar-view')
+        viewbar.show_all()
 
-        else:
-            self.toolbar_box = ToolbarBox()
+        self.toolbar_box.toolbar.insert(transaction_toolbar_button, -1)
+        transaction_toolbar_button.show()
 
-            activity_button = ActivityToolbarButton(self)
-            self.toolbar_box.toolbar.insert(activity_button, 0)
-            activity_button.show()
+        self.toolbar_box.toolbar.view = view_toolbar_button
+        self.toolbar_box.toolbar.insert(view_toolbar_button, -1)
+        view_toolbar_button.show()
 
-            transaction_toolbar_button = ToolbarButton(
-                    page=transactionbar,
-                    icon_name='transaction')
-            transactionbar.show_all()
+        separator = Gtk.SeparatorToolItem()
+        separator.set_draw(True)
+        self.toolbar_box.toolbar.insert(separator, -1)
 
-            view_toolbar_button = ToolbarButton(
-                    page=viewbar,
-                    icon_name='toolbar-view')
-            viewbar.show_all()
+        self.toolbar_box.toolbar.insert(periodlabelitem, -1)
+        self.toolbar_box.toolbar.insert(perioditem, -1)
+        self.toolbar_box.toolbar.insert(self.prevperiodbtn, -1)
+        self.toolbar_box.toolbar.insert(self.nextperiodbtn, -1)
+        self.toolbar_box.toolbar.insert(self.thisperiodbtn, -1)
 
-            self.toolbar_box.toolbar.insert(transaction_toolbar_button, -1)
-            transaction_toolbar_button.show()
+        separator = Gtk.SeparatorToolItem()
+        separator.props.draw = False
+        separator.set_expand(True)
+        self.toolbar_box.toolbar.insert(separator, -1)
 
-            self.toolbar_box.toolbar.view = view_toolbar_button
-            self.toolbar_box.toolbar.insert(view_toolbar_button, -1)
-            view_toolbar_button.show()
-
-            separator = gtk.SeparatorToolItem()
-            separator.set_draw(True)
-            self.toolbar_box.toolbar.insert(separator, -1)
-
-            self.toolbar_box.toolbar.insert(periodlabelitem, -1)
-            self.toolbar_box.toolbar.insert(perioditem, -1)
-            self.toolbar_box.toolbar.insert(self.prevperiodbtn, -1)
-            self.toolbar_box.toolbar.insert(self.nextperiodbtn, -1)
-            self.toolbar_box.toolbar.insert(self.thisperiodbtn, -1)
-
-            separator = gtk.SeparatorToolItem()
-            separator.props.draw = False
-            separator.set_expand(True)
-            self.toolbar_box.toolbar.insert(separator, -1)
-
-            self.toolbar_box.toolbar.insert(helpbtn, -1)
-            self.toolbar_box.toolbar.insert(StopButton(self), -1)
-            self.set_toolbar_box(self.toolbar_box)
-            self.toolbar_box.show_all()
+        self.toolbar_box.toolbar.insert(helpbtn, -1)
+        self.toolbar_box.toolbar.insert(StopButton(self), -1)
+        self.set_toolbar_box(self.toolbar_box)
+        self.toolbar_box.show_all()
 
     def set_help(self, text):
         if self.helplabel != None:
@@ -364,7 +332,7 @@ class Finance(sugar.activity.activity.Activity):
         if len(self.screens):
             self.screenbox.remove(self.screens[-1])
  
-        self.screenbox.pack_start(screen, True, True)
+        self.screenbox.pack_start(screen, True, True, 0)
         self.screens.append(screen)
 
         self.build_screen()
@@ -373,7 +341,7 @@ class Finance(sugar.activity.activity.Activity):
         self.screenbox.remove(self.screens[-1])
         self.screens.pop()
         if len(self.screens):
-            self.screenbox.pack_start(self.screens[-1])
+            self.screenbox.pack_start(self.screens[-1], True, True, 0)
 
     def build_screen(self):
         self.build_visible_transactions()
