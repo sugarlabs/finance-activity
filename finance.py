@@ -1,98 +1,108 @@
-# Copyright 2008 by Wade Brainerd.  
+# Copyright 2008 by Wade Brainerd.
 # This file is part of Finance.
 #
 # Finance is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
-# 
+#
 # Finance is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with Finance.  If not, see <http://www.gnu.org/licenses/>.
 #!/usr/bin/env python
+
 """Finance - Home financial software for the OLPC XO."""
 
 # Import standard Python modules.
-import logging, os, math, time, copy, time, datetime, locale
+import logging
+import datetime
+import locale
+
+# Import screen classes.
+import registerscreen
+import chartscreen
+import budgetscreen
+
 from gettext import gettext as _
-
 from port import json
-
-# Set up localization.
-locale.setlocale(locale.LC_ALL, '')
 
 from gi.repository import Gtk
 from gi.repository import Gdk
 
 # Import Sugar UI modules.
-import sugar3.activity.activity
 from sugar3.graphics.toggletoolbutton import ToggleToolButton
 from sugar3.graphics.toolbutton import ToolButton
 from sugar3.graphics.toolcombobox import ToolComboBox
-from sugar3.graphics import *
 
 from sugar3.graphics.toolbarbox import ToolbarBox
 from sugar3.graphics.toolbarbox import ToolbarButton
 from sugar3.graphics.radiotoolbutton import RadioToolButton
 from sugar3.activity.widgets import StopButton
 from sugar3.activity.widgets import ActivityToolbarButton
+from sugar3.activity import Activity
+
+# Set up localization.
+locale.setlocale(locale.LC_ALL, '')
 
 # Initialize logging.
 log = logging.getLogger('Finance')
 log.setLevel(logging.DEBUG)
 logging.basicConfig()
 
-# Import screen classes.
-import registerscreen, chartscreen, budgetscreen
 
 CATEGORY_COLORS = [
-    (1.0,1.0,1.0),
-    (1.0,1.0,0.6),
-    (1.0,1.0,0.8),
-    (1.0,0.6,1.0),
-    (1.0,0.6,0.6),
-    (1.0,0.6,0.8),
-    (1.0,0.8,1.0),
-    (1.0,0.8,0.6),
-    (1.0,0.8,0.8),
-    (0.6,1.0,1.0),
-    (0.6,1.0,0.6),
-    (0.6,1.0,0.8),
-    (0.6,0.6,1.0),
-    (0.6,0.6,0.6),
-    (0.6,0.6,0.8),
-    (0.6,0.8,1.0),
-    (0.6,0.8,0.6),
-    (0.6,0.8,0.8),
-    (0.8,1.0,1.0),
-    (0.8,1.0,0.6),
-    (0.8,1.0,0.8),
-    (0.8,0.6,1.0),
-    (0.8,0.6,0.6),
-    (0.8,0.6,0.8),
-    (0.8,0.8,1.0),
-    (0.8,0.8,0.6),
-    (0.8,0.8,0.8),
+    (1.0, 1.0, 1.0),
+    (1.0, 1.0, 0.6),
+    (1.0, 1.0, 0.8),
+    (1.0, 0.6, 1.0),
+    (1.0, 0.6, 0.6),
+    (1.0, 0.6, 0.8),
+    (1.0, 0.8, 1.0),
+    (1.0, 0.8, 0.6),
+    (1.0, 0.8, 0.8),
+    (0.6, 1.0, 1.0),
+    (0.6, 1.0, 0.6),
+    (0.6, 1.0, 0.8),
+    (0.6, 0.6, 1.0),
+    (0.6, 0.6, 0.6),
+    (0.6, 0.6, 0.8),
+    (0.6, 0.8, 1.0),
+    (0.6, 0.8, 0.6),
+    (0.6, 0.8, 0.8),
+    (0.8, 1.0, 1.0),
+    (0.8, 1.0, 0.6),
+    (0.8, 1.0, 0.8),
+    (0.8, 0.6, 1.0),
+    (0.8, 0.6, 0.6),
+    (0.8, 0.6, 0.8),
+    (0.8, 0.8, 1.0),
+    (0.8, 0.8, 0.6),
+    (0.8, 0.8, 0.8),
 ]
+
 
 def get_category_color(catname):
     return CATEGORY_COLORS[catname.__hash__() % len(CATEGORY_COLORS)]
 
+
 def get_category_color_str(catname):
     color = get_category_color(catname)
-    return "#%02x%02x%02x" % (int(color[0]*255), int(color[1]*255), int(color[2]*255))
+    return "#%02x%02x%02x" % \
+        (int(color[0] * 255), int(color[1] * 255), int(color[2] * 255))
+
 
 # This is the main Finance activity class.
-# 
-# It owns the main application window, and all the various toolbars and options.
-# Screens are stored in a stack, with the currently active screen on top.
-class Finance(sugar3.activity.activity.Activity):
-    def __init__ (self, handle):
-        sugar3.activity.activity.Activity.__init__(self, handle)
+#
+# It owns the main application window, and all the various toolbars
+# and options. Screens are stored in a stack, with the currently
+# active screen on top.
+class Finance(Activity):
+    def __init__(self, handle):
+        Activity.__init__(self, handle)
         self.set_title(_("Finance"))
         self.max_participants = 1
 
@@ -101,12 +111,12 @@ class Finance(sugar3.activity.activity.Activity):
         #   next_id
         #   transactions
         #     id, name, type, amount, date, category
-        #   budgets 
+        #   budgets
         #     category, period, amount, budget
         self.data = {
             'next_id': 0,
             'transactions': [],
-            'budgets': {} 
+            'budgets': {}
         }
 
         self.transaction_map = {}
@@ -116,7 +126,7 @@ class Finance(sugar3.activity.activity.Activity):
         self.category_names = {}
 
         #self.create_test_data()
-  
+
         # Initialize view period to the first of the month.
         self.period = _('Month')
         self.period_start = self.get_this_period()
@@ -127,7 +137,7 @@ class Finance(sugar3.activity.activity.Activity):
         self.budget = budgetscreen.BudgetScreen(self)
 
         self.build_toolbox()
-  
+
         self.screens = []
         self.screenbox = Gtk.VBox()
 
@@ -170,7 +180,8 @@ class Finance(sugar3.activity.activity.Activity):
         # Start with the main screen.
         self.push_screen(self.register)
 
-        # This has to happen last, because it calls the read_file method when restoring from the Journal.
+        # This has to happen last, because it calls the read_file
+        # method when restoring from the Journal.
         self.set_canvas(vbox)
 
         self.show_all()
@@ -195,7 +206,7 @@ class Finance(sugar3.activity.activity.Activity):
         transactionbar.insert(self.newcreditbtn, -1)
         transactionbar.insert(self.newdebitbtn, -1)
         transactionbar.insert(self.eraseitembtn, -1)
- 
+
         self.thisperiodbtn = ToolButton('go-down')
         self.thisperiodbtn.props.accelerator = '<Ctrl>Down'
         self.thisperiodbtn.connect('clicked', self.thisperiod_cb)
@@ -308,7 +319,8 @@ class Finance(sugar3.activity.activity.Activity):
 
     def set_help(self, text):
         if self.helplabel != None:
-            self.helplabel.set_markup('<span size="8000" color="#ffffff">' + text + '</span>')
+            self.helplabel.set_markup('<span size="8000" color="#ffffff">' +
+                    text + '</span>')
 
     def help_cb(self, widget):
         if widget.get_active():
@@ -331,7 +343,7 @@ class Finance(sugar3.activity.activity.Activity):
     def push_screen(self, screen):
         if len(self.screens):
             self.screenbox.remove(self.screens[-1])
- 
+
         self.screenbox.pack_start(screen, True, True, 0)
         self.screens.append(screen)
 
@@ -373,7 +385,8 @@ class Finance(sugar3.activity.activity.Activity):
         elif self.period == _('Forever'):
             text = _('Forever')
 
-        self.periodlabel.set_markup("<span size='xx-large'><b>" + text + "</b></span>")
+        self.periodlabel.set_markup(
+            "<span size='xx-large'><b>" + text + "</b></span>")
 
     def update_summary(self):
         # Calculate starting balance.
@@ -382,16 +395,16 @@ class Finance(sugar3.activity.activity.Activity):
             d = t['date']
             if d < self.period_start.toordinal():
                 if t['type'] == 'credit':
-                    start += t['amount'] 
+                    start += t['amount']
                 else:
-                    start -= t['amount'] 
+                    start -= t['amount']
 
         # Calculate totals for this period.
         credit_count = 0
         credit_total = 0.0
         debit_count = 0
         debit_total = 0.0
-        total = start 
+        total = start
         for t in self.visible_transactions:
             if t['type'] == 'credit':
                 credit_count += 1
@@ -407,14 +420,17 @@ class Finance(sugar3.activity.activity.Activity):
             balancecolor = '#4040ff'
         else:
             balancecolor = '#ff4040'
-        balance = "<span size='xx-large' foreground='%s'><b>" % balancecolor 
+        balance = "<span size='xx-large' foreground='%s'><b>" % balancecolor
         balance += _('Balance: ') + locale.currency(total)
         balance += "</b></span>"
         self.balancelabel.set_markup(balance)
 
-        self.startlabel.set_markup('Starting Balance: ' + locale.currency(start))
-        self.creditslabel.set_markup('%s in %d credits' % (locale.currency(credit_total), credit_count))
-        self.debitslabel.set_markup('%s in %d debits' % (locale.currency(debit_total), debit_count))
+        self.startlabel.set_markup('Starting Balance: ' +
+                                   locale.currency(start))
+        self.creditslabel.set_markup(
+            '%s in %d credits' % (locale.currency(credit_total), credit_count))
+        self.debitslabel.set_markup(
+            '%s in %d debits' % (locale.currency(debit_total), debit_count))
 
     def update_toolbar(self):
         # Disable the navigation when Forever is selected.
@@ -479,12 +495,12 @@ class Finance(sugar3.activity.activity.Activity):
 
         elif self.period == _('Month'):
             if start.month == 12:
-                return datetime.date(start.year+1, 1, 1)
+                return datetime.date(start.year + 1, 1, 1)
             else:
-                return datetime.date(start.year, start.month+1, 1)
+                return datetime.date(start.year, start.month + 1, 1)
 
         elif self.period == _('Year'):
-            return datetime.date(start.year+1, 1, 1)
+            return datetime.date(start.year + 1, 1, 1)
 
     def get_prev_period(self, start):
         if self.period == _('Day'):
@@ -495,12 +511,12 @@ class Finance(sugar3.activity.activity.Activity):
 
         elif self.period == _('Month'):
             if start.month == 1:
-                return datetime.date(start.year-1, 12, 1)
+                return datetime.date(start.year - 1, 12, 1)
             else:
-                return datetime.date(start.year, start.month-1, 1)
+                return datetime.date(start.year, start.month - 1, 1)
 
         elif self.period == _('Year'):
-            return datetime.date(start.year-1, 1, 1)
+            return datetime.date(start.year - 1, 1, 1)
 
     def thisperiod_cb(self, widget):
         if self.period != _('Forever'):
@@ -531,7 +547,8 @@ class Finance(sugar3.activity.activity.Activity):
 
         else:
             period_start_ord = self.period_start.toordinal()
-            period_end_ord = self.get_next_period(self.period_start).toordinal()
+            period_end_ord = self.get_next_period(
+                self.period_start).toordinal()
 
             self.visible_transactions = []
             for t in self.data['transactions']:
@@ -539,14 +556,15 @@ class Finance(sugar3.activity.activity.Activity):
                 if d >= period_start_ord and d < period_end_ord:
                     self.visible_transactions.append(t)
 
-        self.visible_transactions.sort(lambda a,b: a['date'] - b['date'])
+        self.visible_transactions.sort(lambda a, b: a['date'] - b['date'])
 
     def build_transaction_map(self):
         self.transaction_map = {}
         for t in self.data['transactions']:
             self.transaction_map[t['id']] = t
 
-    def create_transaction(self, name='', type='debit', amount=0, category='', date=datetime.date.today()):
+    def create_transaction(self, name='', type='debit', amount=0,
+                           category='', date=datetime.date.today()):
         id = self.data['next_id']
         self.data['next_id'] += 1
 
@@ -556,13 +574,13 @@ class Finance(sugar3.activity.activity.Activity):
             'type': type,
             'amount': amount,
             'date': date.toordinal(),
-            'category': category 
+            'category': category
         }
         self.data['transactions'].append(t)
         self.transaction_map[id] = t
 
         self.build_visible_transactions()
-        
+
         return id
 
     def destroy_transaction(self, id):
@@ -580,126 +598,186 @@ class Finance(sugar3.activity.activity.Activity):
     def create_test_data(self):
         cur_date = datetime.date.today()
         cur_date = datetime.date(cur_date.year, cur_date.month, 1)
-        self.create_transaction('Initial Balance', type='credit', amount=632, category='Initial Balance', date=cur_date)
+        self.create_transaction('Initial Balance', type='credit', amount=632,
+                                category='Initial Balance', date=cur_date)
 
         cur_date += datetime.timedelta(days=1)
-        self.create_transaction('Fix Car', amount=75.84, category='Transportation', date=cur_date)
+        self.create_transaction('Fix Car', amount=75.84,
+                                category='Transportation', date=cur_date)
 
         cur_date += datetime.timedelta(days=2)
-        self.create_transaction('Adopt Cat', amount=100, category='Pets', date=cur_date)
-        self.create_transaction('New Coat', amount=25.53, category='Clothing', date=cur_date)
+        self.create_transaction('Adopt Cat', amount=100, category='Pets',
+                                date=cur_date)
+        self.create_transaction('New Coat', amount=25.53, category='Clothing',
+                                date=cur_date)
 
         cur_date += datetime.timedelta(days=2)
-        self.create_transaction('Pay Rent', amount=500, category='Housing', date=cur_date)
+        self.create_transaction('Pay Rent', amount=500, category='Housing',
+                                date=cur_date)
 
         cur_date += datetime.timedelta(days=1)
-        self.create_transaction('Funky Cafe', amount=5.20, category='Food', date=cur_date)
-        self.create_transaction('Groceries', amount=50.92, category='Food', date=cur_date)
-        self.create_transaction('Cat Food', amount=5.40, category='Pets', date=cur_date)
+        self.create_transaction('Funky Cafe', amount=5.20, category='Food',
+                                date=cur_date)
+        self.create_transaction('Groceries', amount=50.92, category='Food',
+                                date=cur_date)
+        self.create_transaction('Cat Food', amount=5.40, category='Pets',
+                                date=cur_date)
 
         cur_date += datetime.timedelta(days=4)
-        self.create_transaction('Paycheck', type='credit', amount=700, category='Paycheck', date=cur_date)
-        self.create_transaction('Gas', amount=21.20, category='Transportation', date=cur_date)
+        self.create_transaction('Paycheck', type='credit', amount=700,
+                                category='Paycheck', date=cur_date)
+        self.create_transaction('Gas', amount=21.20, category='Transportation',
+                                date=cur_date)
 
         cur_date += datetime.timedelta(days=2)
-        self.create_transaction('Cat Toys', amount=10.95, category='Pets', date=cur_date)
-        self.create_transaction('Gift for Sister', amount=23.20, category='Gifts', date=cur_date)
+        self.create_transaction('Cat Toys', amount=10.95, category='Pets',
+                                date=cur_date)
+        self.create_transaction('Gift for Sister', amount=23.20,
+                                category='Gifts', date=cur_date)
 
         cur_date += datetime.timedelta(days=2)
-        self.create_transaction('Pay Rent', amount=500, category='Housing', date=cur_date)
+        self.create_transaction('Pay Rent', amount=500, category='Housing',
+                                date=cur_date)
 
         cur_date += datetime.timedelta(days=1)
-        self.create_transaction('Funky Cafe', amount=5.20, category='Food', date=cur_date)
-        self.create_transaction('Groceries', amount=50.92, category='Food', date=cur_date)
-        self.create_transaction('Cat Food', amount=5.40, category='Pets', date=cur_date)
+        self.create_transaction('Funky Cafe', amount=5.20, category='Food',
+                                date=cur_date)
+        self.create_transaction('Groceries', amount=50.92, category='Food',
+                                date=cur_date)
+        self.create_transaction('Cat Food', amount=5.40, category='Pets',
+                                date=cur_date)
 
         cur_date += datetime.timedelta(days=4)
-        self.create_transaction('Paycheck', type='credit', amount=700, category='Paycheck', date=cur_date)
-        self.create_transaction('Gas', amount=21.20, category='Transportation', date=cur_date)
+        self.create_transaction('Paycheck', type='credit', amount=700,
+                                category='Paycheck', date=cur_date)
+        self.create_transaction('Gas', amount=21.20, category='Transportation',
+                                date=cur_date)
 
         cur_date += datetime.timedelta(days=2)
-        self.create_transaction('Cat Toys', amount=10.95, category='Pets', date=cur_date)
-        self.create_transaction('Gift for Sister', amount=23.20, category='Gifts', date=cur_date)
+        self.create_transaction('Cat Toys', amount=10.95, category='Pets',
+                                date=cur_date)
+        self.create_transaction('Gift for Sister', amount=23.20,
+                                category='Gifts', date=cur_date)
 
         cur_date += datetime.timedelta(days=2)
-        self.create_transaction('Pay Rent', amount=500, category='Housing', date=cur_date)
+        self.create_transaction('Pay Rent', amount=500, category='Housing',
+                                date=cur_date)
 
         cur_date += datetime.timedelta(days=1)
-        self.create_transaction('Funky Cafe', amount=5.20, category='Food', date=cur_date)
-        self.create_transaction('Groceries', amount=50.92, category='Food', date=cur_date)
-        self.create_transaction('Cat Food', amount=5.40, category='Pets', date=cur_date)
+        self.create_transaction('Funky Cafe', amount=5.20, category='Food',
+                                date=cur_date)
+        self.create_transaction('Groceries', amount=50.92, category='Food',
+                                date=cur_date)
+        self.create_transaction('Cat Food', amount=5.40, category='Pets',
+                                date=cur_date)
 
         cur_date += datetime.timedelta(days=4)
-        self.create_transaction('Paycheck', type='credit', amount=700, category='Paycheck', date=cur_date)
-        self.create_transaction('Gas', amount=21.20, category='Transportation', date=cur_date)
+        self.create_transaction('Paycheck', type='credit', amount=700,
+                                category='Paycheck', date=cur_date)
+        self.create_transaction('Gas', amount=21.20, category='Transportation',
+                                date=cur_date)
 
         cur_date += datetime.timedelta(days=2)
-        self.create_transaction('Cat Toys', amount=10.95, category='Pets', date=cur_date)
-        self.create_transaction('Gift for Sister', amount=23.20, category='Gifts', date=cur_date)
+        self.create_transaction('Cat Toys', amount=10.95, category='Pets',
+                                date=cur_date)
+        self.create_transaction('Gift for Sister', amount=23.20,
+                                category='Gifts', date=cur_date)
 
         cur_date += datetime.timedelta(days=2)
-        self.create_transaction('Pay Rent', amount=500, category='Housing', date=cur_date)
+        self.create_transaction('Pay Rent', amount=500, category='Housing',
+                                date=cur_date)
 
         cur_date += datetime.timedelta(days=1)
-        self.create_transaction('Funky Cafe', amount=5.20, category='Food', date=cur_date)
-        self.create_transaction('Groceries', amount=50.92, category='Food', date=cur_date)
-        self.create_transaction('Cat Food', amount=5.40, category='Pets', date=cur_date)
+        self.create_transaction('Funky Cafe', amount=5.20, category='Food',
+                                date=cur_date)
+        self.create_transaction('Groceries', amount=50.92, category='Food',
+                                date=cur_date)
+        self.create_transaction('Cat Food', amount=5.40, category='Pets',
+                                date=cur_date)
 
         cur_date += datetime.timedelta(days=4)
-        self.create_transaction('Paycheck', type='credit', amount=700, category='Paycheck', date=cur_date)
-        self.create_transaction('Gas', amount=21.20, category='Transportation', date=cur_date)
+        self.create_transaction('Paycheck', type='credit', amount=700,
+                                category='Paycheck', date=cur_date)
+        self.create_transaction('Gas', amount=21.20, category='Transportation',
+                                date=cur_date)
 
         cur_date += datetime.timedelta(days=2)
-        self.create_transaction('Cat Toys', amount=10.95, category='Pets', date=cur_date)
-        self.create_transaction('Gift for Sister', amount=23.20, category='Gifts', date=cur_date)
+        self.create_transaction('Cat Toys', amount=10.95, category='Pets',
+                                date=cur_date)
+        self.create_transaction('Gift for Sister', amount=23.20,
+                                category='Gifts', date=cur_date)
 
         cur_date += datetime.timedelta(days=2)
-        self.create_transaction('Pay Rent', amount=500, category='Housing', date=cur_date)
+        self.create_transaction('Pay Rent', amount=500, category='Housing',
+                                date=cur_date)
 
         cur_date += datetime.timedelta(days=1)
-        self.create_transaction('Funky Cafe', amount=5.20, category='Food', date=cur_date)
-        self.create_transaction('Groceries', amount=50.92, category='Food', date=cur_date)
-        self.create_transaction('Cat Food', amount=5.40, category='Pets', date=cur_date)
+        self.create_transaction('Funky Cafe', amount=5.20, category='Food',
+                                date=cur_date)
+        self.create_transaction('Groceries', amount=50.92, category='Food',
+                                date=cur_date)
+        self.create_transaction('Cat Food', amount=5.40, category='Pets',
+                                date=cur_date)
 
         cur_date += datetime.timedelta(days=4)
-        self.create_transaction('Paycheck', type='credit', amount=700, category='Paycheck', date=cur_date)
-        self.create_transaction('Gas', amount=21.20, category='Transportation', date=cur_date)
+        self.create_transaction('Paycheck', type='credit', amount=700,
+                                category='Paycheck', date=cur_date)
+        self.create_transaction('Gas', amount=21.20, category='Transportation',
+                                date=cur_date)
 
         cur_date += datetime.timedelta(days=2)
-        self.create_transaction('Cat Toys', amount=10.95, category='Pets', date=cur_date)
-        self.create_transaction('Gift for Sister', amount=23.20, category='Gifts', date=cur_date)
+        self.create_transaction('Cat Toys', amount=10.95, category='Pets',
+                                date=cur_date)
+        self.create_transaction('Gift for Sister', amount=23.20,
+                                category='Gifts', date=cur_date)
 
         cur_date += datetime.timedelta(days=2)
-        self.create_transaction('Pay Rent', amount=500, category='Housing', date=cur_date)
+        self.create_transaction('Pay Rent', amount=500, category='Housing',
+                                date=cur_date)
 
         cur_date += datetime.timedelta(days=1)
-        self.create_transaction('Funky Cafe', amount=5.20, category='Food', date=cur_date)
-        self.create_transaction('Groceries', amount=50.92, category='Food', date=cur_date)
-        self.create_transaction('Cat Food', amount=5.40, category='Pets', date=cur_date)
+        self.create_transaction('Funky Cafe', amount=5.20, category='Food',
+                                date=cur_date)
+        self.create_transaction('Groceries', amount=50.92, category='Food',
+                                date=cur_date)
+        self.create_transaction('Cat Food', amount=5.40, category='Pets',
+                                date=cur_date)
 
         cur_date += datetime.timedelta(days=4)
-        self.create_transaction('Paycheck', type='credit', amount=700, category='Paycheck', date=cur_date)
-        self.create_transaction('Gas', amount=21.20, category='Transportation', date=cur_date)
+        self.create_transaction('Paycheck', type='credit', amount=700,
+                                category='Paycheck', date=cur_date)
+        self.create_transaction('Gas', amount=21.20, category='Transportation',
+                                date=cur_date)
 
         cur_date += datetime.timedelta(days=2)
-        self.create_transaction('Cat Toys', amount=10.95, category='Pets', date=cur_date)
-        self.create_transaction('Gift for Sister', amount=23.20, category='Gifts', date=cur_date)
+        self.create_transaction('Cat Toys', amount=10.95, category='Pets',
+                                date=cur_date)
+        self.create_transaction('Gift for Sister', amount=23.20,
+                                category='Gifts', date=cur_date)
 
         cur_date += datetime.timedelta(days=2)
-        self.create_transaction('Pay Rent', amount=500, category='Housing', date=cur_date)
+        self.create_transaction('Pay Rent', amount=500, category='Housing',
+                                date=cur_date)
 
         cur_date += datetime.timedelta(days=1)
-        self.create_transaction('Funky Cafe', amount=5.20, category='Food', date=cur_date)
-        self.create_transaction('Groceries', amount=50.92, category='Food', date=cur_date)
-        self.create_transaction('Cat Food', amount=5.40, category='Pets', date=cur_date)
+        self.create_transaction('Funky Cafe', amount=5.20, category='Food',
+                                date=cur_date)
+        self.create_transaction('Groceries', amount=50.92, category='Food',
+                                date=cur_date)
+        self.create_transaction('Cat Food', amount=5.40, category='Pets',
+                                date=cur_date)
 
         cur_date += datetime.timedelta(days=4)
-        self.create_transaction('Paycheck', type='credit', amount=700, category='Paycheck', date=cur_date)
-        self.create_transaction('Gas', amount=21.20, category='Transportation', date=cur_date)
+        self.create_transaction('Paycheck', type='credit', amount=700,
+                                category='Paycheck', date=cur_date)
+        self.create_transaction('Gas', amount=21.20, category='Transportation',
+                                date=cur_date)
 
         cur_date += datetime.timedelta(days=2)
-        self.create_transaction('Cat Toys', amount=10.95, category='Pets', date=cur_date)
-        self.create_transaction('Gift for Sister', amount=23.20, category='Gifts', date=cur_date)
+        self.create_transaction('Cat Toys', amount=10.95, category='Pets',
+                                date=cur_date)
+        self.create_transaction('Gift for Sister', amount=23.20,
+                                category='Gifts', date=cur_date)
 
         self.build_transaction_map()
         self.build_names()

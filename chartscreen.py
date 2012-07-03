@@ -1,38 +1,39 @@
-# Copyright 2008 by Wade Brainerd.  
+# Copyright 2008 by Wade Brainerd.
 # This file is part of Finance.
 #
 # Finance is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
-# 
+#
 # Finance is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with Finance.  If not, see <http://www.gnu.org/licenses/>.
 
 # Import standard Python modules.
-import logging, os, math, time, copy, json, time, datetime, locale
-from gettext import gettext as _
+import math
+import locale
 
-# Set up localization.
-locale.setlocale(locale.LC_ALL, '')
+# Import activity module
+import finance
+
+from gettext import gettext as _
 
 from gi.repository import Gtk
 from gi.repository import Gdk
 from gi.repository import GObject
 
-# Import Sugar UI modules.
-import sugar3.activity.activity
-from sugar3.graphics import *
+# Set up localization.
+locale.setlocale(locale.LC_ALL, '')
 
-# Import activity module
-import finance
+CHART_HELP = _(
+    'The Chart view shows the proportion of your expenses that is in each '
+    'category.\nYou can categorize transactions in the Register view.')
 
-CHART_HELP = _('The Chart view shows the proportion of your expenses that is in each category.\nYou can categorize transactions in the Register view.')
 
 class ChartScreen(Gtk.HBox):
     def __init__(self, activity):
@@ -47,7 +48,7 @@ class ChartScreen(Gtk.HBox):
         self.area.connect('draw', self.chart_draw_cb)
 
         label = Gtk.Label()
-        label.set_markup('<b>'+_('Debit Categories')+'</b>')
+        label.set_markup('<b>' + _('Debit Categories') + '</b>')
 
         self.catbox = Gtk.VBox()
 
@@ -60,28 +61,29 @@ class ChartScreen(Gtk.HBox):
         box.pack_start(self.catbox, False, False, 10)
         box.pack_start(Gtk.Box(orientation=Gtk.Orientation.VERTICAL),
                        True, True, 0)
- 
+
         self.pack_start(self.area, True, True, 0)
         self.pack_start(box, False, False, 40)
 
         self.show_all()
-       
+
     def build(self):
         # Build the category totals.
         self.category_total = {}
         for t in self.activity.visible_transactions:
             cat = t['category']
             amount = t['amount']
-            
+
             if t['type'] == 'debit':
-                if not self.category_total.has_key(cat):
+                if not cat self.category_total:
                     self.category_total[cat] = amount
-                else: 
-                    self.category_total[cat] += amount 
+                else:
+                    self.category_total[cat] += amount
 
         # Generate a list of names sorted by total.
         self.sorted_categories = self.category_total.keys()
-        #self.sorted_categories.sort(lamba a, b: cmp(self.category_total[a], self.category_total[b]))
+        # self.sorted_categories.sort(lamba a, b: cmp(self.category_total[a],
+        #                                             self.category_total[b]))
 
         # Clear and rebuild the labels box.
         for w in self.catbox.get_children():
@@ -89,7 +91,7 @@ class ChartScreen(Gtk.HBox):
 
         catgroup = Gtk.SizeGroup(Gtk.SizeGroupMode.HORIZONTAL)
         amountgroup = Gtk.SizeGroup(Gtk.SizeGroupMode.HORIZONTAL)
-        
+
         for c in self.sorted_categories:
             hbox = Gtk.HBox()
 
@@ -126,9 +128,9 @@ class ChartScreen(Gtk.HBox):
         # Draw pie chart.
         bounds = widget.get_allocation()
 
-        x = bounds.width/2
-        y = bounds.height/2
-        r = min(bounds.width, bounds.height)/2 - 10 
+        x = bounds.width / 2
+        y = bounds.height / 2
+        r = min(bounds.width, bounds.height) / 2 - 10
 
         total = 0
         for c in self.sorted_categories:
@@ -138,9 +140,9 @@ class ChartScreen(Gtk.HBox):
             angle = 0.0
 
             for c in self.sorted_categories:
-                slice = 2*math.pi * self.category_total[c] / total
+                slice = 2 * math.pi * self.category_total[c] / total
                 color = finance.get_category_color(c)
- 
+
                 context.move_to(x, y)
                 context.arc(x, y, r, angle, angle + slice)
                 context.close_path()
