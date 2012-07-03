@@ -43,7 +43,7 @@ from sugar3.graphics.toolbarbox import ToolbarButton
 from sugar3.graphics.radiotoolbutton import RadioToolButton
 from sugar3.activity.widgets import StopButton
 from sugar3.activity.widgets import ActivityToolbarButton
-from sugar3.activity import Activity
+from sugar3.activity.activity import Activity
 
 # Set up localization.
 locale.setlocale(locale.LC_ALL, '')

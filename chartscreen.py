@@ -75,7 +75,7 @@ class ChartScreen(Gtk.HBox):
             amount = t['amount']
 
             if t['type'] == 'debit':
-                if not cat self.category_total:
+                if cat not in self.category_total:
                     self.category_total[cat] = amount
                 else:
                     self.category_total[cat] += amount
