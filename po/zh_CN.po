@@ -39,8 +39,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-05-22 00:34-0400\n"
-"PO-Revision-Date: 2012-03-22 04:25+0200\n"
-"Last-Translator: Chris <cjl@laptop.org>\n"
+"PO-Revision-Date: 2012-07-03 13:00+0200\n"
+"Last-Translator: athurg <feng@jianbo.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
@@ -159,7 +159,7 @@ msgstr "查看"
 #. TRANS: representation of the "Day" period
 #: finance.py:391
 msgid "%B %d, %Y"
-msgstr ""
+msgstr "%B %d, %Y"
 
 #. TRANS: representation of the "Week of" period
 #: finance.py:395
@@ -168,17 +168,17 @@ msgstr "周"
 
 #: finance.py:395
 msgid " %B %d, %Y"
-msgstr ""
+msgstr " %B %d, %Y"
 
 #. TRANS: representation of the "Month" period
 #: finance.py:399
 msgid "%B, %Y"
-msgstr ""
+msgstr "%B, %Y"
 
 #. TRANS: representation of the "Year" period
 #: finance.py:403
 msgid "%Y"
-msgstr ""
+msgstr "%Y"
 
 #: finance.py:443
 msgid "Balance: "
@@ -186,39 +186,41 @@ msgstr "余额:"
 
 #: finance.py:462
 msgid "Previous Month"
-msgstr ""
+msgstr "前一月"
 
 #: finance.py:463
 msgid "This Month"
-msgstr ""
+msgstr "本月"
 
 #: finance.py:464
 msgid "Next Month"
-msgstr ""
+msgstr "下一月"
 
 #: finance.py:466
 msgid "Previous Day"
-msgstr ""
+msgstr "前一天"
 
+# 翻译为今天貌似不妥，但是前后文感觉又像，请指正！
 #: finance.py:467
 msgid "This Day"
-msgstr ""
+msgstr "今天"
 
 #: finance.py:468
 msgid "Next Day"
-msgstr ""
+msgstr "后一天"
 
 #: finance.py:470
 msgid "Previous Year"
-msgstr ""
+msgstr "前一年"
 
+# 请根据上下文环境修正！谢谢
 #: finance.py:471
 msgid "This Year"
-msgstr ""
+msgstr "今年"
 
 #: finance.py:472
 msgid "Next Year"
-msgstr ""
+msgstr "后一年"
 
 #: registerscreen.py:34
 msgid ""
