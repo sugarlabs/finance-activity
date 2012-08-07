@@ -26,9 +26,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-22 00:34-0400\n"
-"PO-Revision-Date: 2012-03-22 04:55+0200\n"
-"Last-Translator: Chris <cjl@laptop.org>\n"
+"POT-Creation-Date: 2012-07-13 19:41-0400\n"
+"PO-Revision-Date: 2012-08-06 17:01+0200\n"
+"Last-Translator: anush.mkrtchyan <anush.mkrtchyan@ca1492.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: hy\n"
 "MIME-Version: 1.0\n"
@@ -37,7 +37,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
-#: activity/activity.info:2 finance.py:100
+#: activity/activity.info:2 finance.py:106
 msgid "Finance"
 msgstr "Ֆինանսավորում"
 
@@ -45,7 +45,7 @@ msgstr "Ֆինանսավորում"
 msgid ""
 "The Budget view allows you to set a monthly budget for each expense "
 "category, and to keep track of your\n"
-"budgets.  To set a budget, type the amount in the box to the right of the "
+"budgets. To set a budget, type the amount in the box to the right of the "
 "category."
 msgstr ""
 "Բյուջե էջը հնարավորություն է տալիս յուրաքանչյուր ծախսի կարգի համար սահմանել "
@@ -53,40 +53,40 @@ msgstr ""
 " Բյուջեն որոշելու համար` մուտքագրեք քանակը կատեգորիայի աջ կողմում գտնվող "
 "վանդակում:"
 
-#: budgetscreen.py:76 registerscreen.py:84
+#: budgetscreen.py:79 registerscreen.py:90
 msgid "Category"
 msgstr "Կատեգորիա"
 
-#: budgetscreen.py:78
+#: budgetscreen.py:81
 msgid "Spent"
 msgstr "Ծախս"
 
-#: budgetscreen.py:80 finance.py:250 finance.py:251
+#: budgetscreen.py:83 finance.py:253 finance.py:254
 msgid "Budget"
 msgstr "Բյուջե"
 
-#: budgetscreen.py:102 chartscreen.py:95
+#: budgetscreen.py:105 chartscreen.py:101
 msgid "Unknown"
 msgstr "Անճանաչ"
 
-#: budgetscreen.py:154 budgetscreen.py:175 finance.py:228 finance.py:389
-#: finance.py:465 finance.py:488 finance.py:506 finance.py:522
+#: budgetscreen.py:154 budgetscreen.py:180 finance.py:231 finance.py:369
+#: finance.py:449 finance.py:472 finance.py:490 finance.py:506
 msgid "Day"
 msgstr "Օր"
 
-#: budgetscreen.py:154 finance.py:232 finance.py:405 finance.py:406
-#: finance.py:453 finance.py:502 finance.py:538 finance.py:543 finance.py:548
-#: finance.py:561
+#: budgetscreen.py:155 finance.py:235 finance.py:385 finance.py:386
+#: finance.py:437 finance.py:486 finance.py:522 finance.py:527 finance.py:532
+#: finance.py:545
 msgid "Forever"
 msgstr "Ընդմիշտ"
 
-#: budgetscreen.py:178 finance.py:229 finance.py:393 finance.py:491
-#: finance.py:509 finance.py:525
+#: budgetscreen.py:183 finance.py:232 finance.py:373 finance.py:475
+#: finance.py:493 finance.py:509
 msgid "Week"
 msgstr "Շաբաթ"
 
-#: budgetscreen.py:181 finance.py:231 finance.py:401 finance.py:469
-#: finance.py:499 finance.py:518 finance.py:534
+#: budgetscreen.py:186 finance.py:234 finance.py:381 finance.py:453
+#: finance.py:483 finance.py:502 finance.py:518
 msgid "Year"
 msgstr "Տարի"
 
@@ -100,120 +100,108 @@ msgstr ""
 "կատեգորիայում: \n"
 "Դուք կարող եք դասակարգել գործարքները Գրանցում էջում:"
 
-#: chartscreen.py:49
+#: chartscreen.py:51
 msgid "Debit Categories"
 msgstr "﻿ Դեբիտի Կարգերը"
 
-#: finance.py:125 finance.py:230 finance.py:397 finance.py:461 finance.py:496
-#: finance.py:512 finance.py:528
+#: finance.py:131 finance.py:233 finance.py:377 finance.py:445 finance.py:480
+#: finance.py:496 finance.py:512
 msgid "Month"
 msgstr "Ամիս"
 
-#: finance.py:188 registerscreen.py:196
+#: finance.py:191 registerscreen.py:206
 msgid "New Credit"
 msgstr "﻿Նոր Վարկ"
 
-#: finance.py:193 registerscreen.py:207
+#: finance.py:196 registerscreen.py:218
 msgid "New Debit"
 msgstr "Նոր Դեբիտ"
 
-#: finance.py:198
+#: finance.py:201
 msgid "Erase Transaction"
 msgstr "Ջնջել Գործարքը"
 
-#: finance.py:223
+#: finance.py:226
 msgid "Period: "
 msgstr "Ժամանակաշրջան. "
 
-#: finance.py:241 finance.py:242
+#: finance.py:244 finance.py:245
 msgid "Register"
 msgstr "Գրանցել"
 
-#: finance.py:258 finance.py:259
+#: finance.py:261 finance.py:262
 msgid "Chart"
 msgstr "Դիագրամ"
 
-#: finance.py:271
+#: finance.py:274
 msgid "Show Help"
 msgstr "Ցուցադրել Օգնությունը"
 
-#: finance.py:284
-msgid "Transaction"
-msgstr "Գործարք"
-
-#: finance.py:285
-msgid "Period"
-msgstr "ժամանակամիջոց"
-
-#: finance.py:286
-msgid "View"
-msgstr "Տեսք"
-
 #. TRANS: representation of the "Day" period
-#: finance.py:391
+#: finance.py:371
 msgid "%B %d, %Y"
-msgstr ""
+msgstr "%B %d, %Y"
 
 #. TRANS: representation of the "Week of" period
-#: finance.py:395
+#: finance.py:375
 msgid "Week of"
 msgstr "-ի Շաբաթ"
 
-#: finance.py:395
+#: finance.py:375
 msgid " %B %d, %Y"
-msgstr ""
+msgstr " %B %d, %Y"
 
 #. TRANS: representation of the "Month" period
-#: finance.py:399
+#: finance.py:379
 msgid "%B, %Y"
-msgstr ""
+msgstr "%B, %Y"
 
 #. TRANS: representation of the "Year" period
-#: finance.py:403
+#: finance.py:383
 msgid "%Y"
-msgstr ""
+msgstr "%Y"
 
-#: finance.py:443
+#: finance.py:424
 msgid "Balance: "
 msgstr "Բալանս "
 
-#: finance.py:462
+#: finance.py:446
 msgid "Previous Month"
-msgstr ""
+msgstr "Նախորդ ամիս"
 
-#: finance.py:463
+#: finance.py:447
 msgid "This Month"
-msgstr ""
+msgstr "Այս ամիս"
 
-#: finance.py:464
+#: finance.py:448
 msgid "Next Month"
-msgstr ""
+msgstr "Հաջորդ ամիս"
 
-#: finance.py:466
+#: finance.py:450
 msgid "Previous Day"
-msgstr ""
+msgstr "Նախորդ օր"
 
-#: finance.py:467
+#: finance.py:451
 msgid "This Day"
-msgstr ""
+msgstr "Սույն օր"
 
-#: finance.py:468
+#: finance.py:452
 msgid "Next Day"
-msgstr ""
+msgstr "Հաջորդ օր"
 
-#: finance.py:470
+#: finance.py:454
 msgid "Previous Year"
-msgstr ""
+msgstr "Նախորդ տարի"
 
-#: finance.py:471
+#: finance.py:455
 msgid "This Year"
-msgstr ""
+msgstr "Այս տարի"
 
-#: finance.py:472
+#: finance.py:456
 msgid "Next Year"
-msgstr ""
+msgstr "Հաջորդ տարի"
 
-#: registerscreen.py:34
+#: registerscreen.py:33
 msgid ""
 "<b>Welcome to Finance!</b>   This activity keeps track of income and "
 "expenses for anything that earns\n"
@@ -229,17 +217,26 @@ msgstr ""
 "Գործարքները մուտքագրելուց հետո` այցելեք Դիագրամ և Բյուջե էջեր, ավելին "
 "տեսնելու համար:"
 
-#: registerscreen.py:57
+#: registerscreen.py:63
 msgid "Description"
 msgstr "Նկարագրություն"
 
-#: registerscreen.py:65
+#: registerscreen.py:71
 msgid "Amount"
 msgstr "Գումար"
 
-#: registerscreen.py:74
+#: registerscreen.py:80
 msgid "Date"
 msgstr "Ամսաթիվ"
+
+#~ msgid "Transaction"
+#~ msgstr "Գործարք"
+
+#~ msgid "Period"
+#~ msgstr "ժամանակամիջոց"
+
+#~ msgid "View"
+#~ msgstr "Տեսք"
 
 #~ msgid "Previous"
 #~ msgstr "Նախորդ"
