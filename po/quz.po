@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-20 00:33-0400\n"
+"POT-Creation-Date: 2012-07-13 19:41-0400\n"
 "PO-Revision-Date: 2012-03-22 05:59+0200\n"
 "Last-Translator: Chris <cjl@laptop.org>\n"
 "Language-Team: Voluntarios quechuas Sugar Camp Lima\n"
@@ -16,19 +16,20 @@ msgstr ""
 "X-Generator: Pootle 2.0.5\n"
 
 #  "Finanzas"
-#: activity/activity.info:2 finance.py:100
+#: activity/activity.info:2 finance.py:106
 msgid "Finance"
 msgstr "Qullqi-yupana"
 
-#  "La Vista de Presupuesto te permite establecer un presupuesto mensual para "
+# "La Vista de Presupuesto te permite establecer un presupuesto mensual para "
 #  "cada categoría de gasto, y hacer seguimiento de tus\n"
 #  "presupuestos.  Para establecer un presupuesto, escribe la cantidad en la "
 #  "caja a la derecha de la categoría."
 #: budgetscreen.py:34
+#, fuzzy
 msgid ""
 "The Budget view allows you to set a monthly budget for each expense "
 "category, and to keep track of your\n"
-"budgets.  To set a budget, type the amount in the box to the right of the "
+"budgets. To set a budget, type the amount in the box to the right of the "
 "category."
 msgstr ""
 "Wakichi qhawanapi sapa killapi sapa mit'apaq yupanata churayta atinki. "
@@ -36,46 +37,46 @@ msgstr ""
 "Wakichita churanapaq, sapa mit'apaq paña tawak'uchupi yupanata qillqay."
 
 #  "Categoría"
-#: budgetscreen.py:76 registerscreen.py:84
+#: budgetscreen.py:79 registerscreen.py:90
 msgid "Category"
 msgstr "Mit'a"
 
 #  "Gastado"
-#: budgetscreen.py:78
+#: budgetscreen.py:81
 msgid "Spent"
 msgstr "Qullqichasqaña"
 
 #  "Presupuesto"
-#: budgetscreen.py:80 finance.py:250 finance.py:251
+#: budgetscreen.py:83 finance.py:253 finance.py:254
 msgid "Budget"
 msgstr "Hayk'a wakichipaq"
 
-#: budgetscreen.py:102 chartscreen.py:95
+#: budgetscreen.py:105 chartscreen.py:101
 msgid "Unknown"
 msgstr "mana riqsisqachu"
 
 #  "Día"
-#: budgetscreen.py:154 budgetscreen.py:175 finance.py:228 finance.py:389
-#: finance.py:468 finance.py:486 finance.py:502
+#: budgetscreen.py:154 budgetscreen.py:180 finance.py:231 finance.py:369
+#: finance.py:449 finance.py:472 finance.py:490 finance.py:506
 msgid "Day"
 msgstr "P'unchaw"
 
 #  "Para siempre"
-#: budgetscreen.py:154 finance.py:232 finance.py:401 finance.py:402
-#: finance.py:449 finance.py:482 finance.py:518 finance.py:523 finance.py:528
-#: finance.py:541
+#: budgetscreen.py:155 finance.py:235 finance.py:385 finance.py:386
+#: finance.py:437 finance.py:486 finance.py:522 finance.py:527 finance.py:532
+#: finance.py:545
 msgid "Forever"
 msgstr "Wiñaypaq"
 
 #  "Semana"
-#: budgetscreen.py:178 finance.py:229 finance.py:392 finance.py:471
-#: finance.py:489 finance.py:505
+#: budgetscreen.py:183 finance.py:232 finance.py:373 finance.py:475
+#: finance.py:493 finance.py:509
 msgid "Week"
 msgstr "Qanchischaw"
 
 #  "Año"
-#: budgetscreen.py:181 finance.py:231 finance.py:398 finance.py:479
-#: finance.py:498 finance.py:514
+#: budgetscreen.py:186 finance.py:234 finance.py:381 finance.py:453
+#: finance.py:483 finance.py:502 finance.py:518
 msgid "Year"
 msgstr "Wata"
 
@@ -92,90 +93,116 @@ msgstr ""
 "Qillqachina qhawachiqpiqa, chalanakunata mit'achaspaqa ruwallawaqmi."
 
 #  "Categorías de Débito"
-#: chartscreen.py:49
+#: chartscreen.py:51
 msgid "Debit Categories"
 msgstr "Pisiyachinap Mit'ankuna"
 
 #  "Mes"
-#: finance.py:125 finance.py:230 finance.py:395 finance.py:476 finance.py:492
-#: finance.py:508
+#: finance.py:131 finance.py:233 finance.py:377 finance.py:445 finance.py:480
+#: finance.py:496 finance.py:512
 msgid "Month"
 msgstr "Killa"
 
 #  "Nuevo Crédito"
-#: finance.py:188 registerscreen.py:196
+#: finance.py:191 registerscreen.py:206
 msgid "New Credit"
 msgstr "Musuq Yapayachina"
 
 #  "Nuevo Débito"
-#: finance.py:193 registerscreen.py:207
+#: finance.py:196 registerscreen.py:218
 msgid "New Debit"
 msgstr "Musuq Pisiyachina"
 
 #  "Borrar Transacción"
-#: finance.py:198
+#: finance.py:201
 msgid "Erase Transaction"
 msgstr "Chhalanata Chinkachiy"
 
 #  "Periodo: "
-#: finance.py:223
+#: finance.py:226
 msgid "Period: "
 msgstr "Pacha: "
 
 #  "Registrar"
-#: finance.py:241 finance.py:242
+#: finance.py:244 finance.py:245
 msgid "Register"
 msgstr "Qillqachina"
 
 #  "Gráfico"
-#: finance.py:258 finance.py:259
+#: finance.py:261 finance.py:262
 msgid "Chart"
 msgstr "Rikch'ay"
 
 #  "Mostrar Ayuda"
-#: finance.py:271
+#: finance.py:274
 msgid "Show Help"
 msgstr "Yanapata rikhurichiy"
 
-#  "Transacción"
-#: finance.py:284
-msgid "Transaction"
-msgstr "Chhalana"
-
-#  "Periodo"
-#: finance.py:285
-msgid "Period"
-msgstr "Pacha"
-
-#  "Ver"
-#: finance.py:286
-msgid "View"
-msgstr "Qhaway"
+#. TRANS: representation of the "Day" period
+#: finance.py:371
+msgid "%B %d, %Y"
+msgstr ""
 
 #  "Semana de"
-#: finance.py:393
+#. TRANS: representation of the "Week of" period
+#: finance.py:375
 msgid "Week of"
 msgstr "Qanchischaw"
 
+#: finance.py:375
+msgid " %B %d, %Y"
+msgstr ""
+
+#. TRANS: representation of the "Month" period
+#: finance.py:379
+msgid "%B, %Y"
+msgstr ""
+
+#. TRANS: representation of the "Year" period
+#: finance.py:383
+msgid "%Y"
+msgstr ""
+
 #  "Balance: "
-#: finance.py:439
+#: finance.py:424
 msgid "Balance: "
 msgstr "Hayk'a puchun: "
 
-#  "Anterior"
+#: finance.py:446
+msgid "Previous Month"
+msgstr ""
+
+#: finance.py:447
+msgid "This Month"
+msgstr ""
+
+#: finance.py:448
+msgid "Next Month"
+msgstr ""
+
+#: finance.py:450
+msgid "Previous Day"
+msgstr ""
+
+#: finance.py:451
+msgid "This Day"
+msgstr ""
+
+#: finance.py:452
+msgid "Next Day"
+msgstr ""
+
+#: finance.py:454
+msgid "Previous Year"
+msgstr ""
+
 #: finance.py:455
-msgid "Previous"
-msgstr "Ñawpaq"
+msgid "This Year"
+msgstr ""
 
-#  "Esto"
 #: finance.py:456
-msgid "This"
-msgstr "Kay"
-
-#  "Siguiente"
-#: finance.py:457
-msgid "Next"
-msgstr "Hamuq"
+msgid "Next Year"
+msgstr ""
 
 #  "<b>¡Bienvenido a Finanzas!</b> Esta actividad guarda el histórico de los "
 #  "ingresos y los gastos para cualquier cosa que gana\n"
@@ -183,7 +210,7 @@ msgstr "Hamuq"
 #  "Transaccion para agregar créditos y débitos.\n"
 #  "Cuando hayas ingresado algunas transacciones, visita las vistas de Gráfico y "
 #  "Presupuestopara ver más."
-#: registerscreen.py:34
+#: registerscreen.py:33
 msgid ""
 "<b>Welcome to Finance!</b>   This activity keeps track of income and "
 "expenses for anything that earns\n"
@@ -198,16 +225,40 @@ msgstr ""
 "Chhalanakuna kaqtinkuña, rikch'ay qhawanata wakichi qhawanatapis qhaway."
 
 #  "Descripción"
-#: registerscreen.py:57
+#: registerscreen.py:63
 msgid "Description"
 msgstr "Imamanta"
 
 #  "Cantidad"
-#: registerscreen.py:65
+#: registerscreen.py:71
 msgid "Amount"
 msgstr "Chhika"
 
 #  "Fecha"
-#: registerscreen.py:74
+#: registerscreen.py:80
 msgid "Date"
 msgstr "P'unchaw"
+
+#  "Transacción"
+#~ msgid "Transaction"
+#~ msgstr "Chhalana"
+
+#  "Periodo"
+#~ msgid "Period"
+#~ msgstr "Pacha"
+
+#  "Ver"
+#~ msgid "View"
+#~ msgstr "Qhaway"
+
+#  "Anterior"
+#~ msgid "Previous"
+#~ msgstr "Ñawpaq"
+
+#  "Esto"
+#~ msgid "This"
+#~ msgstr "Kay"
+
+#  "Siguiente"
+#~ msgid "Next"
+#~ msgstr "Hamuq"
