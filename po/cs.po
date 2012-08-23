@@ -38,65 +38,70 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-20 00:33-0400\n"
-"PO-Revision-Date: 2012-02-25 14:29+0200\n"
+"POT-Creation-Date: 2012-07-13 19:41-0400\n"
+"PO-Revision-Date: 2012-07-08 08:42+0200\n"
 "Last-Translator: Chris <cjl@laptop.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Pootle 2.0.5\n"
 
-#: activity/activity.info:2 finance.py:100
+#: activity/activity.info:2 finance.py:106
 msgid "Finance"
-msgstr ""
+msgstr "Finance"
 
 #: budgetscreen.py:34
+#, fuzzy
 msgid ""
 "The Budget view allows you to set a monthly budget for each expense "
 "category, and to keep track of your\n"
-"budgets.  To set a budget, type the amount in the box to the right of the "
+"budgets. To set a budget, type the amount in the box to the right of the "
 "category."
 msgstr ""
+"Rozpočtový pohled umožňuje nastavit měsíční rozpočet pro každou kategorii "
+"výdajů a ke sledování vašeho \n"
+"rozpočtu. Chcete-li nastavit rozpočet, zadejte částk vpravo do pole "
+"kategorie."
 
-#: budgetscreen.py:76 registerscreen.py:84
+#: budgetscreen.py:79 registerscreen.py:90
 msgid "Category"
 msgstr "Kategorie"
 
-#: budgetscreen.py:78
+#: budgetscreen.py:81
 msgid "Spent"
-msgstr ""
+msgstr "Vyčerpáno"
 
-#: budgetscreen.py:80 finance.py:250 finance.py:251
+#: budgetscreen.py:83 finance.py:253 finance.py:254
 msgid "Budget"
-msgstr ""
+msgstr "Rozpočet"
 
-#: budgetscreen.py:102 chartscreen.py:95
+#: budgetscreen.py:105 chartscreen.py:101
 msgid "Unknown"
-msgstr ""
+msgstr "Neznámé"
 
-#: budgetscreen.py:154 budgetscreen.py:175 finance.py:228 finance.py:389
-#: finance.py:468 finance.py:486 finance.py:502
+#: budgetscreen.py:154 budgetscreen.py:180 finance.py:231 finance.py:369
+#: finance.py:449 finance.py:472 finance.py:490 finance.py:506
 msgid "Day"
-msgstr ""
+msgstr "Den"
 
-#: budgetscreen.py:154 finance.py:232 finance.py:401 finance.py:402
-#: finance.py:449 finance.py:482 finance.py:518 finance.py:523 finance.py:528
-#: finance.py:541
+#: budgetscreen.py:155 finance.py:235 finance.py:385 finance.py:386
+#: finance.py:437 finance.py:486 finance.py:522 finance.py:527 finance.py:532
+#: finance.py:545
 msgid "Forever"
-msgstr ""
+msgstr "Navždy"
 
-#: budgetscreen.py:178 finance.py:229 finance.py:392 finance.py:471
-#: finance.py:489 finance.py:505
+#: budgetscreen.py:183 finance.py:232 finance.py:373 finance.py:475
+#: finance.py:493 finance.py:509
 msgid "Week"
-msgstr ""
+msgstr "Týden"
 
-#: budgetscreen.py:181 finance.py:231 finance.py:398 finance.py:479
-#: finance.py:498 finance.py:514
+#: budgetscreen.py:186 finance.py:234 finance.py:381 finance.py:453
+#: finance.py:483 finance.py:502 finance.py:518
 msgid "Year"
-msgstr ""
+msgstr "Rok"
 
 #: chartscreen.py:34
 msgid ""
@@ -104,77 +109,111 @@ msgid ""
 "category.\n"
 "You can categorize transactions in the Register view."
 msgstr ""
+"Graf zobrazení ukazuje podíl vašich nákladů, které jsou v každé kategorii.\n"
+"Můžete kategorizovat transakce v zobrazení rejstříku."
 
-#: chartscreen.py:49
+#: chartscreen.py:51
 msgid "Debit Categories"
-msgstr ""
+msgstr "Kategorie plateb"
 
-#: finance.py:125 finance.py:230 finance.py:395 finance.py:476 finance.py:492
-#: finance.py:508
+#: finance.py:131 finance.py:233 finance.py:377 finance.py:445 finance.py:480
+#: finance.py:496 finance.py:512
 msgid "Month"
-msgstr ""
+msgstr "Měsíc"
 
-#: finance.py:188 registerscreen.py:196
+#: finance.py:191 registerscreen.py:206
 msgid "New Credit"
-msgstr ""
+msgstr "Nový kredit"
 
-#: finance.py:193 registerscreen.py:207
+#: finance.py:196 registerscreen.py:218
 msgid "New Debit"
-msgstr ""
+msgstr "Nová platba"
 
-#: finance.py:198
+#: finance.py:201
 msgid "Erase Transaction"
-msgstr ""
+msgstr "Vymazat transakce"
 
-#: finance.py:223
+#: finance.py:226
 msgid "Period: "
-msgstr ""
+msgstr "Období: "
 
-#: finance.py:241 finance.py:242
+#: finance.py:244 finance.py:245
 msgid "Register"
-msgstr "Registrovat se"
+msgstr "Rejstřík"
 
-#: finance.py:258 finance.py:259
+#: finance.py:261 finance.py:262
 msgid "Chart"
-msgstr ""
+msgstr "Graf"
 
-#: finance.py:271
+#: finance.py:274
 msgid "Show Help"
-msgstr ""
+msgstr "Zobrazit nápovědu"
 
-#: finance.py:284
-msgid "Transaction"
-msgstr ""
+#. TRANS: representation of the "Day" period
+#: finance.py:371
+msgid "%B %d, %Y"
+msgstr "%B %d, %Y"
 
-#: finance.py:285
-msgid "Period"
-msgstr ""
-
-#: finance.py:286
-msgid "View"
-msgstr ""
-
-#: finance.py:393
+#. TRANS: representation of the "Week of" period
+#: finance.py:375
 msgid "Week of"
-msgstr ""
+msgstr "Týden od"
 
-#: finance.py:439
+#: finance.py:375
+msgid " %B %d, %Y"
+msgstr " %B %d, %Y"
+
+#. TRANS: representation of the "Month" period
+#: finance.py:379
+msgid "%B, %Y"
+msgstr "%B, %Y"
+
+#. TRANS: representation of the "Year" period
+#: finance.py:383
+msgid "%Y"
+msgstr "%Y"
+
+#: finance.py:424
 msgid "Balance: "
-msgstr "Rovnováha: "
+msgstr "Zůstatek: "
+
+#: finance.py:446
+msgid "Previous Month"
+msgstr "Předchozí měsíc"
+
+#: finance.py:447
+msgid "This Month"
+msgstr "Tento měsíc"
+
+#: finance.py:448
+msgid "Next Month"
+msgstr "Další měsíc"
+
+#: finance.py:450
+msgid "Previous Day"
+msgstr "Předchozí den"
+
+#: finance.py:451
+msgid "This Day"
+msgstr "Tento den"
+
+#: finance.py:452
+msgid "Next Day"
+msgstr "Další den"
+
+#: finance.py:454
+msgid "Previous Year"
+msgstr "Předchozí rok"
 
 #: finance.py:455
-msgid "Previous"
-msgstr "Předchozí"
+msgid "This Year"
+msgstr "Tento rok"
 
 #: finance.py:456
-msgid "This"
-msgstr "Tento"
+msgid "Next Year"
+msgstr "Další rok"
 
-#: finance.py:457
-msgid "Next"
-msgstr "Další"
-
-#: registerscreen.py:34
+#: registerscreen.py:33
 msgid ""
 "<b>Welcome to Finance!</b>   This activity keeps track of income and "
 "expenses for anything that earns\n"
@@ -183,15 +222,39 @@ msgid ""
 "Once you have entered some transactions, visit the Chart and Budget views to "
 "see more."
 msgstr ""
+"<b> Vítejte ve Financích </ b> Tato aktivita sleduje příjmy a výdaje. Vše, "
+"co vyděláte \n"
+"nebo utratíte, jako třeba za školní klub. Chcete-li začít, použijte pole "
+"transakce - přidat příjmy a výdaje. \n"
+"Jakmile zadáte některé transakce naleznete je na grafu a v rozpočetovém "
+"výhledu uvidíte více."
 
-#: registerscreen.py:57
+#: registerscreen.py:63
 msgid "Description"
 msgstr "Popis"
 
-#: registerscreen.py:65
+#: registerscreen.py:71
 msgid "Amount"
-msgstr ""
+msgstr "Částka"
 
-#: registerscreen.py:74
+#: registerscreen.py:80
 msgid "Date"
 msgstr "Datum"
+
+#~ msgid "Transaction"
+#~ msgstr "Transakce"
+
+#~ msgid "Period"
+#~ msgstr "Období"
+
+#~ msgid "View"
+#~ msgstr "Zobrazit"
+
+#~ msgid "Previous"
+#~ msgstr "Předchozí"
+
+#~ msgid "This"
+#~ msgstr "Tento"
+
+#~ msgid "Next"
+#~ msgstr "Další"
