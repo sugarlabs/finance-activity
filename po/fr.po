@@ -42,9 +42,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-20 00:33-0400\n"
-"PO-Revision-Date: 2012-03-22 05:05+0200\n"
-"Last-Translator: Chris <cjl@laptop.org>\n"
+"POT-Creation-Date: 2012-07-13 19:41-0400\n"
+"PO-Revision-Date: 2012-07-15 11:49+0200\n"
+"Last-Translator: Bastien <bzg@altern.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -53,15 +53,16 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
-#: activity/activity.info:2 finance.py:100
+#: activity/activity.info:2 finance.py:106
 msgid "Finance"
 msgstr "Finance"
 
 #: budgetscreen.py:34
+#, fuzzy
 msgid ""
 "The Budget view allows you to set a monthly budget for each expense "
 "category, and to keep track of your\n"
-"budgets.  To set a budget, type the amount in the box to the right of the "
+"budgets. To set a budget, type the amount in the box to the right of the "
 "category."
 msgstr ""
 "La vue Budget vous permet d'établir un budget mensuel pour chaque catégorie "
@@ -69,40 +70,40 @@ msgstr ""
 " budgets.  Pour établir un budget, tapez le montant dans la case à droite de "
 "la catégorie."
 
-#: budgetscreen.py:76 registerscreen.py:84
+#: budgetscreen.py:79 registerscreen.py:90
 msgid "Category"
 msgstr "Catégorie"
 
-#: budgetscreen.py:78
+#: budgetscreen.py:81
 msgid "Spent"
 msgstr "Dépensé"
 
-#: budgetscreen.py:80 finance.py:250 finance.py:251
+#: budgetscreen.py:83 finance.py:253 finance.py:254
 msgid "Budget"
 msgstr "Budget"
 
-#: budgetscreen.py:102 chartscreen.py:95
+#: budgetscreen.py:105 chartscreen.py:101
 msgid "Unknown"
 msgstr "Inconnu"
 
-#: budgetscreen.py:154 budgetscreen.py:175 finance.py:228 finance.py:389
-#: finance.py:468 finance.py:486 finance.py:502
+#: budgetscreen.py:154 budgetscreen.py:180 finance.py:231 finance.py:369
+#: finance.py:449 finance.py:472 finance.py:490 finance.py:506
 msgid "Day"
 msgstr "Jour"
 
-#: budgetscreen.py:154 finance.py:232 finance.py:401 finance.py:402
-#: finance.py:449 finance.py:482 finance.py:518 finance.py:523 finance.py:528
-#: finance.py:541
+#: budgetscreen.py:155 finance.py:235 finance.py:385 finance.py:386
+#: finance.py:437 finance.py:486 finance.py:522 finance.py:527 finance.py:532
+#: finance.py:545
 msgid "Forever"
 msgstr "Toujours"
 
-#: budgetscreen.py:178 finance.py:229 finance.py:392 finance.py:471
-#: finance.py:489 finance.py:505
+#: budgetscreen.py:183 finance.py:232 finance.py:373 finance.py:475
+#: finance.py:493 finance.py:509
 msgid "Week"
 msgstr "Semaine"
 
-#: budgetscreen.py:181 finance.py:231 finance.py:398 finance.py:479
-#: finance.py:498 finance.py:514
+#: budgetscreen.py:186 finance.py:234 finance.py:381 finance.py:453
+#: finance.py:483 finance.py:502 finance.py:518
 msgid "Year"
 msgstr "Année"
 
@@ -116,76 +117,108 @@ msgstr ""
 "catégorie.\n"
 " Vous pouvez catégoriser vos transactions dans la vue Enregistrement."
 
-#: chartscreen.py:49
+#: chartscreen.py:51
 msgid "Debit Categories"
 msgstr "Catégories de débit"
 
-#: finance.py:125 finance.py:230 finance.py:395 finance.py:476 finance.py:492
-#: finance.py:508
+#: finance.py:131 finance.py:233 finance.py:377 finance.py:445 finance.py:480
+#: finance.py:496 finance.py:512
 msgid "Month"
 msgstr "Mois"
 
-#: finance.py:188 registerscreen.py:196
+#: finance.py:191 registerscreen.py:206
 msgid "New Credit"
 msgstr "Nouveau crédit"
 
-#: finance.py:193 registerscreen.py:207
+#: finance.py:196 registerscreen.py:218
 msgid "New Debit"
 msgstr "Nouveau débit"
 
-#: finance.py:198
+#: finance.py:201
 msgid "Erase Transaction"
 msgstr "Effacer la transaction"
 
-#: finance.py:223
+#: finance.py:226
 msgid "Period: "
 msgstr "Période : "
 
-#: finance.py:241 finance.py:242
+#: finance.py:244 finance.py:245
 msgid "Register"
 msgstr "Enregistrer"
 
-#: finance.py:258 finance.py:259
+#: finance.py:261 finance.py:262
 msgid "Chart"
 msgstr "Graphique"
 
-#: finance.py:271
+#: finance.py:274
 msgid "Show Help"
 msgstr "Montre l'aide"
 
-#: finance.py:284
-msgid "Transaction"
-msgstr "Transaction"
+#. TRANS: representation of the "Day" period
+#: finance.py:371
+msgid "%B %d, %Y"
+msgstr "%B %d, %Y"
 
-#: finance.py:285
-msgid "Period"
-msgstr "Période"
-
-#: finance.py:286
-msgid "View"
-msgstr "Vue"
-
-#: finance.py:393
+#. TRANS: representation of the "Week of" period
+#: finance.py:375
 msgid "Week of"
 msgstr "Semaine de"
 
-#: finance.py:439
+#: finance.py:375
+msgid " %B %d, %Y"
+msgstr "%B %d, %Y"
+
+#. TRANS: representation of the "Month" period
+#: finance.py:379
+msgid "%B, %Y"
+msgstr "%B, %Y"
+
+#. TRANS: representation of the "Year" period
+#: finance.py:383
+msgid "%Y"
+msgstr "%Y"
+
+#: finance.py:424
 msgid "Balance: "
 msgstr "Solde: "
 
+#: finance.py:446
+msgid "Previous Month"
+msgstr "Mois précédent"
+
+#: finance.py:447
+msgid "This Month"
+msgstr "Ce mois-ci"
+
+#: finance.py:448
+msgid "Next Month"
+msgstr "Mois suivant"
+
+#: finance.py:450
+msgid "Previous Day"
+msgstr "Jour précédent"
+
+#: finance.py:451
+msgid "This Day"
+msgstr "Ce jour-ci"
+
+#: finance.py:452
+msgid "Next Day"
+msgstr "Jour suivant"
+
+#: finance.py:454
+msgid "Previous Year"
+msgstr "Année précédente"
+
 #: finance.py:455
-msgid "Previous"
-msgstr "Précédent"
+msgid "This Year"
+msgstr "Cette année-ci"
 
 #: finance.py:456
-msgid "This"
-msgstr "Ceci"
+msgid "Next Year"
+msgstr "Année suivante"
 
-#: finance.py:457
-msgid "Next"
-msgstr "Suivant"
-
-#: registerscreen.py:34
+#: registerscreen.py:33
 msgid ""
 "<b>Welcome to Finance!</b>   This activity keeps track of income and "
 "expenses for anything that earns\n"
@@ -201,14 +234,32 @@ msgstr ""
 "Une fois que vous aurez entré quelques transaction, allez sur les vues "
 "Graphique et Budget pour en voir plus."
 
-#: registerscreen.py:57
+#: registerscreen.py:63
 msgid "Description"
 msgstr "Description"
 
-#: registerscreen.py:65
+#: registerscreen.py:71
 msgid "Amount"
 msgstr "Montant"
 
-#: registerscreen.py:74
+#: registerscreen.py:80
 msgid "Date"
 msgstr "Date"
+
+#~ msgid "Transaction"
+#~ msgstr "Transaction"
+
+#~ msgid "Period"
+#~ msgstr "Période"
+
+#~ msgid "View"
+#~ msgstr "Vue"
+
+#~ msgid "Previous"
+#~ msgstr "Précédent"
+
+#~ msgid "This"
+#~ msgstr "Ceci"
+
+#~ msgid "Next"
+#~ msgstr "Suivant"
