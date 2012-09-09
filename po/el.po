@@ -38,7 +38,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-20 00:33-0400\n"
+"POT-Creation-Date: 2012-07-13 19:41-0400\n"
 "PO-Revision-Date: 2012-03-22 05:03+0200\n"
 "Last-Translator: Chris <cjl@laptop.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -49,15 +49,16 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
-#: activity/activity.info:2 finance.py:100
+#: activity/activity.info:2 finance.py:106
 msgid "Finance"
 msgstr "Τα οικονομικά μου"
 
 #: budgetscreen.py:34
+#, fuzzy
 msgid ""
 "The Budget view allows you to set a monthly budget for each expense "
 "category, and to keep track of your\n"
-"budgets.  To set a budget, type the amount in the box to the right of the "
+"budgets. To set a budget, type the amount in the box to the right of the "
 "category."
 msgstr ""
 "Η προβολή ισοζυγίου σου επιτρέπει να καθορίσεις τον μηνιαίο προϋπολογισμό "
@@ -65,40 +66,40 @@ msgstr ""
 "τους προϋπολογισμούς σου.  Για να καθορίσεις έναν προϋπολογισμό, "
 "πληκτρολόγησε το ποσό στο πλαίσιο που βρίσκεται δεξιά της κατηγορίας."
 
-#: budgetscreen.py:76 registerscreen.py:84
+#: budgetscreen.py:79 registerscreen.py:90
 msgid "Category"
 msgstr "Κατηγορία"
 
-#: budgetscreen.py:78
+#: budgetscreen.py:81
 msgid "Spent"
 msgstr "Ξόδεψα"
 
-#: budgetscreen.py:80 finance.py:250 finance.py:251
+#: budgetscreen.py:83 finance.py:253 finance.py:254
 msgid "Budget"
 msgstr "Προϋπολογισμός"
 
-#: budgetscreen.py:102 chartscreen.py:95
+#: budgetscreen.py:105 chartscreen.py:101
 msgid "Unknown"
 msgstr "Άγνωστο"
 
-#: budgetscreen.py:154 budgetscreen.py:175 finance.py:228 finance.py:389
-#: finance.py:468 finance.py:486 finance.py:502
+#: budgetscreen.py:154 budgetscreen.py:180 finance.py:231 finance.py:369
+#: finance.py:449 finance.py:472 finance.py:490 finance.py:506
 msgid "Day"
 msgstr "Ημέρα"
 
-#: budgetscreen.py:154 finance.py:232 finance.py:401 finance.py:402
-#: finance.py:449 finance.py:482 finance.py:518 finance.py:523 finance.py:528
-#: finance.py:541
+#: budgetscreen.py:155 finance.py:235 finance.py:385 finance.py:386
+#: finance.py:437 finance.py:486 finance.py:522 finance.py:527 finance.py:532
+#: finance.py:545
 msgid "Forever"
 msgstr "Όλα"
 
-#: budgetscreen.py:178 finance.py:229 finance.py:392 finance.py:471
-#: finance.py:489 finance.py:505
+#: budgetscreen.py:183 finance.py:232 finance.py:373 finance.py:475
+#: finance.py:493 finance.py:509
 msgid "Week"
 msgstr "Εβδομάδα"
 
-#: budgetscreen.py:181 finance.py:231 finance.py:398 finance.py:479
-#: finance.py:498 finance.py:514
+#: budgetscreen.py:186 finance.py:234 finance.py:381 finance.py:453
+#: finance.py:483 finance.py:502 finance.py:518
 msgid "Year"
 msgstr "Έτος"
 
@@ -112,76 +113,108 @@ msgstr ""
 "κάθε κατηγορία.\n"
 "Μπορείς να κατηγοριοποιήσεις τις συναλλαγές σου στην προβολή Καταχώρηση."
 
-#: chartscreen.py:49
+#: chartscreen.py:51
 msgid "Debit Categories"
 msgstr "Κατηγορίες χρεώσεων"
 
-#: finance.py:125 finance.py:230 finance.py:395 finance.py:476 finance.py:492
-#: finance.py:508
+#: finance.py:131 finance.py:233 finance.py:377 finance.py:445 finance.py:480
+#: finance.py:496 finance.py:512
 msgid "Month"
 msgstr "Μήνας"
 
-#: finance.py:188 registerscreen.py:196
+#: finance.py:191 registerscreen.py:206
 msgid "New Credit"
 msgstr "Νέα πίστωση"
 
-#: finance.py:193 registerscreen.py:207
+#: finance.py:196 registerscreen.py:218
 msgid "New Debit"
 msgstr "Νέα χρέωση"
 
-#: finance.py:198
+#: finance.py:201
 msgid "Erase Transaction"
 msgstr "Διαγραφή συναλλαγής"
 
-#: finance.py:223
+#: finance.py:226
 msgid "Period: "
 msgstr "Περίοδος: "
 
-#: finance.py:241 finance.py:242
+#: finance.py:244 finance.py:245
 msgid "Register"
 msgstr "Καταχώρηση"
 
-#: finance.py:258 finance.py:259
+#: finance.py:261 finance.py:262
 msgid "Chart"
 msgstr "Διάγραμμα"
 
-#: finance.py:271
+#: finance.py:274
 msgid "Show Help"
 msgstr "Εμφάνιση βοήθειας"
 
-#: finance.py:284
-msgid "Transaction"
-msgstr "Συναλλαγή"
+#. TRANS: representation of the "Day" period
+#: finance.py:371
+msgid "%B %d, %Y"
+msgstr ""
 
-#: finance.py:285
-msgid "Period"
-msgstr "Περίοδος"
-
-#: finance.py:286
-msgid "View"
-msgstr "Προβολή"
-
-#: finance.py:393
+#. TRANS: representation of the "Week of" period
+#: finance.py:375
 msgid "Week of"
 msgstr "Εβδομάδα του"
 
-#: finance.py:439
+#: finance.py:375
+msgid " %B %d, %Y"
+msgstr ""
+
+#. TRANS: representation of the "Month" period
+#: finance.py:379
+msgid "%B, %Y"
+msgstr ""
+
+#. TRANS: representation of the "Year" period
+#: finance.py:383
+msgid "%Y"
+msgstr ""
+
+#: finance.py:424
 msgid "Balance: "
 msgstr "Υπόλοιπο: "
 
+#: finance.py:446
+msgid "Previous Month"
+msgstr ""
+
+#: finance.py:447
+msgid "This Month"
+msgstr ""
+
+#: finance.py:448
+msgid "Next Month"
+msgstr ""
+
+#: finance.py:450
+msgid "Previous Day"
+msgstr ""
+
+#: finance.py:451
+msgid "This Day"
+msgstr ""
+
+#: finance.py:452
+msgid "Next Day"
+msgstr ""
+
+#: finance.py:454
+msgid "Previous Year"
+msgstr ""
+
 #: finance.py:455
-msgid "Previous"
-msgstr "Προηγούμενη"
+msgid "This Year"
+msgstr ""
 
 #: finance.py:456
-msgid "This"
-msgstr "Αυτή"
+msgid "Next Year"
+msgstr ""
 
-#: finance.py:457
-msgid "Next"
-msgstr "Επόμενη"
-
-#: registerscreen.py:34
+#: registerscreen.py:33
 msgid ""
 "<b>Welcome to Finance!</b>   This activity keeps track of income and "
 "expenses for anything that earns\n"
@@ -197,14 +230,32 @@ msgstr ""
 "Αφού έχετε καταχωρίσει μερικές συναλλαγές, επισκεφθείτε το Διάγραμμα και τον "
 "Προϋπολογισμό για να δείτε περισσότερα."
 
-#: registerscreen.py:57
+#: registerscreen.py:63
 msgid "Description"
 msgstr "Περιγραφή"
 
-#: registerscreen.py:65
+#: registerscreen.py:71
 msgid "Amount"
 msgstr "Ποσό"
 
-#: registerscreen.py:74
+#: registerscreen.py:80
 msgid "Date"
 msgstr "Ημερομηνία"
+
+#~ msgid "Transaction"
+#~ msgstr "Συναλλαγή"
+
+#~ msgid "Period"
+#~ msgstr "Περίοδος"
+
+#~ msgid "View"
+#~ msgstr "Προβολή"
+
+#~ msgid "Previous"
+#~ msgstr "Προηγούμενη"
+
+#~ msgid "This"
+#~ msgstr "Αυτή"
+
+#~ msgid "Next"
+#~ msgstr "Επόμενη"
