@@ -26,6 +26,7 @@ import locale
 import registerscreen
 import chartscreen
 import budgetscreen
+from helpbutton import HelpButton
 
 from gettext import gettext as _
 from port import json
@@ -141,14 +142,6 @@ class Finance(Activity):
         self.screens = []
         self.screenbox = Gtk.VBox()
 
-        # Add the context sensitive help.
-        self.helplabel = Gtk.Label()
-        self.helplabel.set_padding(10, 10)
-        self.helpbox = Gtk.EventBox()
-        parse, color = Gdk.Color.parse('#000000')
-        self.helpbox.modify_bg(Gtk.StateType.NORMAL, color)
-        self.helpbox.add(self.helplabel)
-
         # Add the header.
         self.periodlabel = Gtk.Label()
         self.periodlabel.set_padding(10, 0)
@@ -170,7 +163,6 @@ class Finance(Activity):
 
         vbox = Gtk.VBox()
 
-        vbox.pack_start(self.helpbox, False, False, 10)
         vbox.pack_start(headerbox, False, False, 10)
         vbox.pack_start(Gtk.Separator(orientation=Gtk.Orientation.VERTICAL),
                         False, False, 0)
@@ -269,10 +261,8 @@ class Finance(Activity):
         viewbar.insert(budgetbtn, -1)
         viewbar.insert(chartbtn, -1)
 
-        helpbtn = ToggleToolButton('help')
-        helpbtn.set_active(True)
-        helpbtn.set_tooltip(_("Show Help"))
-        helpbtn.connect('clicked', self.help_cb)
+        helpbutton = self._create_help_button()
+        helpbutton.show_all()
 
         self.toolbar_box = ToolbarBox()
 
@@ -307,26 +297,26 @@ class Finance(Activity):
         self.toolbar_box.toolbar.insert(self.nextperiodbtn, -1)
         self.toolbar_box.toolbar.insert(self.thisperiodbtn, -1)
 
+        self.toolbar_box.toolbar.insert(helpbutton, -1)
+
         separator = Gtk.SeparatorToolItem()
         separator.props.draw = False
         separator.set_expand(True)
         self.toolbar_box.toolbar.insert(separator, -1)
 
-        self.toolbar_box.toolbar.insert(helpbtn, -1)
         self.toolbar_box.toolbar.insert(StopButton(self), -1)
         self.set_toolbar_box(self.toolbar_box)
         self.toolbar_box.show_all()
 
-    def set_help(self, text):
-        if self.helplabel != None:
-            self.helplabel.set_markup('<span size="8000" color="#ffffff">' +
-                    text + '</span>')
-
-    def help_cb(self, widget):
-        if widget.get_active():
-            self.helpbox.show()
-        else:
-            self.helpbox.hide()
+    def _create_help_button(self):
+        helpitem = HelpButton()
+        helpitem.add_section(_('Register'), icon='view-list')
+        helpitem.add_paragraph(registerscreen.REGISTER_HELP)
+        helpitem.add_section(_('Budget'), icon='budget')
+        helpitem.add_paragraph(budgetscreen.BUDGET_HELP)
+        helpitem.add_section(_('Chart'), icon='chart')
+        helpitem.add_paragraph(chartscreen.CHART_HELP)
+        return helpitem
 
     def register_cb(self, widget):
         self.pop_screen()

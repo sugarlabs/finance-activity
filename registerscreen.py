@@ -30,8 +30,8 @@ locale.setlocale(locale.LC_ALL, '')
 import finance
 
 REGISTER_HELP = _(
-    '<b>Welcome to Finance!</b>   This activity keeps track of income '
-    'and expenses for anything that earns\nor spends money, like a school '
+    'Welcome to Finance! This activity keeps track of income '
+    'and expenses for anything that earns or spends money, like a school '
     'club.  To get started, use the Transaction box to add credits and '
     'debits.\nOnce you have entered some transactions, visit the Chart '
     'and Budget views to see more.')
@@ -104,9 +104,6 @@ class RegisterScreen(Gtk.VBox):
         self.liststore.clear()
         for t in self.activity.visible_transactions:
             self.liststore.append((t['id'],))
-
-        # Update the help text.
-        self.activity.set_help(REGISTER_HELP)
 
     def description_render_cb(self, column, cell_renderer, model, iter, data):
         id = model.get_value(iter, 0)

@@ -121,9 +121,6 @@ class ChartScreen(Gtk.HBox):
 
         self.show_all()
 
-        # Update the help text.
-        self.activity.set_help(CHART_HELP)
-
     def chart_draw_cb(self, widget, context):
         # Draw pie chart.
         bounds = widget.get_allocation()

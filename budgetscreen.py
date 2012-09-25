@@ -144,8 +144,6 @@ class BudgetScreen(Gtk.VBox):
 
         self.show_all()
 
-        self.activity.set_help(BUDGET_HELP)
-
     def bar_draw_cb(self, widget, cr, category):
         bounds = widget.get_allocation()
 
