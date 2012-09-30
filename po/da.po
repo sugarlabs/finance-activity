@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-13 19:41-0400\n"
-"PO-Revision-Date: 2012-07-26 20:46+0200\n"
+"POT-Creation-Date: 2012-09-26 00:33-0400\n"
+"PO-Revision-Date: 2012-09-30 15:53+0200\n"
 "Last-Translator: Aputsiaq Niels <aj@isit.gl>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: da\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
-#: activity/activity.info:2 finance.py:106
+#: activity/activity.info:2 finance.py:107
 msgid "Finance"
 msgstr "Finans"
 
@@ -41,7 +41,7 @@ msgstr "Kategori"
 msgid "Spent"
 msgstr "Forbrugt"
 
-#: budgetscreen.py:83 finance.py:253 finance.py:254
+#: budgetscreen.py:83 finance.py:245 finance.py:246 finance.py:315
 msgid "Budget"
 msgstr "Budget"
 
@@ -49,24 +49,24 @@ msgstr "Budget"
 msgid "Unknown"
 msgstr "Ukendt"
 
-#: budgetscreen.py:154 budgetscreen.py:180 finance.py:231 finance.py:369
-#: finance.py:449 finance.py:472 finance.py:490 finance.py:506
+#: budgetscreen.py:152 budgetscreen.py:178 finance.py:223 finance.py:359
+#: finance.py:439 finance.py:462 finance.py:480 finance.py:496
 msgid "Day"
 msgstr "Dag"
 
-#: budgetscreen.py:155 finance.py:235 finance.py:385 finance.py:386
-#: finance.py:437 finance.py:486 finance.py:522 finance.py:527 finance.py:532
-#: finance.py:545
+#: budgetscreen.py:153 finance.py:227 finance.py:375 finance.py:376
+#: finance.py:427 finance.py:476 finance.py:512 finance.py:517 finance.py:522
+#: finance.py:535
 msgid "Forever"
 msgstr "For evigt"
 
-#: budgetscreen.py:183 finance.py:232 finance.py:373 finance.py:475
-#: finance.py:493 finance.py:509
+#: budgetscreen.py:181 finance.py:224 finance.py:363 finance.py:465
+#: finance.py:483 finance.py:499
 msgid "Week"
 msgstr "Uge"
 
-#: budgetscreen.py:186 finance.py:234 finance.py:381 finance.py:453
-#: finance.py:483 finance.py:502 finance.py:518
+#: budgetscreen.py:184 finance.py:226 finance.py:371 finance.py:443
+#: finance.py:473 finance.py:492 finance.py:508
 msgid "Year"
 msgstr "År"
 
@@ -83,116 +83,115 @@ msgstr ""
 msgid "Debit Categories"
 msgstr "Kategorier for debit"
 
-#: finance.py:131 finance.py:233 finance.py:377 finance.py:445 finance.py:480
-#: finance.py:496 finance.py:512
+#: finance.py:132 finance.py:225 finance.py:367 finance.py:435 finance.py:470
+#: finance.py:486 finance.py:502
 msgid "Month"
 msgstr "Måned"
 
-#: finance.py:191 registerscreen.py:206
+#: finance.py:183 registerscreen.py:203
 msgid "New Credit"
 msgstr "Ny kredit"
 
-#: finance.py:196 registerscreen.py:218
+#: finance.py:188 registerscreen.py:215
 msgid "New Debit"
 msgstr "Ny debit"
 
-#: finance.py:201
+#: finance.py:193
 msgid "Erase Transaction"
 msgstr "Slet transaktion"
 
-#: finance.py:226
+#: finance.py:218
 msgid "Period: "
 msgstr "Periode: "
 
-#: finance.py:244 finance.py:245
+#: finance.py:236 finance.py:237 finance.py:313
 msgid "Register"
 msgstr "Register"
 
-#: finance.py:261 finance.py:262
+#: finance.py:253 finance.py:254 finance.py:317
 msgid "Chart"
 msgstr "Diagram"
 
-#: finance.py:274
-msgid "Show Help"
-msgstr "Vis hjælp"
-
 #. TRANS: representation of the "Day" period
-#: finance.py:371
+#: finance.py:361
 msgid "%B %d, %Y"
 msgstr "%d %B, %Y"
 
 #. TRANS: representation of the "Week of" period
-#: finance.py:375
+#: finance.py:365
 msgid "Week of"
 msgstr "Uge af"
 
-#: finance.py:375
+#: finance.py:365
 msgid " %B %d, %Y"
 msgstr " %d %B, %Y"
 
 #. TRANS: representation of the "Month" period
-#: finance.py:379
+#: finance.py:369
 msgid "%B, %Y"
 msgstr "%B, %Y"
 
 #. TRANS: representation of the "Year" period
-#: finance.py:383
+#: finance.py:373
 msgid "%Y"
 msgstr "%Y"
 
-#: finance.py:424
+#: finance.py:414
 msgid "Balance: "
 msgstr "Balance: "
 
-#: finance.py:446
+#: finance.py:436
 msgid "Previous Month"
 msgstr "Forrige måned"
 
-#: finance.py:447
+#: finance.py:437
 msgid "This Month"
 msgstr "Denne måned"
 
-#: finance.py:448
+#: finance.py:438
 msgid "Next Month"
 msgstr "Næste måned"
 
-#: finance.py:450
+#: finance.py:440
 msgid "Previous Day"
 msgstr "Forrige dag"
 
-#: finance.py:451
+#: finance.py:441
 msgid "This Day"
 msgstr "Denne dag"
 
-#: finance.py:452
+#: finance.py:442
 msgid "Next Day"
 msgstr "Næste dag"
 
-#: finance.py:454
+#: finance.py:444
 msgid "Previous Year"
 msgstr "Forrige år"
 
-#: finance.py:455
+#: finance.py:445
 msgid "This Year"
 msgstr "Dette år"
 
-#: finance.py:456
+#: finance.py:446
 msgid "Next Year"
 msgstr "Næste år"
 
+#: helpbutton.py:38
+msgid "Help"
+msgstr "Hjælp"
+
 #: registerscreen.py:33
 msgid ""
-"<b>Welcome to Finance!</b>   This activity keeps track of income and "
-"expenses for anything that earns\n"
-"or spends money, like a school club.  To get started, use the Transaction "
-"box to add credits and debits.\n"
+"Welcome to Finance! This activity keeps track of income and expenses for "
+"anything that earns or spends money, like a school club.  To get started, "
+"use the Transaction box to add credits and debits.\n"
 "Once you have entered some transactions, visit the Chart and Budget views to "
 "see more."
 msgstr ""
-"<b>Velkommen til finans!</b>  Denne aktivitet holder styr på indtægter og "
-"udgifter for alt som indbringer\n"
-"eller forbruger penge, såsom en skoleforening.  For at komme i gang, så "
-"anvend boksen Transaktion til at tilføje kredit og debit.\n"
+"<b>Velkommen til finans!</b> Denne aktivitet holder styr på indtægter og "
+"udgifter, for alt som indbringer eller forbruger penge, såsom en "
+"skoleforening.  For at komme i gang, så anvend boksen Transaktion til at "
+"tilføje kredit og debit.\n"
 "Når du har indtastet nogle transaktioner, så gå til visningerne Diagram og "
 "Budget for at se mere."
 
@@ -207,6 +206,9 @@ msgstr "Beløb"
 #: registerscreen.py:80
 msgid "Date"
 msgstr "Dato"
+
+#~ msgid "Show Help"
+#~ msgstr "Vis hjælp"
 
 #~ msgid "Transaction"
 #~ msgstr "Transaktion"
