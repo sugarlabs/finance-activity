@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-22 00:34-0400\n"
+"POT-Creation-Date: 2012-09-27 14:58-0400\n"
 "PO-Revision-Date: 2011-08-29 07:02+0200\n"
 "Last-Translator: <zurisadai_k@hotmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,15 +17,25 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
-#: activity/activity.info:2 finance.py:100
+#. TRANS: "name" option from activity.info file
+#: finance.py:107
 msgid "Finance"
 msgstr "Ataj jalbixtalab"
 
+#. TRANS: "summary" option from activity.info file
+#. TRANS: "description" option from activity.info file
+msgid ""
+"Want to wisely manage money? Learn financial planning basics and track your "
+"family's finance, make your own budget and learn how to make every penny "
+"count!"
+msgstr ""
+
 #: budgetscreen.py:34
+#, fuzzy
 msgid ""
 "The Budget view allows you to set a monthly budget for each expense "
 "category, and to keep track of your\n"
-"budgets.  To set a budget, type the amount in the box to the right of the "
+"budgets. To set a budget, type the amount in the box to the right of the "
 "category."
 msgstr ""
 "In alwá' in alem ti pidhal ka tsu'uw ta its' an pakwats, ani ka beldhnanchi "
@@ -33,40 +43,40 @@ msgstr ""
 "Abal kin elá' in alem, ka dhuchá in yanel al an pekmidh balixtalab tin winap "
 "al in alwá' exobintalab."
 
-#: budgetscreen.py:76 registerscreen.py:84
+#: budgetscreen.py:79 registerscreen.py:90
 msgid "Category"
 msgstr "In alwá' an exobintalab"
 
-#: budgetscreen.py:78
+#: budgetscreen.py:81
 msgid "Spent"
 msgstr "Pakudh"
 
-#: budgetscreen.py:80 finance.py:250 finance.py:251
+#: budgetscreen.py:83 finance.py:245 finance.py:246 finance.py:315
 msgid "Budget"
 msgstr "In além"
 
-#: budgetscreen.py:102 chartscreen.py:95
+#: budgetscreen.py:105 chartscreen.py:101
 msgid "Unknown"
 msgstr ""
 
-#: budgetscreen.py:154 budgetscreen.py:175 finance.py:228 finance.py:389
-#: finance.py:465 finance.py:488 finance.py:506 finance.py:522
+#: budgetscreen.py:152 budgetscreen.py:178 finance.py:223 finance.py:359
+#: finance.py:439 finance.py:462 finance.py:480 finance.py:496
 msgid "Day"
 msgstr "K'ichaj"
 
-#: budgetscreen.py:154 finance.py:232 finance.py:405 finance.py:406
-#: finance.py:453 finance.py:502 finance.py:538 finance.py:543 finance.py:548
-#: finance.py:561
+#: budgetscreen.py:153 finance.py:227 finance.py:375 finance.py:376
+#: finance.py:427 finance.py:476 finance.py:512 finance.py:517 finance.py:522
+#: finance.py:535
 msgid "Forever"
 msgstr "Abal etsey"
 
-#: budgetscreen.py:178 finance.py:229 finance.py:393 finance.py:491
-#: finance.py:509 finance.py:525
+#: budgetscreen.py:181 finance.py:224 finance.py:363 finance.py:465
+#: finance.py:483 finance.py:499
 msgid "Week"
 msgstr "Buk a k'ichaj"
 
-#: budgetscreen.py:181 finance.py:231 finance.py:401 finance.py:469
-#: finance.py:499 finance.py:518 finance.py:534
+#: budgetscreen.py:184 finance.py:226 finance.py:371 finance.py:443
+#: finance.py:473 finance.py:492 finance.py:508
 msgid "Year"
 msgstr "Tamub"
 
@@ -80,125 +90,113 @@ msgstr ""
 "in alwá' an exobintalab.\n"
 "tata' ne ka ejtow ka ts'ejka in alwá' an exobintalab al in wal an dhuchlab."
 
-#: chartscreen.py:49
+#: chartscreen.py:51
 msgid "Debit Categories"
 msgstr "In alwá'chik an úw japixtalab ani an úw japixtalab"
 
-#: finance.py:125 finance.py:230 finance.py:397 finance.py:461 finance.py:496
-#: finance.py:512 finance.py:528
+#: finance.py:132 finance.py:225 finance.py:367 finance.py:435 finance.py:470
+#: finance.py:486 finance.py:502
 msgid "Month"
 msgstr "Its'"
 
-#: finance.py:188 registerscreen.py:196
+#: finance.py:183 registerscreen.py:203
 msgid "New Credit"
 msgstr "It punuwixtalab"
 
-#: finance.py:193 registerscreen.py:207
+#: finance.py:188 registerscreen.py:215
 msgid "New Debit"
 msgstr "It úw japixtalab"
 
-#: finance.py:198
+#: finance.py:193
 msgid "Erase Transaction"
 msgstr "Ka pakuw xi tsejkadits"
 
-#: finance.py:223
+#: finance.py:218
 msgid "Period: "
 msgstr "An k'ij: "
 
-#: finance.py:241 finance.py:242
+#: finance.py:236 finance.py:237 finance.py:313
 msgid "Register"
 msgstr "Kit dhuchan"
 
-#: finance.py:258 finance.py:259
+#: finance.py:253 finance.py:254 finance.py:317
 msgid "Chart"
 msgstr "T'ipoxtalab"
 
-#: finance.py:271
-msgid "Show Help"
-msgstr "Tejomedha an tolmixtalab"
-
-#: finance.py:284
-msgid "Transaction"
-msgstr "Watbantalab"
-
-#: finance.py:285
-msgid "Period"
-msgstr "An k'ij"
-
-#: finance.py:286
-msgid "View"
-msgstr "Tsu'uw"
-
 #. TRANS: representation of the "Day" period
-#: finance.py:391
+#: finance.py:361
 msgid "%B %d, %Y"
 msgstr ""
 
 #. TRANS: representation of the "Week of" period
-#: finance.py:395
+#: finance.py:365
 msgid "Week of"
 msgstr "In buk a kichaj ani"
 
-#: finance.py:395
+#: finance.py:365
 msgid " %B %d, %Y"
 msgstr ""
 
 #. TRANS: representation of the "Month" period
-#: finance.py:399
+#: finance.py:369
 msgid "%B, %Y"
 msgstr ""
 
 #. TRANS: representation of the "Year" period
-#: finance.py:403
+#: finance.py:373
 msgid "%Y"
 msgstr ""
 
-#: finance.py:443
+#: finance.py:414
 msgid "Balance: "
 msgstr "Junkudhtaláb: "
 
-#: finance.py:462
+#: finance.py:436
 msgid "Previous Month"
 msgstr ""
 
-#: finance.py:463
+#: finance.py:437
 msgid "This Month"
 msgstr ""
 
-#: finance.py:464
+#: finance.py:438
 msgid "Next Month"
 msgstr ""
 
-#: finance.py:466
+#: finance.py:440
 msgid "Previous Day"
 msgstr ""
 
-#: finance.py:467
+#: finance.py:441
 msgid "This Day"
 msgstr ""
 
-#: finance.py:468
+#: finance.py:442
 msgid "Next Day"
 msgstr ""
 
-#: finance.py:470
+#: finance.py:444
 msgid "Previous Year"
 msgstr ""
 
-#: finance.py:471
+#: finance.py:445
 msgid "This Year"
 msgstr ""
 
-#: finance.py:472
+#: finance.py:446
 msgid "Next Year"
 msgstr ""
 
-#: registerscreen.py:34
+#: helpbutton.py:38
+msgid "Help"
+msgstr ""
+
+#: registerscreen.py:33
+#, fuzzy
 msgid ""
-"<b>Welcome to Finance!</b>   This activity keeps track of income and "
-"expenses for anything that earns\n"
-"or spends money, like a school club.  To get started, use the Transaction "
-"box to add credits and debits.\n"
+"Welcome to Finance! This activity keeps track of income and expenses for "
+"anything that earns or spends money, like a school club.  To get started, "
+"use the Transaction box to add credits and debits.\n"
 "Once you have entered some transactions, visit the Chart and Budget views to "
 "see more."
 msgstr ""
@@ -207,17 +205,29 @@ msgstr ""
 "o in pakuwal an tumin, ejtil al jun i mulkudh exobintalab. abal kin tujchiy, "
 "ka eyendha an pekmidh balixtalab."
 
-#: registerscreen.py:57
+#: registerscreen.py:63
 msgid "Description"
 msgstr "Tejuamedhomtalab"
 
-#: registerscreen.py:65
+#: registerscreen.py:71
 msgid "Amount"
 msgstr "Yanel"
 
-#: registerscreen.py:74
+#: registerscreen.py:80
 msgid "Date"
 msgstr "Ajumtal a íts'"
+
+#~ msgid "Show Help"
+#~ msgstr "Tejomedha an tolmixtalab"
+
+#~ msgid "Transaction"
+#~ msgstr "Watbantalab"
+
+#~ msgid "Period"
+#~ msgstr "An k'ij"
+
+#~ msgid "View"
+#~ msgstr "Tsu'uw"
 
 #~ msgid "Previous"
 #~ msgstr "Xi ok'xidh"
@@ -227,3 +237,23 @@ msgstr "Ajumtal a íts'"
 
 #~ msgid "Next"
 #~ msgstr "Xi júnakej"
+
+#~ msgid ""
+#~ "The Budget view allows you to set a monthly budget for each expense "
+#~ "category, and to keep track of your\n"
+#~ "budgets.  To set a budget, type the amount in the box to the right of the "
+#~ "category."
+#~ msgstr ""
+#~ "In alwá' in alem ti pidhal ka tsu'uw ta its' an pakwats, ani ka beldhnanchi "
+#~ "ti\n"
+#~ "Abal kin elá' in alem, ka dhuchá in yanel al an pekmidh balixtalab tin winap "
+#~ "al in alwá' exobintalab."
+
+#~ msgid "Transaction"
+#~ msgstr "Watbantalab"
+
+#~ msgid "Period"
+#~ msgstr "An k'ij"
+
+#~ msgid "View"
+#~ msgstr "Tsu'uw"
