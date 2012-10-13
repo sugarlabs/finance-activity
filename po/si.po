@@ -34,7 +34,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: olpc\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-20 00:33-0400\n"
+"POT-Creation-Date: 2012-09-27 14:58-0400\n"
 "PO-Revision-Date: 2012-03-22 05:28+0200\n"
 "Last-Translator: Chris <cjl@laptop.org>\n"
 "Language-Team: sinhala <LL@li.org>\n"
@@ -46,55 +46,65 @@ msgstr ""
 "X-Generator: Pootle 2.0.5\n"
 "X-Poedit-Language: Sinhalese\n"
 
-#: activity/activity.info:2 finance.py:100
+#. TRANS: "name" option from activity.info file
+#: finance.py:107
 msgid "Finance"
 msgstr "මූල්‍ය"
 
+#. TRANS: "summary" option from activity.info file
+#. TRANS: "description" option from activity.info file
+msgid ""
+"Want to wisely manage money? Learn financial planning basics and track your "
+"family's finance, make your own budget and learn how to make every penny "
+"count!"
+msgstr ""
+
 #: budgetscreen.py:34
+#, fuzzy
 msgid ""
 "The Budget view allows you to set a monthly budget for each expense "
 "category, and to keep track of your\n"
-"budgets.  To set a budget, type the amount in the box to the right of the "
+"budgets. To set a budget, type the amount in the box to the right of the "
 "category."
 msgstr ""
 "මෙම අය වැය දර්ශකය මගින් ඔබට එක් එක් වියදමට අදාලව මාසික අය වැය සකසා ගත හැකි "
 "අතර , ඔබේ අය වැය පිළිබද නිතර විමසා බැලිය හැක. \n"
 " අය වැය සැකසීමට අදාල අගය දකුණූ පස ඇති නියමිත කොටුවෙහි ඇතුලත් කරන්න."
 
-#: budgetscreen.py:76 registerscreen.py:84
+#: budgetscreen.py:79 registerscreen.py:90
 msgid "Category"
 msgstr "වර්‍ගය"
 
-#: budgetscreen.py:78
+#: budgetscreen.py:81
 msgid "Spent"
 msgstr "වියදම් කළ"
 
-#: budgetscreen.py:80 finance.py:250 finance.py:251
+#: budgetscreen.py:83 finance.py:245 finance.py:246 finance.py:315
 msgid "Budget"
 msgstr "අයවැය"
 
-#: budgetscreen.py:102 chartscreen.py:95
+#: budgetscreen.py:105 chartscreen.py:101
 msgid "Unknown"
 msgstr "නොදනී"
 
-#: budgetscreen.py:154 budgetscreen.py:175 finance.py:228 finance.py:389
-#: finance.py:468 finance.py:486 finance.py:502
+#: budgetscreen.py:152 budgetscreen.py:178 finance.py:223 finance.py:359
+#: finance.py:439 finance.py:462 finance.py:480 finance.py:496
 msgid "Day"
 msgstr "දිනය"
 
-#: budgetscreen.py:154 finance.py:232 finance.py:401 finance.py:402
-#: finance.py:449 finance.py:482 finance.py:518 finance.py:523 finance.py:528
-#: finance.py:541
+#: budgetscreen.py:153 finance.py:227 finance.py:375 finance.py:376
+#: finance.py:427 finance.py:476 finance.py:512 finance.py:517 finance.py:522
+#: finance.py:535
 msgid "Forever"
 msgstr "සදහටම"
 
-#: budgetscreen.py:178 finance.py:229 finance.py:392 finance.py:471
-#: finance.py:489 finance.py:505
+#: budgetscreen.py:181 finance.py:224 finance.py:363 finance.py:465
+#: finance.py:483 finance.py:499
 msgid "Week"
 msgstr "සතිය"
 
-#: budgetscreen.py:181 finance.py:231 finance.py:398 finance.py:479
-#: finance.py:498 finance.py:514
+#: budgetscreen.py:184 finance.py:226 finance.py:371 finance.py:443
+#: finance.py:473 finance.py:492 finance.py:508
 msgid "Year"
 msgstr "වසර"
 
@@ -107,81 +117,113 @@ msgstr ""
 "මෙම වගුව එක් එක් ප්‍රභේද යටතේ ඔබේ වියදම් පෙන්නුම් කරයි. \n"
 " ඔබට රෙජිස්ටර් දසුන තූලින් එම ගනුදෙනු වර්ග කල හෑකියි."
 
-#: chartscreen.py:49
+#: chartscreen.py:51
 msgid "Debit Categories"
 msgstr "ගෙවීම් වර්ග"
 
-#: finance.py:125 finance.py:230 finance.py:395 finance.py:476 finance.py:492
-#: finance.py:508
+#: finance.py:132 finance.py:225 finance.py:367 finance.py:435 finance.py:470
+#: finance.py:486 finance.py:502
 msgid "Month"
 msgstr "මාසය"
 
-#: finance.py:188 registerscreen.py:196
+#: finance.py:183 registerscreen.py:203
 msgid "New Credit"
 msgstr "නව ලැබීම්"
 
-#: finance.py:193 registerscreen.py:207
+#: finance.py:188 registerscreen.py:215
 msgid "New Debit"
 msgstr "නව ගෙවීම්"
 
-#: finance.py:198
+#: finance.py:193
 msgid "Erase Transaction"
 msgstr "ගනුදෙනුව මකාදැමීම"
 
-#: finance.py:223
+#: finance.py:218
 msgid "Period: "
 msgstr "කාලපරිච්ඡේදය "
 
-#: finance.py:241 finance.py:242
+#: finance.py:236 finance.py:237 finance.py:313
 msgid "Register"
 msgstr "නාම ලේඛනය"
 
-#: finance.py:258 finance.py:259
+#: finance.py:253 finance.py:254 finance.py:317
 msgid "Chart"
 msgstr "වගුව"
 
-#: finance.py:271
-msgid "Show Help"
-msgstr "උදව් පෙන්වීම"
+#. TRANS: representation of the "Day" period
+#: finance.py:361
+msgid "%B %d, %Y"
+msgstr ""
 
-#: finance.py:284
-msgid "Transaction"
-msgstr "ගනුදෙනු"
-
-#: finance.py:285
-msgid "Period"
-msgstr "කාල පරිච්ඡේදය"
-
-#: finance.py:286
-msgid "View"
-msgstr "පෙනීම"
-
-#: finance.py:393
+#. TRANS: representation of the "Week of" period
+#: finance.py:365
 msgid "Week of"
 msgstr "සති‍යෙහි"
 
-#: finance.py:439
+#: finance.py:365
+msgid " %B %d, %Y"
+msgstr ""
+
+#. TRANS: representation of the "Month" period
+#: finance.py:369
+msgid "%B, %Y"
+msgstr ""
+
+#. TRANS: representation of the "Year" period
+#: finance.py:373
+msgid "%Y"
+msgstr ""
+
+#: finance.py:414
 msgid "Balance: "
 msgstr "ඉතිරි මුදල: "
 
-#: finance.py:455
-msgid "Previous"
-msgstr "පෙර"
+#: finance.py:436
+msgid "Previous Month"
+msgstr ""
 
-#: finance.py:456
-msgid "This"
-msgstr "මෙම"
+#: finance.py:437
+msgid "This Month"
+msgstr ""
 
-#: finance.py:457
-msgid "Next"
-msgstr "ඊලඟ"
+#: finance.py:438
+msgid "Next Month"
+msgstr ""
 
-#: registerscreen.py:34
+#: finance.py:440
+msgid "Previous Day"
+msgstr ""
+
+#: finance.py:441
+msgid "This Day"
+msgstr ""
+
+#: finance.py:442
+msgid "Next Day"
+msgstr ""
+
+#: finance.py:444
+msgid "Previous Year"
+msgstr ""
+
+#: finance.py:445
+msgid "This Year"
+msgstr ""
+
+#: finance.py:446
+msgid "Next Year"
+msgstr ""
+
+#: helpbutton.py:38
+msgid "Help"
+msgstr ""
+
+#: registerscreen.py:33
+#, fuzzy
 msgid ""
-"<b>Welcome to Finance!</b>   This activity keeps track of income and "
-"expenses for anything that earns\n"
-"or spends money, like a school club.  To get started, use the Transaction "
-"box to add credits and debits.\n"
+"Welcome to Finance! This activity keeps track of income and expenses for "
+"anything that earns or spends money, like a school club.  To get started, "
+"use the Transaction box to add credits and debits.\n"
 "Once you have entered some transactions, visit the Chart and Budget views to "
 "see more."
 msgstr ""
@@ -191,14 +233,35 @@ msgstr ""
 "ඔබ අගයන් එකතු කල පසු වගු සහ අය වැය මෙනු වෙත ගොස් වැඩිදුර තොරතුරු දර්ශනය කර "
 "ගන්න."
 
-#: registerscreen.py:57
+#: registerscreen.py:63
 msgid "Description"
 msgstr "විස්තරය"
 
-#: registerscreen.py:65
+#: registerscreen.py:71
 msgid "Amount"
 msgstr "ප්‍රමාණය"
 
-#: registerscreen.py:74
+#: registerscreen.py:80
 msgid "Date"
 msgstr "දිනය"
+
+#~ msgid "Show Help"
+#~ msgstr "උදව් පෙන්වීම"
+
+#~ msgid "Transaction"
+#~ msgstr "ගනුදෙනු"
+
+#~ msgid "Period"
+#~ msgstr "කාල පරිච්ඡේදය"
+
+#~ msgid "View"
+#~ msgstr "පෙනීම"
+
+#~ msgid "Previous"
+#~ msgstr "පෙර"
+
+#~ msgid "This"
+#~ msgstr "මෙම"
+
+#~ msgid "Next"
+#~ msgstr "ඊලඟ"

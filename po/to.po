@@ -7,14 +7,13 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-27 14:58-0400\n"
-"PO-Revision-Date: 2012-04-27 06:53+0200\n"
+"PO-Revision-Date: 2012-02-26 20:55+0200\n"
 "Last-Translator: Chris <cjl@laptop.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: mn\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
 #. TRANS: "name" option from activity.info file
@@ -194,12 +193,29 @@ msgstr ""
 
 #: registerscreen.py:63
 msgid "Description"
-msgstr "Тодорхойлолт"
+msgstr "Fakamatala"
 
 #: registerscreen.py:71
 msgid "Amount"
 msgstr ""
 
 #: registerscreen.py:80
+#, fuzzy
 msgid "Date"
-msgstr ""
+msgstr "'Aho"
+
+#, fuzzy
+#~ msgid "View"
+#~ msgstr "Viu"
+
+#, fuzzy
+#~ msgid "Previous"
+#~ msgstr "Kou hili"
+
+#, fuzzy
+#~ msgid "This"
+#~ msgstr "Ko'eni"
+
+#, fuzzy
+#~ msgid "Next"
+#~ msgstr "Hoko"

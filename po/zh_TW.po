@@ -34,9 +34,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-20 00:33-0400\n"
-"PO-Revision-Date: 2012-03-22 05:15+0200\n"
-"Last-Translator: Chris <cjl@laptop.org>\n"
+"POT-Creation-Date: 2012-09-27 14:58-0400\n"
+"PO-Revision-Date: 2012-05-27 16:06+0200\n"
+"Last-Translator: Yuan <yuanchao@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
@@ -45,54 +45,64 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.5\n"
 
-#: activity/activity.info:2 finance.py:100
+#. TRANS: "name" option from activity.info file
+#: finance.py:107
 msgid "Finance"
 msgstr "財務管理"
 
+#. TRANS: "summary" option from activity.info file
+#. TRANS: "description" option from activity.info file
+msgid ""
+"Want to wisely manage money? Learn financial planning basics and track your "
+"family's finance, make your own budget and learn how to make every penny "
+"count!"
+msgstr ""
+
 #: budgetscreen.py:34
+#, fuzzy
 msgid ""
 "The Budget view allows you to set a monthly budget for each expense "
 "category, and to keep track of your\n"
-"budgets.  To set a budget, type the amount in the box to the right of the "
+"budgets. To set a budget, type the amount in the box to the right of the "
 "category."
 msgstr ""
 "在預算畫面，您可以替各個支出分類設定每個月的預算，並且追蹤您的預算。\n"
 "   在各個分類的右方格子中，填入數值來設定預算。"
 
-#: budgetscreen.py:76 registerscreen.py:84
+#: budgetscreen.py:79 registerscreen.py:90
 msgid "Category"
 msgstr "分類"
 
-#: budgetscreen.py:78
+#: budgetscreen.py:81
 msgid "Spent"
 msgstr "花費"
 
-#: budgetscreen.py:80 finance.py:250 finance.py:251
+#: budgetscreen.py:83 finance.py:245 finance.py:246 finance.py:315
 msgid "Budget"
 msgstr "預算"
 
-#: budgetscreen.py:102 chartscreen.py:95
+#: budgetscreen.py:105 chartscreen.py:101
 msgid "Unknown"
 msgstr "未知"
 
-#: budgetscreen.py:154 budgetscreen.py:175 finance.py:228 finance.py:389
-#: finance.py:468 finance.py:486 finance.py:502
+#: budgetscreen.py:152 budgetscreen.py:178 finance.py:223 finance.py:359
+#: finance.py:439 finance.py:462 finance.py:480 finance.py:496
 msgid "Day"
 msgstr "日"
 
-#: budgetscreen.py:154 finance.py:232 finance.py:401 finance.py:402
-#: finance.py:449 finance.py:482 finance.py:518 finance.py:523 finance.py:528
-#: finance.py:541
+#: budgetscreen.py:153 finance.py:227 finance.py:375 finance.py:376
+#: finance.py:427 finance.py:476 finance.py:512 finance.py:517 finance.py:522
+#: finance.py:535
 msgid "Forever"
 msgstr "無期限"
 
-#: budgetscreen.py:178 finance.py:229 finance.py:392 finance.py:471
-#: finance.py:489 finance.py:505
+#: budgetscreen.py:181 finance.py:224 finance.py:363 finance.py:465
+#: finance.py:483 finance.py:499
 msgid "Week"
 msgstr "週"
 
-#: budgetscreen.py:181 finance.py:231 finance.py:398 finance.py:479
-#: finance.py:498 finance.py:514
+#: budgetscreen.py:184 finance.py:226 finance.py:371 finance.py:443
+#: finance.py:473 finance.py:492 finance.py:508
 msgid "Year"
 msgstr "年"
 
@@ -105,81 +115,113 @@ msgstr ""
 "圖表顯示您在各個項目的花費比例。\n"
 " 您可以在登錄畫面中新增收支的分類。"
 
-#: chartscreen.py:49
+#: chartscreen.py:51
 msgid "Debit Categories"
 msgstr "預支分類"
 
-#: finance.py:125 finance.py:230 finance.py:395 finance.py:476 finance.py:492
-#: finance.py:508
+#: finance.py:132 finance.py:225 finance.py:367 finance.py:435 finance.py:470
+#: finance.py:486 finance.py:502
 msgid "Month"
 msgstr "月"
 
-#: finance.py:188 registerscreen.py:196
+#: finance.py:183 registerscreen.py:203
 msgid "New Credit"
 msgstr "新增信用項目"
 
-#: finance.py:193 registerscreen.py:207
+#: finance.py:188 registerscreen.py:215
 msgid "New Debit"
 msgstr "新增預支項目"
 
-#: finance.py:198
+#: finance.py:193
 msgid "Erase Transaction"
 msgstr "消除該筆交易"
 
-#: finance.py:223
+#: finance.py:218
 msgid "Period: "
 msgstr "期間："
 
-#: finance.py:241 finance.py:242
+#: finance.py:236 finance.py:237 finance.py:313
 msgid "Register"
 msgstr "登錄"
 
-#: finance.py:258 finance.py:259
+#: finance.py:253 finance.py:254 finance.py:317
 msgid "Chart"
 msgstr "圖表"
 
-#: finance.py:271
-msgid "Show Help"
-msgstr "顯示幫助"
+#. TRANS: representation of the "Day" period
+#: finance.py:361
+msgid "%B %d, %Y"
+msgstr "%B %d, %Y"
 
-#: finance.py:284
-msgid "Transaction"
-msgstr "交易"
-
-#: finance.py:285
-msgid "Period"
-msgstr "期間"
-
-#: finance.py:286
-msgid "View"
-msgstr "畫面"
-
-#: finance.py:393
+#. TRANS: representation of the "Week of" period
+#: finance.py:365
 msgid "Week of"
 msgstr "週數"
 
-#: finance.py:439
+#: finance.py:365
+msgid " %B %d, %Y"
+msgstr " %B %d, %Y"
+
+#. TRANS: representation of the "Month" period
+#: finance.py:369
+msgid "%B, %Y"
+msgstr "%B, %Y"
+
+#. TRANS: representation of the "Year" period
+#: finance.py:373
+msgid "%Y"
+msgstr "%Y"
+
+#: finance.py:414
 msgid "Balance: "
 msgstr "收支平衡："
 
-#: finance.py:455
-msgid "Previous"
-msgstr "前一個"
+#: finance.py:436
+msgid "Previous Month"
+msgstr "前一月"
 
-#: finance.py:456
-msgid "This"
-msgstr "這個"
+#: finance.py:437
+msgid "This Month"
+msgstr "本月份"
 
-#: finance.py:457
-msgid "Next"
-msgstr "下一個"
+#: finance.py:438
+msgid "Next Month"
+msgstr "次一月"
 
-#: registerscreen.py:34
+#: finance.py:440
+msgid "Previous Day"
+msgstr "前一日"
+
+#: finance.py:441
+msgid "This Day"
+msgstr "本日"
+
+#: finance.py:442
+msgid "Next Day"
+msgstr "次一日"
+
+#: finance.py:444
+msgid "Previous Year"
+msgstr "前一年"
+
+#: finance.py:445
+msgid "This Year"
+msgstr "本年度"
+
+#: finance.py:446
+msgid "Next Year"
+msgstr "次一年"
+
+#: helpbutton.py:38
+msgid "Help"
+msgstr ""
+
+#: registerscreen.py:33
+#, fuzzy
 msgid ""
-"<b>Welcome to Finance!</b>   This activity keeps track of income and "
-"expenses for anything that earns\n"
-"or spends money, like a school club.  To get started, use the Transaction "
-"box to add credits and debits.\n"
+"Welcome to Finance! This activity keeps track of income and expenses for "
+"anything that earns or spends money, like a school club.  To get started, "
+"use the Transaction box to add credits and debits.\n"
 "Once you have entered some transactions, visit the Chart and Budget views to "
 "see more."
 msgstr ""
@@ -187,14 +229,35 @@ msgstr ""
 " 您可以從交易方格中新增信用與預支項目。\n"
 " 一旦你有輸入過交易項目，您可以在圖表與預算畫面中瞭解更多。"
 
-#: registerscreen.py:57
+#: registerscreen.py:63
 msgid "Description"
 msgstr "描述"
 
-#: registerscreen.py:65
+#: registerscreen.py:71
 msgid "Amount"
 msgstr "數量"
 
-#: registerscreen.py:74
+#: registerscreen.py:80
 msgid "Date"
 msgstr "日期"
+
+#~ msgid "Show Help"
+#~ msgstr "顯示幫助"
+
+#~ msgid "Transaction"
+#~ msgstr "交易"
+
+#~ msgid "Period"
+#~ msgstr "期間"
+
+#~ msgid "View"
+#~ msgstr "畫面"
+
+#~ msgid "Previous"
+#~ msgstr "前一個"
+
+#~ msgid "This"
+#~ msgstr "這個"
+
+#~ msgid "Next"
+#~ msgstr "下一個"
