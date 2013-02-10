@@ -7,10 +7,10 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-27 14:58-0400\n"
-"PO-Revision-Date: 2011-11-26 05:37+0200\n"
+"PO-Revision-Date: 2013-02-10 17:55+0200\n"
 "Last-Translator: Chris <cjl@laptop.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Language: ayc\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,7 +20,7 @@ msgstr ""
 #. TRANS: "name" option from activity.info file
 #: finance.py:107
 msgid "Finance"
-msgstr ""
+msgstr "Qullqinchäwinaka"
 
 #. TRANS: "summary" option from activity.info file
 #. TRANS: "description" option from activity.info file
@@ -29,6 +29,9 @@ msgid ""
 "family's finance, make your own budget and learn how to make every penny "
 "count!"
 msgstr ""
+"¿Qullqi suma yatiñampi apnaqaña muntati? ¡Qullqi suma apnaqañataki "
+"wakichasiña yatiqma ukata utankirinakama qullqinchäwi suma ch'amanchma, "
+"qullqima suma t'uqiyma ukata sapa miyu chiqaparu irtma!"
 
 #: budgetscreen.py:34
 msgid ""
@@ -37,22 +40,27 @@ msgid ""
 "budgets. To set a budget, type the amount in the box to the right of the "
 "category."
 msgstr ""
+"Qullqima suma t'uqiyäwixa sapa phaxsina irtaña qullqi suma chaninchaytma "
+"ukhamaraki sapa wakisiri qullqi irta phuqaytma, ukata uka suma aliqata "
+"awatiyaraktma \n"
+"qullqiñanaka. Qullqi suma t'uqiyañatakixa, Sapa qullqi irta wakichata "
+"kupïxaru qullqi chani qillqantma."
 
 #: budgetscreen.py:79 registerscreen.py:90
 msgid "Category"
-msgstr ""
+msgstr "Qullqi irta wakisiri"
 
 #: budgetscreen.py:81
 msgid "Spent"
-msgstr ""
+msgstr "Qullqi irtata"
 
 #: budgetscreen.py:83 finance.py:245 finance.py:246 finance.py:315
 msgid "Budget"
-msgstr ""
+msgstr "Qullqi t'uqiyata"
 
 #: budgetscreen.py:105 chartscreen.py:101
 msgid "Unknown"
-msgstr ""
+msgstr "Jani uñt'ata"
 
 #  "Día"
 #: budgetscreen.py:152 budgetscreen.py:178 finance.py:223 finance.py:359
@@ -64,7 +72,7 @@ msgstr "Uru"
 #: finance.py:427 finance.py:476 finance.py:512 finance.py:517 finance.py:522
 #: finance.py:535
 msgid "Forever"
-msgstr ""
+msgstr "Wiñayataki"
 
 #  "Semana"
 #: budgetscreen.py:181 finance.py:224 finance.py:363 finance.py:465
@@ -84,107 +92,109 @@ msgid ""
 "category.\n"
 "You can categorize transactions in the Register view."
 msgstr ""
+"Uka rixitaxa sapa qullqi irta tuqita chaninaka suma qhananchi.\n"
+"Qillqata uñacht'äwinakaru qullqi irta chaninakapa qhanacharakismawa."
 
 #: chartscreen.py:51
 msgid "Debit Categories"
-msgstr ""
+msgstr "Qullqi irta utjirinaka"
 
 #: finance.py:132 finance.py:225 finance.py:367 finance.py:435 finance.py:470
 #: finance.py:486 finance.py:502
 msgid "Month"
-msgstr ""
+msgstr "Phaxsi"
 
 #: finance.py:183 registerscreen.py:203
 msgid "New Credit"
-msgstr ""
+msgstr "Machaqa qullqi mayt'äwi"
 
 #: finance.py:188 registerscreen.py:215
 msgid "New Debit"
-msgstr ""
+msgstr "Machaqa qullqi utjiri"
 
 #: finance.py:193
 msgid "Erase Transaction"
-msgstr ""
+msgstr "Alxäwi chhaqtayaña"
 
 #: finance.py:218
 msgid "Period: "
-msgstr ""
+msgstr "Pacha t'aqa: "
 
 #: finance.py:236 finance.py:237 finance.py:313
 msgid "Register"
-msgstr ""
+msgstr "Qillqantaña"
 
 #: finance.py:253 finance.py:254 finance.py:317
 msgid "Chart"
-msgstr ""
+msgstr "Rixita"
 
 #. TRANS: representation of the "Day" period
 #: finance.py:361
 msgid "%B %d, %Y"
-msgstr ""
+msgstr "%d %B, %Y wakichata"
 
 #. TRANS: representation of the "Week of" period
 #: finance.py:365
 msgid "Week of"
-msgstr ""
+msgstr "Simanapa"
 
 #: finance.py:365
 msgid " %B %d, %Y"
-msgstr ""
+msgstr "%d %B, %Y wakichata"
 
 #. TRANS: representation of the "Month" period
 #: finance.py:369
 msgid "%B, %Y"
-msgstr ""
+msgstr "%B, %Y wakichata"
 
 #. TRANS: representation of the "Year" period
 #: finance.py:373
 msgid "%Y"
-msgstr ""
+msgstr "%Y wakichata"
 
 #: finance.py:414
 msgid "Balance: "
-msgstr ""
+msgstr "Chikanchäwi: "
 
 #: finance.py:436
 msgid "Previous Month"
-msgstr ""
+msgstr "Nayrïri phaxsi"
 
 #: finance.py:437
 msgid "This Month"
-msgstr ""
+msgstr "Jichha phaxsi"
 
 #: finance.py:438
 msgid "Next Month"
-msgstr ""
+msgstr "Jutiri phaxsi"
 
 #: finance.py:440
 msgid "Previous Day"
-msgstr ""
+msgstr "Masüru"
 
 #: finance.py:441
 msgid "This Day"
-msgstr ""
+msgstr "Jichhüru"
 
 #: finance.py:442
 msgid "Next Day"
-msgstr ""
+msgstr "Qharüru"
 
 #: finance.py:444
 msgid "Previous Year"
-msgstr ""
+msgstr "Mimära"
 
 #: finance.py:445
 msgid "This Year"
-msgstr ""
+msgstr "Jichha mara"
 
 #: finance.py:446
 msgid "Next Year"
-msgstr ""
+msgstr "Jutiri mara"
 
 #: helpbutton.py:38
 msgid "Help"
-msgstr ""
+msgstr "Yanapa"
 
 #: registerscreen.py:33
 msgid ""
@@ -194,6 +204,12 @@ msgid ""
 "Once you have entered some transactions, visit the Chart and Budget views to "
 "see more."
 msgstr ""
+"¡Qullqinchäwiru purinma! Akïri wakichataxa qullqi irtäwinakata yatiyi ukata "
+"yaqha qullqi irtataki jakitama ukata irtäwima, kamisa maya yatiña utanjama. "
+"Qalltañataki, Alxäwinaka qullqi imata mant'añataki ukata qullqi utjiritaki "
+"katma .\n"
+"Maya qhawqha alxäwinaka qillqantasa, qullqi irtäwinaka rixita uñachayäwiru "
+"mantma ukata qullqi t'uqiyäwirusa mantarakma."
 
 #  "Descripción"
 #: registerscreen.py:63
@@ -202,7 +218,7 @@ msgstr "Yatiyaña"
 
 #: registerscreen.py:71
 msgid "Amount"
-msgstr ""
+msgstr "Walja"
 
 #  "Fecha"
 #: registerscreen.py:80
