@@ -35,8 +35,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-27 14:58-0400\n"
-"PO-Revision-Date: 2012-03-22 05:21+0200\n"
-"Last-Translator: Chris <cjl@laptop.org>\n"
+"PO-Revision-Date: 2013-11-26 21:15+0200\n"
+"Last-Translator: Eduardo H. <hoboprimate@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
@@ -57,9 +57,11 @@ msgid ""
 "family's finance, make your own budget and learn how to make every penny "
 "count!"
 msgstr ""
+"Queres gerir sabiamente o teu dinheiro? Aprende as bases do planeamento "
+"financeiro e acompanha as finanças da tua família, faz os teus próprios "
+"orçamentos e aprende a aproveitar cada cêntimo."
 
 #: budgetscreen.py:34
-#, fuzzy
 msgid ""
 "The Budget view allows you to set a monthly budget for each expense "
 "category, and to keep track of your\n"
@@ -67,9 +69,9 @@ msgid ""
 "category."
 msgstr ""
 "A vista de Orçamento permite-te criar um orçamento mensal para cada "
-"categoria de despesa, e ficar de olho nos teus orçamentos.  \n"
-"Para criar um orçamento, escreve a quantidade na caixa à direita da "
-"categoria."
+"categoria de despesa, e acompanhares os teus\n"
+"orçamentos. Para definir um orçamento, escreve a quantidade na caixa à "
+"direita da categoria."
 
 #: budgetscreen.py:79 registerscreen.py:90
 msgid "Category"
@@ -154,7 +156,7 @@ msgstr "Gráfico"
 #. TRANS: representation of the "Day" period
 #: finance.py:361
 msgid "%B %d, %Y"
-msgstr ""
+msgstr "%d %B, %Y"
 
 #. TRANS: representation of the "Week of" period
 #: finance.py:365
@@ -163,17 +165,17 @@ msgstr "Semana de"
 
 #: finance.py:365
 msgid " %B %d, %Y"
-msgstr ""
+msgstr " %d %B, %Y"
 
 #. TRANS: representation of the "Month" period
 #: finance.py:369
 msgid "%B, %Y"
-msgstr ""
+msgstr "%B, %Y"
 
 #. TRANS: representation of the "Year" period
 #: finance.py:373
 msgid "%Y"
-msgstr ""
+msgstr "%Y"
 
 #: finance.py:414
 msgid "Balance: "
@@ -181,46 +183,45 @@ msgstr "Balanço: "
 
 #: finance.py:436
 msgid "Previous Month"
-msgstr ""
+msgstr "Mês Anterior"
 
 #: finance.py:437
 msgid "This Month"
-msgstr ""
+msgstr "Este Mês"
 
 #: finance.py:438
 msgid "Next Month"
-msgstr ""
+msgstr "Mês Seguinte"
 
 #: finance.py:440
 msgid "Previous Day"
-msgstr ""
+msgstr "Dia Anterior"
 
 #: finance.py:441
 msgid "This Day"
-msgstr ""
+msgstr "Este Dia"
 
 #: finance.py:442
 msgid "Next Day"
-msgstr ""
+msgstr "Dia Seguinte"
 
 #: finance.py:444
 msgid "Previous Year"
-msgstr ""
+msgstr "Ano Anterior"
 
 #: finance.py:445
 msgid "This Year"
-msgstr ""
+msgstr "Este Ano"
 
 #: finance.py:446
 msgid "Next Year"
-msgstr ""
+msgstr "Ano Seguinte"
 
 #: helpbutton.py:38
 msgid "Help"
-msgstr ""
+msgstr "Ajuda"
 
 #: registerscreen.py:33
-#, fuzzy
 msgid ""
 "Welcome to Finance! This activity keeps track of income and expenses for "
 "anything that earns or spends money, like a school club.  To get started, "
@@ -228,10 +229,10 @@ msgid ""
 "Once you have entered some transactions, visit the Chart and Budget views to "
 "see more."
 msgstr ""
-"<b>Bem vindo ao Finanças! </b>  Esta atividade mantém um registo das "
-"receitas e despesas de qualquer coisa que ganhe\n"
-"ou gaste dinheiro, como um clube de uma escola.  Para começar, utiliza a "
-"caixa de Transação para adicionar créditos e débitos. \n"
+"Bem vindo ao Finanças! Esta atividade mantém um registo das receitas e "
+"despesas de qualquer coisa que ganhe ou gaste dinheiro, como um clube de uma "
+"escola.  Para começar, utiliza a caixa de Transação para adicionar créditos "
+"e débitos. \n"
 "Assim que introduzires algumas transações, visita as vistas de Gráfico ou "
 "Orçamento para veres mais."
 
