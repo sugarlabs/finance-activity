@@ -35,8 +35,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-27 14:58-0400\n"
-"PO-Revision-Date: 2012-03-22 05:11+0200\n"
-"Last-Translator: Chris <cjl@laptop.org>\n"
+"PO-Revision-Date: 2013-11-26 07:10+0200\n"
+"Last-Translator: Ganesh <ganesh.ghimire@olenepal.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ne\n"
 "MIME-Version: 1.0\n"
@@ -57,9 +57,11 @@ msgid ""
 "family's finance, make your own budget and learn how to make every penny "
 "count!"
 msgstr ""
+"के तपाईँ बुद्धिमतापूर्वक पैसा व्यवस्थापन गर्न चाहनुहुन्छ? आधारभूत वित्तीय "
+"योजना अध्ययन गर्नुहोस् र तपाईँको परिवारको आम्दानी ट्र्याक राख्न, आफ्नो बजेट "
+"तयार गर्न र थोरै पैसाको पनि उपयोग गर्न सिक्नुहोस्।"
 
 #: budgetscreen.py:34
-#, fuzzy
 msgid ""
 "The Budget view allows you to set a monthly budget for each expense "
 "category, and to keep track of your\n"
@@ -153,7 +155,7 @@ msgstr "चार्ट"
 #. TRANS: representation of the "Day" period
 #: finance.py:361
 msgid "%B %d, %Y"
-msgstr ""
+msgstr "%B %d, %Y"
 
 #. TRANS: representation of the "Week of" period
 #: finance.py:365
@@ -162,17 +164,17 @@ msgstr "हप्ता"
 
 #: finance.py:365
 msgid " %B %d, %Y"
-msgstr ""
+msgstr " %B %d, %Y"
 
 #. TRANS: representation of the "Month" period
 #: finance.py:369
 msgid "%B, %Y"
-msgstr ""
+msgstr "%B, %Y"
 
 #. TRANS: representation of the "Year" period
 #: finance.py:373
 msgid "%Y"
-msgstr ""
+msgstr "%Y"
 
 #: finance.py:414
 msgid "Balance: "
@@ -180,46 +182,45 @@ msgstr "सन्तुलन "
 
 #: finance.py:436
 msgid "Previous Month"
-msgstr ""
+msgstr "अघिल्लो महिना"
 
 #: finance.py:437
 msgid "This Month"
-msgstr ""
+msgstr "हालको महिना"
 
 #: finance.py:438
 msgid "Next Month"
-msgstr ""
+msgstr "आउने महिने"
 
 #: finance.py:440
 msgid "Previous Day"
-msgstr ""
+msgstr "अघिल्लो दिन"
 
 #: finance.py:441
 msgid "This Day"
-msgstr ""
+msgstr "आजको दिन"
 
 #: finance.py:442
 msgid "Next Day"
-msgstr ""
+msgstr "आउने दिन"
 
 #: finance.py:444
 msgid "Previous Year"
-msgstr ""
+msgstr "अघिल्लो वर्ष"
 
 #: finance.py:445
 msgid "This Year"
-msgstr ""
+msgstr "यो वर्ष"
 
 #: finance.py:446
 msgid "Next Year"
-msgstr ""
+msgstr "आउने वर्ष"
 
 #: helpbutton.py:38
 msgid "Help"
-msgstr ""
+msgstr "सहयोग"
 
 #: registerscreen.py:33
-#, fuzzy
 msgid ""
 "Welcome to Finance! This activity keeps track of income and expenses for "
 "anything that earns or spends money, like a school club.  To get started, "
@@ -231,7 +232,7 @@ msgstr ""
 "राख्छ\n"
 "अथवा पैसा खर्च गर्छ, जस्तै विद्दालय क्लब। सुरु गर्नकोलागी लेन-देन बक्समा ऋण "
 "वा श्रेय जोड।\n"
-"लेन-देन गरिसकेपछि अझई धेरै हेर्न चार्ट  र बजेट द्रश्यमा जाऊ"
+"लेन-देन गरिसकेपछि अझै धेरै हेर्न चार्ट  र बजेट द्रश्यमा जाऊ।"
 
 #: registerscreen.py:63
 msgid "Description"
