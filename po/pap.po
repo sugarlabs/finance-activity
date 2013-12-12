@@ -30,15 +30,15 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-27 14:58-0400\n"
-"PO-Revision-Date: 2013-09-02 22:05-0400\n"
-"Last-Translator: User <juneleonora@yahoo.com>\n"
+"PO-Revision-Date: 2013-11-14 22:58+0200\n"
+"Last-Translator: June <juneleonora@yahoo.com>\n"
 "Language-Team: JuneLeonora\n"
 "Language: pap\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Virtaal 0.7.1\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #. TRANS: "name" option from activity.info file
 #: finance.py:107
@@ -53,7 +53,7 @@ msgid ""
 "count!"
 msgstr ""
 "Bo ke manehá plaka di manera sabí? Siña planifikashon finansiero básiko i "
-"sigui bo famia su finansa, traha bo mes presupuesto y siña kon pone kada sèn "
+"sigui bo famia su finansa, traha bo mes presupuesto i siña kon pone kada sèn "
 "konta."
 
 #: budgetscreen.py:34
@@ -64,7 +64,7 @@ msgid ""
 "category."
 msgstr ""
 "E bista di presupuesto ta permití bo fiha un presupuesto mensual pa kada "
-"kategoria i mantené na bista bo presupuestonan.  Pa bo por fiha un "
+"kategoria di gastu i mantené na bista bo presupuestonan.  Pa bo por fiha un "
 "presupuesto, yena e suma den e kuadro na man drechi di e kategoria."
 
 #: budgetscreen.py:79 registerscreen.py:90
@@ -164,7 +164,7 @@ msgstr " %B %d, %Y"
 #. TRANS: representation of the "Month" period
 #: finance.py:369
 msgid "%B, %Y"
-msgstr ""
+msgstr "%B, %Y"
 
 #. TRANS: representation of the "Year" period
 #: finance.py:373
