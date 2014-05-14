@@ -2,24 +2,25 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-27 14:58-0400\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2014-05-14 04:15+0200\n"
+"Last-Translator: Chris <cjl@laptop.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: pbs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Translate Toolkit 1.7.0\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #. TRANS: "name" option from activity.info file
 #: finance.py:107
 msgid "Finance"
-msgstr ""
+msgstr "Tameiñ'"
 
 #. TRANS: "summary" option from activity.info file
 #. TRANS: "description" option from activity.info file
@@ -28,6 +29,9 @@ msgid ""
 "family's finance, make your own budget and learn how to make every penny "
 "count!"
 msgstr ""
+"Kimieng natung majau re kiñkiejen' ?¡Tasaut kiju'u re li'iajaun' ma natung "
+"re tameiñ' manaku'uts natung rand-ejem re tanjiat', vichjaut rabe'en viju'ut "
+"manatung ka nda ngul'ueì tameiñ!"
 
 #: budgetscreen.py:34
 msgid ""
@@ -36,43 +40,45 @@ msgid ""
 "budgets. To set a budget, type the amount in the box to the right of the "
 "category."
 msgstr ""
+"se mapajau re rabe'en matsjau lanuat' manakeje' kad-a rabe'en se nda "
+"ngum'au' se manavaì ne'eng maiñ manaku'uts re jiuk/n"
 
 #: budgetscreen.py:79 registerscreen.py:90
 msgid "Category"
-msgstr ""
+msgstr "chigui'"
 
 #: budgetscreen.py:81
 msgid "Spent"
-msgstr ""
+msgstr "ndut'eng"
 
 #: budgetscreen.py:83 finance.py:245 finance.py:246 finance.py:315
 msgid "Budget"
-msgstr ""
+msgstr "rabe'en matsjau"
 
 #: budgetscreen.py:105 chartscreen.py:101
 msgid "Unknown"
-msgstr ""
+msgstr "Nipmanù"
 
 #: budgetscreen.py:152 budgetscreen.py:178 finance.py:223 finance.py:359
 #: finance.py:439 finance.py:462 finance.py:480 finance.py:496
 msgid "Day"
-msgstr ""
+msgstr "kunju'"
 
 #: budgetscreen.py:153 finance.py:227 finance.py:375 finance.py:376
 #: finance.py:427 finance.py:476 finance.py:512 finance.py:517 finance.py:522
 #: finance.py:535
 msgid "Forever"
-msgstr ""
+msgstr "palem"
 
 #: budgetscreen.py:181 finance.py:224 finance.py:363 finance.py:465
 #: finance.py:483 finance.py:499
 msgid "Week"
-msgstr ""
+msgstr "nda nimvieì'"
 
 #: budgetscreen.py:184 finance.py:226 finance.py:371 finance.py:443
 #: finance.py:473 finance.py:492 finance.py:508
 msgid "Year"
-msgstr ""
+msgstr "niñkijì"
 
 #: chartscreen.py:34
 msgid ""
@@ -80,107 +86,109 @@ msgid ""
 "category.\n"
 "You can categorize transactions in the Register view."
 msgstr ""
+"Se ndapajau' ne ndanù rabe'en lichja'aun ne lutuejè mane'eng se lumei ne "
+"chigui'./njiuk kiju'u manatsjau na'ujuñ pu manù me'ets."
 
 #: chartscreen.py:51
 msgid "Debit Categories"
-msgstr ""
+msgstr "Categorías de Débito"
 
 #: finance.py:132 finance.py:225 finance.py:367 finance.py:435 finance.py:470
 #: finance.py:486 finance.py:502
 msgid "Month"
-msgstr ""
+msgstr "ngum'au'"
 
 #: finance.py:183 registerscreen.py:203
 msgid "New Credit"
-msgstr ""
+msgstr "viñkjiu mapajau"
 
 #: finance.py:188 registerscreen.py:215
 msgid "New Debit"
-msgstr ""
+msgstr "viñkjiu dèbito"
 
 #: finance.py:193
 msgid "Erase Transaction"
-msgstr ""
+msgstr "mavung re matsjau"
 
 #: finance.py:218
 msgid "Period: "
-msgstr ""
+msgstr "lumei nan'ejem: "
 
 #: finance.py:236 finance.py:237 finance.py:313
 msgid "Register"
-msgstr ""
+msgstr "Matsjau"
 
 #: finance.py:253 finance.py:254 finance.py:317
 msgid "Chart"
-msgstr ""
+msgstr "me'es rabe'en"
 
 #. TRANS: representation of the "Day" period
 #: finance.py:361
 msgid "%B %d, %Y"
-msgstr ""
+msgstr "%d %B, %Y"
 
 #. TRANS: representation of the "Week of" period
 #: finance.py:365
 msgid "Week of"
-msgstr ""
+msgstr "nimvieì lupup"
 
 #: finance.py:365
 msgid " %B %d, %Y"
-msgstr ""
+msgstr " %B %d, %Y"
 
 #. TRANS: representation of the "Month" period
 #: finance.py:369
 msgid "%B, %Y"
-msgstr ""
+msgstr "%B, %Y"
 
 #. TRANS: representation of the "Year" period
 #: finance.py:373
 msgid "%Y"
-msgstr ""
+msgstr "%Y"
 
 #: finance.py:414
 msgid "Balance: "
-msgstr ""
+msgstr "mejeung: "
 
 #: finance.py:436
 msgid "Previous Month"
-msgstr ""
+msgstr "ngun'au' sevaa"
 
 #: finance.py:437
 msgid "This Month"
-msgstr ""
+msgstr "Nanji ngun'au"
 
 #: finance.py:438
 msgid "Next Month"
-msgstr ""
+msgstr "ngum'au' likiu'uch'"
 
 #: finance.py:440
 msgid "Previous Day"
-msgstr ""
+msgstr "kunju' srvaa"
 
 #: finance.py:441
 msgid "This Day"
-msgstr ""
+msgstr "nanji kunju'"
 
 #: finance.py:442
 msgid "Next Day"
-msgstr ""
+msgstr "kunju' lkiu'uch'"
 
 #: finance.py:444
 msgid "Previous Year"
-msgstr ""
+msgstr "niñkijì sevaa"
 
 #: finance.py:445
 msgid "This Year"
-msgstr ""
+msgstr "nanji noñkijì"
 
 #: finance.py:446
 msgid "Next Year"
-msgstr ""
+msgstr "nikijì likiu'uch'"
 
 #: helpbutton.py:38
 msgid "Help"
-msgstr ""
+msgstr "Nabaik"
 
 #: registerscreen.py:33
 msgid ""
@@ -190,15 +198,20 @@ msgid ""
 "Once you have entered some transactions, visit the Chart and Budget views to "
 "see more."
 msgstr ""
+"¡Majau ne'ei kijua'a pu tameiñ! nanji ngul'ajau lukjuat pu meng nimì maiñ re "
+"me'eng sani' k'ua namaì se vatejei maiñ lu'ueng tameiñ, nkj'i kad-a lyik "
+"kandaut...se manapup, ki't ne ndakjat matsjau se ma namejep mapajau maiñ "
+"debitos./nxi'iap se namejep sad-ia' nichjau piàt ne mapajau' ndasau' rabe'en "
+"maiñ re rabe'en matsjau se kimieng valeì ma nanù"
 
 #: registerscreen.py:63
 msgid "Description"
-msgstr ""
+msgstr "mamang peuk vakja"
 
 #: registerscreen.py:71
 msgid "Amount"
-msgstr ""
+msgstr "kusau'"
 
 #: registerscreen.py:80
 msgid "Date"
-msgstr ""
+msgstr "kujeiñ ngum'au'"
