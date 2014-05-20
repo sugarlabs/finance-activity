@@ -35,8 +35,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-27 14:58-0400\n"
-"PO-Revision-Date: 2012-03-22 05:23+0200\n"
-"Last-Translator: Chris <cjl@laptop.org>\n"
+"PO-Revision-Date: 2013-11-06 23:34+0200\n"
+"Last-Translator: arosella <arosella@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -57,18 +57,20 @@ msgid ""
 "family's finance, make your own budget and learn how to make every penny "
 "count!"
 msgstr ""
+"Vuoi amministrare saggiamente i tuoi soldi? Impare le regole base della "
+"pianificazione finanziaria e traccia i soldi della tua famiglia, crea la tua "
+"propria disponibilità e impara a far fruttare ogni tuo soldino!"
 
 #: budgetscreen.py:34
-#, fuzzy
 msgid ""
 "The Budget view allows you to set a monthly budget for each expense "
 "category, and to keep track of your\n"
 "budgets. To set a budget, type the amount in the box to the right of the "
 "category."
 msgstr ""
-"La Vista Disponibilità ti permette di definire una disponibilità  mensile "
-"per ogni categoria di spesa e di tenerne traccia.\n"
-"  Per stabilire una disponibilità, scrivi l'ammontare nella casella alla "
+"La Vista Disponibilità ti permette di definire una disponibilità mensile per "
+"ogni categoria di spesa e di tenerne traccia.\n"
+"Per stabilire una disponibilità, scrivi l'ammontare nella casella alla "
 "destra della categoria."
 
 #: budgetscreen.py:79 registerscreen.py:90
@@ -153,7 +155,7 @@ msgstr "Grafico"
 #. TRANS: representation of the "Day" period
 #: finance.py:361
 msgid "%B %d, %Y"
-msgstr ""
+msgstr "%B %d, %Y"
 
 #. TRANS: representation of the "Week of" period
 #: finance.py:365
@@ -162,17 +164,17 @@ msgstr "Settimana di"
 
 #: finance.py:365
 msgid " %B %d, %Y"
-msgstr ""
+msgstr " %B %d, %Y"
 
 #. TRANS: representation of the "Month" period
 #: finance.py:369
 msgid "%B, %Y"
-msgstr ""
+msgstr "%B, %Y"
 
 #. TRANS: representation of the "Year" period
 #: finance.py:373
 msgid "%Y"
-msgstr ""
+msgstr "%Y"
 
 #: finance.py:414
 msgid "Balance: "
@@ -180,46 +182,45 @@ msgstr "Saldo: "
 
 #: finance.py:436
 msgid "Previous Month"
-msgstr ""
+msgstr "Mese precedente"
 
 #: finance.py:437
 msgid "This Month"
-msgstr ""
+msgstr "Mese corrente"
 
 #: finance.py:438
 msgid "Next Month"
-msgstr ""
+msgstr "Prossimo mese"
 
 #: finance.py:440
 msgid "Previous Day"
-msgstr ""
+msgstr "Giorno precedente"
 
 #: finance.py:441
 msgid "This Day"
-msgstr ""
+msgstr "Giorno corrente"
 
 #: finance.py:442
 msgid "Next Day"
-msgstr ""
+msgstr "Prossimo giorno"
 
 #: finance.py:444
 msgid "Previous Year"
-msgstr ""
+msgstr "Anno precedente"
 
 #: finance.py:445
 msgid "This Year"
-msgstr ""
+msgstr "Anno corrente"
 
 #: finance.py:446
 msgid "Next Year"
-msgstr ""
+msgstr "Prossimo anno"
 
 #: helpbutton.py:38
 msgid "Help"
-msgstr ""
+msgstr "Aiuto"
 
 #: registerscreen.py:33
-#, fuzzy
 msgid ""
 "Welcome to Finance! This activity keeps track of income and expenses for "
 "anything that earns or spends money, like a school club.  To get started, "
@@ -227,12 +228,12 @@ msgid ""
 "Once you have entered some transactions, visit the Chart and Budget views to "
 "see more."
 msgstr ""
-"<b>Benvenuto in Finanza!</b>   Questa attività aiuta a tenere traccia di "
-"entrate ed uscite per qualsiasi entita che guadagni o spenda denaro,\n"
-"ad esempio una associazione o un club.  Per iniziare utilizza la casella "
-"Transazione per aggiungere crediti e debiti.\n"
+"Benvenuto in Finanza! Questa attività aiuta a tenere traccia di entrate ed "
+"uscite per qualsiasi entità che guadagni o spenda denaro, ad esempio una "
+"scuola o un club.  Per iniziare utilizza la casella Transazione per "
+"aggiungere crediti e debiti.\n"
 "Una volta che avrai inserito alcune transazioni, vai alle Viste Grafico e "
-"Disponibilità peravere maggiori informazioni."
+"Disponibilità per avere maggiori informazioni."
 
 #: registerscreen.py:63
 msgid "Description"
