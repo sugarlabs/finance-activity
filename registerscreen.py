@@ -22,6 +22,9 @@ from gettext import gettext as _
 
 from gi.repository import Gtk
 from gi.repository import GObject
+from gi.repository import Pango
+
+from sugar3.graphics import style
 
 # Set up localization.
 locale.setlocale(locale.LC_ALL, '')
@@ -48,6 +51,10 @@ class RegisterScreen(Gtk.VBox):
         self.treeview.set_rules_hint(True)
         self.treeview.set_enable_search(False)
 
+        font_size = int(style.FONT_SIZE * 1.25)
+        font = Pango.FontDescription("Sans %d" % font_size)
+        self.treeview.modify_font(font)
+
         # Note that the only thing we store in our liststore is the
         # transaction id. All the actual data is in the activity
         # database.
@@ -67,15 +74,6 @@ class RegisterScreen(Gtk.VBox):
 
         renderer = Gtk.CellRendererText()
         renderer.props.editable = True
-        renderer.connect('edited', self.amount_edit_cb)
-        col = Gtk.TreeViewColumn(_('Amount'), renderer)
-        col.set_cell_data_func(renderer, self.amount_render_cb)
-        col.set_alignment(0.5)
-        col.set_min_width(120)
-        self.treeview.append_column(col)
-
-        renderer = Gtk.CellRendererText()
-        renderer.props.editable = True
         renderer.connect('edited', self.date_edit_cb)
         col = Gtk.TreeViewColumn(_('Date'), renderer)
         col.set_alignment(0.5)
@@ -91,6 +89,16 @@ class RegisterScreen(Gtk.VBox):
         col.set_cell_data_func(renderer, self.category_render_cb)
         col.set_alignment(0.5)
         col.set_min_width(300)
+        self.treeview.append_column(col)
+
+        renderer = Gtk.CellRendererText()
+        renderer.props.editable = True
+        renderer.connect('edited', self.amount_edit_cb)
+        col = Gtk.TreeViewColumn(_('Amount'), renderer)
+        col.set_cell_data_func(renderer, self.amount_render_cb)
+        col.set_alignment(0.5)
+        col.set_min_width(120)
+        renderer.props.xpad = style.DEFAULT_SPACING
         self.treeview.append_column(col)
 
         scroll = Gtk.ScrolledWindow()

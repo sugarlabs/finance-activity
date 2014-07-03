@@ -33,6 +33,7 @@ import json
 
 from gi.repository import Gtk
 from gi.repository import Gdk
+from gi.repository import Pango
 
 # Import Sugar UI modules.
 from sugar3.graphics.toggletoolbutton import ToggleToolButton
@@ -179,11 +180,18 @@ class Finance(Activity):
         self.debitslabel = Gtk.Label()
         self.balancelabel = Gtk.Label()
 
+        font_size = int(style.FONT_SIZE * 1.25)
+        font = Pango.FontDescription("Sans %d" % font_size)
+        for label in (self.startlabel, self.creditslabel, self.debitslabel):
+            label.modify_font(font)
+
         summarybox = Gtk.HBox()
         summarybox.pack_start(self.startlabel, True, False, 0)
         summarybox.pack_start(self.creditslabel, True, False, 0)
         summarybox.pack_start(self.debitslabel, True, False, 0)
-        summarybox.pack_start(self.balancelabel, True, False, 0)
+        summarybox.pack_end(self.balancelabel, True, True,
+                            style.DEFAULT_SPACING)
+        self.balancelabel.set_halign(Gtk.Align.END)
 
         vbox = Gtk.VBox()
 
