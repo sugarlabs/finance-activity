@@ -32,15 +32,12 @@ from gettext import gettext as _
 import json
 
 from gi.repository import Gtk
-from gi.repository import Gdk
 from gi.repository import Pango
 
 # Import Sugar UI modules.
-from sugar3.graphics.toggletoolbutton import ToggleToolButton
 from sugar3.graphics.toolbutton import ToolButton
 from sugar3.graphics.toolcombobox import ToolComboBox
 from sugar3.graphics.toolbarbox import ToolbarBox
-from sugar3.graphics.toolbarbox import ToolbarButton
 from sugar3.graphics.radiotoolbutton import RadioToolButton
 from sugar3.graphics import style
 
