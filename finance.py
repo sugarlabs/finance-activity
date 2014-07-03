@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # Copyright 2008 by Wade Brainerd.
 # This file is part of Finance.
 #
@@ -13,7 +14,6 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with Finance.  If not, see <http://www.gnu.org/licenses/>.
-#!/usr/bin/env python
 
 """Finance - Home financial software for the OLPC XO."""
 
@@ -128,7 +128,7 @@ class Finance(Activity):
         self.transaction_names = {}
         self.category_names = {}
 
-        #self.create_test_data()
+        # self.create_test_data()
 
         # Initialize view period to the first of the month.
         self.period = _('Month')

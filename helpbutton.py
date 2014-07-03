@@ -41,7 +41,8 @@ class HelpButton(Gtk.ToolItem):
         self._palette = help_button.get_palette()
 
         sw = Gtk.ScrolledWindow()
-        sw.set_size_request(int(Gdk.Screen.width() / 2.8),
+        sw.set_size_request(
+            int(Gdk.Screen.width() / 2.8),
             Gdk.Screen.height() - style.GRID_CELL_SIZE * 3)
         sw.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC)
 

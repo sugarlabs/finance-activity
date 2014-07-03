@@ -61,7 +61,7 @@ class BudgetScreen(Gtk.VBox):
             amount = t['amount']
 
             if t['type'] == 'debit':
-                if not cat in self.category_total:
+                if cat not in self.category_total:
                     self.category_total[cat] = amount
                 else:
                     self.category_total[cat] += amount
@@ -127,18 +127,18 @@ class BudgetScreen(Gtk.VBox):
                 budgetentry.set_text(locale.currency(b['amount'], False))
             budgetgroup.add_widget(budgetentry)
 
-            #freqcombo = Gtk.ComboBoxText()
-            #freqcombo.append_text(_('Daily'))
-            #freqcombo.append_text(_('Weekly'))
-            #freqcombo.append_text(_('Monthly'))
-            #freqcombo.append_text(_('Annually'))
-            #freqcombo.set_active(2)
+            # freqcombo = Gtk.ComboBoxText()
+            # freqcombo.append_text(_('Daily'))
+            # freqcombo.append_text(_('Weekly'))
+            # freqcombo.append_text(_('Monthly'))
+            # freqcombo.append_text(_('Annually'))
+            # freqcombo.set_active(2)
 
             hbox = Gtk.HBox()
             hbox.pack_start(ebox, False, False, 20)
             hbox.pack_start(bar, True, True, 10)
             hbox.pack_start(budgetentry, False, False, 20)
-            #hbox.pack_start(freqcombo, True, True, 0)
+            # hbox.pack_start(freqcombo, True, True, 0)
 
             self.budgetbox.pack_start(hbox, False, False, 5)
 
@@ -152,8 +152,9 @@ class BudgetScreen(Gtk.VBox):
         if self.activity.period != _('Day') and \
                 self.activity.period != _('Forever'):
             period_length = (
-                self.activity.get_next_period(self.activity.period_start) - \
-                    self.activity.period_start).days
+                self.activity.get_next_period(
+                    self.activity.period_start) -
+                self.activity.period_start).days
             period_ratio = float(
                 (datetime.date.today() - self.activity.period_start).days) / \
                 period_length
@@ -195,7 +196,7 @@ class BudgetScreen(Gtk.VBox):
 
             if ratio > 1.0:
                 cr.set_source_rgb(1.0, 0.6, 0.6)
-            elif period_ratio != None and ratio > period_ratio:
+            elif period_ratio is not None and ratio > period_ratio:
                 cr.set_source_rgb(0.9, 0.9, 0.6)
             else:
                 cr.set_source_rgb(0.6, 1.0, 0.6)
