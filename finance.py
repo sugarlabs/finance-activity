@@ -29,7 +29,7 @@ import budgetscreen
 from helpbutton import HelpButton
 
 from gettext import gettext as _
-from port import json
+import json
 
 from gi.repository import Gtk
 from gi.repository import Gdk
