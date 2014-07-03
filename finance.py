@@ -256,11 +256,6 @@ class Finance(Activity):
         chartbtn.props.accelerator = '<Ctrl>3'
         chartbtn.connect('clicked', self.chart_cb)
 
-        viewbar = Gtk.Toolbar()
-        viewbar.insert(registerbtn, -1)
-        viewbar.insert(budgetbtn, -1)
-        viewbar.insert(chartbtn, -1)
-
         helpbutton = self._create_help_button()
         helpbutton.show_all()
 
@@ -275,17 +270,12 @@ class Finance(Activity):
             icon_name='transaction')
         transactionbar.show_all()
 
-        view_toolbar_button = ToolbarButton(
-            page=viewbar,
-            icon_name='toolbar-view')
-        viewbar.show_all()
-
         self.toolbar_box.toolbar.insert(transaction_toolbar_button, -1)
         transaction_toolbar_button.show()
 
-        self.toolbar_box.toolbar.view = view_toolbar_button
-        self.toolbar_box.toolbar.insert(view_toolbar_button, -1)
-        view_toolbar_button.show()
+        self.toolbar_box.toolbar.insert(registerbtn, -1)
+        self.toolbar_box.toolbar.insert(budgetbtn, -1)
+        self.toolbar_box.toolbar.insert(chartbtn, -1)
 
         separator = Gtk.SeparatorToolItem()
         separator.set_draw(True)
