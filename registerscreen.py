@@ -179,9 +179,13 @@ class RegisterScreen(Gtk.VBox):
     def category_render_cb(self, column, cell_renderer, model, iter, data):
         id = model.get_value(iter, 0)
         t = self.activity.transaction_map[id]
-        cell_renderer.set_property('text', t['category'])
-        cell_renderer.set_property(
-            'background', finance.get_category_color_str(t['category']))
+        category = t['category']
+        cell_renderer.set_property('text', category)
+        if category:
+            cell_renderer.set_property(
+                'background', finance.get_category_color_str(category))
+        else:
+            cell_renderer.set_property('background', None)
 
     def category_editing_started_cb(self, cell_renderer, editable, path):
         completion = Gtk.EntryCompletion()
