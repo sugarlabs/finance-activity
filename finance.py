@@ -38,10 +38,11 @@ from gi.repository import Gdk
 from sugar3.graphics.toggletoolbutton import ToggleToolButton
 from sugar3.graphics.toolbutton import ToolButton
 from sugar3.graphics.toolcombobox import ToolComboBox
-
 from sugar3.graphics.toolbarbox import ToolbarBox
 from sugar3.graphics.toolbarbox import ToolbarButton
 from sugar3.graphics.radiotoolbutton import RadioToolButton
+from sugar3.graphics import style
+
 from sugar3.activity.widgets import StopButton
 from sugar3.activity.widgets import ActivityToolbarButton
 from sugar3.activity.activity import Activity
@@ -147,6 +148,29 @@ class Finance(Activity):
         self.periodlabel.set_padding(10, 0)
 
         headerbox = Gtk.HBox()
+        evbox = Gtk.EventBox()
+        evbox.add(headerbox)
+        evbox.modify_bg(Gtk.StateType.NORMAL,
+                        style.Color('#424242').get_gdk_color())
+        evbox.set_size_request(-1, style.GRID_CELL_SIZE)
+        self.newcreditbtn = ToolButton('row-insert-credit')
+        self.newcreditbtn.set_tooltip(_("New Credit"))
+        self.newcreditbtn.props.accelerator = '<Ctrl>A'
+        self.newcreditbtn.connect('clicked', self.register.newcredit_cb)
+
+        self.newdebitbtn = ToolButton('row-insert-debit')
+        self.newdebitbtn.set_tooltip(_("New Debit"))
+        self.newdebitbtn.props.accelerator = '<Ctrl>D'
+        self.newdebitbtn.connect('clicked', self.register.newdebit_cb)
+
+        self.eraseitembtn = ToolButton('row-remove-transaction')
+        self.eraseitembtn.set_tooltip(_("Erase Transaction"))
+        self.eraseitembtn.props.accelerator = '<Ctrl>E'
+        self.eraseitembtn.connect('clicked', self.register.eraseitem_cb)
+
+        headerbox.pack_start(self.newcreditbtn, False, False, 0)
+        headerbox.pack_start(self.newdebitbtn, False, False, 0)
+        headerbox.pack_start(self.eraseitembtn, False, False, 0)
         headerbox.pack_end(self.periodlabel, False, False, 0)
 
         # Add the summary data.
@@ -163,7 +187,7 @@ class Finance(Activity):
 
         vbox = Gtk.VBox()
 
-        vbox.pack_start(headerbox, False, False, 10)
+        vbox.pack_start(evbox, False, False, 0)
         vbox.pack_start(Gtk.Separator(orientation=Gtk.Orientation.VERTICAL),
                         False, False, 0)
         vbox.pack_start(self.screenbox, True, True, 0)
@@ -179,25 +203,6 @@ class Finance(Activity):
         self.show_all()
 
     def build_toolbox(self):
-        self.newcreditbtn = ToolButton('row-insert-credit')
-        self.newcreditbtn.set_tooltip(_("New Credit"))
-        self.newcreditbtn.props.accelerator = '<Ctrl>A'
-        self.newcreditbtn.connect('clicked', self.register.newcredit_cb)
-
-        self.newdebitbtn = ToolButton('row-insert-debit')
-        self.newdebitbtn.set_tooltip(_("New Debit"))
-        self.newdebitbtn.props.accelerator = '<Ctrl>D'
-        self.newdebitbtn.connect('clicked', self.register.newdebit_cb)
-
-        self.eraseitembtn = ToolButton('row-remove-transaction')
-        self.eraseitembtn.set_tooltip(_("Erase Transaction"))
-        self.eraseitembtn.props.accelerator = '<Ctrl>E'
-        self.eraseitembtn.connect('clicked', self.register.eraseitem_cb)
-
-        transactionbar = Gtk.Toolbar()
-        transactionbar.insert(self.newcreditbtn, -1)
-        transactionbar.insert(self.newdebitbtn, -1)
-        transactionbar.insert(self.eraseitembtn, -1)
 
         self.thisperiodbtn = ToolButton('go-down')
         self.thisperiodbtn.props.accelerator = '<Ctrl>Down'
@@ -265,21 +270,13 @@ class Finance(Activity):
         self.toolbar_box.toolbar.insert(activity_button, 0)
         activity_button.show()
 
-        transaction_toolbar_button = ToolbarButton(
-            page=transactionbar,
-            icon_name='transaction')
-        transactionbar.show_all()
-
-        self.toolbar_box.toolbar.insert(transaction_toolbar_button, -1)
-        transaction_toolbar_button.show()
+        self.toolbar_box.toolbar.insert(Gtk.SeparatorToolItem(), -1)
 
         self.toolbar_box.toolbar.insert(registerbtn, -1)
         self.toolbar_box.toolbar.insert(budgetbtn, -1)
         self.toolbar_box.toolbar.insert(chartbtn, -1)
 
-        separator = Gtk.SeparatorToolItem()
-        separator.set_draw(True)
-        self.toolbar_box.toolbar.insert(separator, -1)
+        self.toolbar_box.toolbar.insert(Gtk.SeparatorToolItem(), -1)
 
         self.toolbar_box.toolbar.insert(periodlabelitem, -1)
         self.toolbar_box.toolbar.insert(perioditem, -1)
@@ -308,17 +305,30 @@ class Finance(Activity):
         helpitem.add_paragraph(chartscreen.CHART_HELP)
         return helpitem
 
+    def show_header_buttons(self):
+        self.newcreditbtn.show()
+        self.newdebitbtn.show()
+        self.eraseitembtn.show()
+
+    def hide_header_buttons(self):
+        self.newcreditbtn.hide()
+        self.newdebitbtn.hide()
+        self.eraseitembtn.hide()
+
     def register_cb(self, widget):
         self.pop_screen()
         self.push_screen(self.register)
+        self.show_header_buttons()
 
     def budget_cb(self, widget):
         self.pop_screen()
         self.push_screen(self.budget)
+        self.hide_header_buttons()
 
     def chart_cb(self, widget):
         self.pop_screen()
         self.push_screen(self.chart)
+        self.hide_header_buttons()
 
     def push_screen(self, screen):
         if len(self.screens):
@@ -366,7 +376,7 @@ class Finance(Activity):
             text = _('Forever')
 
         self.periodlabel.set_markup(
-            "<span size='xx-large'><b>" + text + "</b></span>")
+            "<span size='xx-large' color='white'><b>" + text + "</b></span>")
 
     def update_summary(self):
         # Calculate starting balance.
