@@ -105,11 +105,14 @@ class Finance(Activity):
         self.periodlabel.set_padding(10, 0)
 
         headerbox = Gtk.HBox()
+        self.header_controls_box = Gtk.HBox()
         evbox = Gtk.EventBox()
         evbox.add(headerbox)
         evbox.modify_bg(Gtk.StateType.NORMAL,
                         style.Color('#424242').get_gdk_color())
         evbox.set_size_request(-1, style.GRID_CELL_SIZE)
+
+        # register buttons
         self.newcreditbtn = ToolButton('row-insert-credit')
         self.newcreditbtn.set_tooltip(_("New Credit"))
         self.newcreditbtn.props.accelerator = '<Ctrl>A'
@@ -125,9 +128,39 @@ class Finance(Activity):
         self.eraseitembtn.props.accelerator = '<Ctrl>E'
         self.eraseitembtn.connect('clicked', self.register.eraseitem_cb)
 
-        headerbox.pack_start(self.newcreditbtn, False, False, 0)
-        headerbox.pack_start(self.newdebitbtn, False, False, 0)
-        headerbox.pack_start(self.eraseitembtn, False, False, 0)
+        self.header_controls_box.pack_start(self.newcreditbtn, False, False, 0)
+        self.header_controls_box.pack_start(self.newdebitbtn, False, False, 0)
+        self.header_controls_box.pack_start(self.eraseitembtn, False, False, 0)
+
+        # period controls
+        self.thisperiodbtn = ToolButton('go-down')
+        self.thisperiodbtn.props.accelerator = '<Ctrl>Down'
+        self.thisperiodbtn.connect('clicked', self.thisperiod_cb)
+
+        self.prevperiodbtn = ToolButton('go-previous-paired')
+        self.prevperiodbtn.props.accelerator = '<Ctrl>Left'
+        self.prevperiodbtn.connect('clicked', self.prevperiod_cb)
+
+        self.nextperiodbtn = ToolButton('go-next-paired')
+        self.nextperiodbtn.props.accelerator = '<Ctrl>Right'
+        self.nextperiodbtn.connect('clicked', self.nextperiod_cb)
+
+        periodcombo = Gtk.ComboBoxText()
+        periodcombo.append_text(_('Day'))
+        periodcombo.append_text(_('Week'))
+        periodcombo.append_text(_('Month'))
+        periodcombo.append_text(_('Year'))
+        periodcombo.append_text(_('Forever'))
+        periodcombo.set_active(2)
+        periodcombo.connect('changed', self.period_changed_cb)
+
+        self.header_controls_box.pack_end(self.thisperiodbtn, False, False, 0)
+        self.header_controls_box.pack_end(self.nextperiodbtn, False, False, 0)
+        self.header_controls_box.pack_end(self.prevperiodbtn, False, False, 0)
+        self.header_controls_box.pack_end(periodcombo, False, False, 0)
+        self.header_controls_box.props.margin_right = style.GRID_CELL_SIZE * 3
+
+        headerbox.pack_start(self.header_controls_box, True, True, 0)
         headerbox.pack_end(self.periodlabel, False, False, 0)
 
         # Add the summary data.
@@ -177,37 +210,6 @@ class Finance(Activity):
 
     def build_toolbox(self):
 
-        self.thisperiodbtn = ToolButton('go-down')
-        self.thisperiodbtn.props.accelerator = '<Ctrl>Down'
-        self.thisperiodbtn.connect('clicked', self.thisperiod_cb)
-
-        self.prevperiodbtn = ToolButton('go-previous-paired')
-        self.prevperiodbtn.props.accelerator = '<Ctrl>Left'
-        self.prevperiodbtn.connect('clicked', self.prevperiod_cb)
-
-        self.nextperiodbtn = ToolButton('go-next-paired')
-        self.nextperiodbtn.props.accelerator = '<Ctrl>Right'
-        self.nextperiodbtn.connect('clicked', self.nextperiod_cb)
-
-        periodsep = Gtk.SeparatorToolItem()
-        periodsep.set_expand(True)
-        periodsep.set_draw(False)
-
-        periodlabel = Gtk.Label(label=_('Period: '))
-        periodlabelitem = Gtk.ToolItem()
-        periodlabelitem.add(periodlabel)
-
-        periodcombo = Gtk.ComboBoxText()
-        periodcombo.append_text(_('Day'))
-        periodcombo.append_text(_('Week'))
-        periodcombo.append_text(_('Month'))
-        periodcombo.append_text(_('Year'))
-        periodcombo.append_text(_('Forever'))
-        periodcombo.set_active(2)
-        periodcombo.connect('changed', self.period_changed_cb)
-
-        perioditem = ToolComboBox(periodcombo)
-
         view_tool_group = None
         registerbtn = RadioToolButton()
         registerbtn.props.icon_name = 'view-list'
@@ -251,12 +253,6 @@ class Finance(Activity):
 
         self.toolbar_box.toolbar.insert(Gtk.SeparatorToolItem(), -1)
 
-        self.toolbar_box.toolbar.insert(periodlabelitem, -1)
-        self.toolbar_box.toolbar.insert(perioditem, -1)
-        self.toolbar_box.toolbar.insert(self.prevperiodbtn, -1)
-        self.toolbar_box.toolbar.insert(self.nextperiodbtn, -1)
-        self.toolbar_box.toolbar.insert(self.thisperiodbtn, -1)
-
         self.toolbar_box.toolbar.insert(helpbutton, -1)
 
         separator = Gtk.SeparatorToolItem()
@@ -278,30 +274,26 @@ class Finance(Activity):
         helpitem.add_paragraph(chartscreen.CHART_HELP)
         return helpitem
 
-    def show_header_buttons(self):
-        self.newcreditbtn.show()
-        self.newdebitbtn.show()
-        self.eraseitembtn.show()
+    def show_header_controls(self):
+        self.header_controls_box.show()
 
-    def hide_header_buttons(self):
-        self.newcreditbtn.hide()
-        self.newdebitbtn.hide()
-        self.eraseitembtn.hide()
+    def hide_header_controls(self):
+        self.header_controls_box.hide()
 
     def register_cb(self, widget):
         self.pop_screen()
         self.push_screen(self.register)
-        self.show_header_buttons()
+        self.show_header_controls()
 
     def budget_cb(self, widget):
         self.pop_screen()
         self.push_screen(self.budget)
-        self.hide_header_buttons()
+        self.hide_header_controls()
 
     def chart_cb(self, widget):
         self.pop_screen()
         self.push_screen(self.chart)
-        self.hide_header_buttons()
+        self.hide_header_controls()
 
     def push_screen(self, screen):
         if len(self.screens):
