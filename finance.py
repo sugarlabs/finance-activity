@@ -135,19 +135,22 @@ class Finance(Activity):
         self.creditslabel = Gtk.Label()
         self.debitslabel = Gtk.Label()
         self.balancelabel = Gtk.Label()
+        self.balancelabel.props.margin_left = style.DEFAULT_SPACING
+        self.balancelabel.props.margin_right = style.DEFAULT_SPACING
 
         font_size = int(style.FONT_SIZE * 1.25)
         font = Pango.FontDescription("Sans %d" % font_size)
         for label in (self.startlabel, self.creditslabel, self.debitslabel):
             label.modify_font(font)
 
+        self.balance_evbox = Gtk.EventBox()
+        self.balance_evbox.add(self.balancelabel)
         summarybox = Gtk.HBox()
         summarybox.pack_start(self.startlabel, True, False, 0)
         summarybox.pack_start(self.creditslabel, True, False, 0)
         summarybox.pack_start(self.debitslabel, True, False, 0)
-        summarybox.pack_end(self.balancelabel, True, True,
-                            style.DEFAULT_SPACING)
-        self.balancelabel.set_halign(Gtk.Align.END)
+        summarybox.pack_end(self.balance_evbox, True, True, 0)
+        self.balance_evbox.set_halign(Gtk.Align.END)
 
         summary_evbox = Gtk.EventBox()
         summary_evbox.add(summarybox)
@@ -380,17 +383,25 @@ class Finance(Activity):
             balancecolor = colors.CREDIT_COLOR
         else:
             balancecolor = colors.DEBIT_COLOR
-        balance = "<span size='xx-large' foreground='%s'><b>" % balancecolor
-        balance += _('Balance: ') + locale.currency(total)
-        balance += "</b></span>"
+        balance = \
+            "<span size='xx-large' foreground='white'><b>%s %s</b></span>" % \
+            (_('Balance: '), locale.currency(total))
         self.balancelabel.set_markup(balance)
 
-        self.startlabel.set_markup('Starting Balance: ' +
-                                   locale.currency(start))
+        self.balance_evbox.modify_bg(
+            Gtk.StateType.NORMAL, style.Color(balancecolor).get_gdk_color())
+
+        self.startlabel.set_markup(
+            "<span foreground='white'><b>%s %s</b></span>" %
+            (_('Starting Balance:'), locale.currency(start)))
         self.creditslabel.set_markup(
-            '%s in %d credits' % (locale.currency(credit_total), credit_count))
+            "<span foreground='white'><b>%s</b></span>" %
+            (_('%s in %d credits') % (locale.currency(credit_total),
+                                      credit_count)))
         self.debitslabel.set_markup(
-            '%s in %d debits' % (locale.currency(debit_total), debit_count))
+            "<span foreground='white'><b>%s</b></span>" %
+            (_('%s in %d debits') % (locale.currency(debit_total),
+                                     debit_count)))
 
     def update_toolbar(self):
         # Disable the navigation when Forever is selected.
