@@ -30,7 +30,7 @@ from sugar3.graphics import style
 locale.setlocale(locale.LC_ALL, '')
 
 # Import activity module
-import finance
+import colors
 
 REGISTER_HELP = _(
     'Welcome to Finance! This activity keeps track of income '
@@ -147,11 +147,11 @@ class RegisterScreen(Gtk.VBox):
         t = self.activity.transaction_map[id]
         cell_renderer.set_property('xalign', 1.0)
         if t['type'] == 'credit':
-            cell_renderer.set_property('foreground', '#4040ff')
+            cell_renderer.set_property('foreground', colors.CREDIT_COLOR)
             cell_renderer.set_property('text',
                                        locale.currency(t['amount'], False))
         else:
-            cell_renderer.set_property('foreground', '#ff4040')
+            cell_renderer.set_property('foreground', colors.DEBIT_COLOR)
             cell_renderer.set_property('text',
                                        locale.currency(-t['amount'], False))
 
@@ -183,7 +183,7 @@ class RegisterScreen(Gtk.VBox):
         cell_renderer.set_property('text', category)
         if category:
             cell_renderer.set_property(
-                'background', finance.get_category_color_str(category))
+                'background', colors.get_category_color_str(category))
         else:
             cell_renderer.set_property('background', None)
 

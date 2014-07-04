@@ -21,13 +21,6 @@
 import logging
 import datetime
 import locale
-
-# Import screen classes.
-import registerscreen
-import chartscreen
-import budgetscreen
-from helpbutton import HelpButton
-
 from gettext import gettext as _
 import json
 
@@ -45,6 +38,13 @@ from sugar3.activity.widgets import StopButton
 from sugar3.activity.widgets import ActivityToolbarButton
 from sugar3.activity.activity import Activity
 
+# Import screen classes.
+import registerscreen
+import chartscreen
+import budgetscreen
+from helpbutton import HelpButton
+import colors
+
 # Set up localization.
 locale.setlocale(locale.LC_ALL, '')
 
@@ -52,47 +52,6 @@ locale.setlocale(locale.LC_ALL, '')
 log = logging.getLogger('Finance')
 log.setLevel(logging.DEBUG)
 logging.basicConfig()
-
-
-CATEGORY_COLORS = [
-    (1.0, 1.0, 1.0),
-    (1.0, 1.0, 0.6),
-    (1.0, 1.0, 0.8),
-    (1.0, 0.6, 1.0),
-    (1.0, 0.6, 0.6),
-    (1.0, 0.6, 0.8),
-    (1.0, 0.8, 1.0),
-    (1.0, 0.8, 0.6),
-    (1.0, 0.8, 0.8),
-    (0.6, 1.0, 1.0),
-    (0.6, 1.0, 0.6),
-    (0.6, 1.0, 0.8),
-    (0.6, 0.6, 1.0),
-    (0.6, 0.6, 0.6),
-    (0.6, 0.6, 0.8),
-    (0.6, 0.8, 1.0),
-    (0.6, 0.8, 0.6),
-    (0.6, 0.8, 0.8),
-    (0.8, 1.0, 1.0),
-    (0.8, 1.0, 0.6),
-    (0.8, 1.0, 0.8),
-    (0.8, 0.6, 1.0),
-    (0.8, 0.6, 0.6),
-    (0.8, 0.6, 0.8),
-    (0.8, 0.8, 1.0),
-    (0.8, 0.8, 0.6),
-    (0.8, 0.8, 0.8),
-]
-
-
-def get_category_color(catname):
-    return CATEGORY_COLORS[catname.__hash__() % len(CATEGORY_COLORS)]
-
-
-def get_category_color_str(catname):
-    color = get_category_color(catname)
-    return "#%02x%02x%02x" % \
-        (int(color[0] * 255), int(color[1] * 255), int(color[2] * 255))
 
 
 # This is the main Finance activity class.
@@ -418,9 +377,9 @@ class Finance(Activity):
 
         # Update Balance.
         if total >= 0.0:
-            balancecolor = '#4040ff'
+            balancecolor = colors.CREDIT_COLOR
         else:
-            balancecolor = '#ff4040'
+            balancecolor = colors.DEBIT_COLOR
         balance = "<span size='xx-large' foreground='%s'><b>" % balancecolor
         balance += _('Balance: ') + locale.currency(total)
         balance += "</b></span>"

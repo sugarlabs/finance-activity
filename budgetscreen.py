@@ -27,8 +27,7 @@ from gi.repository import GObject
 # Set up localization.
 locale.setlocale(locale.LC_ALL, '')
 
-# Import activity module
-import finance
+import colors
 
 BUDGET_HELP = _(
     'The Budget view allows you to set a monthly budget for each expense '
@@ -106,7 +105,7 @@ class BudgetScreen(Gtk.VBox):
             catbox = Gtk.Label(label=description)
             catbox.set_padding(10, 0)
 
-            color = finance.get_category_color_str(c)
+            color = colors.get_category_color_str(c)
 
             ebox = Gtk.EventBox()
             parse, color = Gdk.Color.parse(color)

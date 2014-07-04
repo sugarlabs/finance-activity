@@ -19,7 +19,7 @@ import math
 import locale
 
 # Import activity module
-import finance
+import colors
 
 from gettext import gettext as _
 
@@ -102,7 +102,7 @@ class ChartScreen(Gtk.HBox):
             catlabel = Gtk.Label(label=description)
             catgroup.add_widget(catlabel)
 
-            color = finance.get_category_color_str(c)
+            color = colors.get_category_color_str(c)
 
             amountlabel = Gtk.Label()
             amountlabel.set_markup(locale.currency(self.category_total[c]))
@@ -138,7 +138,7 @@ class ChartScreen(Gtk.HBox):
 
             for c in self.sorted_categories:
                 slice = 2 * math.pi * self.category_total[c] / total
-                color = finance.get_category_color(c)
+                color = colors.get_category_color(c)
 
                 context.move_to(x, y)
                 context.arc(x, y, r, angle, angle + slice)
