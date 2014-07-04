@@ -64,6 +64,16 @@ class RegisterScreen(Gtk.VBox):
         # Construct the columns.
         renderer = Gtk.CellRendererText()
         renderer.props.editable = True
+        renderer.connect('editing-started', self.category_editing_started_cb)
+        renderer.connect('edited', self.category_edit_cb)
+        col = Gtk.TreeViewColumn(_('Category'), renderer)
+        col.set_cell_data_func(renderer, self.category_render_cb)
+        col.set_alignment(0.5)
+        col.set_min_width(300)
+        self.treeview.append_column(col)
+
+        renderer = Gtk.CellRendererText()
+        renderer.props.editable = True
         renderer.connect('editing-started',
                          self.description_editing_started_cb)
         renderer.connect('edited', self.description_edit_cb)
@@ -79,16 +89,6 @@ class RegisterScreen(Gtk.VBox):
         col.set_alignment(0.5)
         col.set_cell_data_func(renderer, self.date_render_cb)
         col.set_min_width(150)
-        self.treeview.append_column(col)
-
-        renderer = Gtk.CellRendererText()
-        renderer.props.editable = True
-        renderer.connect('editing-started', self.category_editing_started_cb)
-        renderer.connect('edited', self.category_edit_cb)
-        col = Gtk.TreeViewColumn(_('Category'), renderer)
-        col.set_cell_data_func(renderer, self.category_render_cb)
-        col.set_alignment(0.5)
-        col.set_min_width(300)
         self.treeview.append_column(col)
 
         renderer = Gtk.CellRendererText()
@@ -117,6 +117,7 @@ class RegisterScreen(Gtk.VBox):
         id = model.get_value(iter, 0)
         t = self.activity.transaction_map[id]
         cell_renderer.set_property('text', t['name'])
+        self._set_font_color(t, cell_renderer)
 
     def description_editing_started_cb(self, cell_renderer, editable, path):
         completion = Gtk.EntryCompletion()
@@ -146,12 +147,11 @@ class RegisterScreen(Gtk.VBox):
         id = model.get_value(iter, 0)
         t = self.activity.transaction_map[id]
         cell_renderer.set_property('xalign', 1.0)
+        self._set_font_color(t, cell_renderer)
         if t['type'] == 'credit':
-            cell_renderer.set_property('foreground', colors.CREDIT_COLOR)
             cell_renderer.set_property('text',
                                        locale.currency(t['amount'], False))
         else:
-            cell_renderer.set_property('foreground', colors.DEBIT_COLOR)
             cell_renderer.set_property('text',
                                        locale.currency(-t['amount'], False))
 
@@ -167,6 +167,13 @@ class RegisterScreen(Gtk.VBox):
         when = datetime.date.fromordinal(t['date'])
         cell_renderer.set_property('text', when.isoformat())
         cell_renderer.set_property('xalign', 0.5)
+        self._set_font_color(t, cell_renderer)
+
+    def _set_font_color(self, t, cell_renderer):
+        if t['type'] == 'credit':
+            cell_renderer.set_property('foreground', colors.CREDIT_COLOR)
+        else:
+            cell_renderer.set_property('foreground', colors.DEBIT_COLOR)
 
     def date_edit_cb(self, cell_renderer, path, new_text):
         id = self.liststore[path][0]
