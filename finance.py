@@ -29,7 +29,6 @@ from gi.repository import Pango
 
 # Import Sugar UI modules.
 from sugar3.graphics.toolbutton import ToolButton
-from sugar3.graphics.toolcombobox import ToolComboBox
 from sugar3.graphics.toolbarbox import ToolbarBox
 from sugar3.graphics.radiotoolbutton import RadioToolButton
 from sugar3.graphics import style
@@ -44,6 +43,7 @@ import chartscreen
 import budgetscreen
 from helpbutton import HelpButton
 import colors
+from filtertoolitem import FilterToolItem
 
 # Set up localization.
 locale.setlocale(locale.LC_ALL, '')
@@ -53,12 +53,19 @@ log = logging.getLogger('Finance')
 log.setLevel(logging.DEBUG)
 logging.basicConfig()
 
+DAY = 0
+WEEK = 1
+MONTH = 2
+YEAR = 3
+FOREVER = 4
+
 
 # This is the main Finance activity class.
 #
 # It owns the main application window, and all the various toolbars
 # and options. Screens are stored in a stack, with the currently
 # active screen on top.
+
 class Finance(Activity):
     def __init__(self, handle):
         Activity.__init__(self, handle)
@@ -87,7 +94,7 @@ class Finance(Activity):
         # self.create_test_data()
 
         # Initialize view period to the first of the month.
-        self.period = _('Month')
+        self.period = MONTH
         self.period_start = self.get_this_period()
 
         # Create screens.
@@ -145,14 +152,12 @@ class Finance(Activity):
         self.nextperiodbtn.props.accelerator = '<Ctrl>Right'
         self.nextperiodbtn.connect('clicked', self.nextperiod_cb)
 
-        periodcombo = Gtk.ComboBoxText()
-        periodcombo.append_text(_('Day'))
-        periodcombo.append_text(_('Week'))
-        periodcombo.append_text(_('Month'))
-        periodcombo.append_text(_('Year'))
-        periodcombo.append_text(_('Forever'))
-        periodcombo.set_active(2)
-        periodcombo.connect('changed', self.period_changed_cb)
+        period_options = {DAY: _('Day'), WEEK: _('Week'), MONTH: _('Month'),
+                          YEAR: _('Year'), FOREVER: _('Forever')}
+        periodcombo = FilterToolItem('write-date', MONTH, period_options,
+                                     _('Select period'))
+
+        periodcombo.connect('changed', self.__period_changed_cb)
 
         self.header_controls_box.pack_end(self.thisperiodbtn, False, False, 0)
         self.header_controls_box.pack_end(self.nextperiodbtn, False, False, 0)
@@ -321,23 +326,23 @@ class Finance(Activity):
         self.update_toolbar()
 
     def update_header(self):
-        if self.period == _('Day'):
+        if self.period == DAY:
             # TRANS: representation of the "Day" period
             text = self.period_start.strftime(_("%B %d, %Y"))
 
-        elif self.period == _('Week'):
+        elif self.period == WEEK:
             # TRANS: representation of the "Week of" period
             text = _('Week of') + self.period_start.strftime(_(" %B %d, %Y"))
 
-        elif self.period == _('Month'):
+        elif self.period == MONTH:
             # TRANS: representation of the "Month" period
             text = self.period_start.strftime(_("%B, %Y"))
 
-        elif self.period == _('Year'):
+        elif self.period == YEAR:
             # TRANS: representation of the "Year" period
             text = self.period_start.strftime(_("%Y"))
 
-        elif self.period == _('Forever'):
+        elif self.period == FOREVER:
             text = _('Forever')
 
         self.periodlabel.set_markup(
@@ -397,23 +402,26 @@ class Finance(Activity):
 
     def update_toolbar(self):
         # Disable the navigation when Forever is selected.
-        next_prev = self.period != _('Forever')
+        next_prev = self.period != FOREVER
         self.prevperiodbtn.set_sensitive(next_prev)
         self.thisperiodbtn.set_sensitive(next_prev)
         self.nextperiodbtn.set_sensitive(next_prev)
 
         # This is a HACK to translate the string properly
         # http://bugs.sugarlabs.org/ticket/3190
-        period = self.period.lower()
-        if period == _('Month').lower():
+        if self.period == MONTH:
             text_previous_period = _('Previous Month')
             text_this_period = _('This Month')
             text_next_period = _('Next Month')
-        elif period == _('Day').lower():
+        elif self.period == WEEK:
+            text_previous_period = _('Previous Week')
+            text_this_period = _('This Week')
+            text_next_period = _('Next Week')
+        elif self.period == DAY:
             text_previous_period = _('Previous Day')
             text_this_period = _('This Day')
             text_next_period = _('Next Day')
-        elif period == _('Year').lower():
+        elif self.period == YEAR:
             text_previous_period = _('Previous Year')
             text_this_period = _('This Year')
             text_next_period = _('Next Year')
@@ -432,72 +440,72 @@ class Finance(Activity):
     def get_this_period(self):
         today = datetime.date.today()
 
-        if self.period == _('Day'):
+        if self.period == DAY:
             return today
 
-        elif self.period == _('Week'):
+        elif self.period == WEEK:
             while today.weekday() != 0:
                 today -= datetime.timedelta(days=1)
             return today
 
-        elif self.period == _('Month'):
+        elif self.period == MONTH:
             return datetime.date(today.year, today.month, 1)
 
-        elif self.period == _('Year'):
+        elif self.period == YEAR:
             return datetime.date(today.year, 1, 1)
 
-        elif self.period == _('Forever'):
+        elif self.period == FOREVER:
             return datetime.date(1900, 1, 1)
 
     def get_next_period(self, start):
-        if self.period == _('Day'):
+        if self.period == DAY:
             return start + datetime.timedelta(days=1)
 
-        elif self.period == _('Week'):
+        elif self.period == WEEK:
             return start + datetime.timedelta(days=7)
 
-        elif self.period == _('Month'):
+        elif self.period == MONTH:
             if start.month == 12:
                 return datetime.date(start.year + 1, 1, 1)
             else:
                 return datetime.date(start.year, start.month + 1, 1)
 
-        elif self.period == _('Year'):
+        elif self.period == YEAR:
             return datetime.date(start.year + 1, 1, 1)
 
     def get_prev_period(self, start):
-        if self.period == _('Day'):
+        if self.period == DAY:
             return start - datetime.timedelta(days=1)
 
-        elif self.period == _('Week'):
+        elif self.period == WEEK:
             return start - datetime.timedelta(days=7)
 
-        elif self.period == _('Month'):
+        elif self.period == MONTH:
             if start.month == 1:
                 return datetime.date(start.year - 1, 12, 1)
             else:
                 return datetime.date(start.year, start.month - 1, 1)
 
-        elif self.period == _('Year'):
+        elif self.period == YEAR:
             return datetime.date(start.year - 1, 1, 1)
 
     def thisperiod_cb(self, widget):
-        if self.period != _('Forever'):
+        if self.period != FOREVER:
             self.period_start = self.get_this_period()
             self.build_screen()
 
     def nextperiod_cb(self, widget):
-        if self.period != _('Forever'):
+        if self.period != FOREVER:
             self.period_start = self.get_next_period(self.period_start)
             self.build_screen()
 
     def prevperiod_cb(self, widget):
-        if self.period != _('Forever'):
+        if self.period != FOREVER:
             self.period_start = self.get_prev_period(self.period_start)
             self.build_screen()
 
-    def period_changed_cb(self, widget):
-        self.period = widget.get_active_text()
+    def __period_changed_cb(self, widget, value):
+        self.period = int(value)
         self.update_toolbar()
 
         # Jump to 'this period'.
@@ -505,7 +513,7 @@ class Finance(Activity):
         self.build_screen()
 
     def build_visible_transactions(self):
-        if self.period == _('Forever'):
+        if self.period == FOREVER:
             self.visible_transactions = self.data['transactions']
 
         else:
