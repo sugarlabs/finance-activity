@@ -190,13 +190,19 @@ class Finance(Activity):
                             style.DEFAULT_SPACING)
         self.balancelabel.set_halign(Gtk.Align.END)
 
+        summary_evbox = Gtk.EventBox()
+        summary_evbox.add(summarybox)
+        summary_evbox.modify_bg(Gtk.StateType.NORMAL,
+                                style.Color('#666666').get_gdk_color())
+        summary_evbox.set_size_request(-1, style.GRID_CELL_SIZE)
+
         vbox = Gtk.VBox()
 
         vbox.pack_start(evbox, False, False, 0)
         vbox.pack_start(Gtk.Separator(orientation=Gtk.Orientation.VERTICAL),
                         False, False, 0)
         vbox.pack_start(self.screenbox, True, True, 0)
-        vbox.pack_start(summarybox, False, False, 10)
+        vbox.pack_start(summary_evbox, False, False, 0)
 
         # Start with the main screen.
         self.push_screen(self.register)
