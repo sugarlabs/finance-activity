@@ -1,5 +1,4 @@
 import logging
-from gettext import gettext as _
 
 from gi.repository import GObject
 from gi.repository import Gtk
