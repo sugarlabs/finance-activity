@@ -108,6 +108,7 @@ class Finance(Activity):
         self.screenbox = Gtk.VBox()
 
         self.headerbox = self.build_header()
+        self._active_panel = None
 
         # Add the summary data.
         self.startlabel = Gtk.Label()
@@ -334,11 +335,13 @@ class Finance(Activity):
         self.register.new_credit()
 
     def __newcredit_cb(self, widget):
-        self._set_internal_panel(self.register)
+        if self._active_panel != self.register:
+            self._set_internal_panel(self.register)
         self.register.new_credit()
 
     def __newdebit_cb(self, widget):
-        self._set_internal_panel(self.register)
+        if self._active_panel != self.register:
+            self._set_internal_panel(self.register)
         self.register.new_debit()
 
     def __eraseitem_cb(self, widget):
