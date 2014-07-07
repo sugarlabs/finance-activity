@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"[
+     <!ENTITY stroke_color "#000000">
+     <!ENTITY fill_color "#FFFFFF">
+ ]>
 <svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:cc="http://creativecommons.org/ns#"
@@ -14,38 +18,16 @@
    id="svg2"
    xml:space="preserve"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="row-insert-credit.svg"><metadata
-     id="metadata3076"><rdf:RDF><cc:Work
-         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs
-     id="defs3074" /><sodipodi:namedview
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1"
-     objecttolerance="10"
-     gridtolerance="10"
-     guidetolerance="10"
-     inkscape:pageopacity="0"
-     inkscape:pageshadow="2"
-     inkscape:window-width="1600"
-     inkscape:window-height="834"
-     id="namedview3072"
-     showgrid="false"
-     inkscape:zoom="11.545455"
-     inkscape:cx="16.5"
-     inkscape:cy="27.5"
-     inkscape:window-x="0"
-     inkscape:window-y="27"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="svg2" /><g
+   sodipodi:docname="row-insert-credit.svg">
+<g
      transform="matrix(1.0967277,0,0,1.1203491,5.5662266,12.324071)"
      id="g3140"><path
-       style="fill:#ffffff;fill-rule:evenodd"
+       style="fill:&fill_color;;fill-rule:evenodd"
        inkscape:connector-curvature="0"
        clip-rule="evenodd"
        d="m 38.793,15.272 c 0.816,2.631 0.03,4.654 -1.694,6.414 -1.42,1.447 -3.151,2.414 -4.999,3.193 -1.639,0.691 -3.342,1.151 -5.084,1.521 -3.542,0.749 -7.108,0.835 -10.687,0.521 -1.431,-0.125 -2.841,-0.484 -4.26,-0.744 C 9.687,25.739 7.475,24.841 5.403,23.612 3.758,22.636 2.345,21.409 1.436,19.671 c -0.6,-1.147 -0.79,-3.046 -0.208,-4.267 0.09,0.08 0.204,0.135 0.25,0.225 0.998,1.957 2.664,3.201 4.519,4.238 2.306,1.288 4.802,2.02 7.377,2.543 3.023,0.611 6.078,0.723 9.136,0.542 2.289,-0.136 4.554,-0.521 6.77,-1.175 1.919,-0.566 3.771,-1.27 5.471,-2.336 1.549,-0.973 2.93,-2.117 3.776,-3.791 0.049,-0.099 0.128,-0.184 0.266,-0.378 z"
        id="path3142" /><path
-       style="fill:#ffffff;fill-rule:evenodd"
+       style="fill:&fill_color;;fill-rule:evenodd"
        inkscape:connector-curvature="0"
        clip-rule="evenodd"
        d="M 38.834,8.141 C 38.395,6.806 37.48,5.759 36.418,4.87 34.055,2.892 31.252,1.812 28.313,1.074 25.597,0.39 22.83,0.048 20.02,0.149 20.016,0.098 20.012,0.049 20.008,-0.001 18.094,0.187 16.173,0.319 14.269,0.575 11.443,0.955 8.738,1.786 6.213,3.124 4.385,4.093 2.747,5.302 1.662,7.132 0.788,8.609 0.614,10.175 1.173,11.773 c 0.573,1.633 1.753,2.822 3.123,3.828 2.588,1.9 5.558,2.898 8.656,3.535 3.501,0.721 7.037,0.887 10.601,0.52 3.399,-0.35 6.691,-1.078 9.768,-2.604 1.768,-0.876 3.381,-1.97 4.59,-3.581 1.22,-1.626 1.556,-3.413 0.923,-5.33 z M 30.645,11 H 22 v 4.064 c 0,0.611 -0.58,1.053 -2,1.053 -1.42,0 -2,-0.441 -2,-1.053 V 11 H 9.349 c -1.268,0 -2.18,-0.314 -2.18,-1 0,-0.686 0.913,-1 2.18,-1 H 18 V 4.78 c 0,-0.612 0.58,-1.053 2,-1.053 1.42,0 2,0.44 2,1.053 V 9 h 8.645 c 1.267,0 2.18,0.314 2.18,1 0,0.686 -0.914,1 -2.18,1 z"
