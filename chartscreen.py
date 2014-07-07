@@ -27,6 +27,8 @@ from gi.repository import Gtk
 from gi.repository import Gdk
 from gi.repository import GObject
 
+from sugar3.graphics import style
+
 # Set up localization.
 locale.setlocale(locale.LC_ALL, '')
 
@@ -49,21 +51,27 @@ class ChartScreen(Gtk.HBox):
 
         label = Gtk.Label()
         label.set_markup('<b>' + _('Debit Categories') + '</b>')
+        label.props.margin_top = style.GRID_CELL_SIZE
+        label.props.margin_right = style.GRID_CELL_SIZE / 2
+
+        separator = Gtk.Separator(orientation=Gtk.Orientation.HORIZONTAL)
+        separator.props.margin_right = style.GRID_CELL_SIZE / 2
 
         self.catbox = Gtk.VBox()
+        self.catbox.props.margin_right = style.GRID_CELL_SIZE / 2
 
+        white_box = Gtk.EventBox()
+        white_box.modify_bg(Gtk.StateType.NORMAL,
+                            style.COLOR_WHITE.get_gdk_color())
         box = Gtk.VBox()
-        box.pack_start(Gtk.Box(orientation=Gtk.Orientation.VERTICAL),
-                       False, False, 40)
         box.pack_start(label, False, False, 0)
-        box.pack_start(Gtk.Separator(orientation=Gtk.Orientation.HORIZONTAL),
-                       False, False, 0)
+        box.pack_start(separator, False, False, 0)
         box.pack_start(self.catbox, False, False, 10)
-        box.pack_start(Gtk.Box(orientation=Gtk.Orientation.VERTICAL),
-                       True, True, 0)
+
+        white_box.add(box)
 
         self.pack_start(self.area, True, True, 0)
-        self.pack_start(box, False, False, 40)
+        self.pack_start(white_box, False, False, 0)
 
         self.show_all()
 
@@ -105,7 +113,7 @@ class ChartScreen(Gtk.HBox):
             color = colors.get_category_color_str(c)
 
             amountlabel = Gtk.Label()
-            amountlabel.set_markup(locale.currency(self.category_total[c]))
+            amountlabel.set_text(locale.currency(self.category_total[c]))
             amountgroup.add_widget(amountlabel)
 
             hbox.pack_start(amountlabel, True, True, 20)
@@ -124,6 +132,9 @@ class ChartScreen(Gtk.HBox):
     def chart_draw_cb(self, widget, context):
         # Draw pie chart.
         bounds = widget.get_allocation()
+        context.rectangle(0, 0, bounds.width, bounds.height)
+        context.set_source_rgb(1, 1, 1)
+        context.fill()
 
         x = bounds.width / 2
         y = bounds.height / 2
@@ -145,9 +156,6 @@ class ChartScreen(Gtk.HBox):
                 context.close_path()
 
                 context.set_source_rgb(color[0], color[1], color[2])
-                context.fill_preserve()
-
-                context.set_source_rgb(0, 0, 0)
-                context.stroke()
+                context.fill()
 
                 angle += slice
