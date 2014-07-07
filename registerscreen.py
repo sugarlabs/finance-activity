@@ -19,6 +19,7 @@ import time
 import datetime
 import locale
 from gettext import gettext as _
+import logging
 
 from gi.repository import Gtk
 from gi.repository import GObject
@@ -213,44 +214,33 @@ class RegisterScreen(Gtk.VBox):
         if new_text != '':
             self.activity.category_names[new_text] = 1
 
-    def newcredit_cb(self, widget):
-        # Automatically display the register screen.
-        if self.activity.screens[-1] != self.activity.register:
-            self.activity.pop_screen()
-            self.activity.push_screen(self)
-
+    def new_credit(self):
         id = self.activity.create_transaction(_('New Credit'), 'credit', 0)
         iter = self.liststore.append((id,))
         # Set cursor and begin editing the description.
         self.treeview.set_cursor(self.liststore.get_path(iter),
                                  self.treeview.get_column(0), True)
 
-    def newdebit_cb(self, widget):
-        # Automatically display the register screen.
-        if self.activity.screens[-1] != self.activity.register:
-            self.activity.pop_screen()
-            self.activity.push_screen(self)
-
+    def new_debit(self):
         id = self.activity.create_transaction(_('New Debit'), 'debit', 0)
         iter = self.liststore.append((id,))
         # Set cursor and begin editing the description.
         self.treeview.set_cursor(self.liststore.get_path(iter),
                                  self.treeview.get_column(0), True)
 
-    def eraseitem_cb(self, widget):
-        # Ignore unless on the register screen.
-        if self.activity.screens[-1] != self.activity.register:
-            return
-
+    def erase_item(self):
         sel = self.treeview.get_selection()
-        model, iter = sel.get_selected()
-        if iter:
-            id = model.get_value(iter, 0)
+        logging.error('erase item selection %s', sel)
+        model, iterator = sel.get_selected()
+        logging.error('erase item %s', iterator)
+        if iterator:
+            id = model.get_value(iterator, 0)
+            logging.error('erase item id %s', id)
             self.activity.destroy_transaction(id)
             self.activity.update_summary()
 
-            path = model.get_path(iter)
-            model.remove(iter)
+            path = model.get_path(iterator)
+            model.remove(iterator)
 
             # Select the next item, or else the last item.
             sel.select_path(path)

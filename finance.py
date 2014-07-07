@@ -44,6 +44,7 @@ import budgetscreen
 from helpbutton import HelpButton
 import colors
 from filtertoolitem import FilterToolItem
+import emptypanel
 
 # Set up localization.
 locale.setlocale(locale.LC_ALL, '')
@@ -104,7 +105,6 @@ class Finance(Activity):
 
         self.build_toolbox()
 
-        self.screens = []
         self.screenbox = Gtk.VBox()
 
         self.headerbox = self.build_header()
@@ -140,13 +140,16 @@ class Finance(Activity):
         vbox = Gtk.VBox()
 
         vbox.pack_start(self.headerbox, False, False, 0)
-        vbox.pack_start(Gtk.Separator(orientation=Gtk.Orientation.VERTICAL),
-                        False, False, 0)
         vbox.pack_start(self.screenbox, True, True, 0)
         vbox.pack_start(summary_evbox, False, False, 0)
 
-        # Start with the main screen.
-        self.push_screen(self.register)
+        # Start with the empty screen.
+        empty_panel = emptypanel.create_empty_panel(
+            'row-insert-credit',
+            _('Add some credit or debit to get started!'),
+            _('Add credit'), self.__empty_panel_btn_cb)
+
+        self._set_internal_panel(empty_panel)
 
         # This has to happen last, because it calls the read_file
         # method when restoring from the Journal.
@@ -238,17 +241,17 @@ class Finance(Activity):
         self.newcreditbtn = ToolButton('row-insert-credit')
         self.newcreditbtn.set_tooltip(_("New Credit"))
         self.newcreditbtn.props.accelerator = '<Ctrl>A'
-        self.newcreditbtn.connect('clicked', self.register.newcredit_cb)
+        self.newcreditbtn.connect('clicked', self.__newcredit_cb)
 
         self.newdebitbtn = ToolButton('row-insert-debit')
         self.newdebitbtn.set_tooltip(_("New Debit"))
         self.newdebitbtn.props.accelerator = '<Ctrl>D'
-        self.newdebitbtn.connect('clicked', self.register.newdebit_cb)
+        self.newdebitbtn.connect('clicked', self.__newdebit_cb)
 
-        self.eraseitembtn = ToolButton('row-remove-transaction')
+        self.eraseitembtn = ToolButton('basket')
         self.eraseitembtn.set_tooltip(_("Erase Transaction"))
         self.eraseitembtn.props.accelerator = '<Ctrl>E'
-        self.eraseitembtn.connect('clicked', self.register.eraseitem_cb)
+        self.eraseitembtn.connect('clicked', self.__eraseitem_cb)
 
         headerbox.insert(self.newcreditbtn, -1)
         headerbox.insert(self.newdebitbtn, -1)
@@ -297,44 +300,50 @@ class Finance(Activity):
                 child.hide()
 
     def register_cb(self, widget):
-        self.pop_screen()
-        self.push_screen(self.register)
+        self._set_internal_panel(self.register)
         self.show_header_controls()
 
     def budget_cb(self, widget):
-        self.pop_screen()
-        self.push_screen(self.budget)
+        self._set_internal_panel(self.budget)
         self.hide_header_controls()
 
     def chart_cb(self, widget):
-        self.pop_screen()
-        self.push_screen(self.chart)
+        self._set_internal_panel(self.chart)
         self.hide_header_controls()
 
-    def push_screen(self, screen):
-        if len(self.screens):
-            self.screenbox.remove(self.screens[-1])
-
-        self.screenbox.pack_start(screen, True, True, 0)
-        self.screens.append(screen)
-
+    def _set_internal_panel(self, widget):
+        if self.screenbox.get_children():
+            self.screenbox.remove(self.screenbox.get_children()[0])
+        self.screenbox.pack_start(widget, True, True, 0)
+        widget.show_all()
+        self._active_panel = widget
         self.build_screen()
-
-    def pop_screen(self):
-        self.screenbox.remove(self.screens[-1])
-        self.screens.pop()
-        if len(self.screens):
-            self.screenbox.pack_start(self.screens[-1], True, True, 0)
 
     def build_screen(self):
         self.build_visible_transactions()
 
-        if len(self.screens):
-            self.screens[-1].build()
+        if hasattr(self._active_panel, 'build'):
+            self._active_panel.build()
 
         self.update_header()
         self.update_summary()
         self.update_toolbar()
+
+    def __empty_panel_btn_cb(self, button):
+        self._set_internal_panel(self.register)
+        self.register.new_debit()
+
+    def __newcredit_cb(self, widget):
+        self._set_internal_panel(self.register)
+        self.register.new_credit()
+
+    def __newdebit_cb(self, widget):
+        self._set_internal_panel(self.register)
+        self.register.new_debit()
+
+    def __eraseitem_cb(self, widget):
+        self.register.erase_item()
+        self.build_screen()
 
     def update_header(self):
         if self.period == DAY:
@@ -441,12 +450,6 @@ class Finance(Activity):
         self.prevperiodbtn.set_tooltip(text_previous_period)
         self.thisperiodbtn.set_tooltip(text_this_period)
         self.nextperiodbtn.set_tooltip(text_next_period)
-
-        # Only add and delete transactions on register screen.
-        add_del = self.screens[-1] == self.register
-        self.newcreditbtn.set_sensitive(add_del)
-        self.newdebitbtn.set_sensitive(add_del)
-        self.eraseitembtn.set_sensitive(add_del)
 
     def get_this_period(self):
         today = datetime.date.today()
@@ -774,6 +777,9 @@ class Finance(Activity):
             self.data = json.loads(text)
         finally:
             fd.close()
+
+        if self.data['transactions']:
+            self._set_internal_panel(self.register)
 
         self.build_transaction_map()
         self.build_names()
