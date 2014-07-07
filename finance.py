@@ -331,7 +331,7 @@ class Finance(Activity):
 
     def __empty_panel_btn_cb(self, button):
         self._set_internal_panel(self.register)
-        self.register.new_debit()
+        self.register.new_credit()
 
     def __newcredit_cb(self, widget):
         self._set_internal_panel(self.register)
