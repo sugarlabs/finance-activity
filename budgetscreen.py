@@ -24,6 +24,8 @@ from gi.repository import Gtk
 from gi.repository import Gdk
 from gi.repository import GObject
 
+from sugar3.graphics import style
+
 # Set up localization.
 locale.setlocale(locale.LC_ALL, '')
 
@@ -49,7 +51,8 @@ class BudgetScreen(Gtk.VBox):
         scroll = Gtk.ScrolledWindow()
         scroll.set_policy(Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.AUTOMATIC)
         scroll.add_with_viewport(self.budgetbox)
-
+        scroll.modify_bg(Gtk.StateType.NORMAL,
+                         style.COLOR_WHITE.get_gdk_color())
         self.pack_start(scroll, True, True, 0)
 
     def build(self):
@@ -164,9 +167,9 @@ class BudgetScreen(Gtk.VBox):
                 cr.fill()
 
         # Draw outline.
-        cr.set_source_rgb(0, 0, 0)
+        cr.set_source_rgb(0.95, 0.95, 0.95)
         cr.rectangle(0, 0, bounds.width, bounds.height)
-        cr.stroke()
+        cr.fill()
 
         # Draw arrow and cost.
         total = self.category_total[category]
@@ -186,11 +189,11 @@ class BudgetScreen(Gtk.VBox):
 
             ratio = total / budget
 
-            cr.move_to(5, 5)
-            cr.line_to(ratio * (bounds.width - 30), 5)
+            cr.move_to(0, 0)
+            cr.line_to(ratio * (bounds.width - 30), 0)
             cr.line_to(ratio * (bounds.width - 5), bounds.height / 2)
-            cr.line_to(ratio * (bounds.width - 30), bounds.height - 5)
-            cr.line_to(5, bounds.height - 5)
+            cr.line_to(ratio * (bounds.width - 30), bounds.height)
+            cr.line_to(0, bounds.height)
             cr.close_path()
 
             if ratio > 1.0:
@@ -199,18 +202,12 @@ class BudgetScreen(Gtk.VBox):
                 cr.set_source_rgb(0.9, 0.9, 0.6)
             else:
                 cr.set_source_rgb(0.6, 1.0, 0.6)
-            cr.fill_preserve()
-
-            cr.set_source_rgb(0.5, 0.5, 0.5)
-            cr.stroke()
+            cr.fill()
 
         text = locale.currency(total)
-
         cr.set_source_rgb(0, 0, 0)
-
         cr.set_font_size(20)
         x_bearing, y_bearing, width, height = cr.text_extents(text)[:4]
-
         cr.move_to(20, (bounds.height - height) / 2 - y_bearing)
         cr.show_text(text)
 
