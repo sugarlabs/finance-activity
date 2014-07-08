@@ -295,13 +295,11 @@ class Finance(Activity):
         for child in self.headerbox.get_children():
             child.show()
             if self._active_panel == self.budget:
-                if child not in (self._header_separator,
-                                 self._period_label_item):
+                if child in (self.newcreditbtn, self.newdebitbtn,
+                             self.eraseitembtn):
                     child.hide()
             elif self._active_panel == self.chart:
-                if child not in (self.newcreditbtn, self.newdebitbtn,
-                                 self._header_separator,
-                                 self._period_label_item):
+                if child not in (self.newcreditbtn, self.newdebitbtn):
                     child.hide()
 
     def register_cb(self, widget):
