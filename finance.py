@@ -345,6 +345,7 @@ class Finance(Activity):
     def __newcredit_cb(self, widget):
         if self._active_panel == self.chart:
             # in the case of chart, select the graphic
+            self.chart.set_mode(self.chart.CHART_CREDIT)
             return
 
         # this check is used when the emptypanle is visible
@@ -355,6 +356,7 @@ class Finance(Activity):
     def __newdebit_cb(self, widget):
         if self._active_panel == self.chart:
             # in the case of chart, select the graphic
+            self.chart.set_mode(self.chart.CHART_DEBIT)
             return
 
         # this check is used when the emptypanle is visible

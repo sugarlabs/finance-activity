@@ -38,6 +38,10 @@ CHART_HELP = _(
 
 
 class ChartScreen(Gtk.VBox):
+
+    CHART_CREDIT = 'credit'
+    CHART_DEBIT = 'debit'
+
     def __init__(self, activity):
         GObject.GObject.__init__(self)
 
@@ -45,19 +49,17 @@ class ChartScreen(Gtk.VBox):
 
         self.category_total = {}
         self.sorted_categories = []
+        self._graph_mode = self.CHART_DEBIT
 
         header = Gtk.EventBox()
         header.modify_bg(Gtk.StateType.NORMAL,
                          style.Color('#666666').get_gdk_color())
         header.set_size_request(-1, style.GRID_CELL_SIZE)
 
-        label = Gtk.Label()
-        label.set_markup(
-            '<span size="x-large" foreground="white"><b>%s</b></span>' %
-            _('Debit Categories'))
-        label.set_halign(Gtk.Align.START)
-        label.props.margin_left = style.GRID_CELL_SIZE / 2
-        header.add(label)
+        self._title_label = Gtk.Label()
+        self._title_label.set_halign(Gtk.Align.START)
+        self._title_label.props.margin_left = style.GRID_CELL_SIZE / 2
+        header.add(self._title_label)
 
         box = Gtk.HBox()
 
@@ -82,14 +84,28 @@ class ChartScreen(Gtk.VBox):
 
         self.show_all()
 
+    def set_mode(self, mode):
+        self._graph_mode = mode
+        self.build()
+
     def build(self):
+
+        if self._graph_mode == self.CHART_CREDIT:
+            title = _('Credit Categories')
+        elif self._graph_mode == self.CHART_DEBIT:
+            title = _('Debit Categories')
+
+        self._title_label.set_markup(
+            '<span size="x-large" foreground="white"><b>%s</b></span>' %
+            title)
+
         # Build the category totals.
         self.category_total = {}
         for t in self.activity.visible_transactions:
             cat = t['category']
             amount = t['amount']
 
-            if t['type'] == 'debit':
+            if t['type'] == self._graph_mode:
                 if cat not in self.category_total:
                     self.category_total[cat] = amount
                 else:
