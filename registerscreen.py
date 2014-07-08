@@ -61,6 +61,16 @@ class RegisterScreen(Gtk.VBox):
         # database.
         self.liststore = Gtk.ListStore(GObject.TYPE_INT)
         self.treeview.set_model(self.liststore)
+        sep = style.DEFAULT_SPACING
+
+        theme = "* {-GtkTreeView-vertical-separator: %d;" \
+                "   -GtkTreeView-horizontal-separator: %d;}" % (sep, sep)
+
+        css_provider = Gtk.CssProvider()
+        css_provider.load_from_data(theme)
+        style_context = self.treeview.get_style_context()
+        style_context.add_provider(css_provider,
+                                   Gtk.STYLE_PROVIDER_PRIORITY_USER)
 
         # Construct the columns.
         renderer = Gtk.CellRendererText()
