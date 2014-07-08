@@ -31,6 +31,13 @@ locale.setlocale(locale.LC_ALL, '')
 
 import colors
 
+# copied from finance.py to not create another module
+DAY = 0
+WEEK = 1
+MONTH = 2
+YEAR = 3
+FOREVER = 4
+
 BUDGET_HELP = _(
     'The Budget view allows you to set a monthly budget for each expense '
     'category, and to keep track of your\nbudgets. To set a budget, type '
@@ -149,10 +156,15 @@ class BudgetScreen(Gtk.VBox):
     def bar_draw_cb(self, widget, cr, category):
         bounds = widget.get_allocation()
 
+        # Draw outline.
+        cr.set_source_rgb(0.95, 0.95, 0.95)
+        cr.rectangle(0, 0, bounds.width, bounds.height)
+        cr.set_line_width(5)
+        cr.stroke()
+
         # Draw amount of time spent in period if sensible.
         period_ratio = None
-        if self.activity.period != _('Day') and \
-                self.activity.period != _('Forever'):
+        if self.activity.period not in (DAY, FOREVER):
             period_length = (
                 self.activity.get_next_period(
                     self.activity.period_start) -
@@ -166,11 +178,6 @@ class BudgetScreen(Gtk.VBox):
                 cr.rectangle(0, 0, bounds.width * period_ratio, bounds.height)
                 cr.fill()
 
-        # Draw outline.
-        cr.set_source_rgb(0.95, 0.95, 0.95)
-        cr.rectangle(0, 0, bounds.width, bounds.height)
-        cr.fill()
-
         # Draw arrow and cost.
         total = self.category_total[category]
 
@@ -178,13 +185,13 @@ class BudgetScreen(Gtk.VBox):
             budget = self.activity.data['budgets'][category]['amount']
 
             # Convert from monthly budget.
-            if self.activity.period == _('Day'):
+            if self.activity.period == DAY:
                 budget = budget / 30.0
 
-            elif self.activity.period == _('Week'):
+            elif self.activity.period == WEEK:
                 budget = budget / 4.0
 
-            elif self.activity.period == _('Year'):
+            elif self.activity.period == YEAR:
                 budget = budget * 12.0
 
             ratio = total / budget
