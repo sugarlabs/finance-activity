@@ -85,17 +85,30 @@ class BudgetScreen(Gtk.VBox):
 
         # Build header.
         catlabel = Gtk.Label()
-        catlabel.set_markup('<b><big>' + _('Category') + '</big></b>')
+        catlabel.set_markup(
+            '<span size="x-large" foreground="white"><b>%s</b></span>' %
+            _('Category'))
         spentlabel = Gtk.Label()
-        spentlabel.set_markup('<b><big>' + _('Spent') + '</big></b>')
+        spentlabel.set_markup(
+            '<span size="x-large" foreground="white"><b>%s</b></span>' %
+            _('Spent'))
         budgetlabel = Gtk.Label()
-        budgetlabel.set_markup('<b><big>' + _('Budget') + '</big></b>')
+        budgetlabel.set_markup(
+            '<span size="x-large" foreground="white"><b>%s</b></span>' %
+            _('Budget'))
+
+        header = Gtk.EventBox()
+        header.modify_bg(Gtk.StateType.NORMAL,
+                         style.Color('#666666').get_gdk_color())
+        header.set_size_request(-1, style.GRID_CELL_SIZE)
 
         headerbox = Gtk.HBox()
         headerbox.pack_start(catlabel, False, True, 20)
         headerbox.pack_start(spentlabel, True, True, 10)
         headerbox.pack_start(budgetlabel, False, True, 20)
-        self.budgetbox.pack_start(headerbox, False, False, 10)
+
+        header.add(headerbox)
+        self.budgetbox.pack_start(header, False, False, 0)
 
         catgroup = Gtk.SizeGroup(Gtk.SizeGroupMode.HORIZONTAL)
         catgroup.add_widget(catlabel)
