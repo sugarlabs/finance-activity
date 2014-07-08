@@ -37,7 +37,7 @@ CHART_HELP = _(
     'category.\nYou can categorize transactions in the Register view.')
 
 
-class ChartScreen(Gtk.HBox):
+class ChartScreen(Gtk.VBox):
     def __init__(self, activity):
         GObject.GObject.__init__(self)
 
@@ -46,32 +46,39 @@ class ChartScreen(Gtk.HBox):
         self.category_total = {}
         self.sorted_categories = []
 
+        header = Gtk.EventBox()
+        header.modify_bg(Gtk.StateType.NORMAL,
+                         style.Color('#666666').get_gdk_color())
+        header.set_size_request(-1, style.GRID_CELL_SIZE)
+
+        label = Gtk.Label()
+        label.set_markup(
+            '<span size="x-large" foreground="white"><b>%s</b></span>' %
+            _('Debit Categories'))
+        label.set_halign(Gtk.Align.START)
+        label.props.margin_left = style.GRID_CELL_SIZE / 2
+        header.add(label)
+
+        box = Gtk.HBox()
+
         self.area = Gtk.DrawingArea()
         self.area.connect('draw', self.chart_draw_cb)
 
-        label = Gtk.Label()
-        label.set_markup('<b>' + _('Debit Categories') + '</b>')
-        label.props.margin_top = style.GRID_CELL_SIZE
-        label.props.margin_right = style.GRID_CELL_SIZE / 2
-
-        separator = Gtk.Separator(orientation=Gtk.Orientation.HORIZONTAL)
-        separator.props.margin_right = style.GRID_CELL_SIZE / 2
-
         self.catbox = Gtk.VBox()
-        self.catbox.props.margin_right = style.GRID_CELL_SIZE / 2
+        self.catbox.props.margin_left = style.GRID_CELL_SIZE / 2
+        self.catbox.props.margin_top = style.GRID_CELL_SIZE / 2
+        self.catbox.set_valign(Gtk.Align.START)
 
         white_box = Gtk.EventBox()
         white_box.modify_bg(Gtk.StateType.NORMAL,
                             style.COLOR_WHITE.get_gdk_color())
-        box = Gtk.VBox()
-        box.pack_start(label, False, False, 0)
-        box.pack_start(separator, False, False, 0)
-        box.pack_start(self.catbox, False, False, 10)
+        white_box.add(self.catbox)
 
-        white_box.add(box)
+        box.pack_start(white_box, False, False, 0)
+        box.pack_start(self.area, True, True, 0)
 
-        self.pack_start(self.area, True, True, 0)
-        self.pack_start(white_box, False, False, 0)
+        self.pack_start(header, False, False, 0)
+        self.pack_start(box, True, True, 0)
 
         self.show_all()
 
@@ -107,17 +114,22 @@ class ChartScreen(Gtk.HBox):
             # If there is no category, display as Unknown
             if c is '':
                 description = _('Unknown')
-            catlabel = Gtk.Label(label=description)
+            catlabel = Gtk.Label()
+            catlabel.set_markup(
+                '<span size="x-large" color="white">%s</span>' % description)
+            catlabel.props.margin = 10
             catgroup.add_widget(catlabel)
 
             color = colors.get_category_color_str(c)
 
             amountlabel = Gtk.Label()
-            amountlabel.set_text(locale.currency(self.category_total[c]))
+            amountlabel.set_markup(
+                '<span size="x-large" color="white">%s</span>' %
+                locale.currency(self.category_total[c]))
             amountgroup.add_widget(amountlabel)
 
-            hbox.pack_start(amountlabel, True, True, 20)
             hbox.pack_start(catlabel, True, True, 20)
+            hbox.pack_start(amountlabel, True, True, 20)
 
             ebox = Gtk.EventBox()
 
