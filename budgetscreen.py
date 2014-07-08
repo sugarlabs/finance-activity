@@ -234,7 +234,8 @@ class BudgetScreen(Gtk.VBox):
     def budget_changed_cb(self, widget, category):
         text = widget.get_text()
         if text != '':
-            self.activity.data['budgets'][category] = {'amount': float(text)}
+            amount = abs(locale.atof(text))
+            self.activity.data['budgets'][category] = {'amount': amount}
         else:
             del self.activity.data['budgets'][category]
         self.queue_draw()
