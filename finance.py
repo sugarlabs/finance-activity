@@ -294,23 +294,31 @@ class Finance(Activity):
     def show_header_controls(self):
         for child in self.headerbox.get_children():
             child.show()
-
-    def hide_header_controls(self):
-        for child in self.headerbox.get_children():
-            if child not in (self._header_separator, self._period_label_item):
-                child.hide()
+            if self._active_panel == self.budget:
+                if child not in (self._header_separator,
+                                 self._period_label_item):
+                    child.hide()
+            elif self._active_panel == self.chart:
+                if child not in (self.newcreditbtn, self.newdebitbtn,
+                                 self._header_separator,
+                                 self._period_label_item):
+                    child.hide()
 
     def register_cb(self, widget):
         self._set_internal_panel(self.register)
         self.show_header_controls()
+        self.newcreditbtn.set_tooltip(_("New Credit"))
+        self.newdebitbtn.set_tooltip(_("New Debit"))
 
     def budget_cb(self, widget):
         self._set_internal_panel(self.budget)
-        self.hide_header_controls()
+        self.show_header_controls()
 
     def chart_cb(self, widget):
         self._set_internal_panel(self.chart)
-        self.hide_header_controls()
+        self.show_header_controls()
+        self.newcreditbtn.set_tooltip(_("Show Credits"))
+        self.newdebitbtn.set_tooltip(_("Show Debits"))
 
     def _set_internal_panel(self, widget):
         if self.screenbox.get_children():
@@ -335,11 +343,21 @@ class Finance(Activity):
         self.register.new_credit()
 
     def __newcredit_cb(self, widget):
+        if self._active_panel == self.chart:
+            # in the case of chart, select the graphic
+            return
+
+        # this check is used when the emptypanle is visible
         if self._active_panel != self.register:
             self._set_internal_panel(self.register)
         self.register.new_credit()
 
     def __newdebit_cb(self, widget):
+        if self._active_panel == self.chart:
+            # in the case of chart, select the graphic
+            return
+
+        # this check is used when the emptypanle is visible
         if self._active_panel != self.register:
             self._set_internal_panel(self.register)
         self.register.new_debit()
