@@ -278,7 +278,7 @@ class Finance(Activity):
 
         period_options = {DAY: _('Day'), WEEK: _('Week'), MONTH: _('Month'),
                           YEAR: _('Year'), FOREVER: _('Forever')}
-        periodcombo = FilterToolItem('write-date', MONTH, period_options,
+        periodcombo = FilterToolItem('calendar', MONTH, period_options,
                                      _('Select period'))
 
         periodcombo.connect('changed', self.__period_changed_cb)
