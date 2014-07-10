@@ -200,8 +200,10 @@ class RegisterScreen(Gtk.VBox):
         category = t['category']
         cell_renderer.set_property('text', category)
         if category:
-            cell_renderer.set_property(
-                'background', colors.get_category_color_str(category))
+            category_color = colors.get_category_color_str(category)
+            cell_renderer.set_property('background', category_color)
+            if not colors.is_too_light(category_color):
+                cell_renderer.set_property('foreground', '#FFFFFF')
         else:
             cell_renderer.set_property('background', None)
 

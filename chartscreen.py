@@ -130,18 +130,24 @@ class ChartScreen(Gtk.VBox):
             # If there is no category, display as Unknown
             if c is '':
                 description = _('Unknown')
+
+            color = colors.get_category_color_str(c)
+            if colors.is_too_light(color):
+                font_color = '#000000'
+            else:
+                font_color = '#FFFFFF'
+
             catlabel = Gtk.Label()
             catlabel.set_markup(
-                '<span size="x-large" color="white">%s</span>' % description)
+                '<span size="x-large" color="%s">%s</span>' % (font_color,
+                                                               description))
             catlabel.props.margin = 10
             catgroup.add_widget(catlabel)
 
-            color = colors.get_category_color_str(c)
-
             amountlabel = Gtk.Label()
             amountlabel.set_markup(
-                '<span size="x-large" color="white">%s</span>' %
-                locale.currency(self.category_total[c]))
+                '<span size="x-large" color="%s">%s</span>' %
+                (font_color, locale.currency(self.category_total[c])))
             amountgroup.add_widget(amountlabel)
 
             hbox.pack_start(catlabel, True, True, 20)

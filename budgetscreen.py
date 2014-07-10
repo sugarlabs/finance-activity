@@ -125,10 +125,18 @@ class BudgetScreen(Gtk.VBox):
             # If there is no category, display as Unknown
             if c is '':
                 description = _('Unknown')
-            catbox = Gtk.Label(label=description)
-            catbox.set_padding(10, 0)
 
             color = colors.get_category_color_str(c)
+            if colors.is_too_light(color):
+                font_color = '#000000'
+            else:
+                font_color = '#FFFFFF'
+
+            catbox = Gtk.Label()
+            catbox.set_markup(
+                '<span color="%s">%s</span>' % (font_color, description))
+
+            catbox.set_padding(10, 0)
 
             ebox = Gtk.EventBox()
             parse, color = Gdk.Color.parse(color)
