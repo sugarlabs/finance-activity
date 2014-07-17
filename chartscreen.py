@@ -17,6 +17,7 @@
 # Import standard Python modules.
 import math
 import locale
+import cairo
 
 # Import activity module
 import colors
@@ -24,7 +25,6 @@ import colors
 from gettext import gettext as _
 
 from gi.repository import Gtk
-from gi.repository import Gdk
 from gi.repository import GObject
 
 from sugar3.graphics import style
@@ -61,26 +61,11 @@ class ChartScreen(Gtk.VBox):
         self._title_label.props.margin_left = style.GRID_CELL_SIZE / 2
         header.add(self._title_label)
 
-        box = Gtk.HBox()
-
         self.area = Gtk.DrawingArea()
         self.area.connect('draw', self.chart_draw_cb)
 
-        self.catbox = Gtk.VBox()
-        self.catbox.props.margin_left = style.GRID_CELL_SIZE / 2
-        self.catbox.props.margin_top = style.GRID_CELL_SIZE / 2
-        self.catbox.set_valign(Gtk.Align.START)
-
-        white_box = Gtk.EventBox()
-        white_box.modify_bg(Gtk.StateType.NORMAL,
-                            style.COLOR_WHITE.get_gdk_color())
-        white_box.add(self.catbox)
-
-        box.pack_start(white_box, False, False, 0)
-        box.pack_start(self.area, True, True, 0)
-
         self.pack_start(header, False, False, 0)
-        self.pack_start(box, True, True, 0)
+        self.pack_start(self.area, True, True, 0)
 
         self.show_all()
 
@@ -115,53 +100,7 @@ class ChartScreen(Gtk.VBox):
         self.sorted_categories = self.category_total.keys()
         # self.sorted_categories.sort(lamba a, b: cmp(self.category_total[a],
         #                                             self.category_total[b]))
-
-        # Clear and rebuild the labels box.
-        for w in self.catbox.get_children():
-            self.catbox.remove(w)
-
-        catgroup = Gtk.SizeGroup(Gtk.SizeGroupMode.HORIZONTAL)
-        amountgroup = Gtk.SizeGroup(Gtk.SizeGroupMode.HORIZONTAL)
-
-        for c in self.sorted_categories:
-            hbox = Gtk.HBox()
-
-            description = c
-            # If there is no category, display as Unknown
-            if c is '':
-                description = _('Unknown')
-
-            color = colors.get_category_color_str(c)
-            if colors.is_too_light(color):
-                font_color = '#000000'
-            else:
-                font_color = '#FFFFFF'
-
-            catlabel = Gtk.Label()
-            catlabel.set_markup(
-                '<span size="x-large" color="%s">%s</span>' % (font_color,
-                                                               description))
-            catlabel.props.margin = 10
-            catgroup.add_widget(catlabel)
-
-            amountlabel = Gtk.Label()
-            amountlabel.set_markup(
-                '<span size="x-large" color="%s">%s</span>' %
-                (font_color, locale.currency(self.category_total[c])))
-            amountgroup.add_widget(amountlabel)
-
-            hbox.pack_start(catlabel, True, True, 20)
-            hbox.pack_start(amountlabel, True, True, 20)
-
-            ebox = Gtk.EventBox()
-
-            parse, color = Gdk.Color.parse(color)
-            ebox.modify_bg(Gtk.StateType.NORMAL, color)
-            ebox.add(hbox)
-
-            self.catbox.pack_end(ebox, False, False, 5)
-
-        self.show_all()
+        self.area.queue_draw()
 
     def chart_draw_cb(self, widget, context):
         # Draw pie chart.
@@ -170,7 +109,81 @@ class ChartScreen(Gtk.VBox):
         context.set_source_rgb(1, 1, 1)
         context.fill()
 
-        x = bounds.width / 2
+        # draw the labels
+
+        margin_left = style.GRID_CELL_SIZE / 2
+        margin_top = style.GRID_CELL_SIZE / 2
+        padding = 20
+
+        # measure the descriptions
+        max_width_desc = 0
+        max_width_amount = 0
+        max_height = 0
+        context.select_font_face('Sans', cairo.FONT_SLANT_NORMAL,
+                                 cairo.FONT_WEIGHT_NORMAL)
+        context.set_font_size(20)
+
+        for c in self.sorted_categories:
+            description = c
+            # If there is no category, display as Unknown
+            if c is '':
+                description = _('Unknown')
+
+            # need measure the description width to align the amounts
+            x_bearing, y_bearing, width, height, x_advance, y_advance = \
+                context.text_extents(description)
+            max_width_desc = max(max_width_desc, width)
+            max_height = max(max_height, height)
+
+            x_bearing, y_bearing, width, height, x_advance, y_advance = \
+                context.text_extents(locale.currency(self.category_total[c]))
+            max_height = max(max_height, height)
+            max_width_amount = max(max_width_amount, width)
+
+        # draw the labels
+        y = margin_top
+        context.save()
+        context.translate(margin_left, 0)
+        rectangles_width = max_width_desc + max_width_amount + padding * 3
+        for c in self.sorted_categories:
+            description = c
+            if c is '':
+                description = _('Unknown')
+            context.save()
+            context.translate(0, y)
+            context.rectangle(0, 0, rectangles_width, max_height + padding)
+
+            color = colors.get_category_color(c)
+            context.set_source_rgb(color[0], color[1], color[2])
+            context.fill()
+
+            if colors.is_too_light(colors.get_category_color_str(c)):
+                context.set_source_rgb(0, 0, 0)
+            else:
+                context.set_source_rgb(1, 1, 1)
+
+            context.save()
+            x_bearing, y_bearing, width, height, x_advance, y_advance = \
+                context.text_extents(description)
+            context.move_to(padding, padding * 2 - height)
+            context.show_text(description)
+            context.restore()
+
+            context.save()
+            x_bearing, y_bearing, width, height, x_advance, y_advance = \
+                context.text_extents(description)
+            context.move_to(max_width_desc + padding * 2,
+                            padding * 2 - height)
+            context.show_text(locale.currency(self.category_total[c]))
+            context.restore()
+
+            y += max_height + padding * 2
+            context.restore()
+
+        context.restore()
+
+        # draw the pie
+        x = (bounds.width - rectangles_width) / 2 + rectangles_width
         y = bounds.height / 2
         r = min(bounds.width, bounds.height) / 2 - 10
 
