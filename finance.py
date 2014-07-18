@@ -23,6 +23,9 @@ import datetime
 import locale
 from gettext import gettext as _
 import json
+import tempfile
+import StringIO
+import dbus
 
 from gi.repository import Gtk
 from gi.repository import Pango
@@ -35,7 +38,8 @@ from sugar3.graphics import style
 
 from sugar3.activity.widgets import StopButton
 from sugar3.activity.widgets import ActivityToolbarButton
-from sugar3.activity.activity import Activity
+from sugar3.activity import activity
+from sugar3.datastore import datastore
 
 # Import screen classes.
 import registerscreen
@@ -67,9 +71,9 @@ FOREVER = 4
 # and options. Screens are stored in a stack, with the currently
 # active screen on top.
 
-class Finance(Activity):
+class Finance(activity.Activity):
     def __init__(self, handle):
-        Activity.__init__(self, handle)
+        activity.Activity.__init__(self, handle)
         self.set_title(_("Finance"))
         self.max_participants = 1
 
@@ -258,6 +262,14 @@ class Finance(Activity):
         headerbox.insert(self.newdebitbtn, -1)
         headerbox.insert(self.eraseitembtn, -1)
 
+        self.header_separator_visible = Gtk.SeparatorToolItem()
+        headerbox.insert(self.header_separator_visible, -1)
+
+        self.export_image = ToolButton('save-as-image')
+        self.export_image.set_tooltip(_("Save as Image"))
+        self.export_image.connect('clicked', self.__save_image_cb)
+        headerbox.insert(self.export_image, -1)
+
         self._header_separator = Gtk.SeparatorToolItem()
         self._header_separator.props.draw = False
         self._header_separator.set_expand(True)
@@ -294,12 +306,20 @@ class Finance(Activity):
     def show_header_controls(self):
         for child in self.headerbox.get_children():
             child.show()
-            if self._active_panel == self.budget:
+            if self._active_panel == self.register:
+                if child in (self.header_separator_visible,
+                             self.export_image):
+                    child.hide()
+            elif self._active_panel == self.budget:
                 if child in (self.newcreditbtn, self.newdebitbtn,
-                             self.eraseitembtn):
+                             self.eraseitembtn, self.header_separator_visible,
+                             self.export_image):
                     child.hide()
             elif self._active_panel == self.chart:
-                if child not in (self.newcreditbtn, self.newdebitbtn):
+                # Use NOT here
+                if child not in (self.newcreditbtn, self.newdebitbtn,
+                                 self.header_separator_visible,
+                                 self.export_image):
                     child.hide()
 
     def register_cb(self, widget):
@@ -801,6 +821,7 @@ class Finance(Activity):
 
         if self.data['transactions']:
             self._set_internal_panel(self.register)
+        self.show_header_controls()
 
         self.build_transaction_map()
         self.build_names()
@@ -816,3 +837,25 @@ class Finance(Activity):
             fd.write(text)
         finally:
             fd.close()
+
+    def __save_image_cb(self, widget):
+        image_file = tempfile.NamedTemporaryFile(mode='w+b', suffix='.png')
+        journal_entry = datastore.create()
+        journal_entry.metadata['title'] = self.chart.title
+        journal_entry.metadata['keep'] = '0'
+        journal_entry.metadata['mime_type'] = 'image/png'
+
+        # generate the image
+        self.chart.generate_image(image_file.file, 800, 600)
+        image_file.file.close()
+        journal_entry.file_path = image_file.name
+
+        # generate the preview
+        preview_str = StringIO.StringIO()
+        self.chart.generate_image(preview_str, activity.PREVIEW_SIZE[0],
+                                  activity.PREVIEW_SIZE[1])
+        journal_entry.metadata['preview'] = dbus.ByteArray(
+            preview_str.getvalue())
+
+        logging.error('Create %s image file', image_file.name)
+        datastore.write(journal_entry)

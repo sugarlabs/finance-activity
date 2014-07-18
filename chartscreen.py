@@ -18,6 +18,7 @@
 import math
 import locale
 import cairo
+import logging
 
 # Import activity module
 import colors
@@ -76,13 +77,13 @@ class ChartScreen(Gtk.VBox):
     def build(self):
 
         if self._graph_mode == self.CHART_CREDIT:
-            title = _('Credit Categories')
+            self.title = _('Credit Categories')
         elif self._graph_mode == self.CHART_DEBIT:
-            title = _('Debit Categories')
+            self.title = _('Debit Categories')
 
         self._title_label.set_markup(
             '<span size="x-large" foreground="white"><b>%s</b></span>' %
-            title)
+            self.title)
 
         # Build the category totals.
         self.category_total = {}
@@ -102,18 +103,30 @@ class ChartScreen(Gtk.VBox):
         #                                             self.category_total[b]))
         self.area.queue_draw()
 
+    def generate_image(self, image_file, width, height):
+        image_surface = cairo.ImageSurface(cairo.FORMAT_ARGB32, width, height)
+
+        context = cairo.Context(image_surface)
+        self.create_chart(context, width, height)
+        image_surface.flush()
+        image_surface.write_to_png(image_file)
+
     def chart_draw_cb(self, widget, context):
         # Draw pie chart.
         bounds = widget.get_allocation()
-        context.rectangle(0, 0, bounds.width, bounds.height)
+        self.create_chart(context, bounds.width, bounds.height)
+
+    def create_chart(self, context, image_width, image_height):
+        scale = image_width / 1600.
+        context.rectangle(0, 0, image_width, image_height)
+        logging.debug('canvas size %s x %s - scale %s', image_width,
+                      image_height, scale)
         context.set_source_rgb(1, 1, 1)
         context.fill()
 
-        # draw the labels
-
-        margin_left = style.GRID_CELL_SIZE / 2
-        margin_top = style.GRID_CELL_SIZE / 2
-        padding = 20
+        margin_left = (style.GRID_CELL_SIZE / 2) * scale
+        margin_top = (style.GRID_CELL_SIZE / 2) * scale
+        padding = 20 * scale
 
         # measure the descriptions
         max_width_desc = 0
@@ -121,7 +134,7 @@ class ChartScreen(Gtk.VBox):
         max_height = 0
         context.select_font_face('Sans', cairo.FONT_SLANT_NORMAL,
                                  cairo.FONT_WEIGHT_NORMAL)
-        context.set_font_size(20)
+        context.set_font_size(20 * scale)
 
         for c in self.sorted_categories:
             description = c
@@ -183,9 +196,9 @@ class ChartScreen(Gtk.VBox):
         context.restore()
 
         # draw the pie
-        x = (bounds.width - rectangles_width) / 2 + rectangles_width
-        y = bounds.height / 2
-        r = min(bounds.width, bounds.height) / 2 - 10
+        x = (image_width - rectangles_width) / 2 + rectangles_width
+        y = image_height / 2
+        r = min(image_width, image_height) / 2 - 10
 
         total = 0
         for c in self.sorted_categories:
