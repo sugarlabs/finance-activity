@@ -40,6 +40,8 @@ from sugar3.activity.widgets import StopButton
 from sugar3.activity.widgets import ActivityToolbarButton
 from sugar3.activity import activity
 from sugar3.datastore import datastore
+from sugar3.graphics.alert import Alert
+from sugar3.graphics.icon import Icon
 
 # Import screen classes.
 import registerscreen
@@ -859,3 +861,30 @@ class Finance(activity.Activity):
 
         logging.error('Create %s image file', image_file.name)
         datastore.write(journal_entry)
+        self._show_journal_alert(
+            _('Chart created'), _('Open in the Journal'),
+            journal_entry.object_id)
+
+    def _show_journal_alert(self, title, msg, object_id):
+        open_alert = Alert()
+        open_alert.props.title = title
+        open_alert.props.msg = msg
+        open_icon = Icon(icon_name='zoom-activity')
+        open_alert.add_button(Gtk.ResponseType.APPLY,
+                              _('Show in Journal'), open_icon)
+        open_icon.show()
+        ok_icon = Icon(icon_name='dialog-ok')
+        open_alert.add_button(Gtk.ResponseType.OK, _('Ok'), ok_icon)
+        ok_icon.show()
+        # Remove other alerts
+        for alert in self._alerts:
+            self.remove_alert(alert)
+
+        self.add_alert(open_alert)
+        open_alert.connect('response', self.__open_response_cb, object_id)
+        open_alert.show()
+
+    def __open_response_cb(self, alert, response_id, object_id):
+        if response_id is Gtk.ResponseType.APPLY:
+            activity.show_object_in_journal(object_id)
+        self.remove_alert(alert)
