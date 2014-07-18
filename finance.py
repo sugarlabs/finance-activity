@@ -42,6 +42,9 @@ from sugar3.activity import activity
 from sugar3.datastore import datastore
 from sugar3.graphics.alert import Alert
 from sugar3.graphics.icon import Icon
+from sugar3.graphics.palettemenu import PaletteMenuItem
+from sugar3.graphics.palettemenu import PaletteMenuBox
+from sugar import profile
 
 # Import screen classes.
 import registerscreen
@@ -218,7 +221,45 @@ class Finance(activity.Activity):
 
         self.toolbar_box.toolbar.insert(StopButton(self), -1)
         self.set_toolbar_box(self.toolbar_box)
+
+        activity_button.page.insert(self._create_export_button(), -1)
+
         self.toolbar_box.show_all()
+
+    def _create_export_button(self):
+        # Add expoprt button
+        export_data = ToolButton('save-as-data')
+
+        export_data.props.tooltip = _('Export data')
+        export_data.props.hide_tooltip_on_click = False
+        export_data.palette_invoker.props.toggle_palette = True
+        export_data.show()
+
+        menu_box = PaletteMenuBox()
+        export_data.props.palette.set_content(menu_box)
+
+        menu_item = PaletteMenuItem(text_label=_('Export credits by day'))
+        menu_item.connect('activate', self.__export_data_to_chart_cb,
+                          'credit', DAY)
+        menu_box.append_item(menu_item)
+
+        menu_item = PaletteMenuItem(text_label=_('Export debits by day'))
+        menu_item.connect('activate', self.__export_data_to_chart_cb,
+                          'debit', DAY)
+        menu_box.append_item(menu_item)
+
+        menu_item = PaletteMenuItem(text_label=_('Export credits by month'))
+        menu_item.connect('activate', self.__export_data_to_chart_cb,
+                          'credit', MONTH)
+        menu_box.append_item(menu_item)
+
+        menu_item = PaletteMenuItem(text_label=_('Export debits by month'))
+        menu_item.connect('activate', self.__export_data_to_chart_cb,
+                          'debit', MONTH)
+        menu_box.append_item(menu_item)
+
+        menu_box.show_all()
+        return export_data
 
     def _create_help_button(self):
         helpitem = HelpButton()
@@ -888,3 +929,96 @@ class Finance(activity.Activity):
         if response_id is Gtk.ResponseType.APPLY:
             activity.show_object_in_journal(object_id)
         self.remove_alert(alert)
+
+    def __export_data_to_chart_cb(self, widget, type_movement, period):
+        """
+        type_movement = 'debit' or 'credit'
+        period
+            DAY = 0
+            MONTH = 2
+        """
+        logging.debug('export data %s %s', type_movement, period)
+
+        chart_params = {}
+        axis = {'tickFont': 'Sans', 'labelFont': 'Sans', 'labelFontSize': 14,
+                'labelColor': '#666666', 'lineColor': '#b3b3b3',
+                'tickColor': '#000000', 'tickFontSize': 12}
+        chart_params['font_options'] = {
+            'titleFont': 'Sans', 'titleFontSize': 12, 'titleColor': '#000000',
+            'axis': axis}
+
+        if type_movement == 'credit':
+            what_filter = 'Credits'
+        elif type_movement == 'debit':
+            what_filter = 'Debits'
+        else:
+            logging.error('ERROR type_movement should be credit or debit')
+
+        if period == DAY:
+            when = 'day'
+        elif period == MONTH:
+            when = 'month'
+        else:
+            logging.error('ERROR period should be DAY or MONTH')
+
+        title = _('%s by %s') % (what_filter, when)
+        chart_params['title'] = title
+        chart_params['x_label'] = ''
+        chart_params['y_label'] = ''
+        chart_params['current_chart.type'] = 1
+        xo_color = profile.get_color()
+        chart_params['chart_line_color'] = xo_color.get_stroke_color()
+        chart_params['chart_color'] = xo_color.get_fill_color()
+
+        """
+        'chart_data': [
+            ['hello', 200.0],
+            ['mrch', 100.0]],
+        """
+        transactions = self.data['transactions']
+
+        groups = {}
+        for transaction in transactions:
+            if transaction['type'] == type_movement:
+                date = transaction['date']
+                if period == DAY:
+                    group = date
+                elif period == MONTH:
+                    d = datetime.date.fromordinal(date)
+                    group = datetime.date(d.year, d.month, 1).toordinal()
+                if group in groups.keys():
+                    groups[group] = groups[group] + transaction['amount']
+                else:
+                    groups[group] = transaction['amount']
+
+        data = []
+        for group in sorted(groups.keys()):
+            if period == DAY:
+                label = datetime.date.fromordinal(group).isoformat()
+            elif period == MONTH:
+                d = datetime.date.fromordinal(group)
+                label = '%s-%s' % (d.year, d.month)
+
+            data.append([label, groups[group]])
+
+        chart_params['chart_data'] = data
+
+        logging.debug('chart_data %s', chart_params)
+
+        # save to the journal
+        data_file = tempfile.NamedTemporaryFile(mode='w+b', suffix='.json')
+        journal_entry = datastore.create()
+        journal_entry.metadata['title'] = title
+        journal_entry.metadata['keep'] = '0'
+        journal_entry.metadata['mime_type'] = 'application/x-chart-activity'
+        journal_entry.metadata['activity'] = 'org.sugarlabs.SimpleGraph'
+
+        json.dump(chart_params, data_file.file)
+        data_file.file.close()
+        journal_entry.file_path = data_file.name
+
+        logging.debug('Create %s data file', data_file.name)
+        datastore.write(journal_entry)
+        self._show_journal_alert(
+            _('Exported data'), _('Open in the Journal'),
+            journal_entry.object_id)
