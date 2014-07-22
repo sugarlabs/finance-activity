@@ -120,7 +120,9 @@ class Finance(activity.Activity):
         self._active_panel = None
 
         # Add the summary data.
+
         self.startlabel = Gtk.Label()
+        self.startamountlabel = Gtk.Label()
         self.creditslabel = Gtk.Label()
         self.debitslabel = Gtk.Label()
         self.balancelabel = Gtk.Label()
@@ -129,16 +131,21 @@ class Finance(activity.Activity):
 
         font_size = int(style.FONT_SIZE * 1.25)
         font = Pango.FontDescription("Sans %d" % font_size)
-        for label in (self.startlabel, self.creditslabel, self.debitslabel):
+        for label in (self.startlabel, self.startamountlabel,
+                      self.creditslabel, self.debitslabel):
             label.modify_font(font)
+            label.set_hexpand(True)
+            label.set_halign(Gtk.Align.START)
+            label.props.margin = style.DEFAULT_PADDING
 
         self.balance_evbox = Gtk.EventBox()
         self.balance_evbox.add(self.balancelabel)
-        summarybox = Gtk.HBox()
-        summarybox.pack_start(self.startlabel, True, False, 0)
-        summarybox.pack_start(self.creditslabel, True, False, 0)
-        summarybox.pack_start(self.debitslabel, True, False, 0)
-        summarybox.pack_end(self.balance_evbox, True, True, 0)
+        summarybox = Gtk.Grid()
+        summarybox.attach(self.startlabel, 0, 0, 1, 1)
+        summarybox.attach(self.startamountlabel, 0, 1, 1, 1)
+        summarybox.attach(self.creditslabel, 1, 0, 1, 1)
+        summarybox.attach(self.debitslabel, 1, 1, 1, 1)
+        summarybox.attach(self.balance_evbox, 2, 0, 1, 2)
         self.balance_evbox.set_halign(Gtk.Align.END)
 
         summary_evbox = Gtk.EventBox()
@@ -493,8 +500,12 @@ class Finance(activity.Activity):
             Gtk.StateType.NORMAL, style.Color(balancecolor).get_gdk_color())
 
         self.startlabel.set_markup(
-            "<span foreground='white'><b>%s %s</b></span>" %
-            (_('Starting Balance:'), locale.currency(start)))
+            "<span foreground='white'><b>%s</b></span>" %
+            _('Starting Balance:'))
+        self.startamountlabel.set_markup(
+            "<span foreground='white'><b>%s</b></span>" %
+            locale.currency(start))
+
         self.creditslabel.set_markup(
             "<span foreground='white'><b>%s</b></span>" %
             (_('%s in %d credits') % (locale.currency(credit_total),
