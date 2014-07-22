@@ -85,6 +85,7 @@ class RegisterScreen(Gtk.VBox):
 
         renderer = Gtk.CellRendererText()
         renderer.props.editable = True
+        renderer.props.ellipsize = Pango.EllipsizeMode.END
         renderer.connect('editing-started',
                          self.description_editing_started_cb)
         renderer.connect('edited', self.description_edit_cb)
@@ -141,6 +142,7 @@ class RegisterScreen(Gtk.VBox):
         completion.set_model(store)
         completion.set_text_column(0)
         editable.set_completion(completion)
+        editable.set_max_length(50)
 
     def description_edit_cb(self, cell_renderer, path, new_text):
         id = self.liststore[path][0]
@@ -218,6 +220,7 @@ class RegisterScreen(Gtk.VBox):
         completion.set_model(store)
         completion.set_text_column(0)
         editable.set_completion(completion)
+        editable.set_max_length(20)
 
     def category_edit_cb(self, cell_renderer, path, new_text):
         id = self.liststore[path][0]
