@@ -27,6 +27,7 @@ from gettext import gettext as _
 
 from gi.repository import Gtk
 from gi.repository import GObject
+from gi.repository import PangoCairo
 
 from sugar3.graphics import style
 
@@ -36,6 +37,19 @@ locale.setlocale(locale.LC_ALL, '')
 CHART_HELP = _(
     'The Chart view shows the proportion of your expenses that is in each '
     'category.\nYou can categorize transactions in the Register view.')
+
+
+def _get_screen_dpi():
+    xft_dpi = Gtk.Settings.get_default().get_property('gtk-xft-dpi')
+    dpi = float(xft_dpi / 1024)
+    logging.error('Setting dpi to: %f', dpi)
+    return dpi
+
+
+def _set_screen_dpi():
+    dpi = _get_screen_dpi()
+    font_map_default = PangoCairo.font_map_get_default()
+    font_map_default.set_resolution(dpi)
 
 
 class ChartScreen(Gtk.VBox):
@@ -117,6 +131,9 @@ class ChartScreen(Gtk.VBox):
         self.create_chart(context, bounds.width, bounds.height)
 
     def create_chart(self, context, image_width, image_height):
+
+        _set_screen_dpi()
+
         scale = image_width / 1600.
         context.rectangle(0, 0, image_width, image_height)
         logging.debug('canvas size %s x %s - scale %s', image_width,
@@ -134,7 +151,7 @@ class ChartScreen(Gtk.VBox):
         max_height = 0
         context.select_font_face('Sans', cairo.FONT_SLANT_NORMAL,
                                  cairo.FONT_WEIGHT_NORMAL)
-        context.set_font_size(20 * scale)
+        context.set_font_size(26 * scale)
 
         for c in self.sorted_categories:
             description = c
@@ -178,16 +195,17 @@ class ChartScreen(Gtk.VBox):
             context.save()
             x_bearing, y_bearing, width, height, x_advance, y_advance = \
                 context.text_extents(description)
-            context.move_to(padding, padding * 2 - height)
+            context.move_to(padding, padding * 2.5 + y_bearing)
             context.show_text(description)
             context.restore()
 
             context.save()
+            text = locale.currency(self.category_total[c])
             x_bearing, y_bearing, width, height, x_advance, y_advance = \
-                context.text_extents(description)
-            context.move_to(max_width_desc + padding * 2,
-                            padding * 2 - height)
-            context.show_text(locale.currency(self.category_total[c]))
+                context.text_extents(text)
+            context.move_to(rectangles_width - x_advance - padding,
+                            padding * 2.5 + y_bearing)
+            context.show_text(text)
             context.restore()
 
             y += max_height + padding * 2
