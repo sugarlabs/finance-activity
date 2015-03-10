@@ -7,3 +7,4 @@ icon = Finance-activity
 exec = sugar-activity finance.Finance
 summary = Want to wisely manage money? Learn financial planning basics and track your family's finance, make your own budget and learn how to make every penny count!
 repository = git@github.com:godiard/finance-activity.git
+max_participants = 1
