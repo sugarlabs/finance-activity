@@ -44,7 +44,7 @@ from sugar3.graphics.alert import Alert
 from sugar3.graphics.icon import Icon
 from sugar3.graphics.palettemenu import PaletteMenuItem
 from sugar3.graphics.palettemenu import PaletteMenuBox
-from sugar import profile
+from sugar3 import profile
 
 # Import screen classes.
 import registerscreen
