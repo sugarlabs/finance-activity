@@ -161,18 +161,19 @@ class Finance(activity.Activity):
         vbox.pack_start(summary_evbox, False, False, 0)
 
         # Start with the empty screen.
-        empty_panel = emptypanel.create_empty_panel(
+        self.empty_panel = emptypanel.create_empty_panel(
             'row-insert-credit',
             _('Add some credit or debit to get started!'),
             _('Add credit'), self.__empty_panel_btn_cb)
 
-        self._set_internal_panel(empty_panel)
+        self._set_internal_panel(self.empty_panel)
 
         # This has to happen last, because it calls the read_file
         # method when restoring from the Journal.
         self.set_canvas(vbox)
 
         self.show_all()
+        self.show_header_controls()
 
     def build_toolbox(self):
 
@@ -356,7 +357,7 @@ class Finance(activity.Activity):
     def show_header_controls(self):
         for child in self.headerbox.get_children():
             child.show()
-            if self._active_panel == self.register:
+            if self._active_panel in (self.register, self.empty_panel):
                 if child in (self.header_separator_visible,
                              self.export_image):
                     child.hide()
