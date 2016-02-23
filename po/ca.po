@@ -43,15 +43,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-27 14:58-0400\n"
-"PO-Revision-Date: 2011-08-08 02:39+0200\n"
-"Last-Translator: Chris <cjl@laptop.org>\n"
+"PO-Revision-Date: 2015-09-23 13:15+0000\n"
+"Last-Translator: Robert <rbuj@fedoraproject.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.1\n"
+"X-Generator: Pootle 2.5.1.1\n"
+"X-POOTLE-MTIME: 1443014146.000000\n"
 
 #. TRANS: "name" option from activity.info file
 #: finance.py:107
@@ -65,6 +66,10 @@ msgid ""
 "family's finance, make your own budget and learn how to make every penny "
 "count!"
 msgstr ""
+"Voleu gestionar sàviament els diners? Apreneu els fonaments de la "
+"planificació financera i el feu el seguiment de les finances de la vostra "
+"família, feu el vostre propi pressupost i apreneu com aprofitar de cada "
+"cèntim!"
 
 #: budgetscreen.py:34
 msgid ""
@@ -73,6 +78,10 @@ msgid ""
 "budgets. To set a budget, type the amount in the box to the right of the "
 "category."
 msgstr ""
+"La vista del pressupost us permet establir un pressupost mensual per a "
+"cadascuna de les categories de les despeses, i feu un seguiment del vostre\n"
+"pressupost. Per establir un pressupost, escriviu la quantitat al quadre de "
+"la dreta de la categoria."
 
 #: budgetscreen.py:79 registerscreen.py:90
 msgid "Category"
@@ -88,7 +97,7 @@ msgstr "Pressupost"
 
 #: budgetscreen.py:105 chartscreen.py:101
 msgid "Unknown"
-msgstr ""
+msgstr "Desconegut"
 
 #: budgetscreen.py:152 budgetscreen.py:178 finance.py:223 finance.py:359
 #: finance.py:439 finance.py:462 finance.py:480 finance.py:496
@@ -117,10 +126,13 @@ msgid ""
 "category.\n"
 "You can categorize transactions in the Register view."
 msgstr ""
+"La vista del gràfic mostra la proporció de les vostres despeses que hi ha a "
+"cada categoria.\n"
+"Podeu classificar les transaccions a la vista del registre."
 
 #: chartscreen.py:51
 msgid "Debit Categories"
-msgstr "Categories de Dèbit"
+msgstr "Categories de dèbit"
 
 #: finance.py:132 finance.py:225 finance.py:367 finance.py:435 finance.py:470
 #: finance.py:486 finance.py:502
@@ -129,15 +141,15 @@ msgstr "Mes"
 
 #: finance.py:183 registerscreen.py:203
 msgid "New Credit"
-msgstr "Nou Crèdit"
+msgstr "Nou crèdit"
 
 #: finance.py:188 registerscreen.py:215
 msgid "New Debit"
-msgstr "Nou Dèbit"
+msgstr "Nou dèbit"
 
 #: finance.py:193
 msgid "Erase Transaction"
-msgstr "Esborra Transacció"
+msgstr "Esborra la transacció"
 
 #: finance.py:218
 msgid "Period: "
@@ -149,12 +161,12 @@ msgstr "Registre"
 
 #: finance.py:253 finance.py:254 finance.py:317
 msgid "Chart"
-msgstr "Gràfica"
+msgstr "Gràfic"
 
 #. TRANS: representation of the "Day" period
 #: finance.py:361
 msgid "%B %d, %Y"
-msgstr ""
+msgstr "%B %d, %Y"
 
 #. TRANS: representation of the "Week of" period
 #: finance.py:365
@@ -163,17 +175,17 @@ msgstr "Setmana de"
 
 #: finance.py:365
 msgid " %B %d, %Y"
-msgstr ""
+msgstr " %B %d, %Y"
 
 #. TRANS: representation of the "Month" period
 #: finance.py:369
 msgid "%B, %Y"
-msgstr ""
+msgstr "%B de %Y"
 
 #. TRANS: representation of the "Year" period
 #: finance.py:373
 msgid "%Y"
-msgstr ""
+msgstr "%Y"
 
 #: finance.py:414
 msgid "Balance: "
@@ -181,43 +193,43 @@ msgstr "Balanç: "
 
 #: finance.py:436
 msgid "Previous Month"
-msgstr ""
+msgstr "Mes anterior"
 
 #: finance.py:437
 msgid "This Month"
-msgstr ""
+msgstr "Aquest mes"
 
 #: finance.py:438
 msgid "Next Month"
-msgstr ""
+msgstr "Mes següent"
 
 #: finance.py:440
 msgid "Previous Day"
-msgstr ""
+msgstr "Dia anterior"
 
 #: finance.py:441
 msgid "This Day"
-msgstr ""
+msgstr "Aquest dia"
 
 #: finance.py:442
 msgid "Next Day"
-msgstr ""
+msgstr "Dia següent"
 
 #: finance.py:444
 msgid "Previous Year"
-msgstr ""
+msgstr "Any anterior"
 
 #: finance.py:445
 msgid "This Year"
-msgstr ""
+msgstr "Aquest any"
 
 #: finance.py:446
 msgid "Next Year"
-msgstr ""
+msgstr "Any següent"
 
 #: helpbutton.py:38
 msgid "Help"
-msgstr ""
+msgstr "Ajuda"
 
 #: registerscreen.py:33
 msgid ""
@@ -227,6 +239,12 @@ msgid ""
 "Once you have entered some transactions, visit the Chart and Budget views to "
 "see more."
 msgstr ""
+"Benvingut a Finances! En aquesta activitat es manté un registre dels "
+"ingressos i de les despeses, per a tot el que guanyeu o gasteu els diners, "
+"com en un club escolar.  Per començar, utilitzeu el quadre de transacció per "
+"afegir els crèdits i els dèbits.\n"
+"Una vegada que hàgiu introduït algunes transaccions, visiteu la vista del "
+"gràfic i la vista del pressupost, per veure més coses."
 
 #: registerscreen.py:63
 msgid "Description"
