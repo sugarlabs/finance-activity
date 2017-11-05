@@ -2,40 +2,12 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-12-05 17:18+0000\n"
-"PO-Revision-Date: 2016-05-16 20:54+0000\n"
+"PO-Revision-Date: 2016-08-11 18:41+0000\n"
 "Last-Translator: Chris <cjl@sugarlabs.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pt_BR\n"
@@ -44,11 +16,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.5.1.1\n"
-"X-POOTLE-MTIME: 1463432075.000000\n"
+"X-POOTLE-MTIME: 1470940900.000000\n"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:82
 msgid "Finance"
-msgstr "Finança"
+msgstr "Finanças"
 
 msgid ""
 "Want to wisely manage money? Learn financial planning basics and track your "
@@ -56,8 +28,8 @@ msgid ""
 "count!"
 msgstr ""
 "Quer gerenciar o dinheiro de maneira inteligente? Aprenda o básico sobre "
-"planejamento financeiro e siga as finanças de sua família, faça seu próprio "
-"orçamento e aprenda como fazer valer cada centavo!"
+"planejamento financeiro e acompanhe as finanças de sua família, faça seu "
+"próprio orçamento e aprenda como fazer valer cada centavo!"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:38
 msgid ""
@@ -71,11 +43,11 @@ msgstr ""
 
 #: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:94
 msgid "Credit Categories"
-msgstr ""
+msgstr "Categorias de Receita"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:96
 msgid "Debit Categories"
-msgstr "Categorias de despesas"
+msgstr "Categorias de Despesas"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:160
 #: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:181
@@ -91,8 +63,8 @@ msgid ""
 "Once you have entered some transactions, visit the Chart and Budget views to "
 "see more."
 msgstr ""
-"Bem vindo ao Finança! Esta atividade acompanha as receitas e despesas de "
-"qualquer coisa que ganhe ou gaste dinheiro, como um clube ecolar. Para "
+"Bem vindo ao Finanças! Esta atividade acompanha as receitas e despesas de "
+"qualquer coisa que ganhe ou gaste dinheiro, como um clube ecolar.  Para "
 "começar, use a caixa de Transações para adicionar receitas e despesas.\n"
 "Uma vez que você tenha inserido algumas transações, visite as seções Gráfico "
 "e Orçamento para ver mais."
@@ -128,11 +100,11 @@ msgstr "Nova despesa"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:166
 msgid "Add some credit or debit to get started!"
-msgstr ""
+msgstr "Adicine alguma receita ou despesa para começar!"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:167
 msgid "Add credit"
-msgstr ""
+msgstr "Adicionar receita"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:182
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:183
@@ -155,23 +127,23 @@ msgstr "Gráfico"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:240
 msgid "Export data"
-msgstr ""
+msgstr "Exportar dados"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:248
 msgid "Export credits by day"
-msgstr ""
+msgstr "Exportar receitas por dia"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:253
 msgid "Export debits by day"
-msgstr ""
+msgstr "Exportar despesas por dia"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:258
 msgid "Export credits by month"
-msgstr ""
+msgstr "Exportar receitas por mês"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:263
 msgid "Export debits by month"
-msgstr ""
+msgstr "Exportar despesas por mês"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:307
 msgid "Erase Transaction"
@@ -179,7 +151,7 @@ msgstr "Apagar transação"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:319
 msgid "Save as Image"
-msgstr ""
+msgstr "Salvar como imagem"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:341
 msgid "Day"
@@ -204,15 +176,15 @@ msgstr "Para sempre"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:344
 msgid "Select period"
-msgstr ""
+msgstr "Selecionar período"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:388
 msgid "Show Credits"
-msgstr ""
+msgstr "Ver Receitas"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:389
 msgid "Show Debits"
-msgstr ""
+msgstr "Ver Despesas"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:442
 msgid "%B %d, %Y"
@@ -224,7 +196,7 @@ msgstr "Semana de"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:446
 msgid " %B %d, %Y"
-msgstr "%B %d, %Y"
+msgstr " %B %d, %Y"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:450
 msgid "%B, %Y"
@@ -236,21 +208,21 @@ msgstr "%Y"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:496
 msgid "Balance: "
-msgstr "Balanço: "
+msgstr "Saldo: "
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:504
 msgid "Starting Balance:"
-msgstr ""
+msgstr "Saldo Inicial:"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:511
 #, python-format
 msgid "%s in %d credits"
-msgstr ""
+msgstr "%s de %d receitas"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:515
 #, python-format
 msgid "%s in %d debits"
-msgstr ""
+msgstr "%s de %d despesas"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:528
 msgid "Previous Month"
@@ -258,7 +230,7 @@ msgstr "Mês Anterior"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:529
 msgid "This Month"
-msgstr "Este Mês"
+msgstr "Mês Atual"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:530
 msgid "Next Month"
@@ -266,15 +238,15 @@ msgstr "Próximo Mês"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:532
 msgid "Previous Week"
-msgstr ""
+msgstr "Semana Anterior"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:533
 msgid "This Week"
-msgstr ""
+msgstr "Semana Atual"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:534
 msgid "Next Week"
-msgstr ""
+msgstr "Próxima Semana"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:536
 msgid "Previous Day"
@@ -302,29 +274,29 @@ msgstr "Próximo Ano"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:917
 msgid "Chart created"
-msgstr ""
+msgstr "Gráfico criado"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:917
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:1034
 msgid "Open in the Journal"
-msgstr ""
+msgstr "Abrir no Diário"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:926
 msgid "Show in Journal"
-msgstr ""
+msgstr "Exibir no Diário"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:929
 msgid "Ok"
-msgstr ""
+msgstr "Ok"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:975
 #, python-format
 msgid "%s by %s"
-msgstr ""
+msgstr "%s por %s"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:1034
 msgid "Exported data"
-msgstr ""
+msgstr "Dados exportados"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/helpbutton.py:38
 msgid "Help"

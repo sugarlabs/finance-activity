@@ -1,31 +1,4 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
@@ -35,25 +8,29 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-12-05 17:18+0000\n"
-"PO-Revision-Date: 2011-04-01 06:48+0200\n"
-"Last-Translator: Chris <cjl@laptop.org>\n"
+"PO-Revision-Date: 2017-10-17 05:58+0000\n"
+"Last-Translator: Chris <cjl@sugarlabs.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Pootle 2.0.1\n"
+"X-Generator: Pootle 2.5.1.1\n"
+"X-POOTLE-MTIME: 1508219925.000000\n"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:82
 msgid "Finance"
-msgstr ""
+msgstr "Financie"
 
 msgid ""
 "Want to wisely manage money? Learn financial planning basics and track your "
 "family's finance, make your own budget and learn how to make every penny "
 "count!"
 msgstr ""
+"Chcete vedieť ako múdro narábať s peniazmi? Naučte sa základné finančné "
+"plánovanie a sledujte svoje rodinné peniaze, navrhnite si vlastný rozpočet a "
+"naučte sa, že každý cent je dôležitý!"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:38
 msgid ""
@@ -61,20 +38,22 @@ msgid ""
 "category.\n"
 "You can categorize transactions in the Register view."
 msgstr ""
+"Tabuľka Vám ukáže Vaše výdavky v každej kategórii. Môžete si rozdeliť "
+"transakcie v sekcii prehľad Registra."
 
 #: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:94
 msgid "Credit Categories"
-msgstr ""
+msgstr "Kreditové kategórie"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:96
 msgid "Debit Categories"
-msgstr ""
+msgstr "Debetné kategórie"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:160
 #: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:181
 #: /var/www/pootle/sugarlabs/clones/Finance/budgetscreen.py:127
 msgid "Unknown"
-msgstr ""
+msgstr "Neznáme"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:37
 msgid ""
@@ -84,11 +63,16 @@ msgid ""
 "Once you have entered some transactions, visit the Chart and Budget views to "
 "see more."
 msgstr ""
+"Vitajte vo Financiách. Financie pomáhajú sledovať príjmy a výdavky každému "
+"kto zarába alebo míňa peniaze ako napríklad školské kluby.  Aby ste mohli "
+"začať použite Transaction Box (tabuľku transakcií) a zadajte príjmy a "
+"výdavky. Ak ste už zadali príjmy a výdavky choďte do Chart and Budget views ("
+"Prehľad tabuliek a  rozpočtu) a zistite viac."
 
 #: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:80
 #: /var/www/pootle/sugarlabs/clones/Finance/budgetscreen.py:90
 msgid "Category"
-msgstr ""
+msgstr "Kategória"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:92
 msgid "Description"
@@ -100,27 +84,27 @@ msgstr "Dátum"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:109
 msgid "Amount"
-msgstr ""
+msgstr "Množstvo, suma"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:233
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:297
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:378
 msgid "New Credit"
-msgstr ""
+msgstr "Nové príjmy"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:240
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:302
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:379
 msgid "New Debit"
-msgstr ""
+msgstr "Nové výdavky"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:166
 msgid "Add some credit or debit to get started!"
-msgstr ""
+msgstr "Pridajte príjmy a výdavky a môžete začať!"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:167
 msgid "Add credit"
-msgstr ""
+msgstr "Pridajte príjmy"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:182
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:183
@@ -133,74 +117,74 @@ msgstr "Registrovať"
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:275
 #: /var/www/pootle/sugarlabs/clones/Finance/budgetscreen.py:98
 msgid "Budget"
-msgstr ""
+msgstr "Rozpočet"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:199
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:200
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:277
 msgid "Chart"
-msgstr ""
+msgstr "Diagram, graf"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:240
 msgid "Export data"
-msgstr ""
+msgstr "Exportovať údaje"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:248
 msgid "Export credits by day"
-msgstr ""
+msgstr "Denne exportovať príjmy"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:253
 msgid "Export debits by day"
-msgstr ""
+msgstr "Denne exportovať výdavky"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:258
 msgid "Export credits by month"
-msgstr ""
+msgstr "Mesačne exportovať príjmy"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:263
 msgid "Export debits by month"
-msgstr ""
+msgstr "Mesačne exportovať výdavky"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:307
 msgid "Erase Transaction"
-msgstr ""
+msgstr "Vymazať transakcie"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:319
 msgid "Save as Image"
-msgstr ""
+msgstr "Uložiť ako obrázok"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:341
 msgid "Day"
-msgstr ""
+msgstr "Deň"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:341
 msgid "Week"
-msgstr ""
+msgstr "Týždeň"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:341
 msgid "Month"
-msgstr ""
+msgstr "Mesiac"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:342
 msgid "Year"
-msgstr ""
+msgstr "Rok"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:342
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:457
 msgid "Forever"
-msgstr ""
+msgstr "Navždy"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:344
 msgid "Select period"
-msgstr ""
+msgstr "Vyberte časový úsek"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:388
 msgid "Show Credits"
-msgstr ""
+msgstr "Ukázať príjmy"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:389
 msgid "Show Debits"
-msgstr ""
+msgstr "Ukázať výdavky"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:442
 msgid "%B %d, %Y"
@@ -208,7 +192,7 @@ msgstr ""
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:446
 msgid "Week of"
-msgstr ""
+msgstr "Týždeň z"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:446
 msgid " %B %d, %Y"
@@ -224,99 +208,103 @@ msgstr ""
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:496
 msgid "Balance: "
-msgstr ""
+msgstr "Rovnováha: "
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:504
 msgid "Starting Balance:"
-msgstr ""
+msgstr "Začať rovnováhu:"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:511
 #, python-format
 msgid "%s in %d credits"
-msgstr ""
+msgstr "%s in %d príjmy"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:515
 #, python-format
 msgid "%s in %d debits"
-msgstr ""
+msgstr "%s in %d výdavky"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:528
 msgid "Previous Month"
-msgstr ""
+msgstr "Predchádzajúci Mesiac"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:529
 msgid "This Month"
-msgstr ""
+msgstr "Tento Mesiac"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:530
 msgid "Next Month"
-msgstr ""
+msgstr "Budúci Mesiac"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:532
 msgid "Previous Week"
-msgstr ""
+msgstr "Minulý Týždeň"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:533
 msgid "This Week"
-msgstr ""
+msgstr "Tento Týždeň"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:534
 msgid "Next Week"
-msgstr ""
+msgstr "Budúci Týždeň"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:536
 msgid "Previous Day"
-msgstr ""
+msgstr "Včera"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:537
 msgid "This Day"
-msgstr ""
+msgstr "Dnes"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:538
 msgid "Next Day"
-msgstr ""
+msgstr "Zajtra"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:540
 msgid "Previous Year"
-msgstr ""
+msgstr "Vlani"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:541
 msgid "This Year"
-msgstr ""
+msgstr "Tento rok"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:542
 msgid "Next Year"
-msgstr ""
+msgstr "Budúci rok"
 
+# graf vytvorený
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:917
 msgid "Chart created"
-msgstr ""
+msgstr "Tabuľka vytvorená"
 
+# otvoriť diár
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:917
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:1034
 msgid "Open in the Journal"
-msgstr ""
+msgstr "Otvoriť Journal"
 
+# ukázať diár
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:926
 msgid "Show in Journal"
-msgstr ""
+msgstr "Ukázať Journal"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:929
 msgid "Ok"
-msgstr ""
+msgstr "Ok"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:975
 #, python-format
 msgid "%s by %s"
 msgstr ""
 
+# exportovať údaje
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:1034
 msgid "Exported data"
-msgstr ""
+msgstr "Exportovať dáta"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/helpbutton.py:38
 msgid "Help"
-msgstr ""
+msgstr "Pomoc"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/budgetscreen.py:42
 msgid ""
@@ -325,10 +313,14 @@ msgid ""
 "budgets. To set a budget, type the amount in the box to the right of the "
 "category."
 msgstr ""
+"Prehľad rozpočtu (Budget view) Vám pomôže nastaviť mesačný rozpočet v každej "
+"kategórii a pomáhať sledovať Váš rozpočet. Aby ste si rozpočet nastavili, "
+"zadajte sumu do tabuľky v správnej kategórii."
 
+# minuté
 #: /var/www/pootle/sugarlabs/clones/Finance/budgetscreen.py:94
 msgid "Spent"
-msgstr ""
+msgstr "Míňať"
 
 #~ msgid "Previous"
 #~ msgstr "Predchádzajúci"

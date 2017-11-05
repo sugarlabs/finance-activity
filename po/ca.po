@@ -2,49 +2,13 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-27 14:58-0400\n"
-"PO-Revision-Date: 2015-09-23 13:15+0000\n"
-"Last-Translator: Robert <rbuj@fedoraproject.org>\n"
+"POT-Creation-Date: 2014-12-05 17:18+0000\n"
+"PO-Revision-Date: 2016-09-14 17:39+0000\n"
+"Last-Translator: marionafolch <marionafolch7@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
@@ -52,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.5.1.1\n"
-"X-POOTLE-MTIME: 1443014146.000000\n"
+"X-POOTLE-MTIME: 1473874764.000000\n"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:82
 msgid "Finance"
@@ -80,11 +44,7 @@ msgstr ""
 
 #: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:94
 msgid "Credit Categories"
-msgstr ""
-"La vista del pressupost us permet establir un pressupost mensual per a "
-"cadascuna de les categories de les despeses, i feu un seguiment del vostre\n"
-"pressupost. Per establir un pressupost, escriviu la quantitat al quadre de "
-"la dreta de la categoria."
+msgstr "Categories de crèdit"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:96
 msgid "Debit Categories"
@@ -194,9 +154,6 @@ msgstr "Esborra la transacció"
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:319
 msgid "Save as Image"
 msgstr ""
-"La vista del gràfic mostra la proporció de les vostres despeses que hi ha a "
-"cada categoria.\n"
-"Podeu classificar les transaccions a la vista del registre."
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:341
 msgid "Day"
@@ -282,8 +239,9 @@ msgid "Next Month"
 msgstr "Mes següent"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:532
+#, fuzzy
 msgid "Previous Week"
-msgstr ""
+msgstr "Any anterior"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:533
 msgid "This Week"
@@ -329,12 +287,6 @@ msgstr ""
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:926
 msgid "Show in Journal"
 msgstr ""
-"Benvingut a Finances! En aquesta activitat es manté un registre dels "
-"ingressos i de les despeses, per a tot el que guanyeu o gasteu els diners, "
-"com en un club escolar.  Per començar, utilitzeu el quadre de transacció per "
-"afegir els crèdits i els dèbits.\n"
-"Una vegada que hàgiu introduït algunes transaccions, visiteu la vista del "
-"gràfic i la vista del pressupost, per veure més coses."
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:929
 msgid "Ok"

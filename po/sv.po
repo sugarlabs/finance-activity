@@ -2,41 +2,13 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-12-05 17:18+0000\n"
-"PO-Revision-Date: 2016-03-22 19:48+0000\n"
-"Last-Translator: Chris <cjl@sugarlabs.org>\n"
+"PO-Revision-Date: 2017-04-05 13:32+0000\n"
+"Last-Translator: Anders <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
@@ -44,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.5.1.1\n"
-"X-POOTLE-MTIME: 1458676092.000000\n"
+"X-POOTLE-MTIME: 1491399138.000000\n"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:82
 msgid "Finance"
@@ -55,6 +27,9 @@ msgid ""
 "family's finance, make your own budget and learn how to make every penny "
 "count!"
 msgstr ""
+"Vill du hantera pengar klokt? Lär dig grunderna i finansiell planering och "
+"håll ordning på din familjs tillgångar, gör din egen budget och lär dig hur "
+"du kan vända på varje krona!"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:38
 msgid ""
@@ -67,11 +42,11 @@ msgstr ""
 
 #: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:94
 msgid "Credit Categories"
-msgstr ""
+msgstr "Kreditkategorier"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:96
 msgid "Debit Categories"
-msgstr "Debet kategorier"
+msgstr "Debetkategorier"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:160
 #: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:181
@@ -87,12 +62,12 @@ msgid ""
 "Once you have entered some transactions, visit the Chart and Budget views to "
 "see more."
 msgstr ""
-"Välkommen till Finans!   Denna aktivitet håller reda på inkomster och "
-"utgifter för något som tjänar eller använder pengar, såsom en klubb i "
-"skolan.  Börja genom att använda lådan Transaktioner för att lägga till "
-"kredit eller debet.\n"
-"Då du har skrivit in några transaktioner, kan du gå till Diagram och Budget "
-"vyerna för att se mera."
+"Välkommen till Finans! Denna aktivitet håller reda på inkomster och utgifter "
+"för något som tjänar eller använder pengar, såsom en klubb i skolan.  Börja "
+"genom att använda rutan Transaktioner för att lägga till kredit eller debet."
+"\n"
+"När du har skrivit in några transaktioner kan du gå till Diagram- och "
+"Budgetvyerna för att se mer."
 
 #: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:80
 #: /var/www/pootle/sugarlabs/clones/Finance/budgetscreen.py:90
@@ -125,11 +100,11 @@ msgstr "Ny debet"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:166
 msgid "Add some credit or debit to get started!"
-msgstr ""
+msgstr "Lägg till kredit- eller debetposter för att starta!"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:167
 msgid "Add credit"
-msgstr ""
+msgstr "Lägg till kredit"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:182
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:183
@@ -152,23 +127,23 @@ msgstr "Diagram"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:240
 msgid "Export data"
-msgstr ""
+msgstr "Exportera data"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:248
 msgid "Export credits by day"
-msgstr ""
+msgstr "Exportera kredit per dag"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:253
 msgid "Export debits by day"
-msgstr ""
+msgstr "Exportera debet per dag"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:258
 msgid "Export credits by month"
-msgstr ""
+msgstr "Exportera kredit per månad"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:263
 msgid "Export debits by month"
-msgstr ""
+msgstr "Exportera debet per månad"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:307
 msgid "Erase Transaction"
@@ -176,7 +151,7 @@ msgstr "Ta bort transaktion"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:319
 msgid "Save as Image"
-msgstr ""
+msgstr "Spara som bild"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:341
 msgid "Day"
@@ -201,19 +176,19 @@ msgstr "För alltid"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:344
 msgid "Select period"
-msgstr ""
+msgstr "Välj period"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:388
 msgid "Show Credits"
-msgstr ""
+msgstr "Visa kreditposter"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:389
 msgid "Show Debits"
-msgstr ""
+msgstr "Visa debetposter"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:442
 msgid "%B %d, %Y"
-msgstr ""
+msgstr "%d %B, %Y"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:446
 msgid "Week of"
@@ -221,123 +196,123 @@ msgstr "Vecka"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:446
 msgid " %B %d, %Y"
-msgstr ""
+msgstr " %d %B, %Y"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:450
 msgid "%B, %Y"
-msgstr ""
+msgstr "%B, %Y"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:454
 msgid "%Y"
-msgstr ""
+msgstr "%Y"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:496
 msgid "Balance: "
-msgstr "Balans: "
+msgstr "Saldo: "
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:504
 msgid "Starting Balance:"
-msgstr ""
+msgstr "Startsaldo:"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:511
 #, python-format
 msgid "%s in %d credits"
-msgstr ""
+msgstr "%s i %d kreditposter"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:515
 #, python-format
 msgid "%s in %d debits"
-msgstr ""
+msgstr "%s i %d debetposter"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:528
 msgid "Previous Month"
-msgstr ""
+msgstr "Föregående månad"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:529
 msgid "This Month"
-msgstr ""
+msgstr "Denna månad"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:530
 msgid "Next Month"
-msgstr ""
+msgstr "Nästa månad"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:532
 msgid "Previous Week"
-msgstr ""
+msgstr "Föregående vecka"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:533
 msgid "This Week"
-msgstr ""
+msgstr "Denna vecka"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:534
 msgid "Next Week"
-msgstr ""
+msgstr "Nästa vecka"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:536
 msgid "Previous Day"
-msgstr ""
+msgstr "Föregående dag"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:537
 msgid "This Day"
-msgstr ""
+msgstr "Denna dag"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:538
 msgid "Next Day"
-msgstr ""
+msgstr "Nästa dag"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:540
 msgid "Previous Year"
-msgstr ""
+msgstr "Föregående år"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:541
 msgid "This Year"
-msgstr ""
+msgstr "Detta år"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:542
 msgid "Next Year"
-msgstr ""
+msgstr "Nästa år"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:917
 msgid "Chart created"
-msgstr ""
+msgstr "Diagram skapat"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:917
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:1034
 msgid "Open in the Journal"
-msgstr ""
+msgstr "Öppna i dagboken"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:926
 msgid "Show in Journal"
-msgstr ""
+msgstr "Visa i dagbok"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:929
 msgid "Ok"
-msgstr ""
+msgstr "Ok"
 
+# %s inte heller översatta, så ger strängar som 'Credits by month'
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:975
 #, python-format
 msgid "%s by %s"
-msgstr ""
+msgstr "%s per %s"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:1034
 msgid "Exported data"
-msgstr ""
+msgstr "Exporterade data"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/helpbutton.py:38
 msgid "Help"
-msgstr ""
+msgstr "Hjälp"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/budgetscreen.py:42
-#, fuzzy
 msgid ""
 "The Budget view allows you to set a monthly budget for each expense "
 "category, and to keep track of your\n"
 "budgets. To set a budget, type the amount in the box to the right of the "
 "category."
 msgstr ""
-"Budgetvyn låter dig bestämma en månatlig budget för varje kategori, och "
-"hålla reda på dina\n"
-"budgeter.  Skriv in beloppet i lådan till höger om kategorin för att ange en "
+"Budgetvyn låter dig bestämma en månatlig budget för varje utgiftskategori "
+"och hålla reda på dina\n"
+"budgetar. Skriv in beloppet i rutan till höger om kategorin för att ange en "
 "budget."
 
 #: /var/www/pootle/sugarlabs/clones/Finance/budgetscreen.py:94

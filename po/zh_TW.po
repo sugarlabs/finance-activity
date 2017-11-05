@@ -2,39 +2,11 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-27 14:58-0400\n"
+"POT-Creation-Date: 2014-12-05 17:18+0000\n"
 "PO-Revision-Date: 2012-05-27 16:06+0200\n"
 "Last-Translator: Yuan <yuanchao@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -45,68 +17,17 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.5\n"
 
-#. TRANS: "name" option from activity.info file
-#: finance.py:107
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:82
 msgid "Finance"
 msgstr "財務管理"
 
-#. TRANS: "summary" option from activity.info file
-#. TRANS: "description" option from activity.info file
 msgid ""
 "Want to wisely manage money? Learn financial planning basics and track your "
 "family's finance, make your own budget and learn how to make every penny "
 "count!"
 msgstr ""
 
-#: budgetscreen.py:34
-#, fuzzy
-msgid ""
-"The Budget view allows you to set a monthly budget for each expense "
-"category, and to keep track of your\n"
-"budgets. To set a budget, type the amount in the box to the right of the "
-"category."
-msgstr ""
-"在預算畫面，您可以替各個支出分類設定每個月的預算，並且追蹤您的預算。\n"
-"   在各個分類的右方格子中，填入數值來設定預算。"
-
-#: budgetscreen.py:79 registerscreen.py:90
-msgid "Category"
-msgstr "分類"
-
-#: budgetscreen.py:81
-msgid "Spent"
-msgstr "花費"
-
-#: budgetscreen.py:83 finance.py:245 finance.py:246 finance.py:315
-msgid "Budget"
-msgstr "預算"
-
-#: budgetscreen.py:105 chartscreen.py:101
-msgid "Unknown"
-msgstr "未知"
-
-#: budgetscreen.py:152 budgetscreen.py:178 finance.py:223 finance.py:359
-#: finance.py:439 finance.py:462 finance.py:480 finance.py:496
-msgid "Day"
-msgstr "日"
-
-#: budgetscreen.py:153 finance.py:227 finance.py:375 finance.py:376
-#: finance.py:427 finance.py:476 finance.py:512 finance.py:517 finance.py:522
-#: finance.py:535
-msgid "Forever"
-msgstr "無期限"
-
-#: budgetscreen.py:181 finance.py:224 finance.py:363 finance.py:465
-#: finance.py:483 finance.py:499
-msgid "Week"
-msgstr "週"
-
-#: budgetscreen.py:184 finance.py:226 finance.py:371 finance.py:443
-#: finance.py:473 finance.py:492 finance.py:508
-msgid "Year"
-msgstr "年"
-
-#: chartscreen.py:34
+#: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:38
 msgid ""
 "The Chart view shows the proportion of your expenses that is in each "
 "category.\n"
@@ -115,108 +36,21 @@ msgstr ""
 "圖表顯示您在各個項目的花費比例。\n"
 " 您可以在登錄畫面中新增收支的分類。"
 
-#: chartscreen.py:51
+#: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:94
+msgid "Credit Categories"
+msgstr ""
+
+#: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:96
 msgid "Debit Categories"
 msgstr "預支分類"
 
-#: finance.py:132 finance.py:225 finance.py:367 finance.py:435 finance.py:470
-#: finance.py:486 finance.py:502
-msgid "Month"
-msgstr "月"
+#: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:160
+#: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:181
+#: /var/www/pootle/sugarlabs/clones/Finance/budgetscreen.py:127
+msgid "Unknown"
+msgstr "未知"
 
-#: finance.py:183 registerscreen.py:203
-msgid "New Credit"
-msgstr "新增信用項目"
-
-#: finance.py:188 registerscreen.py:215
-msgid "New Debit"
-msgstr "新增預支項目"
-
-#: finance.py:193
-msgid "Erase Transaction"
-msgstr "消除該筆交易"
-
-#: finance.py:218
-msgid "Period: "
-msgstr "期間："
-
-#: finance.py:236 finance.py:237 finance.py:313
-msgid "Register"
-msgstr "登錄"
-
-#: finance.py:253 finance.py:254 finance.py:317
-msgid "Chart"
-msgstr "圖表"
-
-#. TRANS: representation of the "Day" period
-#: finance.py:361
-msgid "%B %d, %Y"
-msgstr "%B %d, %Y"
-
-#. TRANS: representation of the "Week of" period
-#: finance.py:365
-msgid "Week of"
-msgstr "週數"
-
-#: finance.py:365
-msgid " %B %d, %Y"
-msgstr " %B %d, %Y"
-
-#. TRANS: representation of the "Month" period
-#: finance.py:369
-msgid "%B, %Y"
-msgstr "%B, %Y"
-
-#. TRANS: representation of the "Year" period
-#: finance.py:373
-msgid "%Y"
-msgstr "%Y"
-
-#: finance.py:414
-msgid "Balance: "
-msgstr "收支平衡："
-
-#: finance.py:436
-msgid "Previous Month"
-msgstr "前一月"
-
-#: finance.py:437
-msgid "This Month"
-msgstr "本月份"
-
-#: finance.py:438
-msgid "Next Month"
-msgstr "次一月"
-
-#: finance.py:440
-msgid "Previous Day"
-msgstr "前一日"
-
-#: finance.py:441
-msgid "This Day"
-msgstr "本日"
-
-#: finance.py:442
-msgid "Next Day"
-msgstr "次一日"
-
-#: finance.py:444
-msgid "Previous Year"
-msgstr "前一年"
-
-#: finance.py:445
-msgid "This Year"
-msgstr "本年度"
-
-#: finance.py:446
-msgid "Next Year"
-msgstr "次一年"
-
-#: helpbutton.py:38
-msgid "Help"
-msgstr ""
-
-#: registerscreen.py:33
+#: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:37
 #, fuzzy
 msgid ""
 "Welcome to Finance! This activity keeps track of income and expenses for "
@@ -229,17 +63,256 @@ msgstr ""
 " 您可以從交易方格中新增信用與預支項目。\n"
 " 一旦你有輸入過交易項目，您可以在圖表與預算畫面中瞭解更多。"
 
-#: registerscreen.py:63
+#: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:80
+#: /var/www/pootle/sugarlabs/clones/Finance/budgetscreen.py:90
+msgid "Category"
+msgstr "分類"
+
+#: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:92
 msgid "Description"
 msgstr "描述"
 
-#: registerscreen.py:71
+#: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:100
+msgid "Date"
+msgstr "日期"
+
+#: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:109
 msgid "Amount"
 msgstr "數量"
 
-#: registerscreen.py:80
-msgid "Date"
-msgstr "日期"
+#: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:233
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:297
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:378
+msgid "New Credit"
+msgstr "新增信用項目"
+
+#: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:240
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:302
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:379
+msgid "New Debit"
+msgstr "新增預支項目"
+
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:166
+msgid "Add some credit or debit to get started!"
+msgstr ""
+
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:167
+msgid "Add credit"
+msgstr ""
+
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:182
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:183
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:273
+msgid "Register"
+msgstr "登錄"
+
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:191
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:192
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:275
+#: /var/www/pootle/sugarlabs/clones/Finance/budgetscreen.py:98
+msgid "Budget"
+msgstr "預算"
+
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:199
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:200
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:277
+msgid "Chart"
+msgstr "圖表"
+
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:240
+msgid "Export data"
+msgstr ""
+
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:248
+msgid "Export credits by day"
+msgstr ""
+
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:253
+msgid "Export debits by day"
+msgstr ""
+
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:258
+msgid "Export credits by month"
+msgstr ""
+
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:263
+msgid "Export debits by month"
+msgstr ""
+
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:307
+msgid "Erase Transaction"
+msgstr "消除該筆交易"
+
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:319
+msgid "Save as Image"
+msgstr ""
+
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:341
+msgid "Day"
+msgstr "日"
+
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:341
+msgid "Week"
+msgstr "週"
+
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:341
+msgid "Month"
+msgstr "月"
+
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:342
+msgid "Year"
+msgstr "年"
+
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:342
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:457
+msgid "Forever"
+msgstr "無期限"
+
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:344
+msgid "Select period"
+msgstr ""
+
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:388
+msgid "Show Credits"
+msgstr ""
+
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:389
+msgid "Show Debits"
+msgstr ""
+
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:442
+msgid "%B %d, %Y"
+msgstr "%B %d, %Y"
+
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:446
+msgid "Week of"
+msgstr "週數"
+
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:446
+msgid " %B %d, %Y"
+msgstr " %B %d, %Y"
+
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:450
+msgid "%B, %Y"
+msgstr "%B, %Y"
+
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:454
+msgid "%Y"
+msgstr "%Y"
+
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:496
+msgid "Balance: "
+msgstr "收支平衡："
+
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:504
+msgid "Starting Balance:"
+msgstr ""
+
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:511
+#, python-format
+msgid "%s in %d credits"
+msgstr ""
+
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:515
+#, python-format
+msgid "%s in %d debits"
+msgstr ""
+
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:528
+msgid "Previous Month"
+msgstr "前一月"
+
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:529
+msgid "This Month"
+msgstr "本月份"
+
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:530
+msgid "Next Month"
+msgstr "次一月"
+
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:532
+msgid "Previous Week"
+msgstr ""
+
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:533
+msgid "This Week"
+msgstr ""
+
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:534
+msgid "Next Week"
+msgstr ""
+
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:536
+msgid "Previous Day"
+msgstr "前一日"
+
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:537
+msgid "This Day"
+msgstr "本日"
+
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:538
+msgid "Next Day"
+msgstr "次一日"
+
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:540
+msgid "Previous Year"
+msgstr "前一年"
+
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:541
+msgid "This Year"
+msgstr "本年度"
+
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:542
+msgid "Next Year"
+msgstr "次一年"
+
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:917
+msgid "Chart created"
+msgstr ""
+
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:917
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:1034
+msgid "Open in the Journal"
+msgstr ""
+
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:926
+msgid "Show in Journal"
+msgstr ""
+
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:929
+msgid "Ok"
+msgstr ""
+
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:975
+#, python-format
+msgid "%s by %s"
+msgstr ""
+
+#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:1034
+msgid "Exported data"
+msgstr ""
+
+#: /var/www/pootle/sugarlabs/clones/Finance/helpbutton.py:38
+msgid "Help"
+msgstr ""
+
+#: /var/www/pootle/sugarlabs/clones/Finance/budgetscreen.py:42
+#, fuzzy
+msgid ""
+"The Budget view allows you to set a monthly budget for each expense "
+"category, and to keep track of your\n"
+"budgets. To set a budget, type the amount in the box to the right of the "
+"category."
+msgstr ""
+"在預算畫面，您可以替各個支出分類設定每個月的預算，並且追蹤您的預算。\n"
+"   在各個分類的右方格子中，填入數值來設定預算。"
+
+#: /var/www/pootle/sugarlabs/clones/Finance/budgetscreen.py:94
+msgid "Spent"
+msgstr "花費"
+
+#~ msgid "Period: "
+#~ msgstr "期間："
 
 #~ msgid "Show Help"
 #~ msgstr "顯示幫助"

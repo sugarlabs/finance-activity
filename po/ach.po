@@ -7,26 +7,29 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-12-05 17:18+0000\n"
-"PO-Revision-Date: 2017-03-28 12:32+0000\n"
-"Last-Translator: GeeKrypter <psramaraju@gmail.com>\n"
+"PO-Revision-Date: 2017-10-17 05:44+0000\n"
+"Last-Translator: Chris <cjl@sugarlabs.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: hi\n"
+"Language: ach\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.5.1.1\n"
-"X-POOTLE-MTIME: 1490704358.000000\n"
+"X-POOTLE-MTIME: 1508219087.000000\n"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:82
 msgid "Finance"
-msgstr "वित्त"
+msgstr "Lim"
 
 msgid ""
 "Want to wisely manage money? Learn financial planning basics and track your "
 "family's finance, make your own budget and learn how to make every penny "
 "count!"
 msgstr ""
+"Imito tic ki cente iryeko? Pwony jami amite igoyo plan me lim eka ite lubu "
+"kor cente me tungi, yik bajeti eka ite pwonyo yore me miyo cente moro itio "
+"kede pire tek!"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:38
 msgid ""
@@ -34,26 +37,24 @@ msgid ""
 "category.\n"
 "You can categorize transactions in the Register view."
 msgstr ""
-"चार्ट दृश्य प्रत्येक श्रेणी के आपके खर्च के हिस्से को दिखाता है.\n"
-"रजिस्टर दृश्य में आप अपने लेन-देन को श्रेणीबद्ध कर सकते हैं."
+"Ame ineno ogoyo ipapara no nyutu dul cente ma gitiyo kwede iyoreyore.\n"
+" Iromo cano iyoreyore tic ki cente ika anena ibuk Rejista."
 
 #: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:94
-#, fuzzy
 msgid "Credit Categories"
-msgstr "नामे श्रेणी"
+msgstr "Ma icoyo iyoreyore ket tungcam"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:96
 msgid "Debit Categories"
-msgstr "नामे श्रेणी"
+msgstr "Ma icoyo iyoreyore ket tungcem"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:160
 #: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:181
 #: /var/www/pootle/sugarlabs/clones/Finance/budgetscreen.py:127
 msgid "Unknown"
-msgstr "अज्ञात"
+msgstr "Pe ngeye"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:37
-#, fuzzy
 msgid ""
 "Welcome to Finance! This activity keeps track of income and expenses for "
 "anything that earns or spends money, like a school club.  To get started, "
@@ -61,283 +62,257 @@ msgid ""
 "Once you have entered some transactions, visit the Chart and Budget views to "
 "see more."
 msgstr ""
-"<b>फ़ाइनेंस में आपका स्वागत है!</b>   इस कार्य में हर किसी के आय और व्यय का "
-"ब्यौरा रख सकते हैं जो कि पैसा कमाता और खर्च करता है जैसे कि स्कूल क्लब\n"
-"शुरूआत करने के लिए, ट्रांजेक्शन डब्बे का प्रयोग नामे और जमा जोड़ने के लिए "
-"करें.\n"
-"जब आप कुछ लेन-देन भर लेंगे तो और दूसरी चीजों को देखने के लिए चार्ट और बजट "
-"दृश्य में जाएं."
+"Wapwo bino i Lim! Gin atima no mio yin  ilubu kor cente ma itio kwede ki ma "
+"irwenyo pi gin moroni akelo onyo rwenyo cente, acalo klab icukul. Me cako, "
+"ti kede bokci me tic ki cente me wek imed tung cam ki tung cem. \n"
+"Ame ka dong ico jami ma ibedo katino, roti ma ineno i Cat kede Bajeti wek "
+"inen mukene."
 
 #: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:80
 #: /var/www/pootle/sugarlabs/clones/Finance/budgetscreen.py:90
 msgid "Category"
-msgstr "श्रेणी"
+msgstr "Yoreyore"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:92
 msgid "Description"
-msgstr "वर्णन"
+msgstr "Kop ikome"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:100
 msgid "Date"
-msgstr "तारीख़"
+msgstr "Nino dwe"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:109
 msgid "Amount"
-msgstr "रकम"
+msgstr "Wel"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:233
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:297
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:378
 msgid "New Credit"
-msgstr "नया जमा"
+msgstr "Ame gitio kede anyen"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:240
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:302
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:379
 msgid "New Debit"
-msgstr "नया नामे"
+msgstr "Ame ginwongo manyen"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:166
 msgid "Add some credit or debit to get started!"
-msgstr ""
+msgstr "Med ma gitio onyo ginwongo wek icaki!"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:167
 msgid "Add credit"
-msgstr ""
+msgstr "Med ma gitio"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:182
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:183
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:273
 msgid "Register"
-msgstr "पंजीकरण"
+msgstr "Rigista"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:191
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:192
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:275
 #: /var/www/pootle/sugarlabs/clones/Finance/budgetscreen.py:98
 msgid "Budget"
-msgstr "बजट"
+msgstr "Bajet"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:199
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:200
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:277
 msgid "Chart"
-msgstr "चार्ट"
+msgstr "Cat"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:240
 msgid "Export data"
-msgstr ""
+msgstr "Cwal ngide kop"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:248
 msgid "Export credits by day"
-msgstr ""
+msgstr "Cwal ma gitio kwede ikom nino"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:253
 msgid "Export debits by day"
-msgstr ""
+msgstr "Cwal ma ginwongo ikom dwe"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:258
 msgid "Export credits by month"
-msgstr ""
+msgstr "Cwal ma gitio ikom dwe"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:263
 msgid "Export debits by month"
-msgstr ""
+msgstr "Cwal ma ginwongo ikom dwe"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:307
 msgid "Erase Transaction"
-msgstr "लेन-देन मिटाएँ"
+msgstr "Jwa oko ma Gitimo"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:319
 msgid "Save as Image"
-msgstr ""
+msgstr "Gwoki i calere"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:341
 msgid "Day"
-msgstr "दिन"
+msgstr "Nino"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:341
 msgid "Week"
-msgstr "सप्ताह"
+msgstr "Cabit"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:341
 msgid "Month"
-msgstr "माह"
+msgstr "Dwe"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:342
 msgid "Year"
-msgstr "वर्ष"
+msgstr "Mwaka"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:342
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:457
 msgid "Forever"
-msgstr "हमेशा के लिए"
+msgstr "Matwal"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:344
 msgid "Select period"
-msgstr ""
+msgstr "Yer kare mo"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:388
 msgid "Show Credits"
-msgstr ""
+msgstr "Nyut ma gitio kwede"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:389
 msgid "Show Debits"
-msgstr ""
+msgstr "Nyut ma ginwongo"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:442
 msgid "%B %d, %Y"
-msgstr ""
+msgstr "%B %d, %Y"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:446
 msgid "Week of"
-msgstr "का सप्ताह"
+msgstr "Cabit me"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:446
 msgid " %B %d, %Y"
-msgstr ""
+msgstr " %B %d, %Y"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:450
 msgid "%B, %Y"
-msgstr ""
+msgstr "%B, %Y"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:454
 msgid "%Y"
-msgstr ""
+msgstr "%Y"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:496
 msgid "Balance: "
-msgstr "बाकी: "
+msgstr "Tere odong: "
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:504
 msgid "Starting Balance:"
-msgstr ""
+msgstr "Cako tere mudong:"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:511
 #, python-format
 msgid "%s in %d credits"
-msgstr ""
+msgstr "%s in %d ma gitio"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:515
 #, python-format
 msgid "%s in %d debits"
-msgstr ""
+msgstr "%s in %d ma ginwongo"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:528
 msgid "Previous Month"
-msgstr "पिछ्ला महिना"
+msgstr "Dwe mukato"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:529
 msgid "This Month"
-msgstr "इस महीने"
+msgstr "Dwe man"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:530
 msgid "Next Month"
-msgstr "अगले महीने"
+msgstr "Dwe mabibino"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:532
 msgid "Previous Week"
-msgstr "पिछला सप्ताह"
+msgstr "Cabit mukato"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:533
 msgid "This Week"
-msgstr "इस सप्ताह"
+msgstr "Cabit man"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:534
 msgid "Next Week"
-msgstr "अगले सप्ताह"
+msgstr "Cabit mabibino"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:536
 msgid "Previous Day"
-msgstr ""
+msgstr "Nino mukato"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:537
 msgid "This Day"
-msgstr "इस दिन"
+msgstr "Tini"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:538
 msgid "Next Day"
-msgstr "अगले दिन"
+msgstr "Diki"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:540
 msgid "Previous Year"
-msgstr "पिछला साल"
+msgstr "Mwaka mukato"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:541
 msgid "This Year"
-msgstr "इस साल"
+msgstr "Mwaka ni"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:542
 msgid "Next Year"
-msgstr "अगले वर्ष"
+msgstr "Mwaka Mabibino"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:917
 msgid "Chart created"
-msgstr ""
+msgstr "Giyiko Cat"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:917
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:1034
 msgid "Open in the Journal"
-msgstr ""
+msgstr "Yab yi Janol"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:926
 msgid "Show in Journal"
-msgstr ""
+msgstr "Nyut iyi Janol"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:929
 msgid "Ok"
-msgstr "ठीक"
+msgstr "Ok"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:975
 #, python-format
 msgid "%s by %s"
-msgstr ""
+msgstr "%s ikom %s"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:1034
 msgid "Exported data"
-msgstr ""
+msgstr "Ngide kop ma Gicwalo"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/helpbutton.py:38
 msgid "Help"
-msgstr "मदद"
+msgstr "Konyi"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/budgetscreen.py:42
-#, fuzzy
 msgid ""
 "The Budget view allows you to set a monthly budget for each expense "
 "category, and to keep track of your\n"
 "budgets. To set a budget, type the amount in the box to the right of the "
 "category."
 msgstr ""
-"बजट दृश्य के जरिए आप अपने प्रत्येक खर्च श्रेणी के मासिक बजट को सेट कर सकते "
-"हैं और अपने\n"
-"बजट पर निगाह रख सकते हैं. बजट सेट करने के लिए श्रेणी के दाएँ बाजू में दिए "
-"बक्से में रकम भरें."
+"Ma ineno i Myek me lim konyi me yiko myek me lim dwe idwe pi gin ma gitiyo "
+"kwede iyoreyore, kede me lubu kor myek me lim\n"
+" meri.Me cako myek me lim, co wel iyi bokci tung cem me gin ma gicano "
+"iyoreyore."
 
 #: /var/www/pootle/sugarlabs/clones/Finance/budgetscreen.py:94
 msgid "Spent"
-msgstr "खर्च"
-
-#~ msgid "Period: "
-#~ msgstr "अवधि: "
-
-#~ msgid "Show Help"
-#~ msgstr "मदद दिखाएँ"
-
-#~ msgid "Transaction"
-#~ msgstr "लेन-देन"
-
-#~ msgid "Period"
-#~ msgstr "अवधि"
-
-#~ msgid "View"
-#~ msgstr "दृश्य"
-
-#~ msgid "Previous"
-#~ msgstr "पिछला"
-
-#~ msgid "This"
-#~ msgstr "यह"
-
-#~ msgid "Next"
-#~ msgstr "अगला"
+msgstr "Gitio kwede"

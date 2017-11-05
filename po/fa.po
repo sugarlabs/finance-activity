@@ -2,49 +2,21 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-12-05 17:18+0000\n"
-"PO-Revision-Date: 2015-09-21 02:10+0000\n"
-"Last-Translator: َAhmad <dramir2wiki@gmail.com>\n"
+"PO-Revision-Date: 2017-03-18 19:43+0000\n"
+"Last-Translator: Chris <cjl@sugarlabs.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pootle 2.5.1.1\n"
-"X-POOTLE-MTIME: 1442801456.000000\n"
+"X-POOTLE-MTIME: 1489866210.000000\n"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:82
 msgid "Finance"
@@ -65,24 +37,25 @@ msgid ""
 "category.\n"
 "You can categorize transactions in the Register view."
 msgstr ""
-"نمایش نمودار هزینه های شما که نشان می دهد در هر رده \\ nشما می توانید "
-"معاملات دسته بندی شده را ثبت و نمایش دهید."
+"نمایش نمودار هزینه های شما که نشان می دهد در هر رده \n"
+"شما می توانید معاملات دسته بندی شده را ثبت و نمایش دهید."
 
 #: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:94
 msgid "Credit Categories"
-msgstr ""
+msgstr "دسته اعتباری"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:96
 msgid "Debit Categories"
-msgstr "دسته بندی بدهی ها "
+msgstr "دسته بندی بدهی ها"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:160
 #: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:181
 #: /var/www/pootle/sugarlabs/clones/Finance/budgetscreen.py:127
 msgid "Unknown"
-msgstr ""
+msgstr "ناشناخته"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:37
+#, fuzzy
 msgid ""
 "Welcome to Finance! This activity keeps track of income and expenses for "
 "anything that earns or spends money, like a school club.  To get started, "
@@ -127,17 +100,17 @@ msgstr "وجه نقدی جدید"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:166
 msgid "Add some credit or debit to get started!"
-msgstr ""
+msgstr "اعتبار یا بدهی خود را افزایش دهید تا کار شروع شود"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:167
 msgid "Add credit"
-msgstr ""
+msgstr "افزایش اعتبار"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:182
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:183
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:273
 msgid "Register"
-msgstr ""
+msgstr "ثبت نام کردن"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:191
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:192
@@ -150,27 +123,27 @@ msgstr "بودجه"
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:200
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:277
 msgid "Chart"
-msgstr ""
+msgstr "جدول، نقشه"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:240
 msgid "Export data"
-msgstr ""
+msgstr "خروج داده ها"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:248
 msgid "Export credits by day"
-msgstr ""
+msgstr "اعتبارات را روزانه وارد کنید"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:253
 msgid "Export debits by day"
-msgstr ""
+msgstr "بدهی ها را روزانه وارد کنید"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:258
 msgid "Export credits by month"
-msgstr ""
+msgstr "اعتبارات را ماهیانه وارد کنید"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:263
 msgid "Export debits by month"
-msgstr ""
+msgstr "بدهی ها را ماهیانه وارد کنید"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:307
 msgid "Erase Transaction"
@@ -178,7 +151,7 @@ msgstr "پاک کردن معامله"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:319
 msgid "Save as Image"
-msgstr ""
+msgstr "به صورت عکس ذخیره کنید"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:341
 msgid "Day"
@@ -203,15 +176,15 @@ msgstr "برای همیشه‌"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:344
 msgid "Select period"
-msgstr ""
+msgstr "دوره را انتخاب کنید"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:388
 msgid "Show Credits"
-msgstr ""
+msgstr "اعتبارات را نشان دهید"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:389
 msgid "Show Debits"
-msgstr ""
+msgstr "بدهی ها را نشان دهید"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:442
 msgid "%B %d, %Y"
@@ -219,7 +192,7 @@ msgstr ""
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:446
 msgid "Week of"
-msgstr ""
+msgstr "هفته ی"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:446
 msgid " %B %d, %Y"
@@ -235,11 +208,11 @@ msgstr ""
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:496
 msgid "Balance: "
-msgstr "توازن:"
+msgstr "توازن: "
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:504
 msgid "Starting Balance:"
-msgstr ""
+msgstr "شروع تعادل"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:511
 #, python-format
@@ -265,15 +238,15 @@ msgstr "ماه بعد"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:532
 msgid "Previous Week"
-msgstr ""
+msgstr "هفته قبل"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:533
 msgid "This Week"
-msgstr ""
+msgstr "این هفته"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:534
 msgid "Next Week"
-msgstr ""
+msgstr "هفته بعد"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:536
 msgid "Previous Day"
@@ -301,20 +274,20 @@ msgstr "سال بعد"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:917
 msgid "Chart created"
-msgstr ""
+msgstr "نمودار ایجاد شده است"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:917
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:1034
 msgid "Open in the Journal"
-msgstr ""
+msgstr "در دفتر روزنامه باز کنید"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:926
 msgid "Show in Journal"
-msgstr ""
+msgstr "در دفتر روزنامه نشان دهید"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:929
 msgid "Ok"
-msgstr ""
+msgstr "خوب"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:975
 #, python-format
@@ -323,7 +296,7 @@ msgstr ""
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:1034
 msgid "Exported data"
-msgstr ""
+msgstr "داده های خروجی"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/helpbutton.py:38
 msgid "Help"

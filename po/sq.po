@@ -2,56 +2,21 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-12-05 17:18+0000\n"
-"PO-Revision-Date: 2011-11-29 06:03+0200\n"
-"Last-Translator: Chris <cjl@laptop.org>\n"
+"PO-Revision-Date: 2016-11-28 09:52+0000\n"
+"Last-Translator: Besnik_b <besnik@programeshqip.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: sq\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.5\n"
+"X-Generator: Pootle 2.5.1.1\n"
+"X-POOTLE-MTIME: 1480326771.000000\n"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:82
 msgid "Finance"
@@ -62,6 +27,9 @@ msgid ""
 "family's finance, make your own budget and learn how to make every penny "
 "count!"
 msgstr ""
+"Doni t’i administroni me mend paratë? Mësoni bazat e planifikimit financiar "
+"dhe ndiqni financat e familjes tuaj, krijoni buxhetin tuaj dhe mësoni si ta "
+"bëni çdo qindarkë të ketë peshë!"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:38
 msgid ""
@@ -69,26 +37,24 @@ msgid ""
 "category.\n"
 "You can categorize transactions in the Register view."
 msgstr ""
-"Lista e parë tregon proporcionin e shpenzimeve tuaj që është në çdo "
-"kategori. \n"
-" Ju mund të kategorizoj transaksionet në pikëpamje Regjistruese."
+"Grafiku i parë shfaq pjesën e shpenzimeve tuaja që gjendet në çdo kategori.\n"
+"Transaksionet mund t’i sistemoni në kategori që nga pamja Regjistër."
 
 #: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:94
 msgid "Credit Categories"
-msgstr ""
+msgstr "Kategori Krediti"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:96
 msgid "Debit Categories"
-msgstr "Kategorit Debi"
+msgstr "Kategori Debiti"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:160
 #: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:181
 #: /var/www/pootle/sugarlabs/clones/Finance/budgetscreen.py:127
 msgid "Unknown"
-msgstr ""
+msgstr "E panjohur"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:37
-#, fuzzy
 msgid ""
 "Welcome to Finance! This activity keeps track of income and expenses for "
 "anything that earns or spends money, like a school club.  To get started, "
@@ -96,11 +62,12 @@ msgid ""
 "Once you have entered some transactions, visit the Chart and Budget views to "
 "see more."
 msgstr ""
-"<b>Mirë se vini në Financave</b>   Ky aktivitet mban gjurmët e të ardhurave "
-"dhe shpenzimeve për çdo gjë që fiton \\ napo shpenzon, si një klub shkolle.  "
-"Për t'ia filluar, përdorni kutinë e transaksionit për të shtuar kreditë dhe "
-"debit. \\ NPasi të keni hyrë në disa transaksione, vizitoni Listat dhe "
-"pikëpamjet e Buxhetit për të parë më shumë."
+"Mirë se vini te Financat! Përmes kësaj veprimtarie mund të ndiqni të "
+"ardhurat dhe shpenzimet për gjithçka që fiton ose shpenzon para, fjala vjen, "
+"klubi i shkollës. Për t’ia filluar, përdorni kutinë e Transaksioneve që të "
+"shtoni kredit dhe debit. \n"
+"Pasi të keni dhënë disa transaksione, vizitoni pamjet Grafikë dhe Buxhet për "
+"të parë më shumë."
 
 #: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:80
 #: /var/www/pootle/sugarlabs/clones/Finance/budgetscreen.py:90
@@ -109,11 +76,11 @@ msgstr "Kategori"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:92
 msgid "Description"
-msgstr "Përshkrimi"
+msgstr "Përshkrim"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:100
 msgid "Date"
-msgstr "Data"
+msgstr "Datë"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:109
 msgid "Amount"
@@ -123,34 +90,34 @@ msgstr "Shumë"
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:297
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:378
 msgid "New Credit"
-msgstr "Kredit të ri"
+msgstr "Kredit i Ri"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:240
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:302
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:379
 msgid "New Debit"
-msgstr "Debitore të re"
+msgstr "Debit i Ri"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:166
 msgid "Add some credit or debit to get started!"
-msgstr ""
+msgstr "Që t’ia fillohet, shtoni ca kredit ose debit!"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:167
 msgid "Add credit"
-msgstr ""
+msgstr "Shtoni kredit"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:182
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:183
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:273
 msgid "Register"
-msgstr "Regjistrohu"
+msgstr "Regjistroje"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:191
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:192
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:275
 #: /var/www/pootle/sugarlabs/clones/Finance/budgetscreen.py:98
 msgid "Budget"
-msgstr "Buxheti"
+msgstr "Buxhet"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:199
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:200
@@ -160,31 +127,31 @@ msgstr "Hartë"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:240
 msgid "Export data"
-msgstr ""
+msgstr "Eksporto të dhëna"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:248
 msgid "Export credits by day"
-msgstr ""
+msgstr "Eksporto kredite sipas ditësh"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:253
 msgid "Export debits by day"
-msgstr ""
+msgstr "Eksporto debit sipas ditësh"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:258
 msgid "Export credits by month"
-msgstr ""
+msgstr "Eksporto kredite sipas muajsh"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:263
 msgid "Export debits by month"
-msgstr ""
+msgstr "Eksporto debit sipas muajsh"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:307
 msgid "Erase Transaction"
-msgstr "Shuaj Transaksion"
+msgstr "Fshije Transaksionin"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:319
 msgid "Save as Image"
-msgstr ""
+msgstr "Ruaje si Figurë"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:341
 msgid "Day"
@@ -209,147 +176,146 @@ msgstr "Përgjithmonë"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:344
 msgid "Select period"
-msgstr ""
+msgstr "Përzgjidhni periudhë"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:388
 msgid "Show Credits"
-msgstr ""
+msgstr "Shfaq Kredite"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:389
 msgid "Show Debits"
-msgstr ""
+msgstr "Eksporto debit sipas ditësh"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:442
 msgid "%B %d, %Y"
-msgstr ""
+msgstr "%d %B %Y"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:446
 msgid "Week of"
-msgstr "Javë e"
+msgstr "Java e"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:446
 msgid " %B %d, %Y"
-msgstr ""
+msgstr " %d %B, %Y"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:450
 msgid "%B, %Y"
-msgstr ""
+msgstr "%B, %Y"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:454
 msgid "%Y"
-msgstr ""
+msgstr "%Y"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:496
 msgid "Balance: "
-msgstr "Balanc: "
+msgstr "Balancë: "
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:504
 msgid "Starting Balance:"
-msgstr ""
+msgstr "Balancë Fillimi:"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:511
 #, python-format
 msgid "%s in %d credits"
-msgstr ""
+msgstr "%s në %d kredite"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:515
 #, python-format
 msgid "%s in %d debits"
-msgstr ""
+msgstr "%s në %d debit"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:528
 msgid "Previous Month"
-msgstr ""
+msgstr "Muaji i Mëparshëm"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:529
 msgid "This Month"
-msgstr ""
+msgstr "Këtë Muaj"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:530
 msgid "Next Month"
-msgstr ""
+msgstr "Muaji Pasues"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:532
 msgid "Previous Week"
-msgstr ""
+msgstr "Java e Mëparshme"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:533
 msgid "This Week"
-msgstr ""
+msgstr "Këtë Javë"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:534
 msgid "Next Week"
-msgstr ""
+msgstr "Java Pasuese"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:536
 msgid "Previous Day"
-msgstr ""
+msgstr "Dita e Mëparshme"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:537
 msgid "This Day"
-msgstr ""
+msgstr "Këtë Ditë"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:538
 msgid "Next Day"
-msgstr ""
+msgstr "Dita Pasuese"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:540
 msgid "Previous Year"
-msgstr ""
+msgstr "Viti i Mëparshëm"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:541
 msgid "This Year"
-msgstr ""
+msgstr "Këtë Vit"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:542
 msgid "Next Year"
-msgstr ""
+msgstr "Viti Pasues"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:917
 msgid "Chart created"
-msgstr ""
+msgstr "Grafiku u krijua"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:917
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:1034
 msgid "Open in the Journal"
-msgstr ""
+msgstr "Hape në Ditar"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:926
 msgid "Show in Journal"
-msgstr ""
+msgstr "Shfaqe në Ditar"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:929
 msgid "Ok"
-msgstr ""
+msgstr "Ok"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:975
 #, python-format
 msgid "%s by %s"
-msgstr ""
+msgstr "%s nga %s"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/finance.py:1034
 msgid "Exported data"
-msgstr ""
+msgstr "Të dhëna të eksportuara"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/helpbutton.py:38
 msgid "Help"
-msgstr ""
+msgstr "Ndihmë"
 
 #: /var/www/pootle/sugarlabs/clones/Finance/budgetscreen.py:42
-#, fuzzy
 msgid ""
 "The Budget view allows you to set a monthly budget for each expense "
 "category, and to keep track of your\n"
 "budgets. To set a budget, type the amount in the box to the right of the "
 "category."
 msgstr ""
-"Shikim Buxheti ju lejon për të përcaktuar një buxhet mujor për secilën "
-"kategori të shpenzimeve, dhe të mbajnë gjurmët e juaj n \të buxheteve.  Për "
-"të vendosur një buxhet, Shkruani shumën në kuti për të drejtën e kategorive."
+"Pamja Buxhet ju lejon të caktoni buxhet mujor për çdo kategori shpenzimesh, "
+"dhe të ndiqni buxhetet tuaja.\n"
+"Që të caktoni një buxhet, shtypeni shumën te kutia djathtas kategorisë."
 
 #: /var/www/pootle/sugarlabs/clones/Finance/budgetscreen.py:94
 msgid "Spent"
-msgstr "Shpenzo"
+msgstr "Të shpenzuara"
 
 #~ msgid "Period: "
 #~ msgstr "Periudhë: "
