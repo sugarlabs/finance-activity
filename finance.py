@@ -512,12 +512,15 @@ class Finance(activity.Activity):
 
         self.creditslabel.set_markup(
             "<span foreground='white'><b>%s</b></span>" %
-            (_('%s in %d credits') % (locale.currency(credit_total),
-                                      credit_count)))
+            (_('%(credit_total)s in %(credit_count)d credits') %
+             {'credit_total': locale.currency(credit_total),
+              'credit_count': credit_count}))
+
         self.debitslabel.set_markup(
             "<span foreground='white'><b>%s</b></span>" %
-            (_('%s in %d debits') % (locale.currency(debit_total),
-                                     debit_count)))
+            (_('%(debit_total)s in %(debit_count)d debits') %
+             {'debit_total': locale.currency(debit_total),
+              'debit_count': debit_count}))
 
     def update_toolbar(self):
         # Disable the navigation when Forever is selected.
@@ -976,7 +979,8 @@ class Finance(activity.Activity):
         else:
             logging.error('ERROR period should be DAY or MONTH')
 
-        title = _('%s by %s') % (what_filter, when)
+        title = _('%(what_filter)s by %(when)s') % {
+            'what_filter': what_filter, 'when': when}
         chart_params['title'] = title
         chart_params['x_label'] = ''
         chart_params['y_label'] = ''
