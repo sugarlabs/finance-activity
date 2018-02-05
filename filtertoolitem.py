@@ -65,7 +65,7 @@ class FilterToolItem(Gtk.ToolButton):
 
     def set_widget_icon(self, icon_name=None):
         icon = Icon(icon_name=icon_name,
-                    icon_size=style.SMALL_ICON_SIZE)
+                    pixel_size=style.SMALL_ICON_SIZE)
         self.set_icon_widget(icon)
         icon.show()
 
