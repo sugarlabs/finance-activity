@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-06 08:02+1100\n"
+"POT-Creation-Date: 2018-02-26 17:03+1100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -185,84 +185,84 @@ msgstr ""
 
 #: finance.py:515
 #, python-format
-msgid "%s in %d credits"
+msgid "%(credit_total)s in %(credit_count)d credits"
 msgstr ""
 
-#: finance.py:519
+#: finance.py:521
 #, python-format
-msgid "%s in %d debits"
+msgid "%(debit_total)s in %(debit_count)d debits"
 msgstr ""
 
-#: finance.py:532
+#: finance.py:535
 msgid "Previous Month"
 msgstr ""
 
-#: finance.py:533
+#: finance.py:536
 msgid "This Month"
 msgstr ""
 
-#: finance.py:534
+#: finance.py:537
 msgid "Next Month"
 msgstr ""
 
-#: finance.py:536
+#: finance.py:539
 msgid "Previous Week"
 msgstr ""
 
-#: finance.py:537
+#: finance.py:540
 msgid "This Week"
 msgstr ""
 
-#: finance.py:538
+#: finance.py:541
 msgid "Next Week"
 msgstr ""
 
-#: finance.py:540
+#: finance.py:543
 msgid "Previous Day"
 msgstr ""
 
-#: finance.py:541
+#: finance.py:544
 msgid "This Day"
 msgstr ""
 
-#: finance.py:542
+#: finance.py:545
 msgid "Next Day"
 msgstr ""
 
-#: finance.py:544
+#: finance.py:547
 msgid "Previous Year"
 msgstr ""
 
-#: finance.py:545
+#: finance.py:548
 msgid "This Year"
 msgstr ""
 
-#: finance.py:546
+#: finance.py:549
 msgid "Next Year"
 msgstr ""
 
-#: finance.py:921
+#: finance.py:924
 msgid "Chart created"
 msgstr ""
 
-#: finance.py:921 finance.py:1038
+#: finance.py:924 finance.py:1042
 msgid "Open in the Journal"
 msgstr ""
 
-#: finance.py:930
+#: finance.py:933
 msgid "Show in Journal"
 msgstr ""
 
-#: finance.py:933
+#: finance.py:936
 msgid "Ok"
 msgstr ""
 
-#: finance.py:979
+#: finance.py:982
 #, python-format
-msgid "%s by %s"
+msgid "%(what_filter)s by %(when)s"
 msgstr ""
 
-#: finance.py:1038
+#: finance.py:1042
 msgid "Exported data"
 msgstr ""
 
