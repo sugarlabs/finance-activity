@@ -1,5 +1,3 @@
-import logging
-
 from gi.repository import GObject
 from gi.repository import Gtk
 from gi.repository import Gdk
@@ -25,7 +23,6 @@ class FilterToolItem(Gtk.ToolButton):
         self._options = options
         self._palette_title = palette_title
         Gtk.ToolButton.__init__(self)
-        logging.error('filter options %s', options)
         self._value = default_value
         self._label = self._options[default_value]
         self.set_is_important(True)
@@ -65,7 +62,7 @@ class FilterToolItem(Gtk.ToolButton):
 
     def set_widget_icon(self, icon_name=None):
         icon = Icon(icon_name=icon_name,
-                    icon_size=style.SMALL_ICON_SIZE)
+                    pixel_size=style.SMALL_ICON_SIZE)
         self.set_icon_widget(icon)
         icon.show()
 
