@@ -60,8 +60,8 @@ class RegisterScreen(Gtk.VBox):
         self.treeview.set_model(self.liststore)
         sep = style.DEFAULT_SPACING
 
-        theme = "* {-GtkTreeView-vertical-separator: %d;" \
-                "   -GtkTreeView-horizontal-separator: %d;}" % (sep, sep)
+        theme = b"* {-GtkTreeView-vertical-separator: %d;" \
+                b"   -GtkTreeView-horizontal-separator: %d;}" % (sep, sep)
 
         css_provider = Gtk.CssProvider()
         css_provider.load_from_data(theme)
@@ -134,7 +134,7 @@ class RegisterScreen(Gtk.VBox):
         completion.set_popup_completion(True)
         completion.set_minimum_key_length(0)
         store = Gtk.ListStore(str)
-        for c in self.activity.transaction_names.keys():
+        for c in list(self.activity.transaction_names.keys()):
             store.append([c])
         completion.set_model(store)
         completion.set_text_column(0)
@@ -212,7 +212,7 @@ class RegisterScreen(Gtk.VBox):
         completion.set_popup_completion(True)
         completion.set_minimum_key_length(0)
         store = Gtk.ListStore(str)
-        for c in self.activity.category_names.keys():
+        for c in list(self.activity.category_names.keys()):
             store.append([c])
         completion.set_model(store)
         completion.set_text_column(0)
