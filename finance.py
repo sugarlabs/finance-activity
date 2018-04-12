@@ -24,7 +24,7 @@ import locale
 from gettext import gettext as _
 import json
 import tempfile
-import StringIO
+import io
 import dbus
 
 import gi
@@ -646,7 +646,7 @@ class Finance(activity.Activity):
                 if d >= period_start_ord and d < period_end_ord:
                     self.visible_transactions.append(t)
 
-        self.visible_transactions.sort(lambda a, b: a['date'] - b['date'])
+        self.visible_transactions.sort(key=lambda a: a['date'])
 
     def build_transaction_map(self):
         self.transaction_map = {}
@@ -915,7 +915,7 @@ class Finance(activity.Activity):
         journal_entry.file_path = image_file.name
 
         # generate the preview
-        preview_str = StringIO.StringIO()
+        preview_str = io.StringIO()
         self.chart.generate_image(preview_str, activity.PREVIEW_SIZE[0],
                                   activity.PREVIEW_SIZE[1])
         journal_entry.metadata['preview'] = dbus.ByteArray(
@@ -1008,7 +1008,7 @@ class Finance(activity.Activity):
                 elif period == MONTH:
                     d = datetime.date.fromordinal(date)
                     group = datetime.date(d.year, d.month, 1).toordinal()
-                if group in groups.keys():
+                if group in list(groups.keys()):
                     groups[group] = groups[group] + transaction['amount']
                 else:
                     groups[group] = transaction['amount']

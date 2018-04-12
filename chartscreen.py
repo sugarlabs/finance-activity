@@ -109,9 +109,8 @@ class ChartScreen(Gtk.VBox):
                     self.category_total[cat] += amount
 
         # Generate a list of names sorted by total.
-        self.sorted_categories = self.category_total.keys()
-        # self.sorted_categories.sort(lamba a, b: cmp(self.category_total[a],
-        #                                             self.category_total[b]))
+        self.sorted_categories = list(self.category_total.keys())
+        # self.sorted_categories.sort(key = lamba a, b: self.category_total[a])
         self.area.queue_draw()
 
     def generate_image(self, image_file, width, height):
