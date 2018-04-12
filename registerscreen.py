@@ -27,9 +27,6 @@ from gi.repository import Pango
 
 from sugar3.graphics import style
 
-# Set up localization.
-locale.setlocale(locale.LC_ALL, '')
-
 # Import activity module
 import colors
 

@@ -31,9 +31,6 @@ from gi.repository import PangoCairo
 
 from sugar3.graphics import style
 
-# Set up localization.
-locale.setlocale(locale.LC_ALL, '')
-
 CHART_HELP = _(
     'The Chart view shows the proportion of your expenses that is in each '
     'category.\nYou can categorize transactions in the Register view.')

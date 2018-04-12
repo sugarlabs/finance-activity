@@ -59,7 +59,10 @@ from filtertoolitem import FilterToolItem
 import emptypanel
 
 # Set up localization.
-locale.setlocale(locale.LC_ALL, '')
+try:
+    locale.setlocale(locale.LC_ALL, '')
+except locale.Error:  # doesn't matter if $LANG invalid
+    locale.setlocale(locale.LC_ALL, 'en_US.utf8')
 
 # Initialize logging.
 log = logging.getLogger('Finance')

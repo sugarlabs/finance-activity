@@ -26,9 +26,6 @@ from gi.repository import GObject
 
 from sugar3.graphics import style
 
-# Set up localization.
-locale.setlocale(locale.LC_ALL, '')
-
 import colors
 
 # copied from finance.py to not create another module
