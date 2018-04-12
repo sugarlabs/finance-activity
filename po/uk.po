@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-05 17:18+0000\n"
+"POT-Creation-Date: 2017-11-06 08:02+1100\n"
 "PO-Revision-Date: 2017-04-16 15:26+0000\n"
 "Last-Translator: yurchor <yurchor@ukr.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,10 +19,11 @@ msgstr ""
 "X-Generator: Pootle 2.5.1.1\n"
 "X-POOTLE-MTIME: 1492356399.000000\n"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:82
+#: activity/activity.info:2 finance.py:85
 msgid "Finance"
 msgstr "Фінанси"
 
+#: activity/activity.info:3
 msgid ""
 "Want to wisely manage money? Learn financial planning basics and track your "
 "family's finance, make your own budget and learn how to make every penny "
@@ -32,7 +33,34 @@ msgstr ""
 "слідкувати за сімейними фінансами, створи власний бюджет і навчись "
 "облікувати кожну копійку!"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:38
+#: budgetscreen.py:42
+msgid ""
+"The Budget view allows you to set a monthly budget for each expense "
+"category, and to keep track of your\n"
+"budgets. To set a budget, type the amount in the box to the right of the "
+"category."
+msgstr ""
+"Панель Бюджет надає вам змогу встановити щомісячний бюджет для кожної "
+"категорії витрат, і стежити за своїми\n"
+"бюджетами. Щоб встановити бюджет, введіть суму в полі праворуч від категорії."
+
+#: budgetscreen.py:90 registerscreen.py:80
+msgid "Category"
+msgstr "Категорія"
+
+#: budgetscreen.py:94
+msgid "Spent"
+msgstr "Витрачено"
+
+#: budgetscreen.py:98 finance.py:195 finance.py:196 finance.py:279
+msgid "Budget"
+msgstr "Баланс"
+
+#: budgetscreen.py:127 chartscreen.py:160 chartscreen.py:181
+msgid "Unknown"
+msgstr "Невідомо"
+
+#: chartscreen.py:38
 msgid ""
 "The Chart view shows the proportion of your expenses that is in each "
 "category.\n"
@@ -41,21 +69,218 @@ msgstr ""
 "Вигляд Діаграма показує співвідношення ваших витрат в кожній категорії.\n"
 "Ви можете класифікувати операції на сторінці Реєстрація."
 
-#: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:94
+#: chartscreen.py:94
 msgid "Credit Categories"
 msgstr "Категорії прибутків"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:96
+#: chartscreen.py:96
 msgid "Debit Categories"
 msgstr "Категорії витрат"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:160
-#: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:181
-#: /var/www/pootle/sugarlabs/clones/Finance/budgetscreen.py:127
-msgid "Unknown"
-msgstr "Невідомо"
+#: finance.py:169
+msgid "Add some credit or debit to get started!"
+msgstr "Спочатку додайте запис прибутків чи витрат!"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:37
+#: finance.py:170
+msgid "Add credit"
+msgstr "Додати прибуток"
+
+#: finance.py:186 finance.py:187 finance.py:277
+msgid "Register"
+msgstr "Реєстр"
+
+#: finance.py:203 finance.py:204 finance.py:281
+msgid "Chart"
+msgstr "Діаграма"
+
+#: finance.py:244
+msgid "Export data"
+msgstr "Експортувати дані"
+
+#: finance.py:252
+msgid "Export credits by day"
+msgstr "Експортувати прибутки за днями"
+
+#: finance.py:257
+msgid "Export debits by day"
+msgstr "Експортувати витрати за днями"
+
+#: finance.py:262
+msgid "Export credits by month"
+msgstr "Експортувати прибутки за місяцями"
+
+#: finance.py:267
+msgid "Export debits by month"
+msgstr "Експортувати витрати за місяцями"
+
+#: finance.py:301 finance.py:382 registerscreen.py:233
+msgid "New Credit"
+msgstr "Новий прибуток"
+
+#: finance.py:306 finance.py:383 registerscreen.py:240
+msgid "New Debit"
+msgstr "Нові витрати"
+
+#: finance.py:311
+msgid "Erase Transaction"
+msgstr "Стерти операцію"
+
+#: finance.py:323
+msgid "Save as Image"
+msgstr "Зберегти як зображення"
+
+#: finance.py:345
+msgid "Day"
+msgstr "День"
+
+#: finance.py:345
+msgid "Week"
+msgstr "Тиждень"
+
+#: finance.py:345
+msgid "Month"
+msgstr "Місяць"
+
+#: finance.py:346
+msgid "Year"
+msgstr "Рік"
+
+#: finance.py:346 finance.py:461
+msgid "Forever"
+msgstr "Усі дані"
+
+#: finance.py:348
+msgid "Select period"
+msgstr "Виберіть період"
+
+#: finance.py:392
+msgid "Show Credits"
+msgstr "Показати прибутки"
+
+#: finance.py:393
+msgid "Show Debits"
+msgstr "Показати витрати"
+
+#. TRANS: representation of the "Day" period
+#: finance.py:446
+msgid "%B %d, %Y"
+msgstr "%d %b, %Y"
+
+#. TRANS: representation of the "Week of" period
+#: finance.py:450
+msgid "Week of"
+msgstr "Тиждень"
+
+#: finance.py:450
+msgid " %B %d, %Y"
+msgstr " %d %b, %Y"
+
+#. TRANS: representation of the "Month" period
+#: finance.py:454
+msgid "%B, %Y"
+msgstr "%b, %Y"
+
+#. TRANS: representation of the "Year" period
+#: finance.py:458
+msgid "%Y"
+msgstr "%Y"
+
+#: finance.py:500
+msgid "Balance: "
+msgstr "Баланс: "
+
+#: finance.py:508
+msgid "Starting Balance:"
+msgstr "Початковий баланс:"
+
+#: finance.py:515
+#, python-format
+msgid "%s in %d credits"
+msgstr "%s у %d надходженнях"
+
+#: finance.py:519
+#, python-format
+msgid "%s in %d debits"
+msgstr "%s у %d витратах"
+
+#: finance.py:532
+msgid "Previous Month"
+msgstr "Попередній місяць"
+
+#: finance.py:533
+msgid "This Month"
+msgstr "Цей місяць"
+
+#: finance.py:534
+msgid "Next Month"
+msgstr "Наступний місяць"
+
+#: finance.py:536
+msgid "Previous Week"
+msgstr "Попередній тиждень"
+
+#: finance.py:537
+msgid "This Week"
+msgstr "Цей тиждень"
+
+#: finance.py:538
+msgid "Next Week"
+msgstr "Наступний тиждень"
+
+#: finance.py:540
+msgid "Previous Day"
+msgstr "Попередній день"
+
+#: finance.py:541
+msgid "This Day"
+msgstr "Цей день"
+
+#: finance.py:542
+msgid "Next Day"
+msgstr "Наступний день"
+
+#: finance.py:544
+msgid "Previous Year"
+msgstr "Попередній рік"
+
+#: finance.py:545
+msgid "This Year"
+msgstr "Цей рік"
+
+#: finance.py:546
+msgid "Next Year"
+msgstr "Наступний рік"
+
+#: finance.py:921
+msgid "Chart created"
+msgstr "Створено діаграму"
+
+#: finance.py:921 finance.py:1038
+msgid "Open in the Journal"
+msgstr "Відкрити у журналі"
+
+#: finance.py:930
+msgid "Show in Journal"
+msgstr "Показати у журналі"
+
+#: finance.py:933
+msgid "Ok"
+msgstr "Гаразд"
+
+#: finance.py:979
+#, python-format
+msgid "%s by %s"
+msgstr "%s, %s"
+
+#: finance.py:1038
+msgid "Exported data"
+msgstr "Експортовані дані"
+
+#: helpbutton.py:38
+msgid "Help"
+msgstr "Довідка"
+
+#: registerscreen.py:37
 msgid ""
 "Welcome to Finance! This activity keeps track of income and expenses for "
 "anything that earns or spends money, like a school club.  To get started, "
@@ -70,253 +295,17 @@ msgstr ""
 "Після того, як ви ввели деякі операції, відвідайте вигляди «Діаграма» і "
 "«Бюджет», щоб побачити більше."
 
-#: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:80
-#: /var/www/pootle/sugarlabs/clones/Finance/budgetscreen.py:90
-msgid "Category"
-msgstr "Категорія"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:92
+#: registerscreen.py:92
 msgid "Description"
 msgstr "Опис"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:100
+#: registerscreen.py:100
 msgid "Date"
 msgstr "Дата"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:109
+#: registerscreen.py:109
 msgid "Amount"
 msgstr "Сума"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:233
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:297
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:378
-msgid "New Credit"
-msgstr "Новий прибуток"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:240
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:302
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:379
-msgid "New Debit"
-msgstr "Нові витрати"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:166
-msgid "Add some credit or debit to get started!"
-msgstr "Спочатку додайте запис прибутків чи витрат!"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:167
-msgid "Add credit"
-msgstr "Додати прибуток"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:182
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:183
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:273
-msgid "Register"
-msgstr "Реєстр"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:191
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:192
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:275
-#: /var/www/pootle/sugarlabs/clones/Finance/budgetscreen.py:98
-msgid "Budget"
-msgstr "Баланс"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:199
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:200
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:277
-msgid "Chart"
-msgstr "Діаграма"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:240
-msgid "Export data"
-msgstr "Експортувати дані"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:248
-msgid "Export credits by day"
-msgstr "Експортувати прибутки за днями"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:253
-msgid "Export debits by day"
-msgstr "Експортувати витрати за днями"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:258
-msgid "Export credits by month"
-msgstr "Експортувати прибутки за місяцями"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:263
-msgid "Export debits by month"
-msgstr "Експортувати витрати за місяцями"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:307
-msgid "Erase Transaction"
-msgstr "Стерти операцію"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:319
-msgid "Save as Image"
-msgstr "Зберегти як зображення"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:341
-msgid "Day"
-msgstr "День"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:341
-msgid "Week"
-msgstr "Тиждень"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:341
-msgid "Month"
-msgstr "Місяць"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:342
-msgid "Year"
-msgstr "Рік"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:342
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:457
-msgid "Forever"
-msgstr "Усі дані"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:344
-msgid "Select period"
-msgstr "Виберіть період"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:388
-msgid "Show Credits"
-msgstr "Показати прибутки"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:389
-msgid "Show Debits"
-msgstr "Показати витрати"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:442
-msgid "%B %d, %Y"
-msgstr "%d %b, %Y"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:446
-msgid "Week of"
-msgstr "Тиждень"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:446
-msgid " %B %d, %Y"
-msgstr " %d %b, %Y"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:450
-msgid "%B, %Y"
-msgstr "%b, %Y"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:454
-msgid "%Y"
-msgstr "%Y"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:496
-msgid "Balance: "
-msgstr "Баланс: "
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:504
-msgid "Starting Balance:"
-msgstr "Початковий баланс:"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:511
-#, python-format
-msgid "%s in %d credits"
-msgstr "%s у %d надходженнях"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:515
-#, python-format
-msgid "%s in %d debits"
-msgstr "%s у %d витратах"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:528
-msgid "Previous Month"
-msgstr "Попередній місяць"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:529
-msgid "This Month"
-msgstr "Цей місяць"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:530
-msgid "Next Month"
-msgstr "Наступний місяць"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:532
-msgid "Previous Week"
-msgstr "Попередній тиждень"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:533
-msgid "This Week"
-msgstr "Цей тиждень"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:534
-msgid "Next Week"
-msgstr "Наступний тиждень"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:536
-msgid "Previous Day"
-msgstr "Попередній день"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:537
-msgid "This Day"
-msgstr "Цей день"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:538
-msgid "Next Day"
-msgstr "Наступний день"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:540
-msgid "Previous Year"
-msgstr "Попередній рік"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:541
-msgid "This Year"
-msgstr "Цей рік"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:542
-msgid "Next Year"
-msgstr "Наступний рік"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:917
-msgid "Chart created"
-msgstr "Створено діаграму"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:917
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:1034
-msgid "Open in the Journal"
-msgstr "Відкрити у журналі"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:926
-msgid "Show in Journal"
-msgstr "Показати у журналі"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:929
-msgid "Ok"
-msgstr "Гаразд"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:975
-#, python-format
-msgid "%s by %s"
-msgstr "%s, %s"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:1034
-msgid "Exported data"
-msgstr "Експортовані дані"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/helpbutton.py:38
-msgid "Help"
-msgstr "Довідка"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/budgetscreen.py:42
-msgid ""
-"The Budget view allows you to set a monthly budget for each expense "
-"category, and to keep track of your\n"
-"budgets. To set a budget, type the amount in the box to the right of the "
-"category."
-msgstr ""
-"Панель Бюджет надає вам змогу встановити щомісячний бюджет для кожної "
-"категорії витрат, і стежити за своїми\n"
-"бюджетами. Щоб встановити бюджет, введіть суму в полі праворуч від категорії."
-
-#: /var/www/pootle/sugarlabs/clones/Finance/budgetscreen.py:94
-msgid "Spent"
-msgstr "Витрачено"
 
 #~ msgid "Period: "
 #~ msgstr "Період: "

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-05 17:18+0000\n"
+"POT-Creation-Date: 2017-11-06 08:02+1100\n"
 "PO-Revision-Date: 2017-10-04 01:17+0000\n"
 "Last-Translator: EdgarQuispeChambi <equispe7@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,10 +18,11 @@ msgstr ""
 "X-Generator: Pootle 2.5.1.1\n"
 "X-POOTLE-MTIME: 1507079841.000000\n"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:82
+#: activity/activity.info:2 finance.py:85
 msgid "Finance"
 msgstr "Qullqinchäwinaka"
 
+#: activity/activity.info:3
 msgid ""
 "Want to wisely manage money? Learn financial planning basics and track your "
 "family's finance, make your own budget and learn how to make every penny "
@@ -31,7 +32,36 @@ msgstr ""
 "wakichasiña yatiqma ukata utankirinakama qullqinchäwi suma ch'amanchma, "
 "qullqima suma t'uqiyma ukata sapa miyu chiqaparu irtma!"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:38
+#: budgetscreen.py:42
+msgid ""
+"The Budget view allows you to set a monthly budget for each expense "
+"category, and to keep track of your\n"
+"budgets. To set a budget, type the amount in the box to the right of the "
+"category."
+msgstr ""
+"Qullqima suma t'uqiyäwixa sapa phaxsina irtaña qullqi suma chaninchaytma "
+"ukhamaraki sapa wakisiri qullqi irta phuqaytma, ukata uka suma aliqata "
+"awatiyaraktma \n"
+"qullqiñanaka. Qullqi suma t'uqiyañatakixa, Sapa qullqi irta wakichata "
+"kupïxaru qullqi chani qillqantma."
+
+#: budgetscreen.py:90 registerscreen.py:80
+msgid "Category"
+msgstr "Qullqi irta wakisiri"
+
+#: budgetscreen.py:94
+msgid "Spent"
+msgstr "Qullqi irtata"
+
+#: budgetscreen.py:98 finance.py:195 finance.py:196 finance.py:279
+msgid "Budget"
+msgstr "Qullqi t'uqiyata"
+
+#: budgetscreen.py:127 chartscreen.py:160 chartscreen.py:181
+msgid "Unknown"
+msgstr "Jani uñt'ata"
+
+#: chartscreen.py:38
 msgid ""
 "The Chart view shows the proportion of your expenses that is in each "
 "category.\n"
@@ -40,22 +70,222 @@ msgstr ""
 "Uka rixitaxa sapa qullqi irta tuqita chaninaka suma qhananchi.\n"
 "Qillqata uñacht'äwinakaru qullqi irta chaninakapa qhanacharakismawa."
 
-#: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:94
+#: chartscreen.py:94
 #, fuzzy
 msgid "Credit Categories"
 msgstr "Qullqi irta utjirinaka"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:96
+#: chartscreen.py:96
 msgid "Debit Categories"
 msgstr "Qullqi irta utjirinaka"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:160
-#: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:181
-#: /var/www/pootle/sugarlabs/clones/Finance/budgetscreen.py:127
-msgid "Unknown"
-msgstr "Jani uñt'ata"
+#: finance.py:169
+msgid "Add some credit or debit to get started!"
+msgstr "Qalltañataki manjaña jani ukaxa manusiña yapxatma"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:37
+#: finance.py:170
+msgid "Add credit"
+msgstr "Manjäwi yapxataña"
+
+#: finance.py:186 finance.py:187 finance.py:277
+msgid "Register"
+msgstr "Qillqantaña"
+
+#: finance.py:203 finance.py:204 finance.py:281
+msgid "Chart"
+msgstr "Rixita"
+
+#: finance.py:244
+msgid "Export data"
+msgstr "Jakhutanaka apayaña"
+
+#: finance.py:252
+msgid "Export credits by day"
+msgstr "Sapüru manjäwi apayaña"
+
+#: finance.py:257
+msgid "Export debits by day"
+msgstr "Sapüru manusïwi apayaña"
+
+#: finance.py:262
+msgid "Export credits by month"
+msgstr "Sapa phaxsi manjäwi apayaña"
+
+#: finance.py:267
+msgid "Export debits by month"
+msgstr "Sapa phaxsi manusïwi apayaña"
+
+#: finance.py:301 finance.py:382 registerscreen.py:233
+msgid "New Credit"
+msgstr "Machaqa qullqi mayt'äwi"
+
+#: finance.py:306 finance.py:383 registerscreen.py:240
+msgid "New Debit"
+msgstr "Machaqa qullqi utjiri"
+
+#: finance.py:311
+msgid "Erase Transaction"
+msgstr "Alxäwi chhaqtayaña"
+
+#: finance.py:323
+msgid "Save as Image"
+msgstr "Rixsüwjama imaña"
+
+#  "Día"
+#: finance.py:345
+msgid "Day"
+msgstr "Uru"
+
+#  "Semana"
+#: finance.py:345
+msgid "Week"
+msgstr "Simana"
+
+#: finance.py:345
+msgid "Month"
+msgstr "Phaxsi"
+
+#  "Año"
+#: finance.py:346
+msgid "Year"
+msgstr "Mara"
+
+#: finance.py:346 finance.py:461
+msgid "Forever"
+msgstr "Wiñayataki"
+
+#: finance.py:348
+msgid "Select period"
+msgstr "Pacha t'aqa chhijllaña"
+
+#: finance.py:392
+msgid "Show Credits"
+msgstr "Manjäwinaka qhanstayaña"
+
+#: finance.py:393
+msgid "Show Debits"
+msgstr "Manusïwinaka qhanstayaña"
+
+#. TRANS: representation of the "Day" period
+#: finance.py:446
+msgid "%B %d, %Y"
+msgstr "%d %B, %Y wakichata"
+
+#. TRANS: representation of the "Week of" period
+#: finance.py:450
+msgid "Week of"
+msgstr "Simanapa"
+
+#: finance.py:450
+msgid " %B %d, %Y"
+msgstr " %d %B, %Y wakichata"
+
+#. TRANS: representation of the "Month" period
+#: finance.py:454
+msgid "%B, %Y"
+msgstr "%B, %Y wakichata"
+
+#. TRANS: representation of the "Year" period
+#: finance.py:458
+msgid "%Y"
+msgstr "%Y wakichata"
+
+#: finance.py:500
+msgid "Balance: "
+msgstr "Chikanchäwi: "
+
+#: finance.py:508
+msgid "Starting Balance:"
+msgstr "Qallta muju"
+
+#: finance.py:515
+#, python-format
+msgid "%s in %d credits"
+msgstr "%s en %d manjäwinaka"
+
+#: finance.py:519
+#, python-format
+msgid "%s in %d debits"
+msgstr "%s in %d manusïwinaka"
+
+#: finance.py:532
+msgid "Previous Month"
+msgstr "Nayrïri phaxsi"
+
+#: finance.py:533
+msgid "This Month"
+msgstr "Jichha phaxsi"
+
+#: finance.py:534
+msgid "Next Month"
+msgstr "Jutiri phaxsi"
+
+#: finance.py:536
+msgid "Previous Week"
+msgstr "Nayra simana"
+
+#: finance.py:537
+msgid "This Week"
+msgstr "Jichha simana"
+
+#: finance.py:538
+msgid "Next Week"
+msgstr "Jutiri simana"
+
+#: finance.py:540
+msgid "Previous Day"
+msgstr "Masüru"
+
+#: finance.py:541
+msgid "This Day"
+msgstr "Jichhüru"
+
+#: finance.py:542
+msgid "Next Day"
+msgstr "Qharüru"
+
+#: finance.py:544
+msgid "Previous Year"
+msgstr "Mimära"
+
+#: finance.py:545
+msgid "This Year"
+msgstr "Jichha mara"
+
+#: finance.py:546
+msgid "Next Year"
+msgstr "Jutiri mara"
+
+#: finance.py:921
+msgid "Chart created"
+msgstr "Rixsüwi wakichata"
+
+#: finance.py:921 finance.py:1038
+msgid "Open in the Journal"
+msgstr "Sapüru chimpunaka jist'araña"
+
+#: finance.py:930
+msgid "Show in Journal"
+msgstr "Sapüru chimpunaka qhanstayaña"
+
+#: finance.py:933
+msgid "Ok"
+msgstr "Ukhamäphana"
+
+#: finance.py:979
+#, python-format
+msgid "%s by %s"
+msgstr "%s chimpu %s chani"
+
+#: finance.py:1038
+msgid "Exported data"
+msgstr "Jakhutanaka apayaña"
+
+#: helpbutton.py:38
+msgid "Help"
+msgstr "Yanapa"
+
+#: registerscreen.py:37
 msgid ""
 "Welcome to Finance! This activity keeps track of income and expenses for "
 "anything that earns or spends money, like a school club.  To get started, "
@@ -70,260 +300,19 @@ msgstr ""
 "Maya qhawqha alxäwinaka qillqantasa, qullqi irtäwinaka rixita uñachayäwiru "
 "mantma ukata qullqi t'uqiyäwirusa mantarakma."
 
-#: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:80
-#: /var/www/pootle/sugarlabs/clones/Finance/budgetscreen.py:90
-msgid "Category"
-msgstr "Qullqi irta wakisiri"
-
 #  "Descripción"
-#: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:92
+#: registerscreen.py:92
 msgid "Description"
 msgstr "Yatiyaña"
 
 #  "Fecha"
-#: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:100
+#: registerscreen.py:100
 msgid "Date"
 msgstr "Uru chimpu"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:109
+#: registerscreen.py:109
 msgid "Amount"
 msgstr "Walja"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:233
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:297
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:378
-msgid "New Credit"
-msgstr "Machaqa qullqi mayt'äwi"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:240
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:302
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:379
-msgid "New Debit"
-msgstr "Machaqa qullqi utjiri"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:166
-msgid "Add some credit or debit to get started!"
-msgstr "Qalltañataki manjaña jani ukaxa manusiña yapxatma"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:167
-msgid "Add credit"
-msgstr "Manjäwi yapxataña"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:182
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:183
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:273
-msgid "Register"
-msgstr "Qillqantaña"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:191
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:192
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:275
-#: /var/www/pootle/sugarlabs/clones/Finance/budgetscreen.py:98
-msgid "Budget"
-msgstr "Qullqi t'uqiyata"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:199
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:200
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:277
-msgid "Chart"
-msgstr "Rixita"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:240
-msgid "Export data"
-msgstr "Jakhutanaka apayaña"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:248
-msgid "Export credits by day"
-msgstr "Sapüru manjäwi apayaña"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:253
-msgid "Export debits by day"
-msgstr "Sapüru manusïwi apayaña"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:258
-msgid "Export credits by month"
-msgstr "Sapa phaxsi manjäwi apayaña"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:263
-msgid "Export debits by month"
-msgstr "Sapa phaxsi manusïwi apayaña"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:307
-msgid "Erase Transaction"
-msgstr "Alxäwi chhaqtayaña"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:319
-msgid "Save as Image"
-msgstr "Rixsüwjama imaña"
-
-#  "Día"
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:341
-msgid "Day"
-msgstr "Uru"
-
-#  "Semana"
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:341
-msgid "Week"
-msgstr "Simana"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:341
-msgid "Month"
-msgstr "Phaxsi"
-
-#  "Año"
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:342
-msgid "Year"
-msgstr "Mara"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:342
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:457
-msgid "Forever"
-msgstr "Wiñayataki"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:344
-msgid "Select period"
-msgstr "Pacha t'aqa chhijllaña"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:388
-msgid "Show Credits"
-msgstr "Manjäwinaka qhanstayaña"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:389
-msgid "Show Debits"
-msgstr "Manusïwinaka qhanstayaña"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:442
-msgid "%B %d, %Y"
-msgstr "%d %B, %Y wakichata"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:446
-msgid "Week of"
-msgstr "Simanapa"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:446
-msgid " %B %d, %Y"
-msgstr " %d %B, %Y wakichata"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:450
-msgid "%B, %Y"
-msgstr "%B, %Y wakichata"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:454
-msgid "%Y"
-msgstr "%Y wakichata"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:496
-msgid "Balance: "
-msgstr "Chikanchäwi: "
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:504
-msgid "Starting Balance:"
-msgstr "Qallta muju"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:511
-#, python-format
-msgid "%s in %d credits"
-msgstr "%s en %d manjäwinaka"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:515
-#, python-format
-msgid "%s in %d debits"
-msgstr "%s in %d manusïwinaka"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:528
-msgid "Previous Month"
-msgstr "Nayrïri phaxsi"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:529
-msgid "This Month"
-msgstr "Jichha phaxsi"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:530
-msgid "Next Month"
-msgstr "Jutiri phaxsi"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:532
-msgid "Previous Week"
-msgstr "Nayra simana"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:533
-msgid "This Week"
-msgstr "Jichha simana"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:534
-msgid "Next Week"
-msgstr "Jutiri simana"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:536
-msgid "Previous Day"
-msgstr "Masüru"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:537
-msgid "This Day"
-msgstr "Jichhüru"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:538
-msgid "Next Day"
-msgstr "Qharüru"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:540
-msgid "Previous Year"
-msgstr "Mimära"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:541
-msgid "This Year"
-msgstr "Jichha mara"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:542
-msgid "Next Year"
-msgstr "Jutiri mara"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:917
-msgid "Chart created"
-msgstr "Rixsüwi wakichata"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:917
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:1034
-msgid "Open in the Journal"
-msgstr "Sapüru chimpunaka jist'araña"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:926
-msgid "Show in Journal"
-msgstr "Sapüru chimpunaka qhanstayaña"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:929
-msgid "Ok"
-msgstr "Ukhamäphana"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:975
-#, python-format
-msgid "%s by %s"
-msgstr "%s chimpu %s chani"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:1034
-msgid "Exported data"
-msgstr "Jakhutanaka apayaña"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/helpbutton.py:38
-msgid "Help"
-msgstr "Yanapa"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/budgetscreen.py:42
-msgid ""
-"The Budget view allows you to set a monthly budget for each expense "
-"category, and to keep track of your\n"
-"budgets. To set a budget, type the amount in the box to the right of the "
-"category."
-msgstr ""
-"Qullqima suma t'uqiyäwixa sapa phaxsina irtaña qullqi suma chaninchaytma "
-"ukhamaraki sapa wakisiri qullqi irta phuqaytma, ukata uka suma aliqata "
-"awatiyaraktma \n"
-"qullqiñanaka. Qullqi suma t'uqiyañatakixa, Sapa qullqi irta wakichata "
-"kupïxaru qullqi chani qillqantma."
-
-#: /var/www/pootle/sugarlabs/clones/Finance/budgetscreen.py:94
-msgid "Spent"
-msgstr "Qullqi irtata"
 
 #~ msgid "Period: "
 #~ msgstr "Pacha t'aqa: "

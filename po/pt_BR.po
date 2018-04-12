@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-05 17:18+0000\n"
+"POT-Creation-Date: 2017-11-06 08:02+1100\n"
 "PO-Revision-Date: 2016-08-11 18:41+0000\n"
 "Last-Translator: Chris <cjl@sugarlabs.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,10 +18,11 @@ msgstr ""
 "X-Generator: Pootle 2.5.1.1\n"
 "X-POOTLE-MTIME: 1470940900.000000\n"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:82
+#: activity/activity.info:2 finance.py:85
 msgid "Finance"
 msgstr "Finanças"
 
+#: activity/activity.info:3
 msgid ""
 "Want to wisely manage money? Learn financial planning basics and track your "
 "family's finance, make your own budget and learn how to make every penny "
@@ -31,7 +32,35 @@ msgstr ""
 "planejamento financeiro e acompanhe as finanças de sua família, faça seu "
 "próprio orçamento e aprenda como fazer valer cada centavo!"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:38
+#: budgetscreen.py:42
+msgid ""
+"The Budget view allows you to set a monthly budget for each expense "
+"category, and to keep track of your\n"
+"budgets. To set a budget, type the amount in the box to the right of the "
+"category."
+msgstr ""
+"A visão de Orçamento, permite você configurar um orçamento mensal para cada "
+"categoria de despesa e acompanhar seus ganhos.\n"
+"Para configurar um orçamento, escreva a quantia na caixa à direita da "
+"categoria."
+
+#: budgetscreen.py:90 registerscreen.py:80
+msgid "Category"
+msgstr "Categoria"
+
+#: budgetscreen.py:94
+msgid "Spent"
+msgstr "Gasto"
+
+#: budgetscreen.py:98 finance.py:195 finance.py:196 finance.py:279
+msgid "Budget"
+msgstr "Orçamento"
+
+#: budgetscreen.py:127 chartscreen.py:160 chartscreen.py:181
+msgid "Unknown"
+msgstr "Desconhecido"
+
+#: chartscreen.py:38
 msgid ""
 "The Chart view shows the proportion of your expenses that is in each "
 "category.\n"
@@ -41,21 +70,218 @@ msgstr ""
 "cada categoria.\n"
 "Você pode categorizar transações na tela de Registro."
 
-#: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:94
+#: chartscreen.py:94
 msgid "Credit Categories"
 msgstr "Categorias de Receita"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:96
+#: chartscreen.py:96
 msgid "Debit Categories"
 msgstr "Categorias de Despesas"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:160
-#: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:181
-#: /var/www/pootle/sugarlabs/clones/Finance/budgetscreen.py:127
-msgid "Unknown"
-msgstr "Desconhecido"
+#: finance.py:169
+msgid "Add some credit or debit to get started!"
+msgstr "Adicine alguma receita ou despesa para começar!"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:37
+#: finance.py:170
+msgid "Add credit"
+msgstr "Adicionar receita"
+
+#: finance.py:186 finance.py:187 finance.py:277
+msgid "Register"
+msgstr "Cadastrar"
+
+#: finance.py:203 finance.py:204 finance.py:281
+msgid "Chart"
+msgstr "Gráfico"
+
+#: finance.py:244
+msgid "Export data"
+msgstr "Exportar dados"
+
+#: finance.py:252
+msgid "Export credits by day"
+msgstr "Exportar receitas por dia"
+
+#: finance.py:257
+msgid "Export debits by day"
+msgstr "Exportar despesas por dia"
+
+#: finance.py:262
+msgid "Export credits by month"
+msgstr "Exportar receitas por mês"
+
+#: finance.py:267
+msgid "Export debits by month"
+msgstr "Exportar despesas por mês"
+
+#: finance.py:301 finance.py:382 registerscreen.py:233
+msgid "New Credit"
+msgstr "Nova receita"
+
+#: finance.py:306 finance.py:383 registerscreen.py:240
+msgid "New Debit"
+msgstr "Nova despesa"
+
+#: finance.py:311
+msgid "Erase Transaction"
+msgstr "Apagar transação"
+
+#: finance.py:323
+msgid "Save as Image"
+msgstr "Salvar como imagem"
+
+#: finance.py:345
+msgid "Day"
+msgstr "Dia"
+
+#: finance.py:345
+msgid "Week"
+msgstr "Semana"
+
+#: finance.py:345
+msgid "Month"
+msgstr "Mês"
+
+#: finance.py:346
+msgid "Year"
+msgstr "Ano"
+
+#: finance.py:346 finance.py:461
+msgid "Forever"
+msgstr "Para sempre"
+
+#: finance.py:348
+msgid "Select period"
+msgstr "Selecionar período"
+
+#: finance.py:392
+msgid "Show Credits"
+msgstr "Ver Receitas"
+
+#: finance.py:393
+msgid "Show Debits"
+msgstr "Ver Despesas"
+
+#. TRANS: representation of the "Day" period
+#: finance.py:446
+msgid "%B %d, %Y"
+msgstr "%B %d, %Y"
+
+#. TRANS: representation of the "Week of" period
+#: finance.py:450
+msgid "Week of"
+msgstr "Semana de"
+
+#: finance.py:450
+msgid " %B %d, %Y"
+msgstr " %B %d, %Y"
+
+#. TRANS: representation of the "Month" period
+#: finance.py:454
+msgid "%B, %Y"
+msgstr "%B, %Y"
+
+#. TRANS: representation of the "Year" period
+#: finance.py:458
+msgid "%Y"
+msgstr "%Y"
+
+#: finance.py:500
+msgid "Balance: "
+msgstr "Saldo: "
+
+#: finance.py:508
+msgid "Starting Balance:"
+msgstr "Saldo Inicial:"
+
+#: finance.py:515
+#, python-format
+msgid "%s in %d credits"
+msgstr "%s de %d receitas"
+
+#: finance.py:519
+#, python-format
+msgid "%s in %d debits"
+msgstr "%s de %d despesas"
+
+#: finance.py:532
+msgid "Previous Month"
+msgstr "Mês Anterior"
+
+#: finance.py:533
+msgid "This Month"
+msgstr "Mês Atual"
+
+#: finance.py:534
+msgid "Next Month"
+msgstr "Próximo Mês"
+
+#: finance.py:536
+msgid "Previous Week"
+msgstr "Semana Anterior"
+
+#: finance.py:537
+msgid "This Week"
+msgstr "Semana Atual"
+
+#: finance.py:538
+msgid "Next Week"
+msgstr "Próxima Semana"
+
+#: finance.py:540
+msgid "Previous Day"
+msgstr "Dia Anterior"
+
+#: finance.py:541
+msgid "This Day"
+msgstr "Este Dia"
+
+#: finance.py:542
+msgid "Next Day"
+msgstr "Próximo Dia"
+
+#: finance.py:544
+msgid "Previous Year"
+msgstr "Ano Anterior"
+
+#: finance.py:545
+msgid "This Year"
+msgstr "Este Ano"
+
+#: finance.py:546
+msgid "Next Year"
+msgstr "Próximo Ano"
+
+#: finance.py:921
+msgid "Chart created"
+msgstr "Gráfico criado"
+
+#: finance.py:921 finance.py:1038
+msgid "Open in the Journal"
+msgstr "Abrir no Diário"
+
+#: finance.py:930
+msgid "Show in Journal"
+msgstr "Exibir no Diário"
+
+#: finance.py:933
+msgid "Ok"
+msgstr "Ok"
+
+#: finance.py:979
+#, python-format
+msgid "%s by %s"
+msgstr "%s por %s"
+
+#: finance.py:1038
+msgid "Exported data"
+msgstr "Dados exportados"
+
+#: helpbutton.py:38
+msgid "Help"
+msgstr "Ajuda"
+
+#: registerscreen.py:37
 msgid ""
 "Welcome to Finance! This activity keeps track of income and expenses for "
 "anything that earns or spends money, like a school club.  To get started, "
@@ -69,254 +295,17 @@ msgstr ""
 "Uma vez que você tenha inserido algumas transações, visite as seções Gráfico "
 "e Orçamento para ver mais."
 
-#: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:80
-#: /var/www/pootle/sugarlabs/clones/Finance/budgetscreen.py:90
-msgid "Category"
-msgstr "Categoria"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:92
+#: registerscreen.py:92
 msgid "Description"
 msgstr "Descrição"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:100
+#: registerscreen.py:100
 msgid "Date"
 msgstr "Data"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:109
+#: registerscreen.py:109
 msgid "Amount"
 msgstr "Total"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:233
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:297
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:378
-msgid "New Credit"
-msgstr "Nova receita"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:240
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:302
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:379
-msgid "New Debit"
-msgstr "Nova despesa"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:166
-msgid "Add some credit or debit to get started!"
-msgstr "Adicine alguma receita ou despesa para começar!"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:167
-msgid "Add credit"
-msgstr "Adicionar receita"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:182
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:183
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:273
-msgid "Register"
-msgstr "Cadastrar"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:191
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:192
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:275
-#: /var/www/pootle/sugarlabs/clones/Finance/budgetscreen.py:98
-msgid "Budget"
-msgstr "Orçamento"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:199
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:200
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:277
-msgid "Chart"
-msgstr "Gráfico"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:240
-msgid "Export data"
-msgstr "Exportar dados"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:248
-msgid "Export credits by day"
-msgstr "Exportar receitas por dia"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:253
-msgid "Export debits by day"
-msgstr "Exportar despesas por dia"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:258
-msgid "Export credits by month"
-msgstr "Exportar receitas por mês"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:263
-msgid "Export debits by month"
-msgstr "Exportar despesas por mês"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:307
-msgid "Erase Transaction"
-msgstr "Apagar transação"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:319
-msgid "Save as Image"
-msgstr "Salvar como imagem"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:341
-msgid "Day"
-msgstr "Dia"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:341
-msgid "Week"
-msgstr "Semana"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:341
-msgid "Month"
-msgstr "Mês"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:342
-msgid "Year"
-msgstr "Ano"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:342
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:457
-msgid "Forever"
-msgstr "Para sempre"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:344
-msgid "Select period"
-msgstr "Selecionar período"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:388
-msgid "Show Credits"
-msgstr "Ver Receitas"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:389
-msgid "Show Debits"
-msgstr "Ver Despesas"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:442
-msgid "%B %d, %Y"
-msgstr "%B %d, %Y"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:446
-msgid "Week of"
-msgstr "Semana de"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:446
-msgid " %B %d, %Y"
-msgstr " %B %d, %Y"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:450
-msgid "%B, %Y"
-msgstr "%B, %Y"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:454
-msgid "%Y"
-msgstr "%Y"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:496
-msgid "Balance: "
-msgstr "Saldo: "
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:504
-msgid "Starting Balance:"
-msgstr "Saldo Inicial:"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:511
-#, python-format
-msgid "%s in %d credits"
-msgstr "%s de %d receitas"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:515
-#, python-format
-msgid "%s in %d debits"
-msgstr "%s de %d despesas"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:528
-msgid "Previous Month"
-msgstr "Mês Anterior"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:529
-msgid "This Month"
-msgstr "Mês Atual"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:530
-msgid "Next Month"
-msgstr "Próximo Mês"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:532
-msgid "Previous Week"
-msgstr "Semana Anterior"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:533
-msgid "This Week"
-msgstr "Semana Atual"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:534
-msgid "Next Week"
-msgstr "Próxima Semana"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:536
-msgid "Previous Day"
-msgstr "Dia Anterior"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:537
-msgid "This Day"
-msgstr "Este Dia"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:538
-msgid "Next Day"
-msgstr "Próximo Dia"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:540
-msgid "Previous Year"
-msgstr "Ano Anterior"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:541
-msgid "This Year"
-msgstr "Este Ano"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:542
-msgid "Next Year"
-msgstr "Próximo Ano"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:917
-msgid "Chart created"
-msgstr "Gráfico criado"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:917
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:1034
-msgid "Open in the Journal"
-msgstr "Abrir no Diário"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:926
-msgid "Show in Journal"
-msgstr "Exibir no Diário"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:929
-msgid "Ok"
-msgstr "Ok"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:975
-#, python-format
-msgid "%s by %s"
-msgstr "%s por %s"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:1034
-msgid "Exported data"
-msgstr "Dados exportados"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/helpbutton.py:38
-msgid "Help"
-msgstr "Ajuda"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/budgetscreen.py:42
-msgid ""
-"The Budget view allows you to set a monthly budget for each expense "
-"category, and to keep track of your\n"
-"budgets. To set a budget, type the amount in the box to the right of the "
-"category."
-msgstr ""
-"A visão de Orçamento, permite você configurar um orçamento mensal para cada "
-"categoria de despesa e acompanhar seus ganhos.\n"
-"Para configurar um orçamento, escreva a quantia na caixa à direita da "
-"categoria."
-
-#: /var/www/pootle/sugarlabs/clones/Finance/budgetscreen.py:94
-msgid "Spent"
-msgstr "Gasto"
 
 #~ msgid "Period: "
 #~ msgstr "Período: "

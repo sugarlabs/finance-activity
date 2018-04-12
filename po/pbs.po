@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-05 17:18+0000\n"
+"POT-Creation-Date: 2017-11-06 08:02+1100\n"
 "PO-Revision-Date: 2017-10-17 06:06+0000\n"
 "Last-Translator: Chris <cjl@sugarlabs.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,10 +18,11 @@ msgstr ""
 "X-Generator: Pootle 2.5.1.1\n"
 "X-POOTLE-MTIME: 1508220407.000000\n"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:82
+#: activity/activity.info:2 finance.py:85
 msgid "Finance"
 msgstr "Tameiñ'"
 
+#: activity/activity.info:3
 msgid ""
 "Want to wisely manage money? Learn financial planning basics and track your "
 "family's finance, make your own budget and learn how to make every penny "
@@ -31,7 +32,33 @@ msgstr ""
 "re tameiñ' manaku'uts natung rand-ejem re tanjiat', vichjaut rabe'en viju'ut "
 "manatung ka nda ngul'ueì tameiñ!"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:38
+#: budgetscreen.py:42
+msgid ""
+"The Budget view allows you to set a monthly budget for each expense "
+"category, and to keep track of your\n"
+"budgets. To set a budget, type the amount in the box to the right of the "
+"category."
+msgstr ""
+"Se mapajau re rabe'en matsjau lanuat' manakeje' kad-a rabe'en se nda "
+"ngum'au' se manavaì ne'eng maiñ manaku'uts re jiuk/n"
+
+#: budgetscreen.py:90 registerscreen.py:80
+msgid "Category"
+msgstr "Chigui'"
+
+#: budgetscreen.py:94
+msgid "Spent"
+msgstr "Ndut'eng"
+
+#: budgetscreen.py:98 finance.py:195 finance.py:196 finance.py:279
+msgid "Budget"
+msgstr "Rabe'en matsjau"
+
+#: budgetscreen.py:127 chartscreen.py:160 chartscreen.py:181
+msgid "Unknown"
+msgstr "Nipmanù"
+
+#: chartscreen.py:38
 msgid ""
 "The Chart view shows the proportion of your expenses that is in each "
 "category.\n"
@@ -40,22 +67,220 @@ msgstr ""
 "Se ndapajau' ne ndanù rabe'en lichja'aun ne lutuejè mane'eng se lumei ne "
 "chigui'./njiuk kiju'u manatsjau na'ujuñ pu manù me'ets."
 
-#: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:94
+#: chartscreen.py:94
 #, fuzzy
 msgid "Credit Categories"
 msgstr "Categorías de Débito"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:96
+#: chartscreen.py:96
 msgid "Debit Categories"
 msgstr "Categorías de Débito"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:160
-#: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:181
-#: /var/www/pootle/sugarlabs/clones/Finance/budgetscreen.py:127
-msgid "Unknown"
-msgstr "Nipmanù"
+#: finance.py:169
+msgid "Add some credit or debit to get started!"
+msgstr ""
 
-#: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:37
+#: finance.py:170
+msgid "Add credit"
+msgstr ""
+
+#: finance.py:186 finance.py:187 finance.py:277
+msgid "Register"
+msgstr "Matsjau"
+
+#: finance.py:203 finance.py:204 finance.py:281
+msgid "Chart"
+msgstr "Me'es rabe'en"
+
+#: finance.py:244
+msgid "Export data"
+msgstr ""
+
+#: finance.py:252
+msgid "Export credits by day"
+msgstr ""
+
+#: finance.py:257
+msgid "Export debits by day"
+msgstr ""
+
+#: finance.py:262
+msgid "Export credits by month"
+msgstr ""
+
+#: finance.py:267
+msgid "Export debits by month"
+msgstr ""
+
+#: finance.py:301 finance.py:382 registerscreen.py:233
+msgid "New Credit"
+msgstr "Viñkjiu Mapajau"
+
+#: finance.py:306 finance.py:383 registerscreen.py:240
+msgid "New Debit"
+msgstr "Viñkjiu Dèbito"
+
+#: finance.py:311
+msgid "Erase Transaction"
+msgstr "Mavung re matsjau"
+
+#: finance.py:323
+msgid "Save as Image"
+msgstr ""
+
+#: finance.py:345
+msgid "Day"
+msgstr "Kunju'"
+
+#: finance.py:345
+msgid "Week"
+msgstr "Nda nimvieì'"
+
+#: finance.py:345
+msgid "Month"
+msgstr "Ngum'au'"
+
+#: finance.py:346
+msgid "Year"
+msgstr "Niñkijì"
+
+#: finance.py:346 finance.py:461
+msgid "Forever"
+msgstr "Palem"
+
+#: finance.py:348
+msgid "Select period"
+msgstr ""
+
+#: finance.py:392
+msgid "Show Credits"
+msgstr ""
+
+#: finance.py:393
+msgid "Show Debits"
+msgstr ""
+
+#. TRANS: representation of the "Day" period
+#: finance.py:446
+msgid "%B %d, %Y"
+msgstr "%d %B, %Y"
+
+#. TRANS: representation of the "Week of" period
+#: finance.py:450
+msgid "Week of"
+msgstr "Nimvieì lupup"
+
+#: finance.py:450
+msgid " %B %d, %Y"
+msgstr " %B %d, %Y"
+
+#. TRANS: representation of the "Month" period
+#: finance.py:454
+msgid "%B, %Y"
+msgstr "%B, %Y"
+
+#. TRANS: representation of the "Year" period
+#: finance.py:458
+msgid "%Y"
+msgstr "%Y"
+
+#: finance.py:500
+msgid "Balance: "
+msgstr "Mejeung: "
+
+#: finance.py:508
+msgid "Starting Balance:"
+msgstr ""
+
+#: finance.py:515
+#, python-format
+msgid "%s in %d credits"
+msgstr ""
+
+#: finance.py:519
+#, python-format
+msgid "%s in %d debits"
+msgstr ""
+
+#: finance.py:532
+msgid "Previous Month"
+msgstr "Ngun'au' sevaa"
+
+#: finance.py:533
+msgid "This Month"
+msgstr "Nanji ngun'au"
+
+#: finance.py:534
+msgid "Next Month"
+msgstr "ngum'au' likiu'uch'"
+
+#: finance.py:536
+#, fuzzy
+msgid "Previous Week"
+msgstr "niñkijì sevaa"
+
+#: finance.py:537
+msgid "This Week"
+msgstr ""
+
+#: finance.py:538
+msgid "Next Week"
+msgstr ""
+
+#: finance.py:540
+msgid "Previous Day"
+msgstr "Kunju' srvaa"
+
+#: finance.py:541
+msgid "This Day"
+msgstr "Nanji kunju'"
+
+#: finance.py:542
+msgid "Next Day"
+msgstr "Kunju' lkiu'uch'"
+
+#: finance.py:544
+msgid "Previous Year"
+msgstr "Niñkijì sevaa"
+
+#: finance.py:545
+msgid "This Year"
+msgstr "Nanji noñkijì"
+
+#: finance.py:546
+msgid "Next Year"
+msgstr "Nikijì likiu'uch'"
+
+#: finance.py:921
+msgid "Chart created"
+msgstr ""
+
+#: finance.py:921 finance.py:1038
+msgid "Open in the Journal"
+msgstr ""
+
+#: finance.py:930
+msgid "Show in Journal"
+msgstr ""
+
+#: finance.py:933
+msgid "Ok"
+msgstr ""
+
+#: finance.py:979
+#, python-format
+msgid "%s by %s"
+msgstr ""
+
+#: finance.py:1038
+msgid "Exported data"
+msgstr ""
+
+#: helpbutton.py:38
+msgid "Help"
+msgstr "Nabaik"
+
+#: registerscreen.py:37
 msgid ""
 "Welcome to Finance! This activity keeps track of income and expenses for "
 "anything that earns or spends money, like a school club.  To get started, "
@@ -69,253 +294,17 @@ msgstr ""
 "debitos./nxi'iap se namejep sad-ia' nichjau piàt ne mapajau' ndasau' rabe'en "
 "maiñ re rabe'en matsjau se kimieng valeì ma nanù"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:80
-#: /var/www/pootle/sugarlabs/clones/Finance/budgetscreen.py:90
-msgid "Category"
-msgstr "Chigui'"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:92
+#: registerscreen.py:92
 msgid "Description"
 msgstr "Mamang peuk vakja"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:100
+#: registerscreen.py:100
 msgid "Date"
 msgstr "Kujeiñ ngum'au'"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:109
+#: registerscreen.py:109
 msgid "Amount"
 msgstr "Kusau'"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:233
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:297
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:378
-msgid "New Credit"
-msgstr "Viñkjiu Mapajau"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:240
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:302
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:379
-msgid "New Debit"
-msgstr "Viñkjiu Dèbito"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:166
-msgid "Add some credit or debit to get started!"
-msgstr ""
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:167
-msgid "Add credit"
-msgstr ""
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:182
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:183
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:273
-msgid "Register"
-msgstr "Matsjau"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:191
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:192
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:275
-#: /var/www/pootle/sugarlabs/clones/Finance/budgetscreen.py:98
-msgid "Budget"
-msgstr "Rabe'en matsjau"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:199
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:200
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:277
-msgid "Chart"
-msgstr "Me'es rabe'en"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:240
-msgid "Export data"
-msgstr ""
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:248
-msgid "Export credits by day"
-msgstr ""
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:253
-msgid "Export debits by day"
-msgstr ""
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:258
-msgid "Export credits by month"
-msgstr ""
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:263
-msgid "Export debits by month"
-msgstr ""
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:307
-msgid "Erase Transaction"
-msgstr "Mavung re matsjau"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:319
-msgid "Save as Image"
-msgstr ""
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:341
-msgid "Day"
-msgstr "Kunju'"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:341
-msgid "Week"
-msgstr "Nda nimvieì'"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:341
-msgid "Month"
-msgstr "Ngum'au'"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:342
-msgid "Year"
-msgstr "Niñkijì"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:342
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:457
-msgid "Forever"
-msgstr "Palem"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:344
-msgid "Select period"
-msgstr ""
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:388
-msgid "Show Credits"
-msgstr ""
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:389
-msgid "Show Debits"
-msgstr ""
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:442
-msgid "%B %d, %Y"
-msgstr "%d %B, %Y"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:446
-msgid "Week of"
-msgstr "Nimvieì lupup"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:446
-msgid " %B %d, %Y"
-msgstr " %B %d, %Y"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:450
-msgid "%B, %Y"
-msgstr "%B, %Y"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:454
-msgid "%Y"
-msgstr "%Y"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:496
-msgid "Balance: "
-msgstr "Mejeung: "
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:504
-msgid "Starting Balance:"
-msgstr ""
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:511
-#, python-format
-msgid "%s in %d credits"
-msgstr ""
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:515
-#, python-format
-msgid "%s in %d debits"
-msgstr ""
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:528
-msgid "Previous Month"
-msgstr "Ngun'au' sevaa"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:529
-msgid "This Month"
-msgstr "Nanji ngun'au"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:530
-msgid "Next Month"
-msgstr "ngum'au' likiu'uch'"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:532
-#, fuzzy
-msgid "Previous Week"
-msgstr "niñkijì sevaa"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:533
-msgid "This Week"
-msgstr ""
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:534
-msgid "Next Week"
-msgstr ""
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:536
-msgid "Previous Day"
-msgstr "Kunju' srvaa"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:537
-msgid "This Day"
-msgstr "Nanji kunju'"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:538
-msgid "Next Day"
-msgstr "Kunju' lkiu'uch'"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:540
-msgid "Previous Year"
-msgstr "Niñkijì sevaa"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:541
-msgid "This Year"
-msgstr "Nanji noñkijì"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:542
-msgid "Next Year"
-msgstr "Nikijì likiu'uch'"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:917
-msgid "Chart created"
-msgstr ""
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:917
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:1034
-msgid "Open in the Journal"
-msgstr ""
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:926
-msgid "Show in Journal"
-msgstr ""
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:929
-msgid "Ok"
-msgstr ""
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:975
-#, python-format
-msgid "%s by %s"
-msgstr ""
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:1034
-msgid "Exported data"
-msgstr ""
-
-#: /var/www/pootle/sugarlabs/clones/Finance/helpbutton.py:38
-msgid "Help"
-msgstr "Nabaik"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/budgetscreen.py:42
-msgid ""
-"The Budget view allows you to set a monthly budget for each expense "
-"category, and to keep track of your\n"
-"budgets. To set a budget, type the amount in the box to the right of the "
-"category."
-msgstr ""
-"Se mapajau re rabe'en matsjau lanuat' manakeje' kad-a rabe'en se nda "
-"ngum'au' se manavaì ne'eng maiñ manaku'uts re jiuk/n"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/budgetscreen.py:94
-msgid "Spent"
-msgstr "Ndut'eng"
 
 #~ msgid "Period: "
 #~ msgstr "lumei nan'ejem: "

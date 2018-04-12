@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-05 17:18+0000\n"
+"POT-Creation-Date: 2017-11-06 08:02+1100\n"
 "PO-Revision-Date: 2016-04-30 18:10+0000\n"
 "Last-Translator: Chris <cjl@sugarlabs.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,10 +18,11 @@ msgstr ""
 "X-Generator: Pootle 2.5.1.1\n"
 "X-POOTLE-MTIME: 1462039839.000000\n"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:82
+#: activity/activity.info:2 finance.py:85
 msgid "Finance"
 msgstr "Finance"
 
+#: activity/activity.info:3
 msgid ""
 "Want to wisely manage money? Learn financial planning basics and track your "
 "family's finance, make your own budget and learn how to make every penny "
@@ -31,7 +32,35 @@ msgstr ""
 "family's finance, make your own budget and learn how to make every penny "
 "count!"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:38
+#: budgetscreen.py:42
+msgid ""
+"The Budget view allows you to set a monthly budget for each expense "
+"category, and to keep track of your\n"
+"budgets. To set a budget, type the amount in the box to the right of the "
+"category."
+msgstr ""
+"The Budget view allows you to set a monthly budget for each expense "
+"category, and to keep track of your\n"
+"budgets. To set a budget, type the amount in the box to the right of the "
+"category."
+
+#: budgetscreen.py:90 registerscreen.py:80
+msgid "Category"
+msgstr "Category"
+
+#: budgetscreen.py:94
+msgid "Spent"
+msgstr "Spent"
+
+#: budgetscreen.py:98 finance.py:195 finance.py:196 finance.py:279
+msgid "Budget"
+msgstr "Budget"
+
+#: budgetscreen.py:127 chartscreen.py:160 chartscreen.py:181
+msgid "Unknown"
+msgstr "Unknown"
+
+#: chartscreen.py:38
 msgid ""
 "The Chart view shows the proportion of your expenses that is in each "
 "category.\n"
@@ -41,282 +70,242 @@ msgstr ""
 "category.\n"
 "You can categorise transactions in the Register view."
 
-#: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:94
+#: chartscreen.py:94
 msgid "Credit Categories"
 msgstr "Credit Categories"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:96
+#: chartscreen.py:96
 msgid "Debit Categories"
 msgstr "Debit Categories"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:160
-#: /var/www/pootle/sugarlabs/clones/Finance/chartscreen.py:181
-#: /var/www/pootle/sugarlabs/clones/Finance/budgetscreen.py:127
-msgid "Unknown"
-msgstr "Unknown"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:37
-msgid ""
-"Welcome to Finance! This activity keeps track of income and expenses for "
-"anything that earns or spends money, like a school club.  To get started, "
-"use the Transaction box to add credits and debits.\n"
-"Once you have entered some transactions, visit the Chart and Budget views to "
-"see more."
-msgstr ""
-"Welcome to Finance! This activity keeps track of income and expenses for "
-"anything that earns or spends money, like a school club.  To get started, "
-"use the Transaction box to add credits and debits.\n"
-"Once you have entered some transactions, visit the Chart and Budget views to "
-"see more."
-
-#: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:80
-#: /var/www/pootle/sugarlabs/clones/Finance/budgetscreen.py:90
-msgid "Category"
-msgstr "Category"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:92
-msgid "Description"
-msgstr "Description"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:100
-msgid "Date"
-msgstr "Date"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:109
-msgid "Amount"
-msgstr "Amount"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:233
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:297
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:378
-msgid "New Credit"
-msgstr "New Credit"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/registerscreen.py:240
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:302
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:379
-msgid "New Debit"
-msgstr "New Debit"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:166
+#: finance.py:169
 msgid "Add some credit or debit to get started!"
 msgstr "Add some credit or debit to get started!"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:167
+#: finance.py:170
 msgid "Add credit"
 msgstr "Add credit"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:182
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:183
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:273
+#: finance.py:186 finance.py:187 finance.py:277
 msgid "Register"
 msgstr "Register"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:191
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:192
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:275
-#: /var/www/pootle/sugarlabs/clones/Finance/budgetscreen.py:98
-msgid "Budget"
-msgstr "Budget"
-
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:199
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:200
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:277
+#: finance.py:203 finance.py:204 finance.py:281
 msgid "Chart"
 msgstr "Chart"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:240
+#: finance.py:244
 msgid "Export data"
 msgstr "Export data"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:248
+#: finance.py:252
 msgid "Export credits by day"
 msgstr "Export credits by day"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:253
+#: finance.py:257
 msgid "Export debits by day"
 msgstr "Export debits by day"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:258
+#: finance.py:262
 msgid "Export credits by month"
 msgstr "Export credits by month"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:263
+#: finance.py:267
 msgid "Export debits by month"
 msgstr "Export debits by month"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:307
+#: finance.py:301 finance.py:382 registerscreen.py:233
+msgid "New Credit"
+msgstr "New Credit"
+
+#: finance.py:306 finance.py:383 registerscreen.py:240
+msgid "New Debit"
+msgstr "New Debit"
+
+#: finance.py:311
 msgid "Erase Transaction"
 msgstr "Erase Transaction"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:319
+#: finance.py:323
 msgid "Save as Image"
 msgstr "Save as Image"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:341
+#: finance.py:345
 msgid "Day"
 msgstr "Day"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:341
+#: finance.py:345
 msgid "Week"
 msgstr "Week"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:341
+#: finance.py:345
 msgid "Month"
 msgstr "Month"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:342
+#: finance.py:346
 msgid "Year"
 msgstr "Year"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:342
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:457
+#: finance.py:346 finance.py:461
 msgid "Forever"
 msgstr "Forever"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:344
+#: finance.py:348
 msgid "Select period"
 msgstr "Select period"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:388
+#: finance.py:392
 msgid "Show Credits"
 msgstr "Show Credits"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:389
+#: finance.py:393
 msgid "Show Debits"
 msgstr "Show Debits"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:442
+#. TRANS: representation of the "Day" period
+#: finance.py:446
 msgid "%B %d, %Y"
 msgstr "%d %B %Y"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:446
+#. TRANS: representation of the "Week of" period
+#: finance.py:450
 msgid "Week of"
 msgstr "Week of"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:446
+#: finance.py:450
 msgid " %B %d, %Y"
 msgstr " %d %B %Y"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:450
+#. TRANS: representation of the "Month" period
+#: finance.py:454
 msgid "%B, %Y"
 msgstr "%B, %Y"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:454
+#. TRANS: representation of the "Year" period
+#: finance.py:458
 msgid "%Y"
 msgstr "%Y"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:496
+#: finance.py:500
 msgid "Balance: "
 msgstr "Balance: "
 
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:504
+#: finance.py:508
 msgid "Starting Balance:"
 msgstr "Starting Balance:"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:511
+#: finance.py:515
 #, python-format
 msgid "%s in %d credits"
 msgstr "%s in %d credits"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:515
+#: finance.py:519
 #, python-format
 msgid "%s in %d debits"
 msgstr "%s in %d debits"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:528
+#: finance.py:532
 msgid "Previous Month"
 msgstr "Previous Month"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:529
+#: finance.py:533
 msgid "This Month"
 msgstr "This Month"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:530
+#: finance.py:534
 msgid "Next Month"
 msgstr "Next Month"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:532
+#: finance.py:536
 msgid "Previous Week"
 msgstr "Previous Week"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:533
+#: finance.py:537
 msgid "This Week"
 msgstr "This Week"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:534
+#: finance.py:538
 msgid "Next Week"
 msgstr "Next Week"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:536
+#: finance.py:540
 msgid "Previous Day"
 msgstr "Previous Day"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:537
+#: finance.py:541
 msgid "This Day"
 msgstr "This Day"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:538
+#: finance.py:542
 msgid "Next Day"
 msgstr "Next Day"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:540
+#: finance.py:544
 msgid "Previous Year"
 msgstr "Previous Year"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:541
+#: finance.py:545
 msgid "This Year"
 msgstr "This Year"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:542
+#: finance.py:546
 msgid "Next Year"
 msgstr "Next Year"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:917
+#: finance.py:921
 msgid "Chart created"
 msgstr "Chart created"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:917
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:1034
+#: finance.py:921 finance.py:1038
 msgid "Open in the Journal"
 msgstr "Open in the Journal"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:926
+#: finance.py:930
 msgid "Show in Journal"
 msgstr "Show in Journal"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:929
+#: finance.py:933
 msgid "Ok"
 msgstr "Ok"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:975
+#: finance.py:979
 #, python-format
 msgid "%s by %s"
 msgstr "%s by %s"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/finance.py:1034
+#: finance.py:1038
 msgid "Exported data"
 msgstr "Exported data"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/helpbutton.py:38
+#: helpbutton.py:38
 msgid "Help"
 msgstr "Help"
 
-#: /var/www/pootle/sugarlabs/clones/Finance/budgetscreen.py:42
+#: registerscreen.py:37
 msgid ""
-"The Budget view allows you to set a monthly budget for each expense "
-"category, and to keep track of your\n"
-"budgets. To set a budget, type the amount in the box to the right of the "
-"category."
+"Welcome to Finance! This activity keeps track of income and expenses for "
+"anything that earns or spends money, like a school club.  To get started, "
+"use the Transaction box to add credits and debits.\n"
+"Once you have entered some transactions, visit the Chart and Budget views to "
+"see more."
 msgstr ""
-"The Budget view allows you to set a monthly budget for each expense "
-"category, and to keep track of your\n"
-"budgets. To set a budget, type the amount in the box to the right of the "
-"category."
+"Welcome to Finance! This activity keeps track of income and expenses for "
+"anything that earns or spends money, like a school club.  To get started, "
+"use the Transaction box to add credits and debits.\n"
+"Once you have entered some transactions, visit the Chart and Budget views to "
+"see more."
 
-#: /var/www/pootle/sugarlabs/clones/Finance/budgetscreen.py:94
-msgid "Spent"
-msgstr "Spent"
+#: registerscreen.py:92
+msgid "Description"
+msgstr "Description"
+
+#: registerscreen.py:100
+msgid "Date"
+msgstr "Date"
+
+#: registerscreen.py:109
+msgid "Amount"
+msgstr "Amount"
 
 #~ msgid "Period: "
 #~ msgstr "Period: "
