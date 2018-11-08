@@ -9,3 +9,13 @@ exec = sugar-activity finance.Finance
 summary = Want to wisely manage money? Learn financial planning basics and track your family's finance, make your own budget and learn how to make every penny count!
 repository = https://github.com/sugarlabs/finance-activity
 max_participants = 1
+metadata_license = CC0-1.0
+description:
+    <p>Here is what you can use Finance activity for:</p>
+	<ul>
+		<li>Learn financial planning basics</li>
+		<li>Track your group's finance</li>
+		<li>Check every income and outcome</li>
+	</ul>
+    
+screenshots = https://github.com/sugarlabs/finance-activity/tree/master/screenshots/en/1.png https://github.com/sugarlabs/finance-activity/tree/master/screenshots/en/2.png https://github.com/sugarlabs/finance-activity/tree/master/screenshots/en/3.png
