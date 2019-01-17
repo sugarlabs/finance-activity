@@ -552,9 +552,10 @@ class Finance(activity.Activity):
             text_next_period = _('Next Year')
 
         # Update the label self.period to reflect the period.
-        self.prevperiodbtn.set_tooltip(text_previous_period)
-        self.thisperiodbtn.set_tooltip(text_this_period)
-        self.nextperiodbtn.set_tooltip(text_next_period)
+        if self.period != FOREVER:
+            self.prevperiodbtn.set_tooltip(text_previous_period)
+            self.thisperiodbtn.set_tooltip(text_this_period)
+            self.nextperiodbtn.set_tooltip(text_next_period)
 
     def get_this_period(self):
         today = datetime.date.today()
