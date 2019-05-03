@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-11-06 08:02+1100\n"
-"PO-Revision-Date: 2012-10-14 00:55+0200\n"
-"Last-Translator: joasia1 <joannaboguc@gmail.com>\n"
+"PO-Revision-Date: 2018-12-14 18:52+0000\n"
+"Last-Translator: KrzysztofJ <krzysztofjesz@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Pootle 2.0.5\n"
+"X-Generator: Pootle 2.5.1.1\n"
+"X-POOTLE-MTIME: 1544813572.000000\n"
 
 #: activity/activity.info:2 finance.py:85
 msgid "Finance"
@@ -70,7 +71,7 @@ msgstr ""
 
 #: chartscreen.py:94
 msgid "Credit Categories"
-msgstr ""
+msgstr "Kategorie Kredytów"
 
 #: chartscreen.py:96
 msgid "Debit Categories"
@@ -78,11 +79,11 @@ msgstr "Kategorie wydatków"
 
 #: finance.py:169
 msgid "Add some credit or debit to get started!"
-msgstr ""
+msgstr "Dodaj trochę kredytu lub debetu, aby zacząć!"
 
 #: finance.py:170
 msgid "Add credit"
-msgstr ""
+msgstr "Dodaj kredyt"
 
 #: finance.py:186 finance.py:187 finance.py:277
 msgid "Register"
@@ -94,23 +95,23 @@ msgstr "Wykres"
 
 #: finance.py:244
 msgid "Export data"
-msgstr ""
+msgstr "Eksportuj dane"
 
 #: finance.py:252
 msgid "Export credits by day"
-msgstr ""
+msgstr "Eksportuj kredyty według dnia"
 
 #: finance.py:257
 msgid "Export debits by day"
-msgstr ""
+msgstr "Eksportuj debety według dnia"
 
 #: finance.py:262
 msgid "Export credits by month"
-msgstr ""
+msgstr "Eksportuj kredyty według miesiąca"
 
 #: finance.py:267
 msgid "Export debits by month"
-msgstr ""
+msgstr "Eksportuj debety według miesiąca"
 
 #: finance.py:301 finance.py:382 registerscreen.py:233
 msgid "New Credit"
@@ -126,7 +127,7 @@ msgstr "Usuń transakcję"
 
 #: finance.py:323
 msgid "Save as Image"
-msgstr ""
+msgstr "Zapisz jako Obrazek"
 
 #: finance.py:345
 msgid "Day"
@@ -150,15 +151,15 @@ msgstr "Wszystko"
 
 #: finance.py:348
 msgid "Select period"
-msgstr ""
+msgstr "Wybierz okres"
 
 #: finance.py:392
 msgid "Show Credits"
-msgstr ""
+msgstr "Pokaż Kredyty"
 
 #: finance.py:393
 msgid "Show Debits"
-msgstr ""
+msgstr "Pokaż debety"
 
 #. TRANS: representation of the "Day" period
 #: finance.py:446
@@ -190,17 +191,17 @@ msgstr "Suma: "
 
 #: finance.py:508
 msgid "Starting Balance:"
-msgstr ""
+msgstr "Początkowy Bilans:"
 
 #: finance.py:515
 #, python-format
 msgid "%s in %d credits"
-msgstr ""
+msgstr "%s w %d kredytów"
 
 #: finance.py:519
 #, python-format
 msgid "%s in %d debits"
-msgstr ""
+msgstr "%s w %d długu"
 
 #: finance.py:532
 msgid "Previous Month"
@@ -216,15 +217,15 @@ msgstr "Następny miesiąc"
 
 #: finance.py:536
 msgid "Previous Week"
-msgstr ""
+msgstr "Poprzedni Tydzień"
 
 #: finance.py:537
 msgid "This Week"
-msgstr ""
+msgstr "W Tym Tygodniu"
 
 #: finance.py:538
 msgid "Next Week"
-msgstr ""
+msgstr "Następnego Tygodnia"
 
 #: finance.py:540
 msgid "Previous Day"
@@ -252,28 +253,28 @@ msgstr "Następny rok"
 
 #: finance.py:921
 msgid "Chart created"
-msgstr ""
+msgstr "Utworzono Wykres"
 
 #: finance.py:921 finance.py:1038
 msgid "Open in the Journal"
-msgstr ""
+msgstr "Otwórz w Dzienniku"
 
 #: finance.py:930
 msgid "Show in Journal"
-msgstr ""
+msgstr "Pokaż w Dzienniku"
 
 #: finance.py:933
 msgid "Ok"
-msgstr ""
+msgstr "Ok"
 
 #: finance.py:979
 #, python-format
 msgid "%s by %s"
-msgstr ""
+msgstr "%s przez %s"
 
 #: finance.py:1038
 msgid "Exported data"
-msgstr ""
+msgstr "Eksportowane dane"
 
 #: helpbutton.py:38
 msgid "Help"

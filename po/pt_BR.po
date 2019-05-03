@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-11-06 08:02+1100\n"
-"PO-Revision-Date: 2016-08-11 18:41+0000\n"
-"Last-Translator: Chris <cjl@sugarlabs.org>\n"
+"PO-Revision-Date: 2019-03-09 00:12+0000\n"
+"Last-Translator: Paulo Francisco <slomp@ufrgs.br>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.5.1.1\n"
-"X-POOTLE-MTIME: 1470940900.000000\n"
+"X-POOTLE-MTIME: 1552090356.000000\n"
 
 #: activity/activity.info:2 finance.py:85
 msgid "Finance"
@@ -39,10 +39,10 @@ msgid ""
 "budgets. To set a budget, type the amount in the box to the right of the "
 "category."
 msgstr ""
-"A visão de Orçamento, permite você configurar um orçamento mensal para cada "
-"categoria de despesa e acompanhar seus ganhos.\n"
-"Para configurar um orçamento, escreva a quantia na caixa à direita da "
-"categoria."
+"A visão de Orçamento permite a você estabelecer um orçamento mensal para "
+"cada categoria de despesa, e acompanhar seus\n"
+"ganhos. Para configurar um orçamento, escreva a quantia na caixa à direita "
+"da categoria."
 
 #: budgetscreen.py:90 registerscreen.py:80
 msgid "Category"
@@ -80,7 +80,7 @@ msgstr "Categorias de Despesas"
 
 #: finance.py:169
 msgid "Add some credit or debit to get started!"
-msgstr "Adicine alguma receita ou despesa para começar!"
+msgstr "Adicione alguma receita ou despesa para começar!"
 
 #: finance.py:170
 msgid "Add credit"
@@ -88,7 +88,7 @@ msgstr "Adicionar receita"
 
 #: finance.py:186 finance.py:187 finance.py:277
 msgid "Register"
-msgstr "Cadastrar"
+msgstr "Registrar"
 
 #: finance.py:203 finance.py:204 finance.py:281
 msgid "Chart"
@@ -156,11 +156,11 @@ msgstr "Selecionar período"
 
 #: finance.py:392
 msgid "Show Credits"
-msgstr "Ver Receitas"
+msgstr "Mostrar Receitas"
 
 #: finance.py:393
 msgid "Show Debits"
-msgstr "Ver Despesas"
+msgstr "Mostrar Despesas"
 
 #. TRANS: representation of the "Day" period
 #: finance.py:446
@@ -234,7 +234,7 @@ msgstr "Dia Anterior"
 
 #: finance.py:541
 msgid "This Day"
-msgstr "Este Dia"
+msgstr "Dia atual"
 
 #: finance.py:542
 msgid "Next Day"
@@ -246,7 +246,7 @@ msgstr "Ano Anterior"
 
 #: finance.py:545
 msgid "This Year"
-msgstr "Este Ano"
+msgstr "Ano atual"
 
 #: finance.py:546
 msgid "Next Year"
@@ -290,7 +290,7 @@ msgid ""
 "see more."
 msgstr ""
 "Bem vindo ao Finanças! Esta atividade acompanha as receitas e despesas de "
-"qualquer coisa que ganhe ou gaste dinheiro, como um clube ecolar.  Para "
+"qualquer coisa que ganhe ou gaste dinheiro, como um clube escolar.   Para "
 "começar, use a caixa de Transações para adicionar receitas e despesas.\n"
 "Uma vez que você tenha inserido algumas transações, visite as seções Gráfico "
 "e Orçamento para ver mais."

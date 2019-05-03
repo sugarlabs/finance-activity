@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-11-06 08:02+1100\n"
-"PO-Revision-Date: 2017-03-28 12:32+0000\n"
-"Last-Translator: GeeKrypter <psramaraju@gmail.com>\n"
+"PO-Revision-Date: 2019-04-05 00:05+0000\n"
+"Last-Translator: roohan <rizvi.beta@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.5.1.1\n"
-"X-POOTLE-MTIME: 1490704358.000000\n"
+"X-POOTLE-MTIME: 1554422702.000000\n"
 
 #: activity/activity.info:2 finance.py:85
 msgid "Finance"
@@ -28,6 +28,9 @@ msgid ""
 "family's finance, make your own budget and learn how to make every penny "
 "count!"
 msgstr ""
+"बुद्धिमानी से पैसे का प्रबंधन करना चाहते हैं? वित्तीय नियोजन मूल बातें जानें "
+"और अपने परिवार के वित्त को ट्रैक करें, अपना बजट बनाएं और सीखें कि हर पैसा "
+"कैसे बनाया जाए!"
 
 #: budgetscreen.py:42
 #, fuzzy
@@ -78,11 +81,11 @@ msgstr "नामे श्रेणी"
 
 #: finance.py:169
 msgid "Add some credit or debit to get started!"
-msgstr ""
+msgstr "आरंभ करने के लिए कुछ क्रेडिट या डेबिट जोड़ें!"
 
 #: finance.py:170
 msgid "Add credit"
-msgstr ""
+msgstr "क्रेडिट जोड़ने"
 
 #: finance.py:186 finance.py:187 finance.py:277
 msgid "Register"
@@ -94,23 +97,23 @@ msgstr "चार्ट"
 
 #: finance.py:244
 msgid "Export data"
-msgstr ""
+msgstr "निर्यात जानकारी"
 
 #: finance.py:252
 msgid "Export credits by day"
-msgstr ""
+msgstr "दिन के हिसाब से क्रेडिट निर्यात करें"
 
 #: finance.py:257
 msgid "Export debits by day"
-msgstr ""
+msgstr "दिन के हिसाब से निर्यात करें"
 
 #: finance.py:262
 msgid "Export credits by month"
-msgstr ""
+msgstr "महीने के हिसाब से क्रेडिट निर्यात करें"
 
 #: finance.py:267
 msgid "Export debits by month"
-msgstr ""
+msgstr "महीने से निर्यात डेबिट"
 
 #: finance.py:301 finance.py:382 registerscreen.py:233
 msgid "New Credit"
@@ -126,7 +129,7 @@ msgstr "लेन-देन मिटाएँ"
 
 #: finance.py:323
 msgid "Save as Image"
-msgstr ""
+msgstr "छवि के रूप में सहेजें"
 
 #: finance.py:345
 msgid "Day"
@@ -150,20 +153,20 @@ msgstr "हमेशा के लिए"
 
 #: finance.py:348
 msgid "Select period"
-msgstr ""
+msgstr "अवधि का चयन करें"
 
 #: finance.py:392
 msgid "Show Credits"
-msgstr ""
+msgstr "क्रेडिट दिखाएं"
 
 #: finance.py:393
 msgid "Show Debits"
-msgstr ""
+msgstr "डेबिट दिखाएं"
 
 #. TRANS: representation of the "Day" period
 #: finance.py:446
 msgid "%B %d, %Y"
-msgstr ""
+msgstr "% B% d,% Y"
 
 #. TRANS: representation of the "Week of" period
 #: finance.py:450
@@ -172,17 +175,17 @@ msgstr "का सप्ताह"
 
 #: finance.py:450
 msgid " %B %d, %Y"
-msgstr ""
+msgstr "%B %d, %Y"
 
 #. TRANS: representation of the "Month" period
 #: finance.py:454
 msgid "%B, %Y"
-msgstr ""
+msgstr "%B, %Y"
 
 #. TRANS: representation of the "Year" period
 #: finance.py:458
 msgid "%Y"
-msgstr ""
+msgstr "%Y"
 
 #: finance.py:500
 msgid "Balance: "
@@ -227,8 +230,9 @@ msgid "Next Week"
 msgstr "अगले सप्ताह"
 
 #: finance.py:540
+#, fuzzy
 msgid "Previous Day"
-msgstr ""
+msgstr "पिछला साल"
 
 #: finance.py:541
 msgid "This Day"
@@ -269,11 +273,11 @@ msgstr "ठीक"
 #: finance.py:979
 #, python-format
 msgid "%s by %s"
-msgstr ""
+msgstr "%s by %s"
 
 #: finance.py:1038
 msgid "Exported data"
-msgstr ""
+msgstr "निर्यातित डेटा"
 
 #: helpbutton.py:38
 msgid "Help"
