@@ -168,7 +168,10 @@ class RegisterScreen(Gtk.VBox):
     def amount_edit_cb(self, cell_renderer, path, new_text):
         id = self.liststore[path][0]
         t = self.activity.transaction_map[id]
-        t['amount'] = abs(locale.atof(new_text))
+        if(new_text.isdigit()):
+            t['amount'] = abs(locale.atof(new_text))
+        else:
+            t['amount'] = 0.00
         self.activity.update_summary()
 
     def date_render_cb(self, column, cell_renderer, model, iter, data):
