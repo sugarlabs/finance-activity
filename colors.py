@@ -60,4 +60,4 @@ def test_luminances():
         color = "#%02x%02x%02x" % \
             (int(cat_color[0] * 255), int(cat_color[1] * 255),
              int(cat_color[2] * 255))
-        logging.error('color %s luminance %s', color, _luminance(color))
+        logging.debug('color %s luminance %s', color, _luminance(color))

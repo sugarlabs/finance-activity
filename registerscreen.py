@@ -242,12 +242,12 @@ class RegisterScreen(Gtk.VBox):
 
     def erase_item(self):
         sel = self.treeview.get_selection()
-        logging.error('erase item selection %s', sel)
+        logging.debug('erase item selection %s', sel)
         model, iterator = sel.get_selected()
-        logging.error('erase item %s', iterator)
+        logging.debug('erase item %s', iterator)
         if iterator:
             id = model.get_value(iterator, 0)
-            logging.error('erase item id %s', id)
+            logging.debug('erase item id %s', id)
             self.activity.destroy_transaction(id)
             self.activity.update_summary()
 

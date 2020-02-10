@@ -922,7 +922,7 @@ class Finance(activity.Activity):
         journal_entry.metadata['preview'] = dbus.ByteArray(
             preview_str.getvalue())
 
-        logging.error('Create %s image file', image_file.name)
+        logging.debug('Create %s image file', image_file.name)
         datastore.write(journal_entry)
         self._show_journal_alert(
             _('Chart created'), _('Open in the Journal'),
@@ -974,14 +974,14 @@ class Finance(activity.Activity):
         elif type_movement == 'debit':
             what_filter = 'Debits'
         else:
-            logging.error('ERROR type_movement should be credit or debit')
+            logging.debug('ERROR type_movement should be credit or debit')
 
         if period == DAY:
             when = 'day'
         elif period == MONTH:
             when = 'month'
         else:
-            logging.error('ERROR period should be DAY or MONTH')
+            logging.debug('ERROR period should be DAY or MONTH')
 
         title = _('%(what_filter)s by %(when)s') % {
             'what_filter': what_filter, 'when': when}

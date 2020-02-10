@@ -39,7 +39,7 @@ CHART_HELP = _(
 def _get_screen_dpi():
     xft_dpi = Gtk.Settings.get_default().get_property('gtk-xft-dpi')
     dpi = float(xft_dpi / 1024)
-    logging.error('Setting dpi to: %f', dpi)
+    logging.debug('Setting dpi to: %f', dpi)
     return dpi
 
 
