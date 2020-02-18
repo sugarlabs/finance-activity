@@ -1029,7 +1029,7 @@ class Finance(activity.Activity):
         logging.debug('chart_data %s', chart_params)
 
         # save to the journal
-        data_file = tempfile.NamedTemporaryFile(mode='w+b', suffix='.json')
+        data_file = tempfile.NamedTemporaryFile(mode='w', suffix='.json')
         journal_entry = datastore.create()
         journal_entry.metadata['title'] = title
         journal_entry.metadata['keep'] = '0'
