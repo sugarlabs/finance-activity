@@ -18,6 +18,7 @@
 """Finance - Home financial software for the OLPC XO."""
 
 # Import standard Python modules.
+import os
 import logging
 import datetime
 import locale
@@ -107,11 +108,12 @@ class Finance(activity.Activity):
         self.transaction_names = {}
         self.category_names = {}
 
-        # self.create_test_data()
-
         # Initialize view period to the first of the month.
         self.period = MONTH
         self.period_start = self.get_this_period()
+
+        if os.getenv('FINANCE_TEST'):
+            self.create_test_data()
 
         # Create screens.
         self.register = registerscreen.RegisterScreen(self)
