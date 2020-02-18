@@ -423,7 +423,7 @@ class Finance(activity.Activity):
             self.chart.set_mode(self.chart.CHART_CREDIT)
             return
 
-        # this check is used when the emptypanle is visible
+        # this check is used when the emptypanel is visible
         if self._active_panel != self.register:
             self._set_internal_panel(self.register)
         self.register.new_credit()
@@ -434,7 +434,7 @@ class Finance(activity.Activity):
             self.chart.set_mode(self.chart.CHART_DEBIT)
             return
 
-        # this check is used when the emptypanle is visible
+        # this check is used when the emptypanel is visible
         if self._active_panel != self.register:
             self._set_internal_panel(self.register)
         self.register.new_debit()
