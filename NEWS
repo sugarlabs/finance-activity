@@ -1,3 +1,20 @@
+15
+
+* Fix help button (Rahul Bothra),
+* Add screenshots (sdziuda),
+* Fix reference error (Aniket Mathur),
+* New translations (scootergrisen, Rizvi Beta, khishigjargal,
+  KrzysztofJ, Paulo Francisco, martenix),
+* Add README (Aniket Mathur),
+* Port to Python 3 (Rahul Bothra, James Cameron),
+* Demote logging (Ibiam Chihurumnaya),
+* Add user documentation link (James Cameron),
+* Fix SyntaxWarning; "is" with a literal (James Cameron),
+* Remove empty translations (James Cameron),
+* Add .flake8 and fix typos (James Cameron),
+* Use test data depending on environment variable (James Cameron),
+* Refresh POT file (James Cameron),
+
 14
 
 * New translations (Chris Leonard et al),
