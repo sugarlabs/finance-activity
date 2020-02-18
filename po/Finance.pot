@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-26 17:03+1100\n"
+"POT-Creation-Date: 2020-02-18 19:14+1100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: activity/activity.info:2 finance.py:85
+#: activity/activity.info:2 finance.py:89
 msgid "Finance"
 msgstr ""
 
@@ -28,7 +28,23 @@ msgid ""
 "count!"
 msgstr ""
 
-#: budgetscreen.py:42
+#: activity/activity.info:4
+msgid "Here is what you can use Finance activity for:"
+msgstr ""
+
+#: activity/activity.info:4
+msgid "Learn financial planning basics"
+msgstr ""
+
+#: activity/activity.info:4
+msgid "Track your group's finance"
+msgstr ""
+
+#: activity/activity.info:4
+msgid "Check every income and outcome"
+msgstr ""
+
+#: budgetscreen.py:39
 msgid ""
 "The Budget view allows you to set a monthly budget for each expense "
 "category, and to keep track of your\n"
@@ -36,233 +52,233 @@ msgid ""
 "category."
 msgstr ""
 
-#: budgetscreen.py:90 registerscreen.py:80
+#: budgetscreen.py:87 registerscreen.py:77
 msgid "Category"
 msgstr ""
 
-#: budgetscreen.py:94
+#: budgetscreen.py:91
 msgid "Spent"
 msgstr ""
 
-#: budgetscreen.py:98 finance.py:195 finance.py:196 finance.py:279
+#: budgetscreen.py:95 finance.py:200 finance.py:201 finance.py:284
 msgid "Budget"
 msgstr ""
 
-#: budgetscreen.py:127 chartscreen.py:160 chartscreen.py:181
+#: budgetscreen.py:124 chartscreen.py:156 chartscreen.py:177
 msgid "Unknown"
 msgstr ""
 
-#: chartscreen.py:38
+#: chartscreen.py:35
 msgid ""
 "The Chart view shows the proportion of your expenses that is in each "
 "category.\n"
 "You can categorize transactions in the Register view."
 msgstr ""
 
-#: chartscreen.py:94
+#: chartscreen.py:91
 msgid "Credit Categories"
 msgstr ""
 
-#: chartscreen.py:96
+#: chartscreen.py:93
 msgid "Debit Categories"
 msgstr ""
 
-#: finance.py:169
+#: finance.py:174
 msgid "Add some credit or debit to get started!"
 msgstr ""
 
-#: finance.py:170
+#: finance.py:175
 msgid "Add credit"
 msgstr ""
 
-#: finance.py:186 finance.py:187 finance.py:277
+#: finance.py:191 finance.py:192 finance.py:282
 msgid "Register"
 msgstr ""
 
-#: finance.py:203 finance.py:204 finance.py:281
+#: finance.py:208 finance.py:209 finance.py:286
 msgid "Chart"
 msgstr ""
 
-#: finance.py:244
+#: finance.py:249
 msgid "Export data"
 msgstr ""
 
-#: finance.py:252
+#: finance.py:257
 msgid "Export credits by day"
 msgstr ""
 
-#: finance.py:257
+#: finance.py:262
 msgid "Export debits by day"
 msgstr ""
 
-#: finance.py:262
+#: finance.py:267
 msgid "Export credits by month"
 msgstr ""
 
-#: finance.py:267
+#: finance.py:272
 msgid "Export debits by month"
 msgstr ""
 
-#: finance.py:301 finance.py:382 registerscreen.py:233
+#: finance.py:306 finance.py:387 registerscreen.py:230
 msgid "New Credit"
 msgstr ""
 
-#: finance.py:306 finance.py:383 registerscreen.py:240
+#: finance.py:311 finance.py:388 registerscreen.py:237
 msgid "New Debit"
 msgstr ""
 
-#: finance.py:311
+#: finance.py:316
 msgid "Erase Transaction"
 msgstr ""
 
-#: finance.py:323
+#: finance.py:328
 msgid "Save as Image"
 msgstr ""
 
-#: finance.py:345
+#: finance.py:350
 msgid "Day"
 msgstr ""
 
-#: finance.py:345
+#: finance.py:350
 msgid "Week"
 msgstr ""
 
-#: finance.py:345
+#: finance.py:350
 msgid "Month"
 msgstr ""
 
-#: finance.py:346
+#: finance.py:351
 msgid "Year"
 msgstr ""
 
-#: finance.py:346 finance.py:461
+#: finance.py:351 finance.py:466
 msgid "Forever"
 msgstr ""
 
-#: finance.py:348
+#: finance.py:353
 msgid "Select period"
 msgstr ""
 
-#: finance.py:392
+#: finance.py:397
 msgid "Show Credits"
 msgstr ""
 
-#: finance.py:393
+#: finance.py:398
 msgid "Show Debits"
 msgstr ""
 
 #. TRANS: representation of the "Day" period
-#: finance.py:446
+#: finance.py:451
 msgid "%B %d, %Y"
 msgstr ""
 
 #. TRANS: representation of the "Week of" period
-#: finance.py:450
+#: finance.py:455
 msgid "Week of"
 msgstr ""
 
-#: finance.py:450
+#: finance.py:455
 msgid " %B %d, %Y"
 msgstr ""
 
 #. TRANS: representation of the "Month" period
-#: finance.py:454
+#: finance.py:459
 msgid "%B, %Y"
 msgstr ""
 
 #. TRANS: representation of the "Year" period
-#: finance.py:458
+#: finance.py:463
 msgid "%Y"
 msgstr ""
 
-#: finance.py:500
+#: finance.py:505
 msgid "Balance: "
 msgstr ""
 
-#: finance.py:508
+#: finance.py:513
 msgid "Starting Balance:"
 msgstr ""
 
-#: finance.py:515
+#: finance.py:520
 #, python-format
 msgid "%(credit_total)s in %(credit_count)d credits"
 msgstr ""
 
-#: finance.py:521
+#: finance.py:526
 #, python-format
 msgid "%(debit_total)s in %(debit_count)d debits"
 msgstr ""
 
-#: finance.py:535
+#: finance.py:540
 msgid "Previous Month"
 msgstr ""
 
-#: finance.py:536
+#: finance.py:541
 msgid "This Month"
 msgstr ""
 
-#: finance.py:537
+#: finance.py:542
 msgid "Next Month"
 msgstr ""
 
-#: finance.py:539
+#: finance.py:544
 msgid "Previous Week"
 msgstr ""
 
-#: finance.py:540
+#: finance.py:545
 msgid "This Week"
 msgstr ""
 
-#: finance.py:541
+#: finance.py:546
 msgid "Next Week"
 msgstr ""
 
-#: finance.py:543
+#: finance.py:548
 msgid "Previous Day"
 msgstr ""
 
-#: finance.py:544
+#: finance.py:549
 msgid "This Day"
 msgstr ""
 
-#: finance.py:545
+#: finance.py:550
 msgid "Next Day"
 msgstr ""
 
-#: finance.py:547
+#: finance.py:552
 msgid "Previous Year"
 msgstr ""
 
-#: finance.py:548
+#: finance.py:553
 msgid "This Year"
 msgstr ""
 
-#: finance.py:549
+#: finance.py:554
 msgid "Next Year"
 msgstr ""
 
-#: finance.py:924
+#: finance.py:930
 msgid "Chart created"
 msgstr ""
 
-#: finance.py:924 finance.py:1042
+#: finance.py:930 finance.py:1048
 msgid "Open in the Journal"
 msgstr ""
 
-#: finance.py:933
+#: finance.py:939
 msgid "Show in Journal"
 msgstr ""
 
-#: finance.py:936
+#: finance.py:942
 msgid "Ok"
 msgstr ""
 
-#: finance.py:982
+#: finance.py:988
 #, python-format
 msgid "%(what_filter)s by %(when)s"
 msgstr ""
 
-#: finance.py:1042
+#: finance.py:1048
 msgid "Exported data"
 msgstr ""
 
@@ -270,7 +286,7 @@ msgstr ""
 msgid "Help"
 msgstr ""
 
-#: registerscreen.py:37
+#: registerscreen.py:34
 msgid ""
 "Welcome to Finance! This activity keeps track of income and expenses for "
 "anything that earns or spends money, like a school club.  To get started, "
@@ -279,14 +295,14 @@ msgid ""
 "see more."
 msgstr ""
 
-#: registerscreen.py:92
+#: registerscreen.py:89
 msgid "Description"
 msgstr ""
 
-#: registerscreen.py:100
+#: registerscreen.py:97
 msgid "Date"
 msgstr ""
 
-#: registerscreen.py:109
+#: registerscreen.py:106
 msgid "Amount"
 msgstr ""
