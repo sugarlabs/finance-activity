@@ -916,7 +916,7 @@ class Finance(activity.Activity):
         journal_entry.file_path = image_file.name
 
         # generate the preview
-        preview_str = io.StringIO()
+        preview_str = io.BytesIO()
         self.chart.generate_image(preview_str, activity.PREVIEW_SIZE[0],
                                   activity.PREVIEW_SIZE[1])
         journal_entry.metadata['preview'] = dbus.ByteArray(
