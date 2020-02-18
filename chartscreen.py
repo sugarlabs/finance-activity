@@ -152,7 +152,7 @@ class ChartScreen(Gtk.VBox):
         for c in self.sorted_categories:
             description = c
             # If there is no category, display as Unknown
-            if c is '':
+            if c == '':
                 description = _('Unknown')
 
             # need measure the description width to align the amounts
@@ -173,7 +173,7 @@ class ChartScreen(Gtk.VBox):
         rectangles_width = max_width_desc + max_width_amount + padding * 3
         for c in self.sorted_categories:
             description = c
-            if c is '':
+            if c == '':
                 description = _('Unknown')
             context.save()
             context.translate(0, y)

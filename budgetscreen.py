@@ -120,7 +120,7 @@ class BudgetScreen(Gtk.VBox):
         for c in self.sorted_categories:
             description = c
             # If there is no category, display as Unknown
-            if c is '':
+            if c == '':
                 description = _('Unknown')
 
             color = colors.get_category_color_str(c)
