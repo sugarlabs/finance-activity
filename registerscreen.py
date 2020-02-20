@@ -189,7 +189,10 @@ class RegisterScreen(Gtk.VBox):
                 ast.Div: operator.truediv,
             }
 
-            node = ast.parse(value, mode='eval')
+            try:
+                node = ast.parse(value, mode='eval')
+            except:
+                return None
             
             def _eval(node):
                 if isinstance(node, ast.Expression):
