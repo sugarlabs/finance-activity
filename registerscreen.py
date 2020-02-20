@@ -20,6 +20,8 @@ import datetime
 import locale
 from gettext import gettext as _
 import logging
+import ast, operator
+import re
 
 from gi.repository import Gtk
 from gi.repository import GObject
@@ -168,11 +170,48 @@ class RegisterScreen(Gtk.VBox):
     def amount_edit_cb(self, cell_renderer, path, new_text):
         id = self.liststore[path][0]
         t = self.activity.transaction_map[id]
-        if(new_text.isdigit()):
+        try:
             t['amount'] = abs(locale.atof(new_text))
-        else:
-            t['amount'] = 0.00
+        except ValueError :
+            if self._extract_value(new_text) is not None:
+                t['amount'] = abs(locale.atof(self._extract_value(new_text)))
+            else:
+                t['amount'] = 0.00
         self.activity.update_summary()
+
+    def _extract_value(self, value):
+        if isinstance(value, str):
+
+            binOps = {
+                ast.Add: operator.add,
+                ast.Sub: operator.sub,
+                ast.Mult: operator.mul,
+                ast.Div: operator.truediv,
+            }
+
+            node = ast.parse(value, mode='eval')
+            
+            def _eval(node):
+                if isinstance(node, ast.Expression):
+                    return _eval(node.body)
+                elif isinstance(node, ast.BinOp):
+                    return binOps[type(node.op)](_eval(node.left), _eval(node.right))
+                elif isinstance(node, ast.Num):
+                    return node.n
+                else:
+                    return None 
+                return _eval(node.body)
+
+            value = _eval(node) 
+            
+        decimals_found = re.findall("\d+\.\d+", str(value))
+        integers_found = re.findall("\d+", str(value))
+
+        if decimals_found != []:
+            return decimals_found[0]
+        elif integers_found != []:
+            return integers_found[0]
+        return None
 
     def date_render_cb(self, column, cell_renderer, model, iter, data):
         id = model.get_value(iter, 0)
