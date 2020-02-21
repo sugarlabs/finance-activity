@@ -48,9 +48,9 @@ def evaluate(value):
     integers_found = re.findall("\d+", str(value))
 
     if decimals_found != []:
-        return decimals_found[0]
+        return float(decimals_found[0])
     elif integers_found != []:
-        return integers_found[0]
+        return float(integers_found[0])
     return None
 
 
