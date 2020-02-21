@@ -1,4 +1,3 @@
-# Import standard Python modules.
 from gi.repository import Gtk
 import ast
 import operator
@@ -48,7 +47,7 @@ def evaluate(value):
     return None
 
 
-def _invalid_number_alert(activity):
+def invalid_value_alert(activity):
     alert = Alert()
 
     alert.props.title = _('Invalid Value')

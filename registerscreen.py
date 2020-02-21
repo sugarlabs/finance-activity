@@ -29,8 +29,8 @@ from sugar3.graphics import style
 
 # Import activity module
 import colors
-from extractinput import evaluate
-from extractinput import _invalid_number_alert
+from parse import evaluate
+from parse import invalid_value_alert
 
 REGISTER_HELP = _(
     'Welcome to Finance! This activity keeps track of income '
@@ -176,7 +176,7 @@ class RegisterScreen(Gtk.VBox):
             if evaluate(new_text) is not None:
                 t['amount'] = abs(locale.atof(evaluate(new_text)))
             else:
-                _invalid_number_alert(self.activity)
+                invalid_value_alert(self.activity)
         self.activity.update_summary()
 
     def date_render_cb(self, column, cell_renderer, model, iter, data):

@@ -27,7 +27,7 @@ from gi.repository import GObject
 from sugar3.graphics import style
 
 import colors
-from extractinput import evaluate
+from parse import evaluate
 
 # copied from finance.py to not create another module
 DAY = 0
