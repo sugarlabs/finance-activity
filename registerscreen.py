@@ -39,6 +39,7 @@ REGISTER_HELP = _(
     'debits.\nOnce you have entered some transactions, visit the Chart '
     'and Budget views to see more.')
 
+
 class RegisterScreen(Gtk.VBox):
     def __init__(self, activity):
         GObject.GObject.__init__(self)
@@ -171,7 +172,7 @@ class RegisterScreen(Gtk.VBox):
         t = self.activity.transaction_map[id]
         try:
             t['amount'] = abs(locale.atof(new_text))
-        except ValueError :
+        except ValueError:
             if evaluate(new_text) is not None:
                 t['amount'] = abs(locale.atof(evaluate(new_text)))
             else:

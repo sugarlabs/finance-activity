@@ -242,7 +242,7 @@ class BudgetScreen(Gtk.VBox):
         if text != '':
             try:
                 amount = abs(locale.atof(text))
-            except ValueError :
+            except ValueError:
                 if evaluate(text) is not None:
                     amount = abs(locale.atof(evaluate(text)))
                 else:
