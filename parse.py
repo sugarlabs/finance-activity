@@ -1,4 +1,5 @@
 from gi.repository import Gtk
+import locale
 import ast
 import operator
 import re
@@ -10,6 +11,12 @@ from sugar3.graphics.icon import Icon
 
 
 def evaluate(value):
+    try:
+        result = locale.atof(value)
+        return result
+    except:
+        pass
+
     if isinstance(value, str):
 
         binOps = {
