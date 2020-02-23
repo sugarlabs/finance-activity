@@ -36,7 +36,11 @@ def evaluate(value):
             if isinstance(node, ast.Expression):
                 return _eval(node.body)
             elif isinstance(node, ast.BinOp):
-                return binOps[type(node.op)](_eval(node.left), _eval(node.right))
+                left = _eval(node.left)
+                right = _eval(node.right)
+                if not left or not right:
+                    return None
+                return binOps[type(node.op)](left, right)
             elif isinstance(node, ast.Num):
                 return node.n
             else:
