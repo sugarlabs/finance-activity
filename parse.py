@@ -103,3 +103,4 @@ if __name__ == "__main__":
             print('fail; %r -> %r instead of %r' % (text, observed, expected))
         else:
             print('pass; %r -> %r' % (text, observed))
+
