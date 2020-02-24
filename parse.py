@@ -27,6 +27,10 @@ def evaluate(value):
             ast.Div: operator.truediv,
         }
 
+        unOps = {
+            ast.USub: operator.neg
+        }
+
         try:
             node = ast.parse(value, mode='eval')
         except:
@@ -41,6 +45,8 @@ def evaluate(value):
                 if not left or not right:
                     return None
                 return binOps[type(node.op)](left, right)
+            elif isinstance(node, ast.UnaryOp):
+                return unOps[type(node.op)](_eval(node.operand))
             elif isinstance(node, ast.Num):
                 return node.n
             else:
@@ -85,7 +91,7 @@ if __name__ == "__main__":
         ['4-2', 2.0],
         ['4*2', 8.0],
         ['4/2', 2.0],
-        #  ['4*-4', -4.0],  # TypeError: 
+        #  ['4*-4', -4.0],  # TypeError:
         ['4/2-1', 1.0],
         ['1.5', 1.5],
         ['-1.7', -1.7],
