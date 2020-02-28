@@ -27,7 +27,7 @@ def evaluate(value):
 
         try:
             node = ast.parse(value, mode='eval')
-        except:
+        except SyntaxError:
             return None
 
         def _eval(node):
@@ -77,7 +77,7 @@ if __name__ == "__main__":
         ['4-2', 2.0],
         ['4*2', 8.0],
         ['4/2', 2.0],
-        #  ['4*-4', -4.0],  # TypeError:
+         ['4*-4', -4.0],  # TypeError:
         ['4/2-1', 1.0],
         ['1.5', 1.5],
         ['-1.7', -1.7],
