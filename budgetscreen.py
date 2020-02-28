@@ -212,7 +212,10 @@ class BudgetScreen(Gtk.VBox):
             elif self.activity.period == YEAR:
                 budget = budget * 12.0
 
-            ratio = total / budget
+            if budget != 0:
+                ratio = total / budget
+            else:
+                ratio = 10.0
 
             cr.move_to(0, 0)
             cr.line_to(ratio * (bounds.width - 30), 0)
