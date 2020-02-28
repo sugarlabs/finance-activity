@@ -27,6 +27,7 @@ from gi.repository import GObject
 from sugar3.graphics import style
 
 import colors
+from parse import evaluate
 
 # copied from finance.py to not create another module
 DAY = 0
@@ -148,6 +149,7 @@ class BudgetScreen(Gtk.VBox):
 
             budgetentry = Gtk.Entry()
             budgetentry.connect('changed', self.budget_changed_cb, c)
+            budgetentry.connect('activate', self.budget_activate_cb, c)
             budgetentry.set_width_chars(10)
             if c in self.activity.data['budgets']:
                 b = self.activity.data['budgets'][c]
@@ -239,11 +241,30 @@ class BudgetScreen(Gtk.VBox):
         cr.move_to(20, (bounds.height - height) / 2 - y_bearing)
         cr.show_text(text)
 
-    def budget_changed_cb(self, widget, category):
+    def _budget_evaluate(self, widget, category, rewrite):
         text = widget.get_text()
-        if text != '':
-            amount = abs(locale.atof(text))
-            self.activity.data['budgets'][category] = {'amount': amount}
-        else:
-            del self.activity.data['budgets'][category]
+
+        if text == '':
+            self.activity.data['budgets'][category] = {'amount': 0.0}
+            return
+
+        amount = evaluate(text)
+        if amount is None:
+            return
+
+        amount = abs(amount)
+
+        # replace any expression with the result
+        if rewrite:
+            result = str(amount)
+            if text != result:
+                widget.set_text(result)
+
+        self.activity.data['budgets'][category] = {'amount': amount}
         self.queue_draw()
+
+    def budget_changed_cb(self, widget, category):
+        self._budget_evaluate(widget, category, False)
+
+    def budget_activate_cb(self, widget, category):
+        self._budget_evaluate(widget, category, True)
