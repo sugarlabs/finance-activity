@@ -4,7 +4,7 @@ import locale
 import ast
 import operator
 import re
-
+import logging
 from gettext import gettext as _
 
 from sugar3.graphics.alert import Alert
@@ -12,12 +12,6 @@ from sugar3.graphics.icon import Icon
 
 
 def evaluate(value):
-    try:
-        result = locale.atof(value)
-        return result
-    except:
-        pass
-
     if isinstance(value, str):
 
         binOps = {
@@ -54,15 +48,7 @@ def evaluate(value):
             return _eval(node.body)
 
         value = _eval(node)
-
-    decimals_found = re.findall("\d+\.\d+", str(value))
-    integers_found = re.findall("\d+", str(value))
-
-    if decimals_found != []:
-        return float(decimals_found[0])
-    elif integers_found != []:
-        return float(integers_found[0])
-    return None
+        return value
 
 
 def invalid_value_alert(activity):
@@ -103,4 +89,3 @@ if __name__ == "__main__":
             print('fail; %r -> %r instead of %r' % (text, observed, expected))
         else:
             print('pass; %r -> %r' % (text, observed))
-
