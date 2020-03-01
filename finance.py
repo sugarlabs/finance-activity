@@ -312,6 +312,16 @@ class Finance(activity.Activity):
         self.newdebitbtn.props.accelerator = '<Ctrl>D'
         self.newdebitbtn.connect('clicked', self.__newdebit_cb)
 
+        self.undoactionbtn = ToolButton('basket')
+        self.undoactionbtn.set_tooltip(_("Undo Last Action"))
+        self.undoactionbtn.props.accelerator = '<Ctrl>Z'
+        self.undoactionbtn.connect('clicked', self.__undoaction_cb)
+
+        self.redoactionbtn = ToolButton('basket')
+        self.redoactionbtn.set_tooltip(_("Redo Last Action"))
+        self.redoactionbtn.props.accelerator = '<Ctrl>Y'
+        self.redoactionbtn.connect('clicked', self.__redoaction_cb)
+
         self.eraseitembtn = ToolButton('basket')
         self.eraseitembtn.set_tooltip(_("Erase Transaction"))
         self.eraseitembtn.props.accelerator = '<Ctrl>E'
@@ -320,6 +330,8 @@ class Finance(activity.Activity):
         headerbox.insert(self.newcreditbtn, -1)
         headerbox.insert(self.newdebitbtn, -1)
         headerbox.insert(self.eraseitembtn, -1)
+        headerbox.insert(self.undoactionbtn, -1)
+        headerbox.insert(self.redoactionbtn, -1)
 
         self.header_separator_visible = Gtk.SeparatorToolItem()
         headerbox.insert(self.header_separator_visible, -1)
@@ -440,6 +452,14 @@ class Finance(activity.Activity):
         if self._active_panel != self.register:
             self._set_internal_panel(self.register)
         self.register.new_debit()
+
+    def __undoaction_cb(self, widget):
+        self.register.erase_item()
+        self.build_screen()
+
+    def __redoaction_cb(self, widget):
+        self.register.erase_item()
+        self.build_screen()
 
     def __eraseitem_cb(self, widget):
         self.register.erase_item()
