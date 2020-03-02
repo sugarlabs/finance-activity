@@ -114,6 +114,7 @@ class Finance(activity.Activity):
 
         if os.getenv('FINANCE_TEST'):
             self.create_test_data()
+            self.build_screen()
 
         # Create screens.
         self.register = registerscreen.RegisterScreen(self)
