@@ -112,10 +112,6 @@ class Finance(activity.Activity):
         self.period = MONTH
         self.period_start = self.get_this_period()
 
-        if os.getenv('FINANCE_TEST'):
-            self.create_test_data()
-            self.build_screen()
-
         # Create screens.
         self.register = registerscreen.RegisterScreen(self)
         self.chart = chartscreen.ChartScreen(self)
@@ -127,6 +123,10 @@ class Finance(activity.Activity):
 
         self.headerbox = self.build_header()
         self._active_panel = None
+
+        if os.getenv('FINANCE_TEST'):
+            self.create_test_data()
+            self.build_screen()
 
         # Add the summary data.
 
