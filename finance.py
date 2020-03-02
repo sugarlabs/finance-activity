@@ -182,7 +182,7 @@ class Finance(activity.Activity):
 
         if os.getenv('FINANCE_TEST'):
             self.create_test_data()
-            self.build_screen()
+            self._set_internal_panel(self.register)
 
     def build_toolbox(self):
 
