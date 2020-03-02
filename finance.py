@@ -124,10 +124,6 @@ class Finance(activity.Activity):
         self.headerbox = self.build_header()
         self._active_panel = None
 
-        if os.getenv('FINANCE_TEST'):
-            self.create_test_data()
-            self.build_screen()
-
         # Add the summary data.
 
         self.startlabel = Gtk.Label()
@@ -183,6 +179,10 @@ class Finance(activity.Activity):
 
         self.show_all()
         self.show_header_controls()
+
+        if os.getenv('FINANCE_TEST'):
+            self.create_test_data()
+            self.build_screen()
 
     def build_toolbox(self):
 
