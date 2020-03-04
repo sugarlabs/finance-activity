@@ -171,6 +171,8 @@ class RegisterScreen(Gtk.VBox):
         id = self.liststore[path][0]
         t = self.activity.transaction_map[id]
 
+        print(id, t)
+
         amount = evaluate(new_text)
         if amount is None:
             invalid_value_alert(self.activity)
