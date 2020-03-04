@@ -12,3 +12,9 @@ Finance-activity is not part of the Sugar desktop, but can be added.  Please ref
 * [How to use Sugar](https://help.sugarlabs.org/),
 * [How to use Finance](https://help.sugarlabs.org/finance.html),
 * [Download Finance using Browse](https://activities.sugarlabs.org/), search for `Finance`, then download.
+
+How to help develop?
+===========
+Fork the repository and begin!
+
+To run with sample data, run `FINANCE_TEST=true sugar-activity3`
