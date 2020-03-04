@@ -333,8 +333,8 @@ class Finance(activity.Activity):
         headerbox.insert(self.newcreditbtn, -1)
         headerbox.insert(self.newdebitbtn, -1)
         headerbox.insert(self.eraseitembtn, -1)
-        # headerbox.insert(self.undoactionbtn, -1)
-        # headerbox.insert(self.redoactionbtn, -1)
+        headerbox.insert(self.undoactionbtn, -1)
+        headerbox.insert(self.redoactionbtn, -1)
 
         self.header_separator_visible = Gtk.SeparatorToolItem()
         headerbox.insert(self.header_separator_visible, -1)
@@ -386,7 +386,8 @@ class Finance(activity.Activity):
                     child.hide()
             elif self._active_panel == self.budget:
                 if child in (self.newcreditbtn, self.newdebitbtn,
-                             self.eraseitembtn, self.header_separator_visible,
+                             self.eraseitembtn, self.undoactionbtn,
+                             self.redoactionbtn, self.header_separator_visible,
                              self.export_image):
                     child.hide()
             elif self._active_panel == self.chart:
