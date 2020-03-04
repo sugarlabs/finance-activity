@@ -146,8 +146,12 @@ class RegisterScreen(Gtk.VBox):
     def description_edit_cb(self, cell_renderer, path, new_text):
         id = self.liststore[path][0]
         t = self.activity.transaction_map[id]
-        t['name'] = new_text
 
+        self.activity.undo_id_map.append(id)
+        self.activity.undo_transaction_map.append(t.copy())
+        self.redo_on = 0
+
+        t['name'] = new_text
         # Automatically fill in category if empty, and if transaction
         # name is known.
         if t['category'] == '' and new_text in self.activity.transaction_names:
@@ -170,6 +174,10 @@ class RegisterScreen(Gtk.VBox):
     def amount_edit_cb(self, cell_renderer, path, new_text):
         id = self.liststore[path][0]
         t = self.activity.transaction_map[id]
+
+        self.activity.undo_id_map.append(id)
+        self.activity.undo_transaction_map.append(t.copy())
+        self.redo_on = 0
 
         amount = evaluate(new_text)
         if amount is None:
@@ -196,6 +204,11 @@ class RegisterScreen(Gtk.VBox):
     def date_edit_cb(self, cell_renderer, path, new_text):
         id = self.liststore[path][0]
         t = self.activity.transaction_map[id]
+
+        self.activity.undo_id_map.append(id)
+        self.activity.undo_transaction_map.append(t.copy())
+        self.redo_on = 0
+
         when = time.strptime(new_text, "%Y-%m-%d")
         when = datetime.date(when[0], when[1], when[2])
         t['date'] = when.toordinal()
@@ -230,6 +243,11 @@ class RegisterScreen(Gtk.VBox):
     def category_edit_cb(self, cell_renderer, path, new_text):
         id = self.liststore[path][0]
         t = self.activity.transaction_map[id]
+
+        self.activity.undo_id_map.append(id)
+        self.activity.undo_transaction_map.append(t.copy())
+        self.redo_on = 0
+
         t['category'] = new_text
         if new_text != '':
             self.activity.category_names[new_text] = 1
@@ -256,6 +274,12 @@ class RegisterScreen(Gtk.VBox):
         if iterator:
             id = model.get_value(iterator, 0)
             logging.debug('erase item id %s', id)
+
+            self.activity.undo_id_map.append(id)
+            t = self.activity.transaction_map[id]
+            self.activity.undo_transaction_map.append(t.copy())
+            self.redo_on = 0
+
             self.activity.destroy_transaction(id)
             self.activity.update_summary()
 

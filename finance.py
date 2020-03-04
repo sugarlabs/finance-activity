@@ -27,6 +27,7 @@ import json
 import tempfile
 import io
 import dbus
+import copy
 
 import gi
 gi.require_version('Gtk', '3.0')
@@ -42,6 +43,8 @@ from sugar3.graphics import style
 
 from sugar3.activity.widgets import StopButton
 from sugar3.activity.widgets import ActivityToolbarButton
+from sugar3.activity.widgets import RedoButton
+from sugar3.activity.widgets import UndoButton
 from sugar3.activity import activity
 from sugar3.datastore import datastore
 from sugar3.graphics.alert import Alert
@@ -104,6 +107,14 @@ class Finance(activity.Activity):
 
         self.transaction_map = {}
         self.visible_transactions = []
+
+        self.undo_transaction_map = []
+        self.undo_id_map = []
+
+        self.redo_id_map = []
+        self.redo_transaction_map = []
+
+        self.redo_on = 0
 
         self.transaction_names = {}
         self.category_names = {}
@@ -313,14 +324,10 @@ class Finance(activity.Activity):
         self.newdebitbtn.props.accelerator = '<Ctrl>D'
         self.newdebitbtn.connect('clicked', self.__newdebit_cb)
 
-        self.undoactionbtn = ToolButton('basket')
-        self.undoactionbtn.set_tooltip(_("Undo Last Action"))
-        self.undoactionbtn.props.accelerator = '<Ctrl>Z'
+        self.undoactionbtn = UndoButton()
         self.undoactionbtn.connect('clicked', self.__undoaction_cb)
 
-        self.redoactionbtn = ToolButton('basket')
-        self.redoactionbtn.set_tooltip(_("Redo Last Action"))
-        self.redoactionbtn.props.accelerator = '<Ctrl>Y'
+        self.redoactionbtn = RedoButton()
         self.redoactionbtn.connect('clicked', self.__redoaction_cb)
 
         self.eraseitembtn = ToolButton('basket')
@@ -384,7 +391,8 @@ class Finance(activity.Activity):
                     child.hide()
             elif self._active_panel == self.budget:
                 if child in (self.newcreditbtn, self.newdebitbtn,
-                             self.eraseitembtn, self.header_separator_visible,
+                             self.eraseitembtn, self.undoactionbtn,
+                             self.redoactionbtn, self.header_separator_visible,
                              self.export_image):
                     child.hide()
             elif self._active_panel == self.chart:
@@ -455,11 +463,11 @@ class Finance(activity.Activity):
         self.register.new_debit()
 
     def __undoaction_cb(self, widget):
-        self.register.erase_item()
+        self.undo_transaction()
         self.build_screen()
 
     def __redoaction_cb(self, widget):
-        self.register.erase_item()
+        self.redo_transaction()
         self.build_screen()
 
     def __eraseitem_cb(self, widget):
@@ -693,6 +701,10 @@ class Finance(activity.Activity):
         self.data['transactions'].append(t)
         self.transaction_map[id] = t
 
+        self.undo_id_map.append(id)
+        self.undo_transaction_map.append('Erase')
+        self.redo_on = 0
+
         self.build_visible_transactions()
 
         return id
@@ -701,6 +713,70 @@ class Finance(activity.Activity):
         t = self.transaction_map[id]
         self.data['transactions'].remove(t)
         del self.transaction_map[id]
+
+    def undo_redo_action(self, id, t, isin=False):
+        # if we're updating the transaction
+        if t == 'Erase':
+            self.destroy_transaction(id)
+        elif isin:
+            for i in range(len(self.data['transactions'])):
+                if id == self.data['transactions'][i]['id']:
+                    self.data['transactions'][i] = t
+                    break
+        else:
+            # Have to insert it back into the right position
+            flag = 1
+            for i in range(len(self.data['transactions'])):
+                if id < self.data['transactions'][i]['id']:
+                    self.data['transactions'].insert(i, t)
+                    flag = 0
+                    break
+            if flag:
+                self.data['transactions'].append(t)
+
+    def undo_transaction(self):
+        if len(self.undo_id_map) == 0:
+            return
+
+        id = self.undo_id_map.pop()
+        t = self.undo_transaction_map.pop()
+
+        self.redo_id_map.append(id)
+        isin = False
+        if id in self.transaction_map.keys():
+            self.redo_transaction_map.append(copy.deepcopy(self.transaction_map[id]))
+            isin = True
+        else:
+            self.redo_transaction_map.append('Erase')
+
+        self.redo_on = 1
+        self.undo_redo_action(id, copy.deepcopy(t), isin)
+
+        if t != 'Erase':
+            self.transaction_map[id] = copy.deepcopy(t)
+        self.build_visible_transactions()
+
+    def redo_transaction(self):
+        if len(self.redo_transaction_map) == 0 or not self.redo_on:
+            return
+        print("hit now")
+
+        id = self.redo_id_map.pop()
+        t = self.redo_transaction_map.pop()
+
+        self.undo_id_map.append(id)
+        isin = False
+        if id in self.transaction_map.keys():
+            self.undo_transaction_map.append(copy.deepcopy(self.transaction_map[id]))
+            isin = True
+        else:
+            self.undo_transaction_map.append('Erase')
+
+        self.undo_redo_action(id, copy.deepcopy(t), id in self.transaction_map.keys())
+
+        if t != 'Erase':
+            self.transaction_map[id] = copy.deepcopy(t)
+        self.build_visible_transactions()
 
     def build_names(self):
         self.transaction_names = {}
