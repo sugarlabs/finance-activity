@@ -256,6 +256,8 @@ class RegisterScreen(Gtk.VBox):
         if iterator:
             id = model.get_value(iterator, 0)
             logging.debug('erase item id %s', id)
+            self.activity.undo_transaction_map.append(id)
+            print(self.activity.undo_transaction_map)
             self.activity.destroy_transaction(id)
             self.activity.update_summary()
 

@@ -107,6 +107,10 @@ class Finance(activity.Activity):
         self.transaction_map = {}
         self.visible_transactions = []
 
+        self.undo_transaction_map = []
+        self.undo_id_map = []
+
+
         self.transaction_names = {}
         self.category_names = {}
 
@@ -316,13 +320,9 @@ class Finance(activity.Activity):
         self.newdebitbtn.connect('clicked', self.__newdebit_cb)
 
         self.undoactionbtn = UndoButton()
-        # self.undoactionbtn.set_tooltip(_("Undo Last Action"))
-        # self.undoactionbtn.props.accelerator = '<Ctrl>Z'
         self.undoactionbtn.connect('clicked', self.__undoaction_cb)
 
         self.redoactionbtn = RedoButton()
-        # self.redoactionbtn.set_tooltip(_("Redo Last Action"))
-        # self.redoactionbtn.props.accelerator = '<Ctrl>Y'
         self.redoactionbtn.connect('clicked', self.__redoaction_cb)
 
         self.eraseitembtn = ToolButton('basket')
