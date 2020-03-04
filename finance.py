@@ -313,14 +313,14 @@ class Finance(activity.Activity):
         self.newdebitbtn.props.accelerator = '<Ctrl>D'
         self.newdebitbtn.connect('clicked', self.__newdebit_cb)
 
-        self.undoactionbtn = ToolButton('basket')
-        self.undoactionbtn.set_tooltip(_("Undo Last Action"))
-        self.undoactionbtn.props.accelerator = '<Ctrl>Z'
+        self.undoactionbtn = UndoButton()
+        # self.undoactionbtn.set_tooltip(_("Undo Last Action"))
+        # self.undoactionbtn.props.accelerator = '<Ctrl>Z'
         self.undoactionbtn.connect('clicked', self.__undoaction_cb)
 
-        self.redoactionbtn = ToolButton('basket')
-        self.redoactionbtn.set_tooltip(_("Redo Last Action"))
-        self.redoactionbtn.props.accelerator = '<Ctrl>Y'
+        self.redoactionbtn = RedoButton()
+        # self.redoactionbtn.set_tooltip(_("Redo Last Action"))
+        # self.redoactionbtn.props.accelerator = '<Ctrl>Y'
         self.redoactionbtn.connect('clicked', self.__redoaction_cb)
 
         self.eraseitembtn = ToolButton('basket')
