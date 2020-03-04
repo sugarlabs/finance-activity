@@ -42,6 +42,8 @@ from sugar3.graphics import style
 
 from sugar3.activity.widgets import StopButton
 from sugar3.activity.widgets import ActivityToolbarButton
+from sugar3.activity.widgets import RedoButton
+from sugar3.activity.widgets import UndoButton
 from sugar3.activity import activity
 from sugar3.datastore import datastore
 from sugar3.graphics.alert import Alert
