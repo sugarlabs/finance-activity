@@ -107,7 +107,7 @@ class Finance(activity.Activity):
         self.transaction_map = {}
         self.visible_transactions = []
 
-        self.undo_transaction_map = []
+        self.undo_transaction_map = {}
         self.undo_id_map = []
 
 
@@ -704,6 +704,18 @@ class Finance(activity.Activity):
         t = self.transaction_map[id]
         self.data['transactions'].remove(t)
         del self.transaction_map[id]
+
+    def undo_transaction(self):
+        id = self.undo_id_map.pop()
+        t = self.undo_transaction_map.pop(id)
+        self.data['transactions'].append(t)
+        self.transaction_map[id] = t
+        self.build_visible_transactions()
+        return
+
+    def redo_transaction(self):
+        self.build_visible_transactions()
+        return
 
     def build_names(self):
         self.transaction_names = {}

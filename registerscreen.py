@@ -260,7 +260,7 @@ class RegisterScreen(Gtk.VBox):
             logging.debug('erase item id %s', id)
             self.activity.undo_id_map.append(id)
             transaction = self.activity.transaction_map[id]
-            self.activity.undo_transaction_map.append(transaction)
+            self.activity.undo_transaction_map[id] = transaction
             print("undo_id: {}".format(self.activity.undo_id_map))
             print("undo_trans: {}".format(self.activity.undo_transaction_map))
             print("trans_map: {}".format(self.activity.transaction_map))
