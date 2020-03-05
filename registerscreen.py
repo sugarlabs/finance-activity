@@ -259,13 +259,6 @@ class RegisterScreen(Gtk.VBox):
         self.treeview.set_cursor(self.liststore.get_path(iter),
                                  self.treeview.get_column(0), True)
 
-     def print_trans():
-         print("undo_id: {}".format(self.activity.undo_id_map))
-         print("undo_trans: {}".format(self.activity.undo_transaction_map))
-         print("trans_map: {}".format(self.activity.transaction_map))
-         print("visible_trans: {}".format(self.activity.visible_transactions))
-         print()
-
     def erase_item(self):
         sel = self.treeview.get_selection()
         logging.debug('erase item selection %s', sel)
@@ -279,7 +272,11 @@ class RegisterScreen(Gtk.VBox):
             transaction = self.activity.transaction_map[id]
             self.activity.undo_transaction_map[id] = transaction
 
-            print_trans()
+            print("undo_id: {}".format(self.activity.undo_id_map))
+            print("undo_trans: {}".format(self.activity.undo_transaction_map))
+            print("trans_map: {}".format(self.activity.transaction_map))
+            print("visible_trans: {}".format(self.activity.visible_transactions))
+            print()
 
             self.activity.destroy_transaction(id)
             self.activity.update_summary()
