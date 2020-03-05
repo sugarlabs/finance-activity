@@ -707,12 +707,12 @@ class Finance(activity.Activity):
 
     def undo_transaction(self):
 
-        print("undo_id: {}".format(self.undo_id_map))
-        print("undo_trans: {}".format(self.undo_transaction_map))
-        print("trans_map: {}".format(self.transaction_map))
-        print("visible_trans: {}".format(self.visible_transactions))
-        print("data: {}".format(self.data['transactions']))
-        print()
+        # print("undo_id: {}".format(self.undo_id_map))
+        # print("undo_trans: {}".format(self.undo_transaction_map))
+        # print("trans_map: {}".format(self.transaction_map))
+        # print("visible_trans: {}".format(self.visible_transactions))
+        # print("data: {}".format(self.data['transactions']))
+        # print()
 
         if len(self.undo_id_map) == 0:
             return
@@ -723,7 +723,9 @@ class Finance(activity.Activity):
         if id in self.transaction_map.keys():
             for i in range(len(self.data['transactions'])):
                 if id == self.data['transactions'][i]['id']:
+                    print("before {}".format(self.data['transactions'][i]))
                     self.data['transactions'][i] = t
+                    print("after {}".format(self.data['transactions'][i]))
                     break
         else:
             # Have to insert it back into the right position
