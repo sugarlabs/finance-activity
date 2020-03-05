@@ -273,7 +273,7 @@ class RegisterScreen(Gtk.VBox):
 
             self.activity.undo_id_map.append(id)
             t = self.activity.transaction_map[id]
-            self.activity.undo_transaction_map[id] = t.copy()
+            self.activity.undo_transaction_map.append(t.copy())
 
             self.activity.destroy_transaction(id)
             self.activity.update_summary()
