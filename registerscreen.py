@@ -148,7 +148,7 @@ class RegisterScreen(Gtk.VBox):
         t = self.activity.transaction_map[id]
 
         self.activity.undo_id_map.append(id)
-        self.activity.undo_transaction_map[id] = t.copy()
+        self.activity.undo_transaction_map.append(t.copy())
 
         t['name'] = new_text
         # Automatically fill in category if empty, and if transaction
@@ -175,7 +175,7 @@ class RegisterScreen(Gtk.VBox):
         t = self.activity.transaction_map[id]
 
         self.activity.undo_id_map.append(id)
-        self.activity.undo_transaction_map[id] = t.copy()
+        self.activity.undo_transaction_map.append(t.copy())
 
         amount = evaluate(new_text)
         if amount is None:
@@ -204,7 +204,7 @@ class RegisterScreen(Gtk.VBox):
         t = self.activity.transaction_map[id]
 
         self.activity.undo_id_map.append(id)
-        self.activity.undo_transaction_map[id] = t.copy()
+        self.activity.undo_transaction_map.append(t.copy())
 
         when = time.strptime(new_text, "%Y-%m-%d")
         when = datetime.date(when[0], when[1], when[2])
@@ -242,7 +242,7 @@ class RegisterScreen(Gtk.VBox):
         t = self.activity.transaction_map[id]
 
         self.activity.undo_id_map.append(id)
-        self.activity.undo_transaction_map[id] = t.copy()
+        self.activity.undo_transaction_map.append(t.copy())
 
         t['category'] = new_text
         if new_text != '':

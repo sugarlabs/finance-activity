@@ -107,7 +107,7 @@ class Finance(activity.Activity):
         self.transaction_map = {}
         self.visible_transactions = []
 
-        self.undo_transaction_map = {}
+        self.undo_transaction_map = []
         self.undo_id_map = []
 
 
@@ -716,8 +716,9 @@ class Finance(activity.Activity):
 
         if len(self.undo_id_map) == 0:
             return
+        # problem: when you have two same id's in the dictionary...
         id = self.undo_id_map.pop()
-        t = self.undo_transaction_map.pop(id)
+        t = self.undo_transaction_map.pop()
 
         # if we're updating the transaction
         if id in self.transaction_map.keys():
