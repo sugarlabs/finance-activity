@@ -706,6 +706,14 @@ class Finance(activity.Activity):
         del self.transaction_map[id]
 
     def undo_transaction(self):
+
+        print("undo_id: {}".format(self.undo_id_map))
+        print("undo_trans: {}".format(self.undo_transaction_map))
+        print("trans_map: {}".format(self.transaction_map))
+        print("visible_trans: {}".format(self.visible_transactions))
+        print("data: {}".format(self.data['transactions']))
+        print()
+
         if len(self.undo_id_map) == 0:
             return
         id = self.undo_id_map.pop()
