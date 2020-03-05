@@ -146,8 +146,11 @@ class RegisterScreen(Gtk.VBox):
     def description_edit_cb(self, cell_renderer, path, new_text):
         id = self.liststore[path][0]
         t = self.activity.transaction_map[id]
-        t['name'] = new_text
 
+        self.activity.undo_id_map.append(id)
+        self.activity.undo_transaction_map[id] = t.copy()
+
+        t['name'] = new_text
         # Automatically fill in category if empty, and if transaction
         # name is known.
         if t['category'] == '' and new_text in self.activity.transaction_names:
@@ -172,7 +175,7 @@ class RegisterScreen(Gtk.VBox):
         t = self.activity.transaction_map[id]
 
         self.activity.undo_id_map.append(id)
-        self.activity.undo_transaction_map[id] = t
+        self.activity.undo_transaction_map[id] = t.copy()
 
         amount = evaluate(new_text)
         if amount is None:
@@ -201,7 +204,7 @@ class RegisterScreen(Gtk.VBox):
         t = self.activity.transaction_map[id]
 
         self.activity.undo_id_map.append(id)
-        self.activity.undo_transaction_map[id] = t
+        self.activity.undo_transaction_map[id] = t.copy()
 
         when = time.strptime(new_text, "%Y-%m-%d")
         when = datetime.date(when[0], when[1], when[2])
@@ -239,7 +242,7 @@ class RegisterScreen(Gtk.VBox):
         t = self.activity.transaction_map[id]
 
         self.activity.undo_id_map.append(id)
-        self.activity.undo_transaction_map[id] = t
+        self.activity.undo_transaction_map[id] = t.copy()
 
         t['category'] = new_text
         if new_text != '':
@@ -269,8 +272,8 @@ class RegisterScreen(Gtk.VBox):
             logging.debug('erase item id %s', id)
 
             self.activity.undo_id_map.append(id)
-            transaction = self.activity.transaction_map[id]
-            self.activity.undo_transaction_map[id] = transaction
+            t = self.activity.transaction_map[id]
+            self.activity.undo_transaction_map[id] = t.copy()
 
             self.activity.destroy_transaction(id)
             self.activity.update_summary()
