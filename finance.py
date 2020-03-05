@@ -458,7 +458,7 @@ class Finance(activity.Activity):
         self.register.new_debit()
 
     def __undoaction_cb(self, widget):
-        self.register.erase_item()
+        self.undo_transaction()
         self.build_screen()
 
     def __redoaction_cb(self, widget):
@@ -706,12 +706,13 @@ class Finance(activity.Activity):
         del self.transaction_map[id]
 
     def undo_transaction(self):
+        if len(self.undo_id_map) == 0:
+            return
         id = self.undo_id_map.pop()
         t = self.undo_transaction_map.pop(id)
         self.data['transactions'].append(t)
         self.transaction_map[id] = t
         self.build_visible_transactions()
-        return
 
     def redo_transaction(self):
         self.build_visible_transactions()
