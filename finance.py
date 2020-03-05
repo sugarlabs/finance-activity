@@ -713,7 +713,7 @@ class Finance(activity.Activity):
 
         # Have to insert it back into the right position
         for i in range(len(self.data['transactions'])):
-            if id < self.data['transactions'][i]:
+            if id < self.data['transactions'][i]['id']:
                 self.data['transactions'].insert(i, t)
                 continue
         # self.data['transactions'].append(t)
