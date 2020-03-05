@@ -171,7 +171,8 @@ class RegisterScreen(Gtk.VBox):
         id = self.liststore[path][0]
         t = self.activity.transaction_map[id]
 
-        print(id, t)
+        self.activity.undo_id_map.append(id)
+        self.activity.undo_transaction_map[id] = t
 
         amount = evaluate(new_text)
         if amount is None:
@@ -198,6 +199,10 @@ class RegisterScreen(Gtk.VBox):
     def date_edit_cb(self, cell_renderer, path, new_text):
         id = self.liststore[path][0]
         t = self.activity.transaction_map[id]
+
+        self.activity.undo_id_map.append(id)
+        self.activity.undo_transaction_map[id] = t
+
         when = time.strptime(new_text, "%Y-%m-%d")
         when = datetime.date(when[0], when[1], when[2])
         t['date'] = when.toordinal()
@@ -232,6 +237,10 @@ class RegisterScreen(Gtk.VBox):
     def category_edit_cb(self, cell_renderer, path, new_text):
         id = self.liststore[path][0]
         t = self.activity.transaction_map[id]
+
+        self.activity.undo_id_map.append(id)
+        self.activity.undo_transaction_map[id] = t
+
         t['category'] = new_text
         if new_text != '':
             self.activity.category_names[new_text] = 1
@@ -258,14 +267,13 @@ class RegisterScreen(Gtk.VBox):
         if iterator:
             id = model.get_value(iterator, 0)
             logging.debug('erase item id %s', id)
+
             self.activity.undo_id_map.append(id)
             transaction = self.activity.transaction_map[id]
             self.activity.undo_transaction_map[id] = transaction
-            print("undo_id: {}".format(self.activity.undo_id_map))
-            print("undo_trans: {}".format(self.activity.undo_transaction_map))
-            print("trans_map: {}".format(self.activity.transaction_map))
-            print("visible_trans: {}".format(self.activity.visible_transactions))
-            print()
+
+            print_trans()
+
             self.activity.destroy_transaction(id)
             self.activity.update_summary()
 
@@ -278,3 +286,10 @@ class RegisterScreen(Gtk.VBox):
                 row = path[0] - 1
                 if row >= 0:
                     sel.select_path((row,))
+
+    def print_trans():
+        print("undo_id: {}".format(self.activity.undo_id_map))
+        print("undo_trans: {}".format(self.activity.undo_transaction_map))
+        print("trans_map: {}".format(self.activity.transaction_map))
+        print("visible_trans: {}".format(self.activity.visible_transactions))
+        print()

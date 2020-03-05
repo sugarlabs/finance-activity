@@ -711,14 +711,21 @@ class Finance(activity.Activity):
         id = self.undo_id_map.pop()
         t = self.undo_transaction_map.pop(id)
 
-        # Have to insert it back into the right position
-        for i in range(len(self.data['transactions'])):
-            if id < self.data['transactions'][i]['id']:
-                self.data['transactions'].insert(i, t)
-                break
-        # self.data['transactions'].append(t)
+        # if we're updating the transaction
+        if id in self.transaction_map.keys():
+            for i in range(len(self.data['transactions'])):
+                if id == self.data['transactions'][i]['id']:
+                    self.data['transactions'][i] = t
+                    break
+        else:
+            # Have to insert it back into the right position
+            for i in range(len(self.data['transactions'])):
+                if id < self.data['transactions'][i]['id']:
+                    self.data['transactions'].insert(i, t)
+                    break
+
         self.transaction_map[id] = t
-        # self.build_transaction_map()
+
         self.build_visible_transactions()
 
     def redo_transaction(self):
