@@ -710,8 +710,15 @@ class Finance(activity.Activity):
             return
         id = self.undo_id_map.pop()
         t = self.undo_transaction_map.pop(id)
-        self.data['transactions'].append(t)
-        self.transaction_map[id] = t
+
+        # Have to insert it back into the right position
+        for i in range(len(self.data['transactions'])):
+            if id < self.data['transactions'][i]:
+                self.data['transactions'].insert(i, t)
+                continue
+        # self.data['transactions'].append(t)
+        # self.transaction_map[id] = t
+        self.build_transaction_map()
         self.build_visible_transactions()
 
     def redo_transaction(self):
