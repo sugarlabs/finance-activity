@@ -715,10 +715,10 @@ class Finance(activity.Activity):
         for i in range(len(self.data['transactions'])):
             if id < self.data['transactions'][i]['id']:
                 self.data['transactions'].insert(i, t)
-                continue
+                break
         # self.data['transactions'].append(t)
-        # self.transaction_map[id] = t
-        self.build_transaction_map()
+        self.transaction_map[id] = t
+        # self.build_transaction_map()
         self.build_visible_transactions()
 
     def redo_transaction(self):
