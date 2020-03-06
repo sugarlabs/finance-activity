@@ -110,6 +110,8 @@ class Finance(activity.Activity):
         self.undo_transaction_map = []
         self.undo_id_map = []
 
+        self.redo_id_map = []
+        self.redo_transaction_map = []
 
         self.transaction_names = {}
         self.category_names = {}
@@ -706,27 +708,42 @@ class Finance(activity.Activity):
         del self.transaction_map[id]
 
     def undo_transaction(self):
-
-        # print("undo_id: {}".format(self.undo_id_map))
-        # print("undo_trans: {}".format(self.undo_transaction_map))
-        # print("trans_map: {}".format(self.transaction_map))
-        # print("visible_trans: {}".format(self.visible_transactions))
-        # print("data: {}".format(self.data['transactions']))
-        # print()
-
         if len(self.undo_id_map) == 0:
             return
-        # problem: when you have two same id's in the dictionary...
         id = self.undo_id_map.pop()
         t = self.undo_transaction_map.pop()
 
+        self.redo_id_map.append(id)
+        self.redo_transaction_map.append(t)
+
+        undo_redo_action(id, t)
+
+        self.transaction_map[id] = t
+        self.build_visible_transactions()
+
+    def redo_transaction(self):
+        if len(self.redo_id_map) == 0:
+            return
+
+        id = self.redo_id_map.pop()
+        t = self.redo_transaction_map.pop()
+
+        self.undo_id_map.append(id)
+        self.undo_transaction_map.append(t)
+
+        undo_redo_action(id, t)
+
+        self.build_visible_transactions()
+        return
+
+    def undo_redo_action(self, id, t):
         # if we're updating the transaction
         if id in self.transaction_map.keys():
             for i in range(len(self.data['transactions'])):
                 if id == self.data['transactions'][i]['id']:
-                    print("before {}".format(self.data['transactions'][i]))
+                    # print("before {}".format(self.data['transactions'][i]))
                     self.data['transactions'][i] = t
-                    print("after {}".format(self.data['transactions'][i]))
+                    # print("after {}".format(self.data['transactions'][i]))
                     break
         else:
             # Have to insert it back into the right position
@@ -734,14 +751,6 @@ class Finance(activity.Activity):
                 if id < self.data['transactions'][i]['id']:
                     self.data['transactions'].insert(i, t)
                     break
-
-        self.transaction_map[id] = t
-
-        self.build_visible_transactions()
-
-    def redo_transaction(self):
-        self.build_visible_transactions()
-        return
 
     def build_names(self):
         self.transaction_names = {}
