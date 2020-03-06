@@ -733,7 +733,7 @@ class Finance(activity.Activity):
 
         new_data = self.redo_data_map.pop()
 
-        self.undo_data_map.append(copy.deepcopy(self.data))
+        self.undo_data_map.append(copy.deepcopy(self.new_data))
 
         self.data = copy.deepcopy(new_data)
 
