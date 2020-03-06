@@ -111,8 +111,8 @@ class Finance(activity.Activity):
         self.undo_transaction_map = []
         self.undo_data_map = []
 
-        self.redo_id_map = []
         self.redo_transaction_map = []
+        self.redo_data_map = []
 
         self.transaction_names = {}
         self.category_names = {}
@@ -712,21 +712,11 @@ class Finance(activity.Activity):
         if len(self.undo_transaction_map) == 0:
             return
 
-        # print("undo id {}".format(self.undo_id_map))
-        # print("undo trans {}".format(self.undo_transaction_map))
-        print("undo data {}".format(self.undo_data_map))
-        print("real data {}".format(self.data))
-
-        # print("redo id {}".format(self.redo_id_map))
-        # print("redo trans {}".format(self.redo_transaction_map))
-
         new_map = self.undo_transaction_map.pop()
         new_data = self.undo_data_map.pop()
 
-        # self.redo_id_map.append(id)
-        # self.redo_transaction_map.append(t.copy())
+        self.redo_data_map.append(copy.deepcopy(new_data))
 
-        # self.transaction_map = new_map.copy()
         self.data = copy.deepcopy(new_data)
 
         self.build_transaction_map()
@@ -734,26 +724,18 @@ class Finance(activity.Activity):
         self.update_summary()
 
     def redo_transaction(self):
-        if len(self.redo_id_map) == 0:
+        if len(self.redo_data_map) == 0:
             return
 
-        # print("undo id {}".format(self.undo_id_map))
-        # print("undo trans {}".format(self.undo_transaction_map))
-        #
-        # print("redo id {}".format(self.redo_id_map))
-        # print("redo trans {}".format(self.redo_transaction_map))
-        #
-        # id = self.redo_id_map.pop()
-        # t = self.redo_transaction_map.pop()
-        #
-        # self.undo_id_map.append(id)
-        # self.undo_transaction_map.append(t.copy())
-        #
-        # self.undo_redo_action(id, t.copy())
-        #
-        # self.transaction_map[id] = t.copy()
-        # self.build_visible_transactions()
-        return
+        new_data = redo_data_map.pop()
+
+        self.undo_data_map.append(copy.deepcopy(new_data))
+
+        self.data = copy.deepcopy(new_data)
+
+        self.build_transaction_map()
+        self.build_visible_transactions()
+        self.update_summary()
 
     def build_names(self):
         self.transaction_names = {}
