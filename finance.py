@@ -27,6 +27,7 @@ import json
 import tempfile
 import io
 import dbus
+import copy
 
 import gi
 gi.require_version('Gtk', '3.0')
@@ -726,11 +727,11 @@ class Finance(activity.Activity):
         # self.redo_transaction_map.append(t.copy())
 
         # self.transaction_map = new_map.copy()
-        self.data = new_data.copy()
+        self.data = new_data.deepcopy()
 
-        self.build_transaction_map()
+        # self.build_transaction_map()
         self.build_visible_transactions()
-        self.update_summary()
+        # self.update_summary()
 
     def redo_transaction(self):
         if len(self.redo_id_map) == 0:

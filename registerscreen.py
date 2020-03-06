@@ -20,6 +20,7 @@ import datetime
 import locale
 from gettext import gettext as _
 import logging
+import copy
 
 from gi.repository import Gtk
 from gi.repository import GObject
