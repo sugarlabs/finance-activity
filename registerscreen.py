@@ -148,7 +148,7 @@ class RegisterScreen(Gtk.VBox):
         id = self.liststore[path][0]
         t = self.activity.transaction_map[id]
 
-        self.activity.undo_transaction_map.append(self.activity.transaction_map.deepcopy())
+        self.activity.undo_transaction_map.append(copy.deepcopy(self.activity.transaction_map))
         self.activity.undo_data_map.append(copy.deepcopy(self.activity.data))
 
         t['name'] = new_text
@@ -175,7 +175,7 @@ class RegisterScreen(Gtk.VBox):
         id = self.liststore[path][0]
         t = self.activity.transaction_map[id]
 
-        self.activity.undo_transaction_map.append(self.activity.transaction_map.deepcopy())
+        self.activity.undo_transaction_map.append(copy.deepcopy(self.activity.transaction_map))
         self.activity.undo_data_map.append(copy.deepcopy(self.activity.data))
 
         amount = evaluate(new_text)
@@ -204,7 +204,7 @@ class RegisterScreen(Gtk.VBox):
         id = self.liststore[path][0]
         t = self.activity.transaction_map[id]
 
-        self.activity.undo_transaction_map.append(self.activity.transaction_map.deepcopy())
+        self.activity.undo_transaction_map.append(copy.deepcopy(self.activity.transaction_map))
         self.activity.undo_data_map.append(copy.deepcopy(self.activity.data))
 
         when = time.strptime(new_text, "%Y-%m-%d")
@@ -242,7 +242,7 @@ class RegisterScreen(Gtk.VBox):
         id = self.liststore[path][0]
         t = self.activity.transaction_map[id]
 
-        self.activity.undo_transaction_map.append(self.activity.transaction_map.deepcopy())
+        self.activity.undo_transaction_map.append(copy.deepcopy(self.activity.transaction_map))
         self.activity.undo_data_map.append(copy.deepcopy(self.activity.data))
 
         t['category'] = new_text
@@ -272,7 +272,7 @@ class RegisterScreen(Gtk.VBox):
             id = model.get_value(iterator, 0)
             logging.debug('erase item id %s', id)
 
-            self.activity.undo_transaction_map.append(self.activity.transaction_map.deepcopy())
+            self.activity.undo_transaction_map.append(copy.deepcopy(self.activity.transaction_map))
             self.activity.undo_data_map.append(copy.deepcopy(self.activity.data))
 
             self.activity.destroy_transaction(id)
