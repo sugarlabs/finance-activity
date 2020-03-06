@@ -730,11 +730,11 @@ class Finance(activity.Activity):
         t = self.undo_transaction_map.pop()
 
         self.redo_id_map.append(id)
-        self.redo_transaction_map.append(t)
+        self.redo_transaction_map.append(t.copy())
 
-        self.undo_redo_action(id, t)
+        self.undo_redo_action(id, t.copy())
 
-        self.transaction_map[id] = t
+        self.transaction_map[id] = t.copy()
         self.build_visible_transactions()
 
     def redo_transaction(self):
@@ -748,11 +748,11 @@ class Finance(activity.Activity):
         t = self.redo_transaction_map.pop()
 
         self.undo_id_map.append(id)
-        self.undo_transaction_map.append(t)
+        self.undo_transaction_map.append(t.copy())
 
-        self.undo_redo_action(id, t)
-        
-        self.transaction_map[id] = t
+        self.undo_redo_action(id, t.copy())
+
+        self.transaction_map[id] = t.copy()
         self.build_visible_transactions()
         return
 
