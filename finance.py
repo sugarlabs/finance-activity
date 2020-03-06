@@ -741,6 +741,9 @@ class Finance(activity.Activity):
         if len(self.redo_id_map) == 0:
             return
 
+        print("before {}".format(self.redo_id_map))
+        print("after {}".format(self.redo_transaction_map))
+
         id = self.redo_id_map.pop()
         t = self.redo_transaction_map.pop()
 
