@@ -730,7 +730,7 @@ class Finance(activity.Activity):
         self.update_summary()
 
     def redo_transaction(self):
-        print("redo_on: {}, undo_size: {}, len_map: {}".format(self.redo_on, rself.undo_size, len(self.undo_data_map)))
+        print("redo_on: {}, undo_size: {}, len_map: {}".format(self.redo_on, self.undo_size, len(self.undo_data_map)))
         if len(self.redo_data_map) == 0 \
             or not self.redo_on \
             or self.undo_size != len(self.undo_data_map):
