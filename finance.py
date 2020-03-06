@@ -707,6 +707,22 @@ class Finance(activity.Activity):
         self.data['transactions'].remove(t)
         del self.transaction_map[id]
 
+    def undo_redo_action(self, id, t):
+        # if we're updating the transaction
+        if id in self.transaction_map.keys():
+            for i in range(len(self.data['transactions'])):
+                if id == self.data['transactions'][i]['id']:
+                    # print("before {}".format(self.data['transactions'][i]))
+                    self.data['transactions'][i] = t
+                    # print("after {}".format(self.data['transactions'][i]))
+                    break
+        else:
+            # Have to insert it back into the right position
+            for i in range(len(self.data['transactions'])):
+                if id < self.data['transactions'][i]['id']:
+                    self.data['transactions'].insert(i, t)
+                    break
+
     def undo_transaction(self):
         if len(self.undo_id_map) == 0:
             return
@@ -735,22 +751,6 @@ class Finance(activity.Activity):
 
         self.build_visible_transactions()
         return
-
-    def undo_redo_action(self, id, t):
-        # if we're updating the transaction
-        if id in self.transaction_map.keys():
-            for i in range(len(self.data['transactions'])):
-                if id == self.data['transactions'][i]['id']:
-                    # print("before {}".format(self.data['transactions'][i]))
-                    self.data['transactions'][i] = t
-                    # print("after {}".format(self.data['transactions'][i]))
-                    break
-        else:
-            # Have to insert it back into the right position
-            for i in range(len(self.data['transactions'])):
-                if id < self.data['transactions'][i]['id']:
-                    self.data['transactions'].insert(i, t)
-                    break
 
     def build_names(self):
         self.transaction_names = {}
