@@ -708,7 +708,7 @@ class Finance(activity.Activity):
         del self.transaction_map[id]
 
     def undo_transaction(self):
-        if len(self.undo_id_map) == 0:
+        if len(self.undo_transaction_map) == 0:
             return
 
         # print("undo id {}".format(self.undo_id_map))
