@@ -108,7 +108,7 @@ class Finance(activity.Activity):
         self.visible_transactions = []
 
         self.undo_transaction_map = []
-        self.undo_id_map = []
+        self.undo_data_map = []
 
         self.redo_id_map = []
         self.redo_transaction_map = []
@@ -707,63 +707,47 @@ class Finance(activity.Activity):
         self.data['transactions'].remove(t)
         del self.transaction_map[id]
 
-    def undo_redo_action(self, id, t):
-        # if we're updating the transaction
-        if id in self.transaction_map.keys():
-            for i in range(len(self.data['transactions'])):
-                if id == self.data['transactions'][i]['id']:
-                    # print("before {}".format(self.data['transactions'][i]))
-                    self.data['transactions'][i] = t
-                    # print("after {}".format(self.data['transactions'][i]))
-                    break
-        else:
-            # Have to insert it back into the right position
-            for i in range(len(self.data['transactions'])):
-                if id < self.data['transactions'][i]['id']:
-                    self.data['transactions'].insert(i, t)
-                    break
-
     def undo_transaction(self):
         if len(self.undo_id_map) == 0:
             return
 
-        print("undo id {}".format(self.undo_id_map))
+        # print("undo id {}".format(self.undo_id_map))
         print("undo trans {}".format(self.undo_transaction_map))
+        print("undo data" {}.format(self.undo_data_map))
 
-        print("redo id {}".format(self.redo_id_map))
-        print("redo trans {}".format(self.redo_transaction_map))
+        # print("redo id {}".format(self.redo_id_map))
+        # print("redo trans {}".format(self.redo_transaction_map))
 
-        id = self.undo_id_map.pop()
-        t = self.undo_transaction_map.pop()
+        new_map = self.undo_transaction_map.pop()
+        new_data = self.undo_data_map.pop()
 
-        self.redo_id_map.append(id)
-        self.redo_transaction_map.append(t.copy())
+        # self.redo_id_map.append(id)
+        # self.redo_transaction_map.append(t.copy())
 
-        self.undo_redo_action(id, t.copy())
-
-        self.transaction_map[id] = t.copy()
+        self.transaction_map = new_map.copy()
+        self.data = new_data.copy()
         self.build_visible_transactions()
 
     def redo_transaction(self):
         if len(self.redo_id_map) == 0:
             return
 
-        print("undo id {}".format(self.undo_id_map))
-        print("undo trans {}".format(self.undo_transaction_map))
-
-        print("redo id {}".format(self.redo_id_map))
-        print("redo trans {}".format(self.redo_transaction_map))
-
-        id = self.redo_id_map.pop()
-        t = self.redo_transaction_map.pop()
-
-        self.undo_id_map.append(id)
-        self.undo_transaction_map.append(t.copy())
-
-        self.undo_redo_action(id, t.copy())
-
-        self.transaction_map[id] = t.copy()
-        self.build_visible_transactions()
+        # print("undo id {}".format(self.undo_id_map))
+        # print("undo trans {}".format(self.undo_transaction_map))
+        #
+        # print("redo id {}".format(self.redo_id_map))
+        # print("redo trans {}".format(self.redo_transaction_map))
+        #
+        # id = self.redo_id_map.pop()
+        # t = self.redo_transaction_map.pop()
+        #
+        # self.undo_id_map.append(id)
+        # self.undo_transaction_map.append(t.copy())
+        #
+        # self.undo_redo_action(id, t.copy())
+        #
+        # self.transaction_map[id] = t.copy()
+        # self.build_visible_transactions()
         return
 
     def build_names(self):
