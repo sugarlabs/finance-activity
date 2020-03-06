@@ -713,7 +713,7 @@ class Finance(activity.Activity):
 
         # print("undo id {}".format(self.undo_id_map))
         print("undo trans {}".format(self.undo_transaction_map))
-        print("undo data" {}.format(self.undo_data_map))
+        print("undo data {}".format(self.undo_data_map))
 
         # print("redo id {}".format(self.redo_id_map))
         # print("redo trans {}".format(self.redo_transaction_map))
