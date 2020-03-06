@@ -712,10 +712,12 @@ class Finance(activity.Activity):
         if len(self.undo_transaction_map) == 0:
             return
 
+
+
         new_map = self.undo_transaction_map.pop()
         new_data = self.undo_data_map.pop()
 
-        self.redo_data_map.append(copy.deepcopy(new_data))
+        self.redo_data_map.append(copy.deepcopy(self.data))
 
         self.data = copy.deepcopy(new_data)
 
@@ -731,7 +733,7 @@ class Finance(activity.Activity):
 
         new_data = self.redo_data_map.pop()
 
-        self.undo_data_map.append(copy.deepcopy(new_data))
+        self.undo_data_map.append(copy.deepcopy(self.data))
 
         self.data = copy.deepcopy(new_data)
 
