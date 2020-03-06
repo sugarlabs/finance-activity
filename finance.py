@@ -751,7 +751,8 @@ class Finance(activity.Activity):
         self.undo_transaction_map.append(t)
 
         self.undo_redo_action(id, t)
-
+        
+        self.transaction_map[id] = t
         self.build_visible_transactions()
         return
 
