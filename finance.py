@@ -86,23 +86,6 @@ FOREVER = 4
 # active screen on top.
 
 class Finance(activity.Activity):
-    def undo_redo_action(self, id, t):
-        # if we're updating the transaction
-        if id in self.transaction_map.keys():
-            for i in range(len(self.data['transactions'])):
-                if id == self.data['transactions'][i]['id']:
-                    # print("before {}".format(self.data['transactions'][i]))
-                    self.data['transactions'][i] = t
-                    # print("after {}".format(self.data['transactions'][i]))
-                    break
-        else:
-            # Have to insert it back into the right position
-            for i in range(len(self.data['transactions'])):
-                if id < self.data['transactions'][i]['id']:
-                    self.data['transactions'].insert(i, t)
-                    break
-        return
-
     def __init__(self, handle):
         activity.Activity.__init__(self, handle)
         self.set_title(_("Finance"))
@@ -724,7 +707,21 @@ class Finance(activity.Activity):
         self.data['transactions'].remove(t)
         del self.transaction_map[id]
 
-
+    def undo_redo_action(self, id, t):
+        # if we're updating the transaction
+        if id in self.transaction_map.keys():
+            for i in range(len(self.data['transactions'])):
+                if id == self.data['transactions'][i]['id']:
+                    # print("before {}".format(self.data['transactions'][i]))
+                    self.data['transactions'][i] = t
+                    # print("after {}".format(self.data['transactions'][i]))
+                    break
+        else:
+            # Have to insert it back into the right position
+            for i in range(len(self.data['transactions'])):
+                if id < self.data['transactions'][i]['id']:
+                    self.data['transactions'].insert(i, t)
+                    break
 
     def undo_transaction(self):
         if len(self.undo_id_map) == 0:
@@ -735,7 +732,7 @@ class Finance(activity.Activity):
         self.redo_id_map.append(id)
         self.redo_transaction_map.append(t)
 
-        undo_redo_action(id, t)
+        self.undo_redo_action(id, t)
 
         self.transaction_map[id] = t
         self.build_visible_transactions()
@@ -750,7 +747,7 @@ class Finance(activity.Activity):
         self.undo_id_map.append(id)
         self.undo_transaction_map.append(t)
 
-        undo_redo_action(id, t)
+        self.undo_redo_action(id, t)
 
         self.build_visible_transactions()
         return
