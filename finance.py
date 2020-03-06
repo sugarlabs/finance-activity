@@ -713,7 +713,7 @@ class Finance(activity.Activity):
         if len(self.undo_data_map) == 0:
             return
 
-        print("undo data {}".format(self.redo_data_map))
+        # print("undo data {}".format(self.redo_data_map))
 
         new_data = self.undo_data_map.pop()
 
@@ -722,20 +722,21 @@ class Finance(activity.Activity):
         self.data = copy.deepcopy(new_data)
         self.redo_on = 1
         self.undo_size = len(self.undo_data_map)
-        print("data {}".format(self.data))
-        print()
+        # print("data {}".format(self.data))
+        # print()
 
         self.build_transaction_map()
         self.build_visible_transactions()
         self.update_summary()
 
     def redo_transaction(self):
+        print("redo_on: {}, undo_size: {}, len_map: {}".format(self.redo_on, redo_on, len(self.undo_data_map)))
         if len(self.redo_data_map) == 0 \
             or not self.redo_on \
             or self.undo_size != len(self.undo_data_map):
             return
 
-        print("redo data {}".format(self.redo_data_map))
+        # print("redo data {}".format(self.redo_data_map))
 
         new_data = self.redo_data_map.pop()
 
@@ -743,8 +744,8 @@ class Finance(activity.Activity):
 
         self.data = copy.deepcopy(new_data)
         self.redo_on = 0
-        print("data {}".format(self.data))
-        print()
+        # print("data {}".format(self.data))
+        # print()
 
         self.build_transaction_map()
         self.build_visible_transactions()
