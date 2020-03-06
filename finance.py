@@ -726,6 +726,13 @@ class Finance(activity.Activity):
     def undo_transaction(self):
         if len(self.undo_id_map) == 0:
             return
+
+        print("undo id {}".format(self.undo_id_map))
+        print("undo trans {}".format(self.undo_transaction_map))
+
+        print("redo id {}".format(self.redo_id_map))
+        print("redo trans {}".format(self.redo_transaction_map))
+
         id = self.undo_id_map.pop()
         t = self.undo_transaction_map.pop()
 
@@ -741,8 +748,11 @@ class Finance(activity.Activity):
         if len(self.redo_id_map) == 0:
             return
 
-        print("before {}".format(self.redo_id_map))
-        print("after {}".format(self.redo_transaction_map))
+        print("undo id {}".format(self.undo_id_map))
+        print("undo trans {}".format(self.undo_transaction_map))
+
+        print("redo id {}".format(self.redo_id_map))
+        print("redo trans {}".format(self.redo_transaction_map))
 
         id = self.redo_id_map.pop()
         t = self.redo_transaction_map.pop()
