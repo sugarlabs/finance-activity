@@ -464,7 +464,7 @@ class Finance(activity.Activity):
         self.build_screen()
 
     def __redoaction_cb(self, widget):
-        self.register.erase_item()
+        self.redo_transaction()
         self.build_screen()
 
     def __eraseitem_cb(self, widget):
