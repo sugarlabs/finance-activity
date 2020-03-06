@@ -727,11 +727,16 @@ class Finance(activity.Activity):
         if len(self.redo_data_map) == 0:
             return
 
+        print("redo data {}".format(self.redo_data_map))
+
         new_data = self.redo_data_map.pop()
 
         self.undo_data_map.append(copy.deepcopy(new_data))
 
         self.data = copy.deepcopy(new_data)
+
+        print("data {}".format(self.data))
+        print()
 
         self.build_transaction_map()
         self.build_visible_transactions()
