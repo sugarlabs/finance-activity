@@ -712,8 +712,9 @@ class Finance(activity.Activity):
             return
 
         # print("undo id {}".format(self.undo_id_map))
-        print("undo trans {}".format(self.undo_transaction_map))
+        # print("undo trans {}".format(self.undo_transaction_map))
         print("undo data {}".format(self.undo_data_map))
+        print("real data {}".format(self.data))
 
         # print("redo id {}".format(self.redo_id_map))
         # print("redo trans {}".format(self.redo_transaction_map))
@@ -724,9 +725,12 @@ class Finance(activity.Activity):
         # self.redo_id_map.append(id)
         # self.redo_transaction_map.append(t.copy())
 
-        self.transaction_map = new_map.copy()
+        # self.transaction_map = new_map.copy()
         self.data = new_data.copy()
+
+        self.build_transaction_map()
         self.build_visible_transactions()
+        self.update_summary()
 
     def redo_transaction(self):
         if len(self.redo_id_map) == 0:
