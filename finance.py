@@ -727,7 +727,7 @@ class Finance(activity.Activity):
         # self.redo_transaction_map.append(t.copy())
 
         # self.transaction_map = new_map.copy()
-        self.data = new_data.deepcopy()
+        self.data = copy.deepcopy(new_data)
 
         # self.build_transaction_map()
         self.build_visible_transactions()
