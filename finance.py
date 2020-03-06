@@ -729,9 +729,9 @@ class Finance(activity.Activity):
         # self.transaction_map = new_map.copy()
         self.data = copy.deepcopy(new_data)
 
-        # self.build_transaction_map()
+        self.build_transaction_map()
         self.build_visible_transactions()
-        # self.update_summary()
+        self.update_summary()
 
     def redo_transaction(self):
         if len(self.redo_id_map) == 0:
