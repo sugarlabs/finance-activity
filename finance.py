@@ -399,22 +399,6 @@ class Finance(activity.Activity):
                                  self.export_image):
                     child.hide()
 
-    def undo_redo_action(self, id, t):
-        # if we're updating the transaction
-        if id in self.transaction_map.keys():
-            for i in range(len(self.data['transactions'])):
-                if id == self.data['transactions'][i]['id']:
-                    # print("before {}".format(self.data['transactions'][i]))
-                    self.data['transactions'][i] = t
-                    # print("after {}".format(self.data['transactions'][i]))
-                    break
-        else:
-            # Have to insert it back into the right position
-            for i in range(len(self.data['transactions'])):
-                if id < self.data['transactions'][i]['id']:
-                    self.data['transactions'].insert(i, t)
-                    break
-
     def register_cb(self, widget):
         self._set_internal_panel(self.register)
         self.show_header_controls()
@@ -722,6 +706,23 @@ class Finance(activity.Activity):
         t = self.transaction_map[id]
         self.data['transactions'].remove(t)
         del self.transaction_map[id]
+
+    def undo_redo_action(self, id, t):
+        # if we're updating the transaction
+        if id in self.transaction_map.keys():
+            for i in range(len(self.data['transactions'])):
+                if id == self.data['transactions'][i]['id']:
+                    # print("before {}".format(self.data['transactions'][i]))
+                    self.data['transactions'][i] = t
+                    # print("after {}".format(self.data['transactions'][i]))
+                    break
+        else:
+            # Have to insert it back into the right position
+            for i in range(len(self.data['transactions'])):
+                if id < self.data['transactions'][i]['id']:
+                    self.data['transactions'].insert(i, t)
+                    break
+        return
 
     def undo_transaction(self):
         if len(self.undo_id_map) == 0:
