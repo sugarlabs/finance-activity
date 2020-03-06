@@ -147,8 +147,8 @@ class RegisterScreen(Gtk.VBox):
         id = self.liststore[path][0]
         t = self.activity.transaction_map[id]
 
-        self.activity.undo_transaction_map.append(self.activity.transaction_map.copy())
-        self.activity.undo_data_map.append(self.activity.data)
+        self.activity.undo_transaction_map.append(self.activity.transaction_map.deepcopy())
+        self.activity.undo_data_map.append(self.activity.data.deepcopy())
 
         t['name'] = new_text
         # Automatically fill in category if empty, and if transaction
@@ -174,8 +174,8 @@ class RegisterScreen(Gtk.VBox):
         id = self.liststore[path][0]
         t = self.activity.transaction_map[id]
 
-        self.activity.undo_transaction_map.append(self.activity.transaction_map.copy())
-        self.activity.undo_data_map.append(self.activity.data)
+        self.activity.undo_transaction_map.append(self.activity.transaction_map.deepcopy())
+        self.activity.undo_data_map.append(self.activity.data.deepcopy())
 
         amount = evaluate(new_text)
         if amount is None:
@@ -203,8 +203,8 @@ class RegisterScreen(Gtk.VBox):
         id = self.liststore[path][0]
         t = self.activity.transaction_map[id]
 
-        self.activity.undo_transaction_map.append(self.activity.transaction_map.copy())
-        self.activity.undo_data_map.append(self.activity.data)
+        self.activity.undo_transaction_map.append(self.activity.transaction_map.deepcopy())
+        self.activity.undo_data_map.append(self.activity.data.deepcopy())
 
         when = time.strptime(new_text, "%Y-%m-%d")
         when = datetime.date(when[0], when[1], when[2])
@@ -241,8 +241,8 @@ class RegisterScreen(Gtk.VBox):
         id = self.liststore[path][0]
         t = self.activity.transaction_map[id]
 
-        self.activity.undo_transaction_map.append(self.activity.transaction_map.copy())
-        self.activity.undo_data_map.append(self.activity.data)
+        self.activity.undo_transaction_map.append(self.activity.transaction_map.deepcopy())
+        self.activity.undo_data_map.append(self.activity.data.deepcopy())
 
         t['category'] = new_text
         if new_text != '':
@@ -271,8 +271,8 @@ class RegisterScreen(Gtk.VBox):
             id = model.get_value(iterator, 0)
             logging.debug('erase item id %s', id)
 
-            self.activity.undo_transaction_map.append(self.activity.transaction_map.copy())
-            self.activity.undo_data_map.append(self.activity.data)
+            self.activity.undo_transaction_map.append(self.activity.transaction_map.deepcopy())
+            self.activity.undo_data_map.append(self.activity.data.deepcopy())
 
             self.activity.destroy_transaction(id)
             self.activity.update_summary()
