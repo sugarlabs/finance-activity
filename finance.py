@@ -727,7 +727,7 @@ class Finance(activity.Activity):
         if len(self.redo_data_map) == 0:
             return
 
-        new_data = redo_data_map.pop()
+        new_data = self.redo_data_map.pop()
 
         self.undo_data_map.append(copy.deepcopy(new_data))
 
