@@ -757,6 +757,7 @@ class Finance(activity.Activity):
         self.build_visible_transactions()
 
     def redo_transaction(self):
+        print("redo on: {}".format(self.redo_on))
         if len(self.redo_transaction_map) == 0 or not self.redo_on:
             return
         print("hit now")
