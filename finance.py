@@ -114,6 +114,9 @@ class Finance(activity.Activity):
         self.redo_id_map = []
         self.redo_transaction_map = []
 
+        self.redo_on = 0
+        self.undo_size = 0
+
         self.transaction_names = {}
         self.category_names = {}
 
@@ -699,6 +702,9 @@ class Finance(activity.Activity):
         self.data['transactions'].append(t)
         self.transaction_map[id] = t
 
+        self.undo_id_map.append(id)
+        self.undo_transaction_map.append('Erase')
+
         self.build_visible_transactions()
 
         return id
@@ -708,9 +714,11 @@ class Finance(activity.Activity):
         self.data['transactions'].remove(t)
         del self.transaction_map[id]
 
-    def undo_redo_action(self, id, t):
+    def undo_redo_action(self, id, t, isin):
         # if we're updating the transaction
-        if id in self.transaction_map.keys():
+        if t == 'Erase':
+            destroy_transaction(id)
+        elif isin:
             for i in range(len(self.data['transactions'])):
                 if id == self.data['transactions'][i]['id']:
                     # print("before {}".format(self.data['transactions'][i]))
@@ -738,15 +746,24 @@ class Finance(activity.Activity):
         t = self.undo_transaction_map.pop()
 
         self.redo_id_map.append(id)
-        self.redo_transaction_map.append(self.transaction_map[id])
+        isin = False
+        if id in self.transaction_map.keys():
+            self.redo_transaction_map.append(copy.deepcopy(self.transaction_map[id]))
+            isin = True
+        else:
+            self.redo_transaction_map.append('Erase')
 
-        self.undo_redo_action(id, copy.deepcopy(t))
+        self.redo_on = 1
+        self.undo_redo_action(id, copy.deepcopy(t), isin)
+        self.undo_size = len(self.undo_transaction_map)
 
         self.transaction_map[id] = copy.deepcopy(t)
         self.build_visible_transactions()
 
     def redo_transaction(self):
-        if len(self.redo_id_map) == 0:
+        if len(self.redo_transaction_map) == 0 \
+            and (not self.redo_on \
+            or self.undo_size != len(self.undo_transaction_map)):
             return
 
         print("undo id {}".format(self.undo_id_map))
@@ -759,9 +776,10 @@ class Finance(activity.Activity):
         t = self.redo_transaction_map.pop()
 
         self.undo_id_map.append(id)
-        self.undo_transaction_map.append(self.transaction_map[id])
+        self.undo_transaction_map.append(copy.deepcopy(self.transaction_map[id]))
 
-        self.undo_redo_action(id, copy.deepcopy(t))
+        self.redo_on = 0
+        self.undo_redo_action(id, copy.deepcopy(t), isin)
 
         self.transaction_map[id] = copy.deepcopy(t)
         self.build_visible_transactions()
