@@ -27,6 +27,7 @@ import json
 import tempfile
 import io
 import dbus
+import copy
 
 import gi
 gi.require_version('Gtk', '3.0')
@@ -737,11 +738,11 @@ class Finance(activity.Activity):
         t = self.undo_transaction_map.pop()
 
         self.redo_id_map.append(id)
-        self.redo_transaction_map.append(t.copy())
+        self.redo_transaction_map.append(self.transaction_map[id])
 
-        self.undo_redo_action(id, t.copy())
+        self.undo_redo_action(id, copy.deepcopy(t))
 
-        self.transaction_map[id] = t.copy()
+        self.transaction_map[id] = copy.deepcopy(t)
         self.build_visible_transactions()
 
     def redo_transaction(self):
@@ -758,13 +759,12 @@ class Finance(activity.Activity):
         t = self.redo_transaction_map.pop()
 
         self.undo_id_map.append(id)
-        self.undo_transaction_map.append(t.copy())
+        self.undo_transaction_map.append(self.transaction_map[id])
 
-        self.undo_redo_action(id, t.copy())
+        self.undo_redo_action(id, copy.deepcopy(t))
 
-        self.transaction_map[id] = t.copy()
+        self.transaction_map[id] = copy.deepcopy(t)
         self.build_visible_transactions()
-        return
 
     def build_names(self):
         self.transaction_names = {}
