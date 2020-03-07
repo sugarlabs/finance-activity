@@ -727,10 +727,14 @@ class Finance(activity.Activity):
                     break
         else:
             # Have to insert it back into the right position
+            flag = 1
             for i in range(len(self.data['transactions'])):
                 if id < self.data['transactions'][i]['id']:
                     self.data['transactions'].insert(i, t)
+                    flag = 0
                     break
+            if flag:
+                self.data['transactions'].append(t)
 
     def undo_transaction(self):
         if len(self.undo_id_map) == 0:
@@ -757,7 +761,8 @@ class Finance(activity.Activity):
         self.undo_redo_action(id, copy.deepcopy(t), isin)
         self.undo_size = len(self.undo_transaction_map)
 
-        self.transaction_map[id] = copy.deepcopy(t)
+        if t != 'Erase':
+            self.transaction_map[id] = copy.deepcopy(t)
         self.build_visible_transactions()
 
     def redo_transaction(self):
@@ -781,7 +786,8 @@ class Finance(activity.Activity):
         self.redo_on = 0
         self.undo_redo_action(id, copy.deepcopy(t), id in self.transaction_map.keys())
 
-        self.transaction_map[id] = copy.deepcopy(t)
+        if t != 'Erase':
+            self.transaction_map[id] = copy.deepcopy(t)
         self.build_visible_transactions()
 
     def build_names(self):
