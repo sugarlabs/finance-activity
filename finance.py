@@ -757,10 +757,10 @@ class Finance(activity.Activity):
         self.build_visible_transactions()
 
     def redo_transaction(self):
-        print("redo on: {}".format(self.redo_on))
         if len(self.redo_transaction_map) == 0 or not self.redo_on:
+            # reset the map if the flag was ever turned off
+            self.redo_transaction_map = []
             return
-        print("hit now")
 
         id = self.redo_id_map.pop()
         t = self.redo_transaction_map.pop()
@@ -773,7 +773,7 @@ class Finance(activity.Activity):
         else:
             self.undo_transaction_map.append('Erase')
 
-        self.undo_redo_action(id, copy.deepcopy(t), id in self.transaction_map.keys())
+        self.undo_redo_action(id, copy.deepcopy(t), isin)
 
         if t != 'Erase':
             self.transaction_map[id] = copy.deepcopy(t)
