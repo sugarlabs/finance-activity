@@ -115,7 +115,6 @@ class Finance(activity.Activity):
         self.redo_transaction_map = []
 
         self.redo_on = 0
-        self.undo_size = 0
 
         self.transaction_names = {}
         self.category_names = {}
@@ -704,6 +703,7 @@ class Finance(activity.Activity):
 
         self.undo_id_map.append(id)
         self.undo_transaction_map.append('Erase')
+        self.redo_on = 0
 
         self.build_visible_transactions()
 
@@ -759,9 +759,7 @@ class Finance(activity.Activity):
 
     def redo_transaction(self):
         print("redo on: {}, undo_size: {}, undo_map_size: {}".format(self.redo_on, self.undo_size, len(self.undo_transaction_map)))
-        if len(self.redo_transaction_map) == 0 \
-            or not self.redo_on \
-            or self.undo_size != len(self.undo_transaction_map):
+        if len(self.redo_transaction_map) == 0 or not self.redo_on:
             return
         print("hit now")
 
@@ -776,7 +774,6 @@ class Finance(activity.Activity):
         else:
             self.undo_transaction_map.append('Erase')
 
-        self.redo_on = 0
         self.undo_redo_action(id, copy.deepcopy(t), id in self.transaction_map.keys())
 
         if t != 'Erase':
