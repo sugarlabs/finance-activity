@@ -761,7 +761,7 @@ class Finance(activity.Activity):
         print("redo on: {}, undo_size: {}, undo_map_size: {}".format(self.redo_on, self.undo_size, len(self.undo_transaction_map)))
         if len(self.redo_transaction_map) == 0 \
             or not self.redo_on \
-            or self.undo_size != len(self.undo_transaction_map)):
+            or self.undo_size != len(self.undo_transaction_map):
             return
         print("hit now")
 
