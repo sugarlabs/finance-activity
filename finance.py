@@ -763,7 +763,7 @@ class Finance(activity.Activity):
             or not self.redo_on \
             or self.undo_size != len(self.undo_transaction_map)):
             return
-        print("hit")
+        print("hit now")
 
         id = self.redo_id_map.pop()
         t = self.redo_transaction_map.pop()
