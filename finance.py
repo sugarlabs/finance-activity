@@ -751,14 +751,12 @@ class Finance(activity.Activity):
 
         self.redo_on = 1
         self.undo_redo_action(id, copy.deepcopy(t), isin)
-        self.undo_size = len(self.undo_transaction_map)
 
         if t != 'Erase':
             self.transaction_map[id] = copy.deepcopy(t)
         self.build_visible_transactions()
 
     def redo_transaction(self):
-        print("redo on: {}, undo_size: {}, undo_map_size: {}".format(self.redo_on, self.undo_size, len(self.undo_transaction_map)))
         if len(self.redo_transaction_map) == 0 or not self.redo_on:
             return
         print("hit now")
