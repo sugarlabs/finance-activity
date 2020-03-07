@@ -779,7 +779,7 @@ class Finance(activity.Activity):
         self.undo_transaction_map.append(copy.deepcopy(self.transaction_map[id]))
 
         self.redo_on = 0
-        self.undo_redo_action(id, copy.deepcopy(t))
+        self.undo_redo_action(id, copy.deepcopy(t), id in self.transaction_map.keys())
 
         self.transaction_map[id] = copy.deepcopy(t)
         self.build_visible_transactions()
