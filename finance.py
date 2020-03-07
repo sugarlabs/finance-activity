@@ -714,10 +714,10 @@ class Finance(activity.Activity):
         self.data['transactions'].remove(t)
         del self.transaction_map[id]
 
-    def undo_redo_action(self, id, t, isin):
+    def undo_redo_action(self, id, t, isin=False):
         # if we're updating the transaction
         if t == 'Erase':
-            destroy_transaction(id)
+            self.destroy_transaction(id)
         elif isin:
             for i in range(len(self.data['transactions'])):
                 if id == self.data['transactions'][i]['id']:
@@ -779,7 +779,7 @@ class Finance(activity.Activity):
         self.undo_transaction_map.append(copy.deepcopy(self.transaction_map[id]))
 
         self.redo_on = 0
-        self.undo_redo_action(id, copy.deepcopy(t), isin)
+        self.undo_redo_action(id, copy.deepcopy(t))
 
         self.transaction_map[id] = copy.deepcopy(t)
         self.build_visible_transactions()
