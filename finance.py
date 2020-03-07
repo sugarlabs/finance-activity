@@ -781,7 +781,12 @@ class Finance(activity.Activity):
         t = self.redo_transaction_map.pop()
 
         self.undo_id_map.append(id)
-        self.undo_transaction_map.append(copy.deepcopy(self.transaction_map[id]))
+        isin = False
+        if id in self.transaction_map.keys():
+            self.undo_transaction_map.append(copy.deepcopy(self.transaction_map[id]))
+            isin = True
+        else:
+            self.undo_transaction_map.append('Erase')
 
         self.redo_on = 0
         self.undo_redo_action(id, copy.deepcopy(t), id in self.transaction_map.keys())
