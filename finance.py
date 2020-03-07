@@ -758,11 +758,12 @@ class Finance(activity.Activity):
         self.build_visible_transactions()
 
     def redo_transaction(self):
-        print("redo on: {}, undo_size: {}, undo_map_size: {}", self.redo_on, self.undo_size, len(self.undo_transaction_map))
+        print("redo on: {}, undo_size: {}, undo_map_size: {}".format(self.redo_on, self.undo_size, len(self.undo_transaction_map)))
         if len(self.redo_transaction_map) == 0 \
-            and (not self.redo_on \
+            or not self.redo_on \
             or self.undo_size != len(self.undo_transaction_map)):
             return
+        print("hit")
 
         id = self.redo_id_map.pop()
         t = self.redo_transaction_map.pop()
