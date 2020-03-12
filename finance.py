@@ -114,8 +114,6 @@ class Finance(activity.Activity):
         self.redo_id_map = []
         self.redo_transaction_map = []
 
-        self.redo_on = 0
-
         self.transaction_names = {}
         self.category_names = {}
 
@@ -664,6 +662,8 @@ class Finance(activity.Activity):
         self.build_screen()
 
     def build_visible_transactions(self):
+        self.build_undo_buttons()
+
         if self.period == FOREVER:
             self.visible_transactions = self.data['transactions']
 
@@ -703,7 +703,8 @@ class Finance(activity.Activity):
 
         self.undo_id_map.append(id)
         self.undo_transaction_map.append('Erase')
-        self.redo_on = 0
+        self.redo_transaction_map = []
+        self.redo_id_map = []
 
         self.build_visible_transactions()
 
@@ -715,6 +716,7 @@ class Finance(activity.Activity):
         del self.transaction_map[id]
 
     def undo_redo_action(self, id, t, isin=False):
+        print(isin, id, t)
         # if we're updating the transaction
         if t == 'Erase':
             self.destroy_transaction(id)
@@ -735,8 +737,8 @@ class Finance(activity.Activity):
                 self.data['transactions'].append(t)
 
     def undo_transaction(self):
-        if len(self.undo_id_map) == 0:
-            return
+        if len(self.undo_transaction_map) == 0:
+            return False;
 
         id = self.undo_id_map.pop()
         t = self.undo_transaction_map.pop()
@@ -749,18 +751,16 @@ class Finance(activity.Activity):
         else:
             self.redo_transaction_map.append('Erase')
 
-        self.redo_on = 1
-        self.undo_redo_action(id, copy.deepcopy(t), isin)
+        copy_t = copy.deepcopy(t)
+        self.undo_redo_action(id, copy_t, isin)
 
         if t != 'Erase':
-            self.transaction_map[id] = copy.deepcopy(t)
-        self.build_visible_transactions()
+            self.transaction_map[id] = copy_t
+        return True
 
     def redo_transaction(self):
-        if len(self.redo_transaction_map) == 0 or not self.redo_on:
-            # reset the map if the flag was ever turned off
-            self.redo_transaction_map = []
-            return
+        if len(self.redo_transaction_map) == 0:
+            return False
 
         id = self.redo_id_map.pop()
         t = self.redo_transaction_map.pop()
@@ -773,11 +773,21 @@ class Finance(activity.Activity):
         else:
             self.undo_transaction_map.append('Erase')
 
-        self.undo_redo_action(id, copy.deepcopy(t), isin)
+        self.undo_redo_action(id, t, isin)
 
         if t != 'Erase':
             self.transaction_map[id] = copy.deepcopy(t)
-        self.build_visible_transactions()
+        return True
+
+    def build_undo_buttons(self):
+        if len(self.undo_transaction_map) == 0:
+            self.undoactionbtn.set_sensitive(False)
+        else:
+            self.undoactionbtn.set_sensitive(True)
+        if len(self.redo_transaction_map) == 0:
+            self.redoactionbtn.set_sensitive(False)
+        else:
+            self.redoactionbtn.set_sensitive(True)
 
     def build_names(self):
         self.transaction_names = {}

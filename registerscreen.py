@@ -148,9 +148,7 @@ class RegisterScreen(Gtk.VBox):
         id = self.liststore[path][0]
         t = self.activity.transaction_map[id]
 
-        self.activity.undo_id_map.append(id)
-        self.activity.undo_transaction_map.append(t.copy())
-        self.activity.redo_on = 0
+        self.add_to_undo(id, t)
 
         t['name'] = new_text
         # Automatically fill in category if empty, and if transaction
@@ -161,7 +159,7 @@ class RegisterScreen(Gtk.VBox):
                     t['category'] = ct['category']
 
     def amount_render_cb(self, column, cell_renderer, model, iter, data):
-        id = model.get_value(iter, 0)
+        id = model.get_value(iter, -1)
         t = self.activity.transaction_map[id]
         cell_renderer.set_property('xalign', 1.0)
         self._set_font_color(t, cell_renderer)
@@ -176,9 +174,7 @@ class RegisterScreen(Gtk.VBox):
         id = self.liststore[path][0]
         t = self.activity.transaction_map[id]
 
-        self.activity.undo_id_map.append(id)
-        self.activity.undo_transaction_map.append(t.copy())
-        self.activity.redo_on = 0
+        self.add_to_undo(id, t)
 
         amount = evaluate(new_text)
         if amount is None:
@@ -206,13 +202,12 @@ class RegisterScreen(Gtk.VBox):
         id = self.liststore[path][0]
         t = self.activity.transaction_map[id]
 
-        self.activity.undo_id_map.append(id)
-        self.activity.undo_transaction_map.append(t.copy())
-        self.activity.redo_on = 0
+        self.add_to_undo(id, t)
 
         when = time.strptime(new_text, "%Y-%m-%d")
         when = datetime.date(when[0], when[1], when[2])
         t['date'] = when.toordinal()
+        self.activity.build_visible_transactions()
         self.activity.build_screen()
 
     def category_render_cb(self, column, cell_renderer, model, iter, data):
@@ -245,9 +240,7 @@ class RegisterScreen(Gtk.VBox):
         id = self.liststore[path][0]
         t = self.activity.transaction_map[id]
 
-        self.activity.undo_id_map.append(id)
-        self.activity.undo_transaction_map.append(t.copy())
-        self.activity.redo_on = 0
+        self.add_to_undo(id, t)
 
         t['category'] = new_text
         if new_text != '':
@@ -275,11 +268,9 @@ class RegisterScreen(Gtk.VBox):
         if iterator:
             id = model.get_value(iterator, 0)
             logging.debug('erase item id %s', id)
-
-            self.activity.undo_id_map.append(id)
             t = self.activity.transaction_map[id]
-            self.activity.undo_transaction_map.append(t.copy())
-            self.activity.redo_on = 0
+
+            self.add_to_undo(id, t)
 
             self.activity.destroy_transaction(id)
             self.activity.update_summary()
@@ -293,3 +284,10 @@ class RegisterScreen(Gtk.VBox):
                 row = path[0] - 1
                 if row >= 0:
                     sel.select_path((row,))
+
+    def add_to_undo(self, id, t):
+        self.activity.undo_id_map.append(id)
+        self.activity.undo_transaction_map.append(t.copy())
+        self.activity.redo_transaction_map = []
+        self.activity.redo_id_map = []
+        self.activity.build_undo_buttons()
