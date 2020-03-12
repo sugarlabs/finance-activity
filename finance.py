@@ -716,7 +716,6 @@ class Finance(activity.Activity):
         del self.transaction_map[id]
 
     def undo_redo_action(self, id, t, isin=False):
-        print(isin, id, t)
         # if we're updating the transaction
         if t == 'Erase':
             self.destroy_transaction(id)
