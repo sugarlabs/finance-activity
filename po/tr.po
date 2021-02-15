@@ -1,0 +1,323 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Serkan ÖNDER <serkanonder@outlook.com>, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-02-18 19:14+1100\n"
+"PO-Revision-Date: 2021-02-15 10:14+0300\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.3\n"
+"Last-Translator: serkanonder@outlook.com\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: tr\n"
+
+#: activity/activity.info:2 finance.py:89
+msgid "Finance"
+msgstr "Finans"
+
+#: activity/activity.info:3
+msgid ""
+"Want to wisely manage money? Learn financial planning basics and track your "
+"family's finance, make your own budget and learn how to make every penny "
+"count!"
+msgstr ""
+"Parayı akıllıca yönetmek mi istiyorsunuz? Finansal planlama temellerini "
+"öğrenin ve ailenizin finansmanını takip edin, kendi bütçenizi oluşturun ve "
+"her kuruşun nasıl değerlendirileceğini öğrenin!"
+
+#: activity/activity.info:4
+msgid "Here is what you can use Finance activity for:"
+msgstr "Finans etkinliğini aşağıdakiler için kullanabilirsiniz:"
+
+#: activity/activity.info:4
+msgid "Learn financial planning basics"
+msgstr "Finansal planlama temellerini öğrenin"
+
+#: activity/activity.info:4
+msgid "Track your group's finance"
+msgstr "Grubunuzun finansmanını takip edin"
+
+#: activity/activity.info:4
+msgid "Check every income and outcome"
+msgstr "Her geliri ve sonucu kontrol edin"
+
+#: budgetscreen.py:39
+msgid ""
+"The Budget view allows you to set a monthly budget for each expense "
+"category, and to keep track of your\n"
+"budgets. To set a budget, type the amount in the box to the right of the "
+"category."
+msgstr ""
+"Bütçe görünümü, her gider kategorisi için aylık bir bütçe belirlemenize ve "
+"bütçenizi takip etmenize olanak sağlar.\n"
+"bütçeler. Bir bütçe belirlemek için, kategorinin sağındaki kutuya tutarı "
+"yazın."
+
+#: budgetscreen.py:87 registerscreen.py:77
+msgid "Category"
+msgstr "Kategori"
+
+#: budgetscreen.py:91
+msgid "Spent"
+msgstr "Harcanan"
+
+#: budgetscreen.py:95 finance.py:200 finance.py:201 finance.py:284
+msgid "Budget"
+msgstr "Bütçe"
+
+#: budgetscreen.py:124 chartscreen.py:156 chartscreen.py:177
+msgid "Unknown"
+msgstr "Bilinmeyen"
+
+#: chartscreen.py:35
+msgid ""
+"The Chart view shows the proportion of your expenses that is in each "
+"category.\n"
+"You can categorize transactions in the Register view."
+msgstr ""
+"Grafik görünümü, her kategorideki harcamalarınızın oranını gösterir.\n"
+"İşlemleri Kayıt görünümünde kategorilere ayırabilirsiniz."
+
+#: chartscreen.py:91
+msgid "Credit Categories"
+msgstr "Kredi Kategorileri"
+
+#: chartscreen.py:93
+msgid "Debit Categories"
+msgstr "Borç Kategorileri"
+
+#: finance.py:174
+msgid "Add some credit or debit to get started!"
+msgstr "Başlamak için biraz kredi veya borç ekleyin!"
+
+#: finance.py:175
+msgid "Add credit"
+msgstr "Kredi ekle"
+
+#: finance.py:191 finance.py:192 finance.py:282
+msgid "Register"
+msgstr "Kayıt"
+
+#: finance.py:208 finance.py:209 finance.py:286
+msgid "Chart"
+msgstr "Grafik"
+
+#: finance.py:249
+msgid "Export data"
+msgstr "Verileri dışa aktar"
+
+#: finance.py:257
+msgid "Export credits by day"
+msgstr "Kredileri güne göre dışa aktar"
+
+#: finance.py:262
+msgid "Export debits by day"
+msgstr "Borçları güne göre dışa aktar"
+
+#: finance.py:267
+msgid "Export credits by month"
+msgstr "Kredileri aya göre dışa aktar"
+
+#: finance.py:272
+msgid "Export debits by month"
+msgstr "Borçları aya göre dışa aktar"
+
+#: finance.py:306 finance.py:387 registerscreen.py:230
+msgid "New Credit"
+msgstr "Yeni Kredi"
+
+#: finance.py:311 finance.py:388 registerscreen.py:237
+msgid "New Debit"
+msgstr "Yeni Borç"
+
+#: finance.py:316
+msgid "Erase Transaction"
+msgstr "İşlemi Sil"
+
+#: finance.py:328
+msgid "Save as Image"
+msgstr "Resim Olarak Kaydet"
+
+#: finance.py:350
+msgid "Day"
+msgstr "Gün"
+
+#: finance.py:350
+msgid "Week"
+msgstr "Hafta"
+
+#: finance.py:350
+msgid "Month"
+msgstr "Ay"
+
+#: finance.py:351
+msgid "Year"
+msgstr "Yıl"
+
+#: finance.py:351 finance.py:466
+msgid "Forever"
+msgstr "Daima"
+
+#: finance.py:353
+msgid "Select period"
+msgstr "Dönem seçin"
+
+#: finance.py:397
+msgid "Show Credits"
+msgstr "Kredileri Göster"
+
+#: finance.py:398
+msgid "Show Debits"
+msgstr "Borçları Göster"
+
+#. TRANS: representation of the "Day" period
+#: finance.py:451
+msgid "%B %d, %Y"
+msgstr "%B %d, %Y"
+
+#. TRANS: representation of the "Week of" period
+#: finance.py:455
+msgid "Week of"
+msgstr "Haftası"
+
+#: finance.py:455
+msgid " %B %d, %Y"
+msgstr " %B %d, %Y"
+
+#. TRANS: representation of the "Month" period
+#: finance.py:459
+msgid "%B, %Y"
+msgstr "%B, %Y"
+
+#. TRANS: representation of the "Year" period
+#: finance.py:463
+msgid "%Y"
+msgstr "%Y"
+
+#: finance.py:505
+msgid "Balance: "
+msgstr "Bilanço: "
+
+#: finance.py:513
+msgid "Starting Balance:"
+msgstr "Başlangıç bilançosu:"
+
+#: finance.py:520
+#, python-format
+msgid "%(credit_total)s in %(credit_count)d credits"
+msgstr "%(credit_total)s de %(credit_count)d kredi"
+
+#: finance.py:526
+#, python-format
+msgid "%(debit_total)s in %(debit_count)d debits"
+msgstr "%(debit_total)s de %(debit_count)d borç"
+
+#: finance.py:540
+msgid "Previous Month"
+msgstr "Geçtiğimiz Ay"
+
+#: finance.py:541
+msgid "This Month"
+msgstr "Bu Ay"
+
+#: finance.py:542
+msgid "Next Month"
+msgstr "Gelecek Ay"
+
+#: finance.py:544
+msgid "Previous Week"
+msgstr "Önceki Hafta"
+
+#: finance.py:545
+msgid "This Week"
+msgstr "Bu Hafta"
+
+#: finance.py:546
+msgid "Next Week"
+msgstr "Sonraki Hafta"
+
+#: finance.py:548
+msgid "Previous Day"
+msgstr "Önceki Gün"
+
+#: finance.py:549
+msgid "This Day"
+msgstr "Bugün"
+
+#: finance.py:550
+msgid "Next Day"
+msgstr "Ertesi Gün"
+
+#: finance.py:552
+msgid "Previous Year"
+msgstr "Önceki Sene"
+
+#: finance.py:553
+msgid "This Year"
+msgstr "Bu Yıl"
+
+#: finance.py:554
+msgid "Next Year"
+msgstr "Gelecek Sene"
+
+#: finance.py:930
+msgid "Chart created"
+msgstr "Grafik oluşturuldu"
+
+#: finance.py:930 finance.py:1048
+msgid "Open in the Journal"
+msgstr "Dergide Aç"
+
+#: finance.py:939
+msgid "Show in Journal"
+msgstr "Dergi'de göster"
+
+#: finance.py:942
+msgid "Ok"
+msgstr "Tamam"
+
+#: finance.py:988
+#, python-format
+msgid "%(what_filter)s by %(when)s"
+msgstr ""
+
+#: finance.py:1048
+msgid "Exported data"
+msgstr "Veriyi dışa aktar"
+
+#: helpbutton.py:38
+msgid "Help"
+msgstr "Yardım"
+
+#: registerscreen.py:34
+msgid ""
+"Welcome to Finance! This activity keeps track of income and expenses for "
+"anything that earns or spends money, like a school club.  To get started, "
+"use the Transaction box to add credits and debits.\n"
+"Once you have entered some transactions, visit the Chart and Budget views to "
+"see more."
+msgstr ""
+"Finans'a hoş geldiniz! Bu etkinlik, bir okul kulübü gibi, para kazanan veya "
+"harcayan her şeyin gelir ve giderlerini takip eder. Başlamak için, kredi ve "
+"borç eklemek üzere İşlem kutusunu kullanın.\n"
+"Bazı işlemleri girdikten sonra, daha fazlasını görmek için Grafik ve Bütçe "
+"görünümlerini ziyaret edin."
+
+#: registerscreen.py:89
+msgid "Description"
+msgstr "Açıklama"
+
+#: registerscreen.py:97
+msgid "Date"
+msgstr "Tarih"
+
+#: registerscreen.py:106
+msgid "Amount"
+msgstr "Miktar"
