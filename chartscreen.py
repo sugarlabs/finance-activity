@@ -238,8 +238,8 @@ class ChartScreen(Gtk.VBox):
 
                 context.save()
                 context.translate(midpoint_x, midpoint_y)
-                context.rotate(midpoint_angle + math.pi)
-                context.set_font_size(16 * scale)
+
+                context.set_font_size(20 * scale)
                 context.set_source_rgb(0, 0, 0)
                 context.show_text(c)
                 context.restore()
