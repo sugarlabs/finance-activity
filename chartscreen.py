@@ -232,4 +232,16 @@ class ChartScreen(Gtk.VBox):
                 context.set_source_rgb(color[0], color[1], color[2])
                 context.fill()
 
+                midpoint_angle = angle + slice / 2
+                midpoint_x = x + (r / 2) * math.cos(midpoint_angle)
+                midpoint_y = y + (r / 2) * math.sin(midpoint_angle)
+
+                context.save()
+                context.translate(midpoint_x, midpoint_y)
+
+                context.set_font_size(20 * scale)
+                context.set_source_rgb(0, 0, 0)
+                context.show_text(c)
+                context.restore()
+
                 angle += slice
