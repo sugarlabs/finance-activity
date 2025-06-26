@@ -8,15 +8,16 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-18 19:14+1100\n"
-"PO-Revision-Date: 2021-02-15 10:14+0300\n"
-"Language-Team: \n"
+"PO-Revision-Date: 2025-06-26 09:19+0000\n"
+"Last-Translator: Erdem Uygun <erdem.uygun@eba.gov.tr>\n"
+"Language-Team: Turkish <http://weblate.sugarlabs.org/projects/"
+"sugar-activities/finance/tr/>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.3\n"
-"Last-Translator: serkanonder@outlook.com\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Language: tr\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.4.2\n"
 
 #: activity/activity.info:2 finance.py:89
 msgid "Finance"
@@ -57,8 +58,7 @@ msgid ""
 msgstr ""
 "Bütçe görünümü, her gider kategorisi için aylık bir bütçe belirlemenize ve "
 "bütçenizi takip etmenize olanak sağlar.\n"
-"bütçeler. Bir bütçe belirlemek için, kategorinin sağındaki kutuya tutarı "
-"yazın."
+"Bir bütçe belirlemek için, kategorinin sağındaki kutuya tutarı yazın."
 
 #: budgetscreen.py:87 registerscreen.py:77
 msgid "Category"
@@ -87,19 +87,19 @@ msgstr ""
 
 #: chartscreen.py:91
 msgid "Credit Categories"
-msgstr "Kredi Kategorileri"
+msgstr "Gelir Kategorileri"
 
 #: chartscreen.py:93
 msgid "Debit Categories"
-msgstr "Borç Kategorileri"
+msgstr "Gider Kategorileri"
 
 #: finance.py:174
 msgid "Add some credit or debit to get started!"
-msgstr "Başlamak için biraz kredi veya borç ekleyin!"
+msgstr "Başlamak için biraz gelir veya gider ekleyin!"
 
 #: finance.py:175
 msgid "Add credit"
-msgstr "Kredi ekle"
+msgstr "Gelir ekle"
 
 #: finance.py:191 finance.py:192 finance.py:282
 msgid "Register"
@@ -115,27 +115,27 @@ msgstr "Verileri dışa aktar"
 
 #: finance.py:257
 msgid "Export credits by day"
-msgstr "Kredileri güne göre dışa aktar"
+msgstr "Gelirleri güne göre dışa aktar"
 
 #: finance.py:262
 msgid "Export debits by day"
-msgstr "Borçları güne göre dışa aktar"
+msgstr "Giderleri güne göre dışa aktar"
 
 #: finance.py:267
 msgid "Export credits by month"
-msgstr "Kredileri aya göre dışa aktar"
+msgstr "Gelirleri aya göre dışa aktar"
 
 #: finance.py:272
 msgid "Export debits by month"
-msgstr "Borçları aya göre dışa aktar"
+msgstr "Giderleri aya göre dışa aktar"
 
 #: finance.py:306 finance.py:387 registerscreen.py:230
 msgid "New Credit"
-msgstr "Yeni Kredi"
+msgstr "Yeni Gelir"
 
 #: finance.py:311 finance.py:388 registerscreen.py:237
 msgid "New Debit"
-msgstr "Yeni Borç"
+msgstr "Yeni Gider"
 
 #: finance.py:316
 msgid "Erase Transaction"
@@ -171,11 +171,11 @@ msgstr "Dönem seçin"
 
 #: finance.py:397
 msgid "Show Credits"
-msgstr "Kredileri Göster"
+msgstr "Gelirleri Göster"
 
 #: finance.py:398
 msgid "Show Debits"
-msgstr "Borçları Göster"
+msgstr "Giderleri Göster"
 
 #. TRANS: representation of the "Day" period
 #: finance.py:451
@@ -273,11 +273,11 @@ msgstr "Grafik oluşturuldu"
 
 #: finance.py:930 finance.py:1048
 msgid "Open in the Journal"
-msgstr "Dergide Aç"
+msgstr "Günlükte Aç"
 
 #: finance.py:939
 msgid "Show in Journal"
-msgstr "Dergi'de göster"
+msgstr "Günlükte Göster"
 
 #: finance.py:942
 msgid "Ok"
@@ -304,11 +304,11 @@ msgid ""
 "Once you have entered some transactions, visit the Chart and Budget views to "
 "see more."
 msgstr ""
-"Finans'a hoş geldiniz! Bu etkinlik, bir okul kulübü gibi, para kazanan veya "
-"harcayan her şeyin gelir ve giderlerini takip eder. Başlamak için, kredi ve "
-"borç eklemek üzere İşlem kutusunu kullanın.\n"
+"Finance’e Hoş Geldiniz! Bu etkinlik, okul kulübü gibi gelir ve giderleri "
+"olan her şeyin finansal hareketlerini takip eder.\n"
+"Başlamak için, Gelir ve Gider eklemek üzere İşlem kutusunu kullanın.\n"
 "Bazı işlemleri girdikten sonra, daha fazlasını görmek için Grafik ve Bütçe "
-"görünümlerini ziyaret edin."
+"görünümlerine bakabilirsiniz."
 
 #: registerscreen.py:89
 msgid "Description"
@@ -321,3 +321,18 @@ msgstr "Tarih"
 #: registerscreen.py:106
 msgid "Amount"
 msgstr "Miktar"
+
+#: finance.py:519
+#, python-format
+msgid "%s in %d debits"
+msgstr "%s, %d gider içinde"
+
+#: finance.py:515
+#, python-format
+msgid "%s in %d credits"
+msgstr "%s, %d gelir içinde"
+
+#: finance.py:979
+#, python-format
+msgid "%s by %s"
+msgstr "%s tarafından %s"
