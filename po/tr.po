@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-18 19:14+1100\n"
-"PO-Revision-Date: 2025-06-26 09:19+0000\n"
+"PO-Revision-Date: 2025-06-26 09:42+0000\n"
 "Last-Translator: Erdem Uygun <erdem.uygun@eba.gov.tr>\n"
 "Language-Team: Turkish <http://weblate.sugarlabs.org/projects/"
 "sugar-activities/finance/tr/>\n"
@@ -167,7 +167,7 @@ msgstr "Daima"
 
 #: finance.py:353
 msgid "Select period"
-msgstr "Dönem seçin"
+msgstr "Dönem seç"
 
 #: finance.py:397
 msgid "Show Credits"
@@ -203,11 +203,11 @@ msgstr "%Y"
 
 #: finance.py:505
 msgid "Balance: "
-msgstr "Bilanço: "
+msgstr "Bakiye: "
 
 #: finance.py:513
 msgid "Starting Balance:"
-msgstr "Başlangıç bilançosu:"
+msgstr "Başlangıç Bakiyesi:"
 
 #: finance.py:520
 #, python-format
@@ -221,7 +221,7 @@ msgstr "%(debit_total)s de %(debit_count)d borç"
 
 #: finance.py:540
 msgid "Previous Month"
-msgstr "Geçtiğimiz Ay"
+msgstr "Önceki Ay"
 
 #: finance.py:541
 msgid "This Month"
@@ -229,7 +229,7 @@ msgstr "Bu Ay"
 
 #: finance.py:542
 msgid "Next Month"
-msgstr "Gelecek Ay"
+msgstr "Sonraki Ay"
 
 #: finance.py:544
 msgid "Previous Week"
@@ -253,11 +253,11 @@ msgstr "Bugün"
 
 #: finance.py:550
 msgid "Next Day"
-msgstr "Ertesi Gün"
+msgstr "Sonraki Gün"
 
 #: finance.py:552
 msgid "Previous Year"
-msgstr "Önceki Sene"
+msgstr "Önceki Yıl"
 
 #: finance.py:553
 msgid "This Year"
@@ -265,7 +265,7 @@ msgstr "Bu Yıl"
 
 #: finance.py:554
 msgid "Next Year"
-msgstr "Gelecek Sene"
+msgstr "Sonraki Yıl"
 
 #: finance.py:930
 msgid "Chart created"
