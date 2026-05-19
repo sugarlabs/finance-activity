@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-18 19:14+1100\n"
-"PO-Revision-Date: 2026-05-04 07:03+0000\n"
+"PO-Revision-Date: 2026-05-19 11:33+0000\n"
 "Last-Translator: NF <rkavt@smartprojects.ge>\n"
 "Language-Team: Georgian <http://weblate.sugarlabs.org/projects/"
 "sugar-activities/finance/ka/>\n"
@@ -299,7 +299,7 @@ msgstr ""
 
 #: registerscreen.py:89
 msgid "Description"
-msgstr ""
+msgstr "აღწერა"
 
 #: registerscreen.py:97
 msgid "Date"
