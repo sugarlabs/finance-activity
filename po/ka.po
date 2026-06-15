@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-18 19:14+1100\n"
-"PO-Revision-Date: 2026-05-19 11:33+0000\n"
+"PO-Revision-Date: 2026-06-15 07:48+0000\n"
 "Last-Translator: NF <rkavt@smartprojects.ge>\n"
 "Language-Team: Georgian <http://weblate.sugarlabs.org/projects/"
 "sugar-activities/finance/ka/>\n"
@@ -21,7 +21,7 @@ msgstr ""
 
 #: activity/activity.info:2 finance.py:89
 msgid "Finance"
-msgstr ""
+msgstr "ფინანსები"
 
 #: activity/activity.info:3
 msgid ""
@@ -56,19 +56,19 @@ msgstr ""
 
 #: budgetscreen.py:87 registerscreen.py:77
 msgid "Category"
-msgstr ""
+msgstr "კატეგორია"
 
 #: budgetscreen.py:91
 msgid "Spent"
-msgstr ""
+msgstr "ხარჯი"
 
 #: budgetscreen.py:95 finance.py:200 finance.py:201 finance.py:284
 msgid "Budget"
-msgstr ""
+msgstr "ბიუჯეტი"
 
 #: budgetscreen.py:124 chartscreen.py:156 chartscreen.py:177
 msgid "Unknown"
-msgstr ""
+msgstr "უცნობი"
 
 #: chartscreen.py:35
 msgid ""
@@ -99,7 +99,7 @@ msgstr "რეგისტრაცია"
 
 #: finance.py:208 finance.py:209 finance.py:286
 msgid "Chart"
-msgstr ""
+msgstr "დიაგრამა"
 
 #: finance.py:249
 msgid "Export data"
@@ -139,23 +139,23 @@ msgstr ""
 
 #: finance.py:350
 msgid "Day"
-msgstr ""
+msgstr "დღე"
 
 #: finance.py:350
 msgid "Week"
-msgstr ""
+msgstr "კვირა"
 
 #: finance.py:350
 msgid "Month"
-msgstr ""
+msgstr "თვე"
 
 #: finance.py:351
 msgid "Year"
-msgstr ""
+msgstr "წელი"
 
 #: finance.py:351 finance.py:466
 msgid "Forever"
-msgstr ""
+msgstr "სამუდამოდ"
 
 #: finance.py:353
 msgid "Select period"
@@ -191,11 +191,11 @@ msgstr ""
 #. TRANS: representation of the "Year" period
 #: finance.py:463
 msgid "%Y"
-msgstr ""
+msgstr "%Y"
 
 #: finance.py:505
 msgid "Balance: "
-msgstr ""
+msgstr "ბალანსი: "
 
 #: finance.py:513
 msgid "Starting Balance:"
@@ -273,7 +273,7 @@ msgstr ""
 
 #: finance.py:942
 msgid "Ok"
-msgstr ""
+msgstr "Ok"
 
 #: finance.py:988
 #, python-format
@@ -303,8 +303,8 @@ msgstr "აღწერა"
 
 #: registerscreen.py:97
 msgid "Date"
-msgstr ""
+msgstr "თარიღი"
 
 #: registerscreen.py:106
 msgid "Amount"
-msgstr ""
+msgstr "რაოდენობა"
